@@ -1,0 +1,6 @@
+selenium==4.9.1
+pytest==6.2.5
+requests==2.31.0
+bs4==0.0.1
+beautifulsoup4==4.9.3
+webdriver-manager==3.5.0
