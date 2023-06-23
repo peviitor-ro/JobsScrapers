@@ -17,7 +17,7 @@ class Scraper:
         for site in os.listdir(path):
             if site.endswith('.py') and site not in self.exclude:
                 try:
-                    subprocess.check_output(['python', os.path.join(path, site)], stderr=subprocess.STDOUT)
+                    subprocess.check_call(['python', os.path.join(path, site)])
                     print("Success scraping " + site)
                 except subprocess.CalledProcessError as e:
                     print("Error in " + site)
@@ -26,6 +26,7 @@ class Scraper:
 if __name__ == "__main__":
     # exclude files
     exclude = ['__init__.py',
+               'script_runner.py',
                'setup_api.py',
                'update_logo.py',
                 'TickleTech_Enterprise.py']
