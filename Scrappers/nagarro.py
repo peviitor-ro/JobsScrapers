@@ -75,7 +75,7 @@ class NagarroScrape:
     
     def send_to_viitor(self):
         """
-        Sending the scrapped jobs in the future :)
+        Sending the scrapped jobs to the future :)
         """
         api_load = UpdatePeviitorAPI(self.company_name, self.formated_data)
         api_load()
