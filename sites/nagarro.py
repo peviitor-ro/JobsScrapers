@@ -64,14 +64,15 @@ class NagarroScrape:
         for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
             if job_city == "WFA/Remote":
                 job_city = job_country
-            self.formated_data.append({
-                "id": str(uuid.uuid4()),
-                "job_title": job_title,
-                "job_link":  job_url,
-                "company": "Nagarro",
-                "country": job_country,
-                "city": job_city
-                })
+            if job_url:
+                self.formated_data.append({
+                    "id": str(uuid.uuid4()),
+                    "job_title": job_title,
+                    "job_link":  job_url,
+                    "company": "Nagarro",
+                    "country": job_country,
+                    "city": job_city
+                    })
     
     def send_to_viitor(self):
         """
