@@ -29,7 +29,8 @@ if __name__ == "__main__":
                'script_runner.py',
                'setup_api.py',
                'update_logo.py',
-                'TickleTech_Enterprise.py']
+               'website_scraper_api.py'
+                ]
 
     scraper = Scraper(exclude)
     scraper.run()
