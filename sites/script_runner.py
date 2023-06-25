@@ -29,7 +29,10 @@ if __name__ == "__main__":
                'script_runner.py',
                'setup_api.py',
                'update_logo.py',
-               'website_scraper_api.py'
+               'website_scraper_api.py',
+               'website_scraper_bs4.py',
+               'website_scraper_selenium.py',
+               'test.py'
                 ]
 
     scraper = Scraper(exclude)
