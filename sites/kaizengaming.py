@@ -22,12 +22,12 @@ class KaizenGamingScrapper(BS4Scraper):
         """
 
         job_titles_elements = self.get_jobs_elements('class_', 'position')
-        job_countries_elements = self.get_jobs_elements('class_', 'location')
+        job_cities_elements = self.get_jobs_elements('class_', 'location')
         job_urls_elements = self.get_jobs_elements('css_', 'td.position > a')
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_countries = self.get_jobs_details_text(job_countries_elements)
-        self.job_cities = self.job_countries
+        self.job_cities = self.get_jobs_details_text(job_cities_elements)
+        self.job_countries = self.job_cities
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
         
         self.format_data()
@@ -38,7 +38,7 @@ class KaizenGamingScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
-            if job_city == 'Bucharest' or job_city == "Remote":
+            if job_city == "Remote":
                 job_city = "Romania"
             if job_country == 'Bucharest' or job_country == "Remote":
                 job_country = "Romania"
