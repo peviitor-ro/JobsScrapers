@@ -1,5 +1,5 @@
 import requests
-from website_scrapper_api import WebsiteScraperAPI
+from website_scraper_api import WebsiteScraperAPI
 
 class CreatopyScrape(WebsiteScraperAPI):
     
