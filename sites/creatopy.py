@@ -1,8 +1,5 @@
 import requests
-import uuid
 from website_scrapper_api import WebsiteScraperAPI
-from setup_api import UpdatePeviitorAPI
-from update_logo import update_logo
 
 class CreatopyScrape(WebsiteScraperAPI):
     
@@ -33,10 +30,10 @@ class CreatopyScrape(WebsiteScraperAPI):
         """
         Scrape job data from Creatopy website.
         """
-        self.get_job_titles(['jobOpeningName'])
-        self.get_job_city(['location', 'city'])
-        self.get_job_country(['location', 'state'])
-        self.get_job_url(['id'])
+        self.job_titles = self.get_job_details(['jobOpeningName'])
+        self.job_cities = self.get_job_details(['location', 'city'])
+        self.job_countries = self.get_job_details(['location', 'state'])
+        self.job_urls = self.get_job_details(['id'])
         self.format_data()
         self.send_to_viitor()
 

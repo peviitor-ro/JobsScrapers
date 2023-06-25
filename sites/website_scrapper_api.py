@@ -1,4 +1,3 @@
-import requests
 import uuid
 from setup_api import UpdatePeviitorAPI
 from update_logo import update_logo
@@ -27,7 +26,7 @@ class WebsiteScraperAPI:
 
     def get_jobs_response(self, response):
         """
-        Send a GET request and retrieve the response.
+        Retrieve the response.
         """
         self.jobs_response = response
 
@@ -37,64 +36,18 @@ class WebsiteScraperAPI:
         """
         self.jobs_response = response
 
-
-    def get_job_titles(self, job_title_path):
+    def get_job_details(self, job_detail_path):
         """
-        Retrieves the job titles from the response.
+        Grab all the jobs detail needed for the json
         """
-        # self.job_titles = [job[job_title_path] for job in response]
-        self.job_titles = []
+        job_details = []
         for job_data in self.jobs_response:
             result = job_data
-            for path in job_title_path:
+            for path in job_detail_path:
                 result = result[path]
-            self.job_titles.append(result)
-        
-        # print(self.job_titles)
-
-
-    def get_job_city(self, job_cities_path):
-        """
-        Retrieves the job cities from the response.
-        """
-        # self.job_cities = [job[job_cities_path] for job in response]
-        self.job_cities = []
-        for job_data in self.jobs_response:
-            result = job_data
-            for path in job_cities_path:
-                result = result[path]
-            self.job_cities.append(result)
-
-        # print(self.job_cities)
-
-    def get_job_country(self, job_country_path):
-        """
-        Retrieves the job countries from the response.
-        """
-        # self.job_countries = [job[job_country_path] for job in response]
-        self.job_countries = []
-        for job_data in self.jobs_response:
-            result = job_data
-            for path in job_country_path:
-                result = result[path]
-            self.job_countries.append(result)
-
-        # print(self.job_countries)
-
-
-    def get_job_url(self, job_url_path):
-        """
-        Retrieves the job URLs from the response.
-        """
-        # self.job_urls = [job[job_url_path] for job in response]
-        self.job_urls = []
-        for job_data in self.jobs_response:
-            result = job_data
-            for path in job_url_path:
-                result = result[path]
-            self.job_urls.append(result)
-
-        # print(self.job_urls)
+            job_details.append(result)
+            
+        return job_details
 
     def create_jobs_dict(self, job_title, job_url, job_country, job_city):
         """
@@ -109,7 +62,6 @@ class WebsiteScraperAPI:
                 "country": job_country,
                 "city": job_city
             })
-            
 
     def send_to_viitor(self):
         """
