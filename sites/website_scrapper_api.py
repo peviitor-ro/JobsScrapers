@@ -53,15 +53,14 @@ class WebsiteScraperAPI:
         """
         Create the job dictionary for the future api
         """
-        if job_url:
-            self.formatted_data.append({
-                "id": str(uuid.uuid4()),
-                "job_title": job_title,
-                "job_link": job_url,
-                "company": self.company_name,
-                "country": job_country,
-                "city": job_city
-            })
+        self.formatted_data.append({
+            "id": str(uuid.uuid4()),
+            "job_title": job_title,
+            "job_link": job_url,
+            "company": self.company_name,
+            "country": job_country,
+            "city": job_city
+        })
 
     def send_to_viitor(self):
         """
