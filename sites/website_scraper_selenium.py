@@ -16,13 +16,12 @@ class SeleniumScraper:
     A class for scraping job data from a website.
     """
 
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self, company_name: str, company_logo_url: str):
         """
         Define the URL, company name for the request, and initialize the formatted data list for the scraped jobs.
         """
         self.company_name = company_name
         self.logo_url = company_logo_url
-        self.URL = url
         self.formatted_data = []
         
     def driver(self):
@@ -43,9 +42,16 @@ class SeleniumScraper:
     def set_expected_wait(self):
         self.expected_wait = WebDriverWait(self.driver, 15)
 
-    def open_website(self):
-        self.driver.get(self.URL)
+    def open_website(self, url):
+        self.driver.get(url)
     
+    def switch_to_iframe(self, element_locator, element):
+        self._get_locator_strategy(element_locator)
+        # Find the iframe element
+        iframe_element = self.expected_wait.until(EC.presence_of_element_located((self.locator_strategy , element)))
+
+        # Switch to the iframe
+        self.driver.switch_to.frame(iframe_element)
     
     def _get_locator_strategy(self, element_locator):
         """
@@ -60,10 +66,18 @@ class SeleniumScraper:
         self._get_locator_strategy(element_locator)
         job_details = self.expected_wait.until(EC.presence_of_all_elements_located((self.locator_strategy , element)))
         return [job_detail.text for job_detail in job_details]
+    
+    def get_job_links(self, element_locator, element):
+        """
+        Grab all the links from the page that match the locator and the element
+        """
+        self._get_locator_strategy(element_locator)
+        job_details = self.expected_wait.until(EC.presence_of_all_elements_located((self.locator_strategy , element)))
+        return [job_detail.get_attribute('href') for job_detail in job_details]
 
     def get_page_cap(self, element_locator, element):
         self._get_locator_strategy(element_locator)
-        return self.expected_wait.until(EC.presence_of_element_located((element_locator, element))).text
+        return self.expected_wait.until(EC.presence_of_element_located((self.locator_strategy, element))).text
     
     def create_jobs_dict(self, job_title, job_url, job_country, job_city):
         """
@@ -77,6 +91,7 @@ class SeleniumScraper:
             "country": job_country,
             "city": job_city
         })
+        # print(self.formatted_data)
 
     def send_to_viitor(self):
         """
