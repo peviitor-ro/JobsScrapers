@@ -43,7 +43,7 @@ class GazduireJocuriScrapper(BS4Scraper):
 if __name__ == "__main__":
     URL = 'https://www.gazduirejocuri.ro/cariere/'
     URL_LOGO = 'https://www.gazduirejocuri.ro/img/logo-orange.svg'
-    company_name = 'Gazduire Jocuri'
+    company_name = 'GazduireJocuri'
     GazduireJocuri = GazduireJocuriScrapper(company_name, URL, URL_LOGO)
     GazduireJocuri.get_response()
     GazduireJocuri.scrape_jobs()
