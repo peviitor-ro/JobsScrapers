@@ -38,9 +38,7 @@ class KaizenGamingScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
-            if job_city == "Remote":
-                job_city = "Romania"
-            if job_country == 'Bucharest' or job_country == "Remote":
+            if job_country == 'Bucharest':
                 job_country = "Romania"
             if job_url and job_country == 'Romania':
                 self.create_jobs_dict(job_title, job_url, job_country, job_city)
