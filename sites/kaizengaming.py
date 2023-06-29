@@ -1,5 +1,10 @@
+#
+#
+#
+# KaizenGaming > https://kaizengaming.com/open-positions/
+
+
 from website_scraper_bs4 import BS4Scraper
-from math import ceil
 
 class KaizenGamingScrapper(BS4Scraper):
     
@@ -11,10 +16,11 @@ class KaizenGamingScrapper(BS4Scraper):
         """
         Initialize the BS4Scraper class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        self.url = url
+        super().__init__(company_name, company_logo_url)
         
     def get_response(self):
-        self.get_content()
+        self.get_content(self.url)
     
     def scrape_jobs(self):
         """

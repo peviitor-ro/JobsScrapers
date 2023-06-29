@@ -11,13 +11,13 @@ class BS4Scraper:
     A class for scraping job data from a website using BeautifulSoup (bs4).
     """
 
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self, company_name: str, company_logo_url: str):
         """
         Define the URL, company name for the request, and initialize the formatted data list for the scraped jobs.
         """
         self.company_name = company_name
         self.logo_url = company_logo_url
-        self.URL = url
+        # self.URL = url
         self.formatted_data = []
     
     def _set_headers(self):
@@ -28,9 +28,9 @@ class BS4Scraper:
         'DNT': '1'
         }
 
-    def get_content(self):
+    def get_content(self, url):
         self._set_headers()
-        response = requests.get(self.URL, headers=self.DEFAULT_HEADERS)
+        response = requests.get(url, headers=self.DEFAULT_HEADERS)
         self.soup = BeautifulSoup(response.content, 'lxml')
 
 
