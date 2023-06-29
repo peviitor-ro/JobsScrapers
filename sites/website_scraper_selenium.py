@@ -78,6 +78,12 @@ class SeleniumScraper:
     def get_page_cap(self, element_locator, element):
         self._get_locator_strategy(element_locator)
         return self.expected_wait.until(EC.presence_of_element_located((self.locator_strategy, element))).text
+
+    def close_browser(self):
+        """
+        Close the browser when done
+        """
+        self.driver.quit()
     
     def create_jobs_dict(self, job_title, job_url, job_country, job_city):
         """

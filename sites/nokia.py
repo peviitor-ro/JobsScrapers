@@ -39,6 +39,9 @@ class NokiaScrapper(SeleniumScraper):
             self.format_data()
         
         self.send_to_viitor()
+        
+        # Close the browser when done
+        self.close_browser()
 
     def format_data(self):
         """
