@@ -4,7 +4,6 @@
 # Beenear > https://www.beenear.com/career/
 
 from website_scraper_bs4 import BS4Scraper
-from math import ceil
 
 class BeenearScrapper(BS4Scraper):
     
