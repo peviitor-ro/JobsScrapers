@@ -2,7 +2,7 @@
 #
 #
 #
-## Netfrom > https://www.netromsoftware.ro/jobs
+## Netrom > https://www.netromsoftware.ro/jobs
 
 from website_scraper_bs4 import BS4Scraper
 from math import ceil
@@ -21,7 +21,7 @@ class NetromScrapper(BS4Scraper):
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
-        self.get_content()
+        self.get_content(self.url)
     
     def scrape_jobs(self):
         """
