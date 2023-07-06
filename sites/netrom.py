@@ -17,7 +17,8 @@ class NetromScrapper(BS4Scraper):
         """
         Initialize the BS4Scraper class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        self.url = url
+        super().__init__(company_name, company_logo_url)
         
     def get_response(self):
         self.get_content()
