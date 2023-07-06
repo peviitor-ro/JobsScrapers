@@ -3,7 +3,7 @@
 #
 # rdnautomatic > https://www.rndautomatic.com/en/Career.html
 
-from sites.website_scraper_bs4 import BS4Scraper
+from website_scraper_bs4 import BS4Scraper
 
 class rdnautomaticScrapper(BS4Scraper):
     

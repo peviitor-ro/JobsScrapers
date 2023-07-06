@@ -24,14 +24,6 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-
-    - name: Add 'sites' folder to Python path
-      run: |
-        echo "export PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}/sites/" >> $GITHUB_ENV
-    
-    - name: List repository contents
-      run: ls
-
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
