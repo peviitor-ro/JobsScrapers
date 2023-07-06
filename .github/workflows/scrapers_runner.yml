@@ -27,7 +27,7 @@ jobs:
 
     - name: Add 'sites' folder to Python path
       run: |
-        echo "export PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}/sites" >> $GITHUB_ENV
+        echo "export PYTHONPATH=${PYTHONPATH}:${GITHUB_WORKSPACE}/sites/" >> $GITHUB_ENV
     
     - name: List repository contents
       run: ls
