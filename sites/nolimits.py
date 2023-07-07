@@ -3,7 +3,12 @@
 #
 # Nolimits > https://www.nolimits.ro/cariere.html
 
-from website_scraper_bs4 import BS4Scraper
+import sys
+import os
+directory = os.path.abspath("..\\")
+sys.path.append(directory)
+
+from sites.website_scraper_bs4 import BS4Scraper
 
 class NolimitsScrapper(BS4Scraper):
     
