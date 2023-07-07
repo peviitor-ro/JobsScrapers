@@ -4,8 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium import webdriver
-from setup_api import UpdatePeviitorAPI
-from update_logo import update_logo
+from sites.setup_api import UpdatePeviitorAPI
+from sites.update_logo import update_logo
 from math import ceil
 import uuid
 

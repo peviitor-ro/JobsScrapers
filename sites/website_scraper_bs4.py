@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-from setup_api import UpdatePeviitorAPI
-from update_logo import update_logo
+from sites.setup_api import UpdatePeviitorAPI
+from sites.update_logo import update_logo
 from math import ceil
 import uuid
 
