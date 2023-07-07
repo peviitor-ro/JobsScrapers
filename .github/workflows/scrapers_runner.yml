@@ -38,3 +38,6 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
       run: |
         python3 sites/script_runner.py
+        
+    - name: Run pytest
+      run: pytest

@@ -4,7 +4,7 @@
 # Pago > https://pago.ro/#section-13
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class PagoScrapper(BS4Scraper):
     
@@ -43,7 +43,14 @@ class PagoScrapper(BS4Scraper):
         
 
         self.format_data()
+        # print(self.formatted_data)
+        # self.send_to_viitor()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -52,7 +59,7 @@ class PagoScrapper(BS4Scraper):
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             job_url = f"https://pago.ro/{job_url}"
             if job_title and job_city and job_url:
-                self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+                self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://pago.ro/#section-13'
@@ -61,6 +68,7 @@ if __name__ == "__main__":
     Pago = PagoScrapper(company_name, URL, URL_LOGO)
     Pago.get_response()
     Pago.scrape_jobs()
+    Pago.sent_to_future()
     
     
 
