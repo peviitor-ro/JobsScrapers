@@ -45,7 +45,7 @@ class tcandcScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title, "https://www.tcandc.com/locuridemunca.html", "România", "Oradea")
+            self.create_jobs_dict(job_title, self.website_url, "România", "Oradea")
 
 if __name__ == "__main__":
     URL = 'https://www.tcandc.com/company/career.html'
