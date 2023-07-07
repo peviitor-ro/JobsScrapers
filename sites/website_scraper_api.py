@@ -1,6 +1,6 @@
 import uuid
-from setup_api import UpdatePeviitorAPI
-from update_logo import update_logo
+from sites.setup_api import UpdatePeviitorAPI
+from sites.update_logo import update_logo
 
 
 # Work in progress this might change significant during the creation of the following scrappers, might need further testing and improvements
