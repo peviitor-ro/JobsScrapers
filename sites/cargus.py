@@ -3,7 +3,7 @@
 #
 # Cargus > https://www.cargus.ro/careers-ro/
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class CargusScrapper(BS4Scraper):
     
@@ -35,7 +35,12 @@ class CargusScrapper(BS4Scraper):
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
 
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -43,7 +48,7 @@ class CargusScrapper(BS4Scraper):
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             if job_title and job_city and job_url:
-                self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+                self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://www.cargus.ro/careers-ro/'
@@ -52,6 +57,7 @@ if __name__ == "__main__":
     Cargus = CargusScrapper(company_name, URL, URL_LOGO)
     Cargus.get_response()
     Cargus.scrape_jobs()
+    Cargus.sent_to_future()
     
     
 
