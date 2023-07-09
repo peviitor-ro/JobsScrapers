@@ -21,10 +21,10 @@ class SetupTests:
         """
         Get the job details from the scrapped page
         """
-        title = [title['job_title'] for title in self.scraper_data]
-        job_city = [city['city'] for city in self.scraper_data]
-        job_country = [country['country'] for country in self.scraper_data]
-        job_link = [job_link['job_link'] for job_link in self.scraper_data]
+        title = sorted([title['job_title'] for title in self.scraper_data])
+        job_city = sorted([city['city'] for city in self.scraper_data])
+        job_country = sorted([country['country'] for country in self.scraper_data])
+        job_link = sorted([job_link['job_link'] for job_link in self.scraper_data])
         
         return title, job_city, job_country, job_link
 
@@ -49,10 +49,10 @@ class SetupTests:
         """
         Get the job details from the peviitor
         """
-        future_title = [title['job_title'][0] for title in self.response]
-        future_job_city = [city['city'][0] for city in self.response]
-        future_job_country = [country['country'][0] for country in self.response]
-        future_job_link = [job_link['job_link'][0] for job_link in self.response]
+        future_title = sorted([title['job_title'][0] for title in self.response])
+        future_job_city = sorted([city['city'][0] for city in self.response])
+        future_job_country = sorted([country['country'][0] for country in self.response])
+        future_job_link = sorted([job_link['job_link'][0] for job_link in self.response])
         
         return future_title, future_job_city, future_job_country, future_job_link
 
