@@ -33,7 +33,7 @@ class typingdnaScrapper(BS4Scraper):
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_cities = self.get_jobs_details_text(job_location_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        # self.job_urls = self.get_jobs_details_href(job_urls_elements)
 
         self.format_data()
         
@@ -47,9 +47,9 @@ class typingdnaScrapper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+        for job_title, job_city in zip(self.job_titles, self.job_cities):
             job_city = job_city.split()[0][:-1]
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, self.website_url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://www.typingdna.com/careers'
