@@ -52,8 +52,8 @@ class rervestScrapper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", "Oradea")
+        for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://rervest.ro/cariere/'
