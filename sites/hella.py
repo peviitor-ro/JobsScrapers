@@ -4,7 +4,7 @@
 # hella > https://hella.csod.com/ux/ats/careersite/3/home?c=hella&country=ro&lang=en-US
 
 import requests
-from website_scraper_api import WebsiteScraperAPI
+from sites.website_scraper_api import WebsiteScraperAPI
 from sites.website_scraper_bs4 import BS4Scraper
 from bs4 import BeautifulSoup
 import re
@@ -27,6 +27,7 @@ class hellaScrape(WebsiteScraperAPI):
 
         # Parse the HTML content using BeautifulSoup
         soup = BeautifulSoup(response.content, 'lxml')
+        print(soup)
 
         # Extract the value of the "token" key
         token_match = re.search(r'"token":"([^"]+)"', str(soup))
