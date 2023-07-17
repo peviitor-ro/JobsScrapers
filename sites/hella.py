@@ -27,7 +27,6 @@ class hellaScrape(WebsiteScraperAPI):
 
         # Parse the HTML content using BeautifulSoup
         soup = BeautifulSoup(response.content, 'lxml')
-        print(soup)
 
         # Extract the value of the "token" key
         token_match = re.search(r'"token":"([^"]+)"', str(soup))
