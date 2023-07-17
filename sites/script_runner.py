@@ -29,6 +29,7 @@ if __name__ == "__main__":
                'script_runner.py',
                'setup_api.py',
                'hella.py',
+               'gazduirejocuri.py',
                'update_logo.py',
                'website_scraper_api.py',
                'website_scraper_bs4.py',
