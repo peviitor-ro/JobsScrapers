@@ -30,7 +30,6 @@ class inovagroupScrapper(BS4Scraper):
         job_titles_elements = self.get_jobs_elements('class_', "vc-hoverbox-block-inner vc-hoverbox-front-inner")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        print(self.job_titles)
 
         self.format_data()
         
