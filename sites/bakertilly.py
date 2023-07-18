@@ -44,11 +44,12 @@ class bakertillyScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            if "Bucharest" in job_title:
-                self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
-            # If there is not () in the title it means its from the default location: Bucharest otherwise is from another country
-            if "(" not in job_title and ")" not in job_title:
-                self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
+            self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
+            # if "Bucharest" in job_title:
+            #     self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
+            # # If there is not () in the title it means its from the default location: Bucharest otherwise is from another country
+            # if "(" not in job_title and ")" not in job_title:
+            #     self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
 
 if __name__ == "__main__":
     URL = 'https://www.bakertilly.ro/careers/job-openings/'
