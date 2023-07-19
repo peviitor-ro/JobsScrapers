@@ -76,7 +76,7 @@ class SetupTests:
 
         return all_future_title, all_future_job_city, all_future_job_country, all_future_job_link
 
-class Test_pago(SetupTests):
+class Test_nokia(SetupTests):
     
     @pytest.fixture()
     def get_data(self):
@@ -84,9 +84,9 @@ class Test_pago(SetupTests):
         self.scraped_jobs_data = self.scrape_jobs()
         self.peviitor_jobs_data = self.scrape_peviitor()
 
-    def test_pago(self, get_data):
+    def test_nokia(self, get_data):
         """
-        Test the pago website against the pe viitor data
+        Test the nokia website against the pe viitor data
         """
         # Test Title
         assert sorted(self.scraped_jobs_data[0]) == sorted(self.peviitor_jobs_data[0])
