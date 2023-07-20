@@ -27,9 +27,8 @@ class titanmachineryScrapper(BS4Scraper):
         """
         
         job_elements = self.get_jobs_elements('css_', "div > div.news-info-list > div.news-title-list > a")
-        self.job_titles = []
-        self.job_urls = []
-        self.job_cities = []
+        self.job_titles, self.job_urls, self.job_cities = [], [], []
+        
         page_counter = 2
 
         # Itterate over pages and get the title, city url append them to list afterwards
@@ -51,10 +50,12 @@ class titanmachineryScrapper(BS4Scraper):
                 self.get_content(f"{self.url}{page_counter}")
             page_counter += 1
 
+
         self.format_data()
         
     def sent_to_future(self):
         self.send_to_viitor()
+        
     
     def return_data(self):
         return self.formatted_data
@@ -63,8 +64,13 @@ class titanmachineryScrapper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+        passed_titles = []
+        passed_urls = []
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            if job_title not in passed_titles and job_url not in passed_urls:
+                self.create_jobs_dict(job_title, job_url, "România", job_city)
+            passed_titles.append(job_title)
+            passed_urls.append(job_url)
 
 if __name__ == "__main__":
     URL = 'https://www.titanmachinery.ro/en/pag/careers?page='
