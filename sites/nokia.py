@@ -124,7 +124,7 @@ class nokiaScrape(WebsiteScraperAPI):
 
 if __name__ == "__main__":
     URL = 'https://careers.nokia.com/ajax/content/job_results'
-    URL_LOGO = 'https://www.nokia.com/nokia-ro/assets/images/layout_global/Forvianokia_Logo.svg'
+    URL_LOGO = 'https://www.nokia.com/themes/custom/onenokia_reskin/logo.svg'
     company_name = 'nokia'
     nokia = nokiaScrape(company_name, URL, URL_LOGO)
     nokia.set_headers()
