@@ -60,9 +60,27 @@ class nokiaScrape(WebsiteScraperAPI):
             current_page += 1
             self.set_params(current_page)
             response = requests.post('https://careers.nokia.com/ajax/content/job_results', params=self.params, cookies=self.cookies, headers=self.headers)
-        
+          
+
+    # Get the title data from mc until the tel item in the list
+    def _get_title(self, lst):
+
+        in_title_section = False
+        results = []
+
+        for item in lst:
+            if item.startswith('class="title"'):
+                in_title_section = True
+                temp_list = []
+            elif item.startswith("</h1>") and in_title_section:
+                in_title_section = False
+                results.append(" ".join(temp_list))
+            elif in_title_section:
+                temp_list.append(item)
+            
+        return results[0]
     
-    def _get_city(self, urls):
+    def _get_data(self, urls):
         cities = []
         
         for url in urls:
@@ -73,7 +91,7 @@ class nokiaScrape(WebsiteScraperAPI):
 
             # Decode the output as a string
             output = output.decode("utf-8").split()
-            # print(output)
+            self.job_titles.append(self._get_title(output))
 
             city = None
 
@@ -95,13 +113,10 @@ class nokiaScrape(WebsiteScraperAPI):
         """
         # Get titles
         self.job_titles = []
-        for job_detail in self.job_details:
-            job_title = job_detail.replace("https://careers.nokia.com/jobs/", "").split("-")[:-1]
-            self.job_titles.append(" ".join(job_title))
             
 
         # Get cities
-        self.job_cities = self._get_city(self.job_details)
+        self.job_cities = self._get_data(self.job_details)
         # print(self.job_cities)
         
         # Get url ids
