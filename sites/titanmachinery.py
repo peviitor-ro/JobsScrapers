@@ -50,6 +50,32 @@ class titanmachineryScrapper(BS4Scraper):
                 self.get_content(f"{self.url}{page_counter}")
             page_counter += 1
 
+        # Get cities from right side of screen
+        city_pages_elements = self.get_jobs_elements('css_', "div.left-menu > ul > li > a")
+        city_pages_links = self.get_jobs_details_href(city_pages_elements)
+        
+        
+        # Itterate over pages and get the title, city url append them to list afterwards
+        for city_link in city_pages_links:
+            self.get_content(city_link)
+            job_elements = self.get_jobs_elements('css_', "div > div.news-info-list > div.news-title-list > a")
+            if len(job_elements) >= 1:
+                # Titles
+                self.job_titles.extend(self.get_jobs_details_text(job_elements))
+                
+                # Cities
+                # self.job_city.extend(self.get_jobs_details_text(job_elements).replace("[perioadă determinată]", "").split()[-1])
+                for job_city in self.get_jobs_details_text(job_elements):
+                    self.job_cities.append(job_city.replace("[perioadă determinată]", "").split()[-1])
+                    
+                # URLS
+                self.job_urls.extend(self.get_jobs_details_href(job_elements))
+                
+                # Next Page content
+                # self.get_content(f"{self.url}{page_counter}")
+                # self.get_content(f"{self.url}{page_counter}")
+            # page_counter += 1
+
 
         self.format_data()
         
