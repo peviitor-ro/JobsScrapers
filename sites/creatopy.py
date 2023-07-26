@@ -37,7 +37,7 @@ class CreatopyScrape(WebsiteScraperAPI):
         """
         self.job_titles = self.get_job_details(['jobOpeningName'])
         self.job_cities = self.get_job_details(['location', 'city'])
-        self.job_countries = self.get_job_details(['location', 'state'])
+        # self.job_countries = self.get_job_details(['location', 'state'])
         self.job_urls = self.get_job_details(['id'])
         self.format_data()
         self.send_to_viitor()
@@ -46,14 +46,15 @@ class CreatopyScrape(WebsiteScraperAPI):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://creatopy.bamboohr.com/careers/{job_url}"
             if job_city == None or job_city == "Remote":
-                job_city = "Romania"
-            if job_country == None or job_country == "Remote":
-                job_country = "Romania"
+                job_city = "Oradea"
+            # if job_country == None or job_country == "Remote":
+            #     job_country = "Romania"
+            print(job_title, job_url, "Romania", job_city)
             if job_url:
-                self.create_jobs_dict(job_title, job_url, job_country, job_city)
+                self.create_jobs_dict(job_title, job_url, "Romania", job_city)
         
 
 if __name__ == "__main__":
