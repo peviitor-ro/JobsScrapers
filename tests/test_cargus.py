@@ -57,7 +57,7 @@ class SetupTests:
         
         return future_title, future_job_city, future_job_country, future_job_link
 
-class Test_pago(SetupTests):
+class test_Cargus(SetupTests):
     
     @pytest.fixture()
     def get_data(self):
@@ -67,7 +67,7 @@ class Test_pago(SetupTests):
         self.scraped_jobs_data = self.scrape_jobs()
         self.peviitor_jobs_data = self.scrape_peviitor()
 
-    def test_pago(self, get_data):
+    def test_cargus(self, get_data):
         """
         Test the pago website against the pe viitor data
         """
