@@ -52,7 +52,6 @@ class CreatopyScrape(WebsiteScraperAPI):
                 job_city = "Oradea"
             # if job_country == None or job_country == "Remote":
             #     job_country = "Romania"
-            print(job_title, job_url, "Romania", job_city)
             if job_url:
                 self.create_jobs_dict(job_title, job_url, "Romania", job_city)
         
