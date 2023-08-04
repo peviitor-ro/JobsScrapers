@@ -52,7 +52,7 @@ class ensemblesoftwareScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://www.ensemblesoftware.ro/careers/'
-    URL_LOGO = 'https://scontent.fomr1-1.fna.fbcdn.net/v/t39.30808-6/278073502_512011867281999_7334604165731834145_n.jpg?_nc_cat=101&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=58y1uZ8EWJ0AX8GcHKV&_nc_ht=scontent.fomr1-1.fna&oh=00_AfCXIoqxxyoYws1mk_5J6MWFDS3mShNuIlNOgfVthej9iA&oe=64C82467'
+    URL_LOGO = 'https://www.directmm.ro/wp-content/uploads/2021/08/ensembleLogo-blue-large.png'
     company_name = 'ensemblesoftware'
     ensemblesoftware = ensemblesoftwareScrapper(company_name, URL, URL_LOGO)
     ensemblesoftware.get_response()
