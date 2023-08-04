@@ -83,7 +83,7 @@ class careerscenterScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://www.careerscenter.ro/jobs/page/'
-    URL_LOGO = 'https://scontent.fomr1-1.fna.fbcdn.net/v/t39.30808-6/305397132_769297607664858_5028050472318765798_n.png?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=hJWg9QOJEXAAX984mJJ&_nc_ht=scontent.fomr1-1.fna&oh=00_AfASrsHXjd4YDQDL9HgK4mzOozhJj0U0bo7BCrugcDvZRQ&oe=64C2DB1E'
+    URL_LOGO = 'https://www.careerscenter.ro/wp-content/themes/careerscenter/img/careerscenter.png'
     company_name = 'careerscenter'
     careerscenter = careerscenterScrapper(company_name, URL, URL_LOGO)
     careerscenter.scrape_jobs()
