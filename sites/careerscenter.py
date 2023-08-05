@@ -83,7 +83,7 @@ class careerscenterScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://www.careerscenter.ro/jobs/page/'
-    URL_LOGO = 'https://www.careerscenter.ro/wp-content/themes/careerscenter/img/careerscenter.png'
+    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/careerscenter1.PNG'
     company_name = 'careerscenter'
     careerscenter = careerscenterScrapper(company_name, URL, URL_LOGO)
     careerscenter.scrape_jobs()
