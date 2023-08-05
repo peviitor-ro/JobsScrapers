@@ -28,7 +28,6 @@ if __name__ == "__main__":
     exclude = ['__init__.py',
                'script_runner.py',
                'setup_api.py',
-               'gazduirejocuri.py',
                'update_logo.py',
                'website_scraper_api.py',
                'website_scraper_bs4.py',
