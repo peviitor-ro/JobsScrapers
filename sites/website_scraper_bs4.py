@@ -57,6 +57,9 @@ class BS4Scraper:
     def get_jobs_details_href(self, job_details):
         return [' '.join(job_detail.get('href').split()) for job_detail in job_details]
 
+    def get_jobs_details_tag(self, tag, job_details):
+        return [' '.join(job_detail.get(tag).split()) for job_detail in job_details]
+
     def get_page_cap(self, element_locator, element):
         element = self.soup.find(element_locator, element)
         return element.text if element else None
