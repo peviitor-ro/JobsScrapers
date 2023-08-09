@@ -31,6 +31,7 @@ if __name__ == "__main__":
                'update_logo.py',
                'website_scraper_api.py',
                'website_scraper_bs4.py',
+               'trencadis.py',
                'website_scraper_selenium.py',
                'test.py'
                 ]
