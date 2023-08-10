@@ -1,7 +1,7 @@
 #
 #
 #
-# atpgroup > https://www.distributie-energie.ro/despre-noi/cariere/
+# atpgroup > https://atp-group.ro/cariere/
 
 
 from sites.website_scraper_bs4 import BS4Scraper
