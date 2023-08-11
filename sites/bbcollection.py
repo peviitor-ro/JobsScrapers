@@ -1,7 +1,7 @@
 #
 #
 #
-# bbcollection > https://atp-group.ro/cariere/
+# bbcollection > https://www.bbcollection.ro/cariera.html
 
 
 from sites.website_scraper_bs4 import BS4Scraper
