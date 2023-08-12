@@ -25,12 +25,23 @@ class anahrScrapper(BS4Scraper):
         """
         Scrape job data from anahr website.
         """
-
-        job_titles_elements = self.get_jobs_elements('class_', 'uk-link-reset')
-        job_urls_elements = self.get_jobs_elements('class_', "el-link uk-button uk-button-primary")
+        error_text = []
+        self.job_titles = []
+        self.job_urls = []
+        count_page = 1
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        while error_text != ['Se pare că nu s-a găsit nimic în această locație. Poate încercați o căutare?']:
+            self.get_content(f"https://anahr.ro/domenii/joburi-pe-domenii/page/{count_page}")
+            job_titles_elements = self.get_jobs_elements('class_', 'uk-link-reset')
+            job_urls_elements = self.get_jobs_elements('class_', "el-link uk-button uk-button-primary")
+            
+            self.job_titles.extend(self.get_jobs_details_text(job_titles_elements))
+            self.job_urls.extend(self.get_jobs_details_href(job_urls_elements))
+            
+            error_text = self.get_jobs_details_text(self.get_jobs_elements('class_', 'uk-text-large uk-text-center uk-margin-large-bottom'))
+            
+            count_page += 1
+
 
         self.format_data()
         
@@ -48,7 +59,7 @@ class anahrScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Oradea")
 
 if __name__ == "__main__":
-    URL = 'https://anahr.ro/domenii/joburi-pe-domenii/'
+    URL = 'https://anahr.ro/domenii/joburi-pe-domenii/page/'
     URL_LOGO = 'https://anahr.ro/wp-content/uploads/2023/01/logo-01.svg'
     company_name = 'anahr'
     anahr = anahrScrapper(company_name, URL, URL_LOGO)
