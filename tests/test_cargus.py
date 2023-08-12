@@ -34,9 +34,9 @@ class SetupTests:
         Setting params for peviitor jobs request
         """
         self.params = {
-        'q': 'Cargus',
-        'country': 'România',
-        'page': '1',
+            'q': 'Cargus',
+            'country': 'România',
+            'page': '1',
         }
     
     def get_request(self):
@@ -57,7 +57,7 @@ class SetupTests:
         
         return future_title, future_job_city, future_job_country, future_job_link
 
-class test_Cargus(SetupTests):
+class Test_Cargus(SetupTests):
     
     @pytest.fixture()
     def get_data(self):
