@@ -98,7 +98,7 @@ class hellaScrape(WebsiteScraperAPI):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://hella.csod.com/ux/ats/careersite/3/home/requisition/{job_url}?c=hella&lang=en-US"
-            self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
         
 
 if __name__ == "__main__":
