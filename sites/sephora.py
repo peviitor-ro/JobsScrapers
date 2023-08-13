@@ -4,7 +4,7 @@
 # sephora > https://www.inside-sephora.com/en/romania/join-us
 
 import requests
-from website_scraper_api import WebsiteScraperAPI
+from sites.website_scraper_api import WebsiteScraperAPI
 
 class sephoraScrape(WebsiteScraperAPI):
     
@@ -67,7 +67,7 @@ class sephoraScrape(WebsiteScraperAPI):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://jobs.sephora.com/job-invite/{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
         
 
 if __name__ == "__main__":
