@@ -1,7 +1,6 @@
 import pytest
 from sites.nokia import nokiaScrape
 from utils import TestUtils
-import requests
 
 class SetupTests:
     

@@ -1,8 +1,6 @@
 import pytest
 from sites.hella import hellaScrape
-from sites.website_scraper_bs4 import BS4Scraper
 from utils import TestUtils
-import requests
 
 class SetupTests:
     

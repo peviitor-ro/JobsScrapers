@@ -1,7 +1,6 @@
 import pytest
 from sites.pago import PagoScrapper
 from utils import TestUtils
-import requests
 
 class SetupTests:
     
