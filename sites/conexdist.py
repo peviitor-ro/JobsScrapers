@@ -28,11 +28,11 @@ class conexdistScrapper(BS4Scraper):
 
         job_titles_elements = self.get_jobs_elements('css_', 'div > h3')
         job_cities_elements = self.get_jobs_elements('css_', 'div > p > strong')
-        # job_urls_elements = self.get_jobs_elements('class_', 'button primary is-outline is-small lowercase')
+        job_urls_elements = self.get_jobs_elements('class_', 'button primary is-small lowercase')
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)[1:-1]
         self.job_cities = self.get_jobs_details_text(job_cities_elements)[:-1]
-        # self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        self.job_urls = self.get_jobs_details_href(job_urls_elements)
 
         self.format_data()
         
@@ -46,9 +46,10 @@ class conexdistScrapper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_city in zip(self.job_titles, self.job_cities):
+        for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             job_city = job_city.replace("–", "").replace("Sediul Central", "").replace("(Jilava)", "").replace("  ", " ").replace(" Iași", "Iași").split()
-            self.create_jobs_dict(job_title, "https://www.conexdist.ro/ro/cariere/aplica/", "România", job_city)
+            job_url = f"https://www.conexdist.ro{job_url}"
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://www.conexdist.ro/ro/cariere/'
