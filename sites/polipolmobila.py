@@ -44,7 +44,7 @@ class polipolmobilaScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title, self.url, "România", "Satu Mare")
+            self.create_jobs_dict(job_title, "https://www.polipolmobila.ro/aplicare-online/", "România", "Satu Mare")
 
 if __name__ == "__main__":
     URL = 'https://www.polipolmobila.ro/locuri-de-munca-disponibile/'
