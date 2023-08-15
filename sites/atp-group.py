@@ -28,10 +28,19 @@ class atpgroupScrapper(BS4Scraper):
         """
 
         job_elements = self.get_jobs_elements('css_', "div.elementor-element.elementor-element-63afff4.elementor-widget.elementor-widget-theme-post-title.elementor-page-title.elementor-widget-heading > div > h3 > a")
-        job_location_elements = self.get_jobs_elements('class_', 'elementor-post-info__terms-list-item')
+        # job_location_elements = self.get_jobs_elements('class_', 'elementor-post-info__terms-list-item')
+        job_location_elements = self.get_jobs_elements('class_', 'elementor-icon-list-items elementor-post-info')
+        
+        self.job_cities = []
+        
+        for city in self.get_jobs_details_text(job_location_elements):
+            if city.split("Companie:")[0].replace("Locație: ", "") == '':
+                self.job_cities.append("Romania")
+            else:
+                self.job_cities.append(city.split("Companie:")[0].replace("Locație: ", ""))
         
         self.job_titles = self.get_jobs_details_text(job_elements)
-        self.job_cities = self.get_jobs_details_text(job_location_elements)
+        # self.job_cities = self.get_jobs_details_text(job_location_elements)
         self.job_urls = self.get_jobs_details_href(job_elements)
 
         self.format_data()
