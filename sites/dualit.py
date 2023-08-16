@@ -48,7 +48,7 @@ class dualitScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://dualit.ro/careers/'
-    URL_LOGO = 'https://dualit.ro/wp-content/uploads/2022/06/Dual-IT-finale-plus_Negativ-C-600x274.png'
+    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/dualit.jpg'
     company_name = 'dualit'
     dualit = dualitScrapper(company_name, URL, URL_LOGO)
     dualit.get_response()
