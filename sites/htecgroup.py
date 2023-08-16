@@ -1,7 +1,7 @@
 #
 #
 #
-# htecgroup > https://htecgroup.bamboohr.com/careers/
+# htecgroup > https://htecgroup.com/careers/
 
 import requests
 from website_scraper_api import WebsiteScraperAPI
