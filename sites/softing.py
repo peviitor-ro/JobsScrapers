@@ -4,7 +4,7 @@
 # softing > https://career.softing.com/open-positions/job-opportunities/softing-romania.html
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class softingScrapper(BS4Scraper):
     
@@ -48,7 +48,7 @@ class softingScrapper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://career.softing.com{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://career.softing.com/open-positions/job-opportunities/softing-romania.html'
