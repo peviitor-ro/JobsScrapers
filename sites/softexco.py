@@ -3,7 +3,7 @@
 #
 # softexco > https://softexco.ro/p/cariere#aplica
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class softexcoScrapper(BS4Scraper):
     
@@ -48,7 +48,7 @@ class softexcoScrapper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"{self.url}{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", "Cluj")
+            self.create_jobs_dict(job_title, job_url, "România", "Cluj")
 
 if __name__ == "__main__":
     URL = 'https://softexco.ro/p/cariere'
