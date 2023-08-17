@@ -42,7 +42,7 @@ class NolimitsScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://www.nolimits.ro/cariere.html'
-    URL_LOGO = 'https://scontent.fomr1-1.fna.fbcdn.net/v/t39.30808-6/302592411_400315428913007_1015975908567741945_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_UhCqEUa9gQAX8UgsjT&_nc_ht=scontent.fomr1-1.fna&oh=00_AfCZmRuj6453edcQac2bTLQGq61zv88Wo9iG5q0OAi8ubw&oe=64CF2F48'
+    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/nolimits.PNG'
     company_name = 'Nolimits'
     Nolimits = NolimitsScrapper(company_name, URL, URL_LOGO)
     Nolimits.get_response()
