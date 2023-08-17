@@ -47,7 +47,7 @@ class oradeatechhubScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            job_url = f"https://www.oradeatechhub.ro/{job_url}"
+            job_url = f"https://www.oradeatechhub.ro{job_url}"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
