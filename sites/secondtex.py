@@ -3,7 +3,7 @@
 #
 # secondtex > https://www.secondtex.ro/ro/loc-de-munca
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class secondtexScrapper(BS4Scraper):
     
@@ -43,7 +43,7 @@ class secondtexScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title.replace("Secondtex angajeaza: ", ""), self.url, "Romania", "Dorolt")
+            self.create_jobs_dict(job_title.replace("Secondtex angajeaza: ", ""), self.url, "România", "Dorolt")
 
 if __name__ == "__main__":
     URL = 'https://www.secondtex.ro/ro/loc-de-munca'
