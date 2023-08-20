@@ -8,8 +8,8 @@ class SetupTests:
         """
         Fixture for scraping process from career section.
         """
-        URL = 'https://reinert.ro/cariere/'
-        URL_LOGO = 'https://reinert.ro/wp-content/uploads/2018/02/reinert-01.svg'
+        URL = 'https://reinert-romania.ro/ro/cariere/'
+        URL_LOGO = 'https://reinert-romania.ro/images/logo/reinert-main.png'
         company_name = 'reinert'
         reinert = reinertScrapper(company_name, URL, URL_LOGO)
         reinert.get_response()
