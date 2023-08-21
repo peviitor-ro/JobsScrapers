@@ -3,7 +3,7 @@
 #
 # rdnautomatic > https://www.rndautomatic.com/en/Career.html
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class rdnautomaticScrapper(BS4Scraper):
     
@@ -33,14 +33,19 @@ class rdnautomaticScrapper(BS4Scraper):
         self.job_cities = self.get_jobs_details_text(job_cities_elements)
 
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city in zip(self.job_titles, self.job_cities):
-            self.create_jobs_dict(job_title, self.url, "Romania", job_city)
+            self.create_jobs_dict(job_title, self.url, "România", job_city)
 
 if __name__ == "__main__":
     URL = 'https://www.rndautomatic.com/en/Career.html'
@@ -49,6 +54,7 @@ if __name__ == "__main__":
     rdnautomatic = rdnautomaticScrapper(company_name, URL, URL_LOGO)
     rdnautomatic.get_response()
     rdnautomatic.scrape_jobs()
+    rdnautomatic.sent_to_future()
     
     
 
