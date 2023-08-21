@@ -31,7 +31,12 @@ class NolimitsScrapper(BS4Scraper):
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
 
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -47,6 +52,7 @@ if __name__ == "__main__":
     Nolimits = NolimitsScrapper(company_name, URL, URL_LOGO)
     Nolimits.get_response()
     Nolimits.scrape_jobs()
+    Nolimits.sent_to_future()
     
     
 
