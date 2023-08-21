@@ -43,7 +43,7 @@ class NolimitsScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title, self.url, "Romania", "Satu Mare")
+            self.create_jobs_dict(job_title, self.url, "România", "Satu Mare")
 
 if __name__ == "__main__":
     URL = 'https://www.nolimits.ro/cariere.html'
