@@ -46,7 +46,7 @@ class NetromScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "Romania", "Craiova")
+            self.create_jobs_dict(job_title, job_url, "România", "Craiova")
 
 if __name__ == "__main__":
     URL = 'https://www.netromsoftware.ro/jobs'
