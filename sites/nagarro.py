@@ -6,22 +6,20 @@
 
 import requests
 import uuid
-from setup_api import UpdatePeviitorAPI
-from update_logo import update_logo
+from sites.website_scraper_api import WebsiteScraperAPI
 
-class NagarroScrape:
+class NagarroScrape(WebsiteScraperAPI):
     
     """
     A class for scraping job data from Nagarro website.
     """
     
-    def __init__(self, company_name: str, url: str):
+    def __init__(self, company_name: str, url: str, company_logo_url: str):
         """
         Defining de url, company name for the request and formatted data list for the jobs scrapped
         """
-        self.company_name = company_name
-        self.URL = url
-        self.formated_data = []
+        self.url = url
+        super().__init__(company_name, url, company_logo_url)
     
     def request_headers(self):
         """
@@ -35,68 +33,46 @@ class NagarroScrape:
         """
         Send a GET request and retrieve the response.
         """
-        self.response = requests.get(
-            self.URL,
-            headers=self.headers).json()
+        self.job_details = requests.get(
+            self.url,
+            headers=self.headers).json()["value"]
+        self.get_jobs_response(self.job_details)
     
-    def get_job_titles(self):
+    def scrape_jobs(self):
         """
-        Retrieves the job titles.
+        Scrape job data from sephora website.
         """
-        self.job_titles = [job_title['Job_Title'] for job_title in self.response["value"]]
-
-    def get_job_city(self):
-        """
-        Retrieves the job cities.
-        """
-        self.job_cities = [job_city['Job_City'] for job_city in self.response["value"]]
-
-    def get_job_country(self):
-        """
-        Retrieves the job countries.
-        """
-        self.job_countries = [job_country['Job_Country'] for job_country in self.response["value"]]
-
-    def get_job_url(self):
-        """
-        Retrieves the job URLs.
-        """
-        self.job_urls = [job_url['Job_Url'] for job_url in self.response["value"]]
+        self.job_titles = self.get_job_details(['Job_Title'])
+        self.job_cities = self.get_job_details(['Job_City'])
+        self.job_countries = self.get_job_details(['Job_Country'])
+        self.job_urls = self.get_job_details(['Job_Url'])
+        
+        self.format_data()
+        
+        print(self.job_urls, len(self.job_urls))
 
     def format_data(self):
         """
         Itterate over all job details and append them, modify job city if remote
-        """
+        """     
         for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
             if job_city == "WFA/Remote":
                 job_city = job_country
-            if job_url:
-                self.formated_data.append({
-                    "id": str(uuid.uuid4()),
-                    "job_title": job_title,
-                    "job_link":  job_url,
-                    "company": "Nagarro",
-                    "country": job_country,
-                    "city": job_city
-                    })
+            # print(job_url)
+            self.create_jobs_dict(job_title, job_url, job_country, job_city)
     
-    def send_to_viitor(self):
-        """
-        Sending the scrapped jobs to the future :)
-        """
-        api_load = UpdatePeviitorAPI(self.company_name, self.formated_data)
-        api_load()
-        update_logo("Nagarro", "https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Images/Nagarro%20green%20logo%20with%20title_opt.svg")
+    def sent_to_future(self):
+        self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
 if __name__ == "__main__":
     URL = 'https://hiringautomation.table.core.windows.net/CareerSiteDim?sv=2019-02-02&se=2099-10-13T20%3A47%3A00Z&sp=r&sig=%2FTWLo6vw7gzgOiS9b5wchECIjqFaaaIPV8Rs55P0W98%3D&tn=CareerSiteDim&$select=Expertise,Job_Title,Job_City,Job_Country,Level_name,Value,Job_Url,Is_job_remote_friendly,is_multiple_experience_required,RowKey&$filter=Job_Country%20eq%20%27Romania%27'
+    URL_LOGO = 'https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Images/Nagarro%20green%20logo%20with%20title_opt.svg'
     company_name = 'Nagarro'
-    Nagarro = NagarroScrape(company_name, URL)
+    Nagarro = NagarroScrape(company_name, URL, URL_LOGO)
     Nagarro.request_headers()
     Nagarro.get_response()
-    Nagarro.get_job_titles()
-    Nagarro.get_job_city()
-    Nagarro.get_job_country()
-    Nagarro.get_job_url()
-    Nagarro.format_data()
+    Nagarro.scrape_jobs()
     Nagarro.send_to_viitor()
