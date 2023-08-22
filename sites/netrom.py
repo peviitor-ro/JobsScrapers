@@ -4,7 +4,7 @@
 #
 ## Netrom > https://www.netromsoftware.ro/jobs
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class NetromScrapper(BS4Scraper):
     
