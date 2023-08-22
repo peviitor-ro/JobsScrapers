@@ -16,6 +16,7 @@ class saladboxScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -43,7 +44,10 @@ class saladboxScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title, self.url, "România", "România")
+            job_url = self.url + "#" + str(self.job_count)
+            self.create_jobs_dict(job_title, job_url, "România", "România")
+            self.job_count += 1
+
 
 if __name__ == "__main__":
     URL = 'https://saladbox.ro/ro/cariere'
