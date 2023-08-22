@@ -52,7 +52,7 @@ class softexcoScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://softexco.ro/p/cariere'
-    URL_LOGO = 'https://scontent.fomr1-1.fna.fbcdn.net/v/t39.30808-6/291934334_539365971112037_5557795708648591685_n.png?_nc_cat=105&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zRboCj7GZL4AX9PaJHC&_nc_ht=scontent.fomr1-1.fna&oh=00_AfCu4Or21onBoUnnuLNmRL1y9kIj8YY-_55833UFhIRO2w&oe=64C53BE6'
+    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/softexco.PNG'
     company_name = 'softexco'
     softexco = softexcoScrapper(company_name, URL, URL_LOGO)
     softexco.get_response()
