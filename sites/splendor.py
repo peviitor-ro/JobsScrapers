@@ -16,6 +16,7 @@ class splendorScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -45,7 +46,9 @@ class splendorScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city in zip(self.job_titles, self.job_cities):
-            self.create_jobs_dict(job_title, self.url, "România", job_city[18:].replace(".", "").split(","))
+            job_url = self.url + "#" + str(self.job_count)
+            self.create_jobs_dict(job_title, job_url, "România", job_city[18:].replace(".", "").split(","))
+            self.job_count += 1
 
 if __name__ == "__main__":
     URL = 'https://www.splendor.ro/cariera.html'
