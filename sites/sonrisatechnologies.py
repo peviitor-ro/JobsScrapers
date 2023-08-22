@@ -49,7 +49,7 @@ class sonrisatechnologiesScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://www.careers.sonrisa.hu/#jobs'
-    URL_LOGO = 'https://images.teamtailor-cdn.com/images/s3/teamtailor-production/logotype-v3/image_uploads/fc3ad244-a68c-4d8a-a08c-93eb807f80be/original.png'
+    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/sonrisa.PNG'
     company_name = 'sonrisatechnologies'
     sonrisatechnologies = sonrisatechnologiesScrapper(company_name, URL, URL_LOGO)
     sonrisatechnologies.get_response()
