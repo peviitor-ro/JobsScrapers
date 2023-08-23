@@ -4,7 +4,7 @@
 # kimballelectronics > https://kei.wd1.myworkdayjobs.com/GlobalKimballCareers?locations=fbecff70217d10da6c755135d69d6c29
 
 import requests
-from website_scraper_api import WebsiteScraperAPI
+from sites.website_scraper_api import WebsiteScraperAPI
 
 class kimballelectronicsScrape(WebsiteScraperAPI):
     
@@ -62,7 +62,7 @@ class kimballelectronicsScrape(WebsiteScraperAPI):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"https://kei.wd1.myworkdayjobs.com/en-US/GlobalKimballCareers{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", "Timisoara")
+            self.create_jobs_dict(job_title, job_url, "România", "Timisoara")
         
 
 if __name__ == "__main__":
