@@ -4,7 +4,7 @@
 # KaizenGaming > https://kaizengaming.com/open-positions/
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class KaizenGamingScrapper(BS4Scraper):
     
@@ -37,7 +37,12 @@ class KaizenGamingScrapper(BS4Scraper):
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
         
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -56,6 +61,7 @@ if __name__ == "__main__":
     KaizenGaming = KaizenGamingScrapper(company_name, URL, URL_LOGO)
     KaizenGaming.get_response()
     KaizenGaming.scrape_jobs()
+    KaizenGaming.sent_to_future()
     
     
 
