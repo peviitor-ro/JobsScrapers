@@ -46,7 +46,12 @@ class htecgroupScrape(WebsiteScraperAPI):
         # self.job_countries = self.get_job_details(['location', 'state'])
         self.job_urls = self.get_job_details(['AbsoluteUrl'])
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -64,3 +69,4 @@ if __name__ == "__main__":
     htecgroup.set_params()
     htecgroup.get_response()
     htecgroup.scrape_jobs()
+    htecgroup.sent_to_future()
