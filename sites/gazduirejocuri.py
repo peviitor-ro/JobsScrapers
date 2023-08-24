@@ -16,6 +16,7 @@ class GazduireJocuriScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -35,15 +36,21 @@ class GazduireJocuriScrapper(BS4Scraper):
         # TOATE JOBURILE CARE SE POSTEAZA SUNT DIN ROMANIA
         
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city in zip(self.job_titles, self.job_cities):
-            if job_title and job_city:
-                self.create_jobs_dict(job_title, "https://www.gazduirejocuri.ro/cariere/", "Romania", job_city)
+            job_url = self.url + "#" + str(self.job_count)
+            self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.job_count += 1
 
 if __name__ == "__main__":
     URL = 'https://www.gazduirejocuri.ro/cariere/'
@@ -52,6 +59,7 @@ if __name__ == "__main__":
     GazduireJocuri = GazduireJocuriScrapper(company_name, URL, URL_LOGO)
     GazduireJocuri.get_response()
     GazduireJocuri.scrape_jobs()
+    GazduireJocuri.sent_to_future()
     
     
 
