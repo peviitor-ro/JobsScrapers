@@ -3,7 +3,7 @@
 #
 # GazduireJocuri > https://www.gazduirejocuri.ro/cariere/
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class GazduireJocuriScrapper(BS4Scraper):
     
@@ -49,7 +49,7 @@ class GazduireJocuriScrapper(BS4Scraper):
         """
         for job_title, job_city in zip(self.job_titles, self.job_cities):
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
             self.job_count += 1
 
 if __name__ == "__main__":
