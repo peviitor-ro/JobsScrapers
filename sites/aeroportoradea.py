@@ -17,6 +17,7 @@ class aeroportoradeaScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -31,7 +32,7 @@ class aeroportoradeaScrapper(BS4Scraper):
         job_url_elements = self.get_jobs_elements('css_', "#article-101 > div > div > span > a")
         
         self.job_titles = self.get_jobs_details_text(job_title_elements)
-        self.job_urls = self.get_jobs_details_href(job_url_elements)
+        self.job_urls = self.get_jobs_details_href(job_url_elements)[::3]
 
         self.format_data()
         
@@ -45,9 +46,10 @@ class aeroportoradeaScrapper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls[::3]):
-            job_url = "https://www.aeroportoradea.ro" + job_url.replace(" ", "%20")
+        for job_title, job_url in zip(self.job_titles, self.job_urls):
+            job_url = "https://www.aeroportoradea.ro" + job_url.replace(" ", "%20") + "#" + str(self.job_count)
             self.create_jobs_dict(job_title.split("-")[0], job_url, "România", "Oradea")
+            self.job_count += 1
 
 if __name__ == "__main__":
     URL = 'https://www.aeroportoradea.ro/ro/locuri-de-munca-vacante.html'
