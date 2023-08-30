@@ -4,7 +4,7 @@
 # calcrom > https://calcrom.ro/#careers
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class calcromScrapper(BS4Scraper):
     
