@@ -4,7 +4,7 @@
 # duktech > https://www.duk-tech.com/
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class duktechScrapper(BS4Scraper):
     
@@ -46,7 +46,7 @@ class duktechScrapper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"https://www.duk-tech.com{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", "Iasi")
+            self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
     URL = 'https://www.duk-tech.com/'
