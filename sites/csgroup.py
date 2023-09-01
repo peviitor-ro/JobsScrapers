@@ -3,7 +3,7 @@
 #
 # CSGroup > https://www.c-s.ro/careers/jobs/
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class CSGroupScrapper(BS4Scraper):
     
@@ -33,15 +33,19 @@ class CSGroupScrapper(BS4Scraper):
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
 
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            if job_title and job_url:
-                self.create_jobs_dict(job_title, job_url, "Romania", "Craiova")
+            self.create_jobs_dict(job_title, job_url, "România", "Craiova")
 
 if __name__ == "__main__":
     URL = 'https://www.c-s.ro/careers/jobs/'
@@ -50,6 +54,7 @@ if __name__ == "__main__":
     CSGroup = CSGroupScrapper(company_name, URL, URL_LOGO)
     CSGroup.get_response()
     CSGroup.scrape_jobs()
+    CSGroup.sent_to_future()
     
     
 
