@@ -3,7 +3,7 @@
 #
 # dualit > https://dualit.ro/careers/
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class dualitScrapper(BS4Scraper):
     
@@ -44,7 +44,7 @@ class dualitScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "Romania", "Cluj-Napoca")
+            self.create_jobs_dict(job_title, job_url, "România", "Cluj-Napoca")
 
 if __name__ == "__main__":
     URL = 'https://dualit.ro/careers/'
