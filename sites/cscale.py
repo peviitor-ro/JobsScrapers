@@ -3,7 +3,7 @@
 #
 # c-scale > https://www.c-scale.ro/careers
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class CScaleScrapper(BS4Scraper):
     
@@ -32,7 +32,12 @@ class CScaleScrapper(BS4Scraper):
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
 
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -50,6 +55,7 @@ if __name__ == "__main__":
     cscale = CScaleScrapper(company_name, URL, URL_LOGO)
     cscale.get_response()
     cscale.scrape_jobs()
+    cscale.sent_to_future()
     
     
 

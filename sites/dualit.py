@@ -53,7 +53,7 @@ if __name__ == "__main__":
     dualit = dualitScrapper(company_name, URL, URL_LOGO)
     dualit.get_response()
     dualit.scrape_jobs()
-    dualit.send_to_viitor()
+    dualit.sent_to_future()
     
     
 
