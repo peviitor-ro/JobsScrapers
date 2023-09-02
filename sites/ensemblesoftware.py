@@ -4,7 +4,7 @@
 # ensemblesoftware > https://www.ensemblesoftware.ro/careers/
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class ensemblesoftwareScrapper(BS4Scraper):
     
@@ -48,7 +48,7 @@ class ensemblesoftwareScrapper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"https://www.ensemblesoftware.ro/{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", ['Baia Mare', 'Brasov', 'Cluj'])
+            self.create_jobs_dict(job_title, job_url, "România", ['Baia Mare', 'Brasov', 'Cluj'])
 
 if __name__ == "__main__":
     URL = 'https://www.ensemblesoftware.ro/careers/'
