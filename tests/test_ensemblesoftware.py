@@ -1,5 +1,5 @@
 import pytest
-from sites.ensemblesoftware import ensamblesoftwareScrapper
+from sites.ensemblesoftware import ensemblesoftwareScrapper
 from utils import TestUtils
 
 class SetupTests:
@@ -11,7 +11,7 @@ class SetupTests:
         URL = 'https://www.ensemblesoftware.ro/careers/'
         URL_LOGO = 'https://www.directmm.ro/wp-content/uploads/2021/08/ensembleLogo-blue-large.png'
         company_name = 'ensemblesoftware'
-        ensemblesoftware = ensamblesoftwareScrapper(company_name, URL, URL_LOGO)
+        ensemblesoftware = ensemblesoftwareScrapper(company_name, URL, URL_LOGO)
         ensemblesoftware.get_response()
         ensemblesoftware.scrape_jobs()
         # ensamblesoftware.send_to_viitor()
@@ -26,7 +26,7 @@ class Test_ensamblesoftware(SetupTests):
         
         # You can now use the utility methods from TestUtils to avoid code duplication
         self.scraped_jobs_data = TestUtils.scrape_jobs(self.scraper_data)
-        self.peviitor_jobs_data = TestUtils.scrape_peviitor('ensamblesoftware', 'România')
+        self.peviitor_jobs_data = TestUtils.scrape_peviitor('ensemblesoftware', 'România')
 
     def test_ensamblesoftware(self, get_data):
         """
