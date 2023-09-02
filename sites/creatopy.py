@@ -4,7 +4,7 @@
 # Creatopy > https://creatopy.bamboohr.com/careers/
 
 import requests
-from website_scraper_api import WebsiteScraperAPI
+from sites.website_scraper_api import WebsiteScraperAPI
 
 class CreatopyScrape(WebsiteScraperAPI):
     
@@ -40,7 +40,12 @@ class CreatopyScrape(WebsiteScraperAPI):
         # self.job_countries = self.get_job_details(['location', 'state'])
         self.job_urls = self.get_job_details(['id'])
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        return self.formatted_data
 
     def format_data(self):
         """
@@ -53,7 +58,7 @@ class CreatopyScrape(WebsiteScraperAPI):
             # if job_country == None or job_country == "Remote":
             #     job_country = "Romania"
             if job_url:
-                self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+                self.create_jobs_dict(job_title, job_url, "România", job_city)
         
 
 if __name__ == "__main__":
@@ -64,3 +69,4 @@ if __name__ == "__main__":
     Creatopy.set_headers()
     Creatopy.get_response()
     Creatopy.scrape_jobs()
+    Creatopy.sent_to_future()
