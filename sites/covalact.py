@@ -4,7 +4,7 @@
 # covalact > https://covalact.ro/cariere
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
 class covalactScrapper(BS4Scraper):
     
@@ -46,7 +46,7 @@ class covalactScrapper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = self.url + job_url
-            self.create_jobs_dict(job_title, job_url, "Romania", "Romania")
+            self.create_jobs_dict(job_title, job_url, "România", "România")
 
 if __name__ == "__main__":
     URL = 'https://covalact.ro/cariere'
