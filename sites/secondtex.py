@@ -16,6 +16,7 @@ class secondtexScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -43,7 +44,10 @@ class secondtexScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title.replace("Secondtex angajeaza: ", ""), self.url, "România", "Dorolt")
+            job_url = self.url + "#" + str(self.job_count)
+            self.create_jobs_dict(job_title.replace("Secondtex angajeaza: ", ""), job_url, "România", "Dorolt")
+            self.job_count += 1
+
 
 if __name__ == "__main__":
     URL = 'https://www.secondtex.ro/ro/loc-de-munca'
