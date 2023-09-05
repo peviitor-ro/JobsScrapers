@@ -79,5 +79,5 @@ if __name__ == "__main__":
     sephora.set_params()
     sephora.get_response()
     sephora.scrape_jobs()
-    sephora.send_to_viitor()
+    sephora.sent_to_future()
     
