@@ -32,7 +32,6 @@ class ramadaiasiScrapper(BS4Scraper):
         self.job_titles = self.get_jobs_details_text(job_elements)[0].replace("Alatura-te acum echipei noastre aplicand pentru unul din posturile vacante: ", "").replace(". Trimite-ne datele tale – nume, prenume, adresa, telefon, e-mail, CV-ul, o fotografie recenta – mentioneaza jobul dorit si te vom contacta.", "").split(", ")
 
         self.format_data()
-        print(self.job_titles)
         
     def sent_to_future(self):
         self.send_to_viitor()
@@ -56,7 +55,7 @@ if __name__ == "__main__":
     ramadaiasi = ramadaiasiScrapper(company_name, URL, URL_LOGO)
     ramadaiasi.get_response()
     ramadaiasi.scrape_jobs()
-    # ramadaiasi.sent_to_future()
+    ramadaiasi.sent_to_future()
     
     
 
