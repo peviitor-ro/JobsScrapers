@@ -50,8 +50,8 @@ class KaizenGamingScrapper(BS4Scraper):
         """
         for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
             if job_country == 'Bucharest':
-                job_country = "Romania"
-            if job_url and job_country == 'Romania':
+                job_country = "România"
+            if job_url and job_country == 'România':
                 self.create_jobs_dict(job_title, job_url, job_country, job_city)
 
 if __name__ == "__main__":
