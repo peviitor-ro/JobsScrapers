@@ -50,7 +50,7 @@ class ramadaiasiScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'http://www.ramadaiasi.ro/cariere/'
-    URL_LOGO = 'http://www.ramadaiasi.ro/wp-content/uploads/2019/04/ramada-logo-2019.png'
+    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/ramadaiasi.png'
     company_name = 'ramadaiasi'
     ramadaiasi = ramadaiasiScrapper(company_name, URL, URL_LOGO)
     ramadaiasi.get_response()
