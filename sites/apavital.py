@@ -45,7 +45,7 @@ class apavitalScrapper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"https://www.apavital.ro{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_url)
+            self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
     URL = 'https://www.apavital.ro/cariere'
