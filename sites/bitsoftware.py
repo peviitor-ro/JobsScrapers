@@ -16,6 +16,7 @@ class BitSoftwareScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -40,9 +41,9 @@ class BitSoftwareScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            job_url = f"{self.url}{job_url}"
-            if job_title and job_url:
-                self.create_jobs_dict(job_title, job_url, "Romania", "Bucuresti")
+            job_url = f"{self.url}{job_url}#{self.job_count}"
+            self.create_jobs_dict(job_title, job_url, "Romania", "Bucuresti")
+            self.job_count += 1
 
 if __name__ == "__main__":
     URL = 'https://www.bitsoftware.eu/cariere-la-bitsoftware-solutii-software-de-business-erp-crm-bi-wms/'
