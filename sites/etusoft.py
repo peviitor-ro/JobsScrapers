@@ -16,11 +16,12 @@ class etusoftScrapper(BS4Scraper):
         """
         Initialize the BS4Scraper class.
         """
-        self.website_url = url
+        self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
-        self.get_content(self.website_url)
+        self.get_content(self.url)
     
     def scrape_jobs(self):
         """
@@ -43,7 +44,9 @@ class etusoftScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title in self.job_titles:
-            self.create_jobs_dict(job_title, self.website_url, "România", "Oradea")
+            job_url = self.url + "#" + str(self.job_count)
+            self.create_jobs_dict(job_title, job_url, "România", "Oradea")
+            self.job_count += 1
 
 if __name__ == "__main__":
     URL = 'https://www.etusoft.com/locuridemunca.html'
