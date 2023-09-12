@@ -37,9 +37,6 @@ class expomedicsScrapper(BS4Scraper):
             self.job_urls.extend(self.get_jobs_details_href(job_elements))
             self.get_content(self.url + f"&page={page}")
 
-
-        
-
         self.format_data()
         # print(self.job_titles, len(self.job_titles))
         
