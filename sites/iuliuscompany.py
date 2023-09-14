@@ -52,7 +52,7 @@ class iuliuscompanyScrapper(BS4Scraper):
 
 if __name__ == "__main__":
     URL = 'https://cariere.iuliuscompany.ro'
-    URL_LOGO = 'https://cariere.iuliuscompany.ro/images/iulius-mall.svg'
+    URL_LOGO = 'https://ami.cname.ro/_/company/iulius-group/mediaPool/uK2z1mO.jpg'
     company_name = 'iuliuscompany'
     iuliuscompany = iuliuscompanyScrapper(company_name, URL, URL_LOGO)
     iuliuscompany.get_response()
