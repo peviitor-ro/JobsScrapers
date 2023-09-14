@@ -16,6 +16,7 @@ class expomedicsScrapper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         self.url = url
+        self.job_count = 1
         super().__init__(company_name, company_logo_url)
         
     def get_response(self):
@@ -38,7 +39,6 @@ class expomedicsScrapper(BS4Scraper):
             self.get_content(self.url + f"&page={page}")
 
         self.format_data()
-        # print(self.job_titles, len(self.job_titles))
         
     def sent_to_future(self):
         self.send_to_viitor()
@@ -51,7 +51,9 @@ class expomedicsScrapper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
+            job_url = self.url + "#" + str(self.job_count)
             self.create_jobs_dict(job_title, job_url, "România", "România")
+            self.job_count += 1
 
 if __name__ == "__main__":
     URL = 'https://www.expomedics.com/jobs?country=romania'
