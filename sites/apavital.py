@@ -25,12 +25,19 @@ class apavitalScrapper(BS4Scraper):
         """
         Scrape job data from apavital website.
         """
-
+        page_counter = 1
         job_elements = self.get_jobs_elements('css_', "#cariere > div.simple-page.b > div > div > div.water-boxes.careers-boxes > div > div.water-box-title > a")
+        self.job_titles = []
+        self.job_urls = []
         
-        self.job_titles = self.get_jobs_details_text(job_elements)
-        self.job_urls = self.get_jobs_details_href(job_elements)
-
+        while job_elements:
+            self.job_titles.extend(self.get_jobs_details_text(job_elements))
+            self.job_urls.extend(self.get_jobs_details_href(job_elements))
+            
+            page_counter += 1
+            self.get_content(f"https://www.apavital.ro/cariere?page={page_counter}")
+            job_elements = self.get_jobs_elements('css_', "#cariere > div.simple-page.b > div > div > div.water-boxes.careers-boxes > div > div.water-box-title > a")
+        
         self.format_data()
         
     def sent_to_future(self):
