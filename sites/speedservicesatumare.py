@@ -5,19 +5,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class speedservicesatumareScrapper(BS4Scraper):
+class speedservicesatumareScraper(BS4Scraper):
     
     """
     A class for scraping job data from speedservicesatumare website.
     """
+    url = 'https://speedservicesatumare.ro/cariere/'
+    url_logo = 'https://speedservicesatumare.ro/wp-content/uploads/2018/03/logo-speed-service-satu-mare.png'
+    company_name = 'speedservicesatumare'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -37,7 +39,9 @@ class speedservicesatumareScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -49,10 +53,7 @@ class speedservicesatumareScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://speedservicesatumare.ro/cariere/'
-    URL_LOGO = 'https://speedservicesatumare.ro/wp-content/uploads/2018/03/logo-speed-service-satu-mare.png'
-    company_name = 'speedservicesatumare'
-    speedservicesatumare = speedservicesatumareScrapper(company_name, URL, URL_LOGO)
+    speedservicesatumare = speedservicesatumareScraper()
     speedservicesatumare.get_response()
     speedservicesatumare.scrape_jobs()
     speedservicesatumare.sent_to_future()

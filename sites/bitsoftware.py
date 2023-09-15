@@ -3,21 +3,23 @@
 #
 # BitSoftware > https://www.bitsoftware.eu/cariere-la-bitsoftware-solutii-software-de-business-erp-crm-bi-wms/
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
-class BitSoftwareScrapper(BS4Scraper):
+class BitSoftwareScraper(BS4Scraper):
     
     """
     A class for scraping job data from BitSoftware website.
     """
+    url = 'https://www.bitsoftware.eu/cariere-la-bitsoftware-solutii-software-de-business-erp-crm-bi-wms/'
+    url_logo = 'https://www.bitsoftware.eu/wp-content/uploads/BITSoftware-Entersoft-e1654160058138.png'
+    company_name = 'BitSoftware'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -34,7 +36,14 @@ class BitSoftwareScrapper(BS4Scraper):
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
 
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -42,16 +51,14 @@ class BitSoftwareScrapper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"{self.url}{job_url}#{self.job_count}"
-            self.create_jobs_dict(job_title, job_url, "Romania", "Bucuresti")
+            self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://www.bitsoftware.eu/cariere-la-bitsoftware-solutii-software-de-business-erp-crm-bi-wms/'
-    URL_LOGO = 'https://www.bitsoftware.eu/wp-content/uploads/BITSoftware-Entersoft-e1654160058138.png'
-    company_name = 'BitSoftware'
-    BitSoftware = BitSoftwareScrapper(company_name, URL, URL_LOGO)
+    BitSoftware = BitSoftwareScraper()
     BitSoftware.get_response()
     BitSoftware.scrape_jobs()
+    BitSoftware.sent_to_future()
     
     
 

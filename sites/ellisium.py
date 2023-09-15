@@ -5,19 +5,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class ellisiumScrapper(BS4Scraper):
+class ellisiumScraper(BS4Scraper):
     
     """
     A class for scraping job data from ellisium website.
     """
+    url = 'https://ellisium.ro/cariere/'
+    url_logo = 'https://ellisium.ro/wp-content/uploads/2022/08/Ellisium-vertical@4x-2048x1441.png.webp'
+    company_name = 'ellisium'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -37,7 +39,9 @@ class ellisiumScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -49,10 +53,7 @@ class ellisiumScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://ellisium.ro/cariere/'
-    URL_LOGO = 'https://ellisium.ro/wp-content/uploads/2022/08/Ellisium-vertical@4x-2048x1441.png.webp'
-    company_name = 'ellisium'
-    ellisium = ellisiumScrapper(company_name, URL, URL_LOGO)
+    ellisium = ellisiumScraper()
     ellisium.get_response()
     ellisium.scrape_jobs()
     ellisium.sent_to_future()

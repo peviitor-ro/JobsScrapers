@@ -6,17 +6,20 @@
 import requests
 from sites.website_scraper_api import WebsiteScraperAPI
 
-class htecgroupScrape(WebsiteScraperAPI):
+class htecgroupScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from htecgroup website.
     """
+    url = 'https://api.talentlyft.com/public/jswidget/54388e55-d1d7-4bc1-ab98-41a2c4e7aea4/jobs'
+    url_logo = 'https://htecgroup.com/wp-content/uploads/2023/05/vectorhtec-logo.svg'
+    company_name = 'htecgroup'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the WebsitescraperAPI class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
     
     def set_params(self):
         self.params = {
@@ -51,7 +54,10 @@ class htecgroupScrape(WebsiteScraperAPI):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.set_params()
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -62,10 +68,7 @@ class htecgroupScrape(WebsiteScraperAPI):
         
 
 if __name__ == "__main__":
-    URL = 'https://api.talentlyft.com/public/jswidget/54388e55-d1d7-4bc1-ab98-41a2c4e7aea4/jobs'
-    URL_LOGO = 'https://htecgroup.com/wp-content/uploads/2023/05/vectorhtec-logo.svg'
-    company_name = 'htecgroup'
-    htecgroup = htecgroupScrape(company_name, URL, URL_LOGO)
+    htecgroup = htecgroupScraper()
     htecgroup.set_params()
     htecgroup.get_response()
     htecgroup.scrape_jobs()

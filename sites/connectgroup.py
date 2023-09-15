@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class connectgroupScrapper(BS4Scraper):
+class connectgroupScraper(BS4Scraper):
     
     """
     A class for scraping job data from connectgroup website.
     """
+    url = 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB'
+    url_logo = 'https://www.connectgroup.com/images/logo-connectgroup.svg'
+    company_name = 'connectgroup'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -40,20 +42,19 @@ class connectgroupScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_country, job_url in zip(self.job_titles, self.job_countries, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, job_country, "Oradea")
+            self.create_jobs_dict(job_title, job_url, job_country.replace("Romania", "România"), "Oradea")
 
 if __name__ == "__main__":
-    URL = 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB'
-    URL_LOGO = 'https://www.connectgroup.com/images/logo-connectgroup.svg'
-    company_name = 'connectgroup'
-    connectgroup = connectgroupScrapper(company_name, URL, URL_LOGO)
+    connectgroup = connectgroupScraper()
     connectgroup.get_response()
     connectgroup.scrape_jobs()
     connectgroup.sent_to_future()

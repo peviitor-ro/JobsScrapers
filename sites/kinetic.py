@@ -5,19 +5,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class kineticScrapper(BS4Scraper):
+class kineticScraper(BS4Scraper):
     
     """
     A class for scraping job data from kinetic website.
     """
+    url = 'https://www.kinetic.ro/cariere/'
+    url_logo = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/kinetic.PNG'
+    company_name = 'kinetic'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class kineticScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -50,10 +54,7 @@ class kineticScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://www.kinetic.ro/cariere/'
-    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/kinetic.PNG'
-    company_name = 'kinetic'
-    kinetic = kineticScrapper(company_name, URL, URL_LOGO)
+    kinetic = kineticScraper()
     kinetic.get_response()
     kinetic.scrape_jobs()
     kinetic.sent_to_future()

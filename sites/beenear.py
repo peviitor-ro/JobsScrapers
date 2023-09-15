@@ -3,20 +3,22 @@
 #
 # Beenear > https://www.beenear.com/career/
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 
-class BeenearScrapper(BS4Scraper):
+class BeenearScraper(BS4Scraper):
     
     """
     A class for scraping job data from Beenear website.
     """
+    url = 'https://www.beenear.com/career/'
+    url_logo = 'https://beenear.com/wp-content/uploads/2020/07/logo.svg'
+    company_name = 'Beenear'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -33,23 +35,27 @@ class BeenearScrapper(BS4Scraper):
         
             
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            if job_title and job_url:
-                self.create_jobs_dict(job_title, job_url, "Romania", "Iasi")
+            self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
-    URL = 'https://www.beenear.com/career/'
-    URL_LOGO = 'https://beenear.com/wp-content/uploads/2020/07/logo.svg'
-    company_name = 'Beenear'
-    Beenear = BeenearScrapper(company_name, URL, URL_LOGO)
+    Beenear = BeenearScraper()
     Beenear.get_response()
     Beenear.scrape_jobs()
+    Beenear.sent_to_future()
     
     
 

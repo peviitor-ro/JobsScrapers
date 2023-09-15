@@ -6,21 +6,23 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class InterbrandsOrbicoScrapper(BS4Scraper):
+class InterbrandsOrbicoScraper(BS4Scraper):
     
     """
     A class for scraping job data from InterbrandsOrbico website.
     """
+    url = 'https://interbrandsorbico.recruitee.com/#section-72572'
+    url_logo = 'https://d27i7n2isjbnbi.cloudfront.net/careers/photos/270715/thumb_photo_1658741832.png'
+    company_name = 'InterbrandsOrbico'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.website_url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.website_url)
+        self.get_content(self.url)
     
     def scrape_jobs(self):
         """
@@ -50,7 +52,9 @@ class InterbrandsOrbicoScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -58,13 +62,12 @@ class InterbrandsOrbicoScrapper(BS4Scraper):
         """
         for job_title, job_url, job_city, job_country in zip(self.job_titles, self.job_urls, self.job_cities, self.job_countries):
             job_url = f"https://interbrandsorbico.recruitee.com{job_url}"
+            if job_country == "Romania":
+                job_country = "România"
             self.create_jobs_dict(job_title, job_url, job_country, job_city)
 
 if __name__ == "__main__":
-    URL = 'https://interbrandsorbico.recruitee.com/#section-72572'
-    URL_LOGO = 'https://d27i7n2isjbnbi.cloudfront.net/careers/photos/270715/thumb_photo_1658741832.png'
-    company_name = 'InterbrandsOrbico'
-    InterbrandsOrbico = InterbrandsOrbicoScrapper(company_name, URL, URL_LOGO)
+    InterbrandsOrbico = InterbrandsOrbicoScraper()
     InterbrandsOrbico.get_response()
     InterbrandsOrbico.scrape_jobs()
     InterbrandsOrbico.sent_to_future()

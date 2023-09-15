@@ -8,18 +8,20 @@ import requests
 import uuid
 from sites.website_scraper_api import WebsiteScraperAPI
 
-class NagarroScrape(WebsiteScraperAPI):
+class NagarroScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from Nagarro website.
     """
+    url = 'https://hiringautomation.table.core.windows.net/CareerSiteDim?sv=2019-02-02&se=2099-10-13T20%3A47%3A00Z&sp=r&sig=%2FTWLo6vw7gzgOiS9b5wchECIjqFaaaIPV8Rs55P0W98%3D&tn=CareerSiteDim&$select=Expertise,Job_Title,Job_City,Job_Country,Level_name,Value,Job_Url,Is_job_remote_friendly,is_multiple_experience_required,RowKey&$filter=Job_Country%20eq%20%27Romania%27'
+    url_logo = 'https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Images/Nagarro%20green%20logo%20with%20title_opt.svg'
+    company_name = 'Nagarro'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Defining de url, company name for the request and formatted data list for the jobs scrapped
         """
-        self.url = url
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
     
     def request_headers(self):
         """
@@ -49,7 +51,7 @@ class NagarroScrape(WebsiteScraperAPI):
         
         self.format_data()
         
-        print(self.job_urls, len(self.job_urls))
+        # print(self.job_urls, len(self.job_urls))
 
     def format_data(self):
         """
@@ -65,13 +67,13 @@ class NagarroScrape(WebsiteScraperAPI):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.request_headers()
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
 if __name__ == "__main__":
-    URL = 'https://hiringautomation.table.core.windows.net/CareerSiteDim?sv=2019-02-02&se=2099-10-13T20%3A47%3A00Z&sp=r&sig=%2FTWLo6vw7gzgOiS9b5wchECIjqFaaaIPV8Rs55P0W98%3D&tn=CareerSiteDim&$select=Expertise,Job_Title,Job_City,Job_Country,Level_name,Value,Job_Url,Is_job_remote_friendly,is_multiple_experience_required,RowKey&$filter=Job_Country%20eq%20%27Romania%27'
-    URL_LOGO = 'https://www.nagarro.com/hubfs/NagarroWebsiteRedesign-Aug2020/Assets/Images/Nagarro%20green%20logo%20with%20title_opt.svg'
-    company_name = 'Nagarro'
-    Nagarro = NagarroScrape(company_name, URL, URL_LOGO)
+    Nagarro = NagarroScraper()
     Nagarro.request_headers()
     Nagarro.get_response()
     Nagarro.scrape_jobs()

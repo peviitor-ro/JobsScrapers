@@ -6,19 +6,22 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class calcromScrapper(BS4Scraper):
+class calcromScraper(BS4Scraper):
     
     """
     A class for scraping job data from calcrom website.
     """
+    url = 'https://calcrom.ro/#careers'
+    url_logo = 'https://calcrom.ro/wp-content/uploads/2018/11/CalCrom_Logo_82.jpg'
+    company_name = 'calcrom'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -39,7 +42,9 @@ class calcromScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -51,10 +56,7 @@ class calcromScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://calcrom.ro/#careers'
-    URL_LOGO = 'https://calcrom.ro/wp-content/uploads/2018/11/CalCrom_Logo_82.jpg'
-    company_name = 'calcrom'
-    calcrom = calcromScrapper(company_name, URL, URL_LOGO)
+    calcrom = calcromScraper()
     calcrom.get_response()
     calcrom.scrape_jobs()
     calcrom.sent_to_future()

@@ -6,17 +6,20 @@
 import requests
 from sites.website_scraper_api import WebsiteScraperAPI
 
-class CreatopyScrape(WebsiteScraperAPI):
+class CreatopyScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from Creatopy website.
     """
+    url = 'https://creatopy.bamboohr.com/careers/list'
+    url_logo = 'https://images4.bamboohr.com/146133/logos/cropped.jpg?v=51'
+    company_name = 'Creatopy'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the WebsitescraperAPI class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
     
     def set_headers(self):
         self.headers = {
@@ -45,7 +48,10 @@ class CreatopyScrape(WebsiteScraperAPI):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.set_headers()
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -62,10 +68,7 @@ class CreatopyScrape(WebsiteScraperAPI):
         
 
 if __name__ == "__main__":
-    URL = 'https://creatopy.bamboohr.com/careers/list'
-    URL_LOGO = 'https://images4.bamboohr.com/146133/logos/cropped.jpg?v=51'
-    company_name = 'Creatopy'
-    Creatopy = CreatopyScrape(company_name, URL, URL_LOGO)
+    Creatopy = CreatopyScraper()
     Creatopy.set_headers()
     Creatopy.get_response()
     Creatopy.scrape_jobs()

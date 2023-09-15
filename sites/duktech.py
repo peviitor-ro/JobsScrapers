@@ -6,18 +6,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class duktechScrapper(BS4Scraper):
+class duktechScraper(BS4Scraper):
     
     """
     A class for scraping job data from duktech website.
     """
+    url = 'https://www.duk-tech.com/'
+    url_logo = 'https://imgcdn.bestjobs.eu/cdn/el/plain/employer_logo/5c59670789be5.png'
+    company_name = 'duktech'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class duktechScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -49,10 +53,7 @@ class duktechScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
-    URL = 'https://www.duk-tech.com/'
-    URL_LOGO = 'https://imgcdn.bestjobs.eu/cdn/el/plain/employer_logo/5c59670789be5.png'
-    company_name = 'duktech'
-    duktech = duktechScrapper(company_name, URL, URL_LOGO)
+    duktech = duktechScraper()
     duktech.get_response()
     duktech.scrape_jobs()
     duktech.sent_to_future()

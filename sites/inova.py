@@ -6,19 +6,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class inovagroupScrapper(BS4Scraper):
+class inovagroupScraper(BS4Scraper):
     
     """
     A class for scraping job data from inovagroup website.
     """
+    url = 'https://www.inova-group.ro/cariere/'
+    url_logo = 'https://www.inova-group.ro/wp-content/uploads/2018/01/logo-mediu-1.png'
+    company_name = 'inovagroup'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class inovagroupScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -50,10 +54,7 @@ class inovagroupScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://www.inova-group.ro/cariere/'
-    URL_LOGO = 'https://www.inova-group.ro/wp-content/uploads/2018/01/logo-mediu-1.png'
-    company_name = 'inovagroup'
-    inovagroup = inovagroupScrapper(company_name, URL, URL_LOGO)
+    inovagroup = inovagroupScraper()
     inovagroup.get_response()
     inovagroup.scrape_jobs()
     inovagroup.sent_to_future()

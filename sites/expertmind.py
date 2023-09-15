@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class expertmindScrapper(BS4Scraper):
+class expertmindScraper(BS4Scraper):
     
     """
     A class for scraping job data from expertmind website.
     """
+    url = 'https://www.expertmind.ro/companie/cariere/'
+    url_logo = 'https://www.expertmind.ro/wp-content/uploads/2022/06/LOGO-Expert-Mind-actualizat.jpeg'
+    company_name = 'expertmind'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -37,7 +39,9 @@ class expertmindScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -47,10 +51,7 @@ class expertmindScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", ['Iasi', 'Bucuresti'])
 
 if __name__ == "__main__":
-    URL = 'https://www.expertmind.ro/companie/cariere/'
-    URL_LOGO = 'https://www.expertmind.ro/wp-content/uploads/2022/06/LOGO-Expert-Mind-actualizat.jpeg'
-    company_name = 'expertmind'
-    expertmind = expertmindScrapper(company_name, URL, URL_LOGO)
+    expertmind = expertmindScraper()
     expertmind.get_response()
     expertmind.scrape_jobs()
     expertmind.sent_to_future()

@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class leierScrapper(BS4Scraper):
+class leierScraper(BS4Scraper):
     
     """
     A class for scraping job data from leier website.
     """
+    url = 'https://www.leier.ro/cariere/'
+    url_logo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc0aKksxn_ZPQOnyn9-dAc9KQkWMPWwG5d7cuYX8AUgGV0xIuDqAFpt14Q7b5yNwqHGAk'
+    company_name = 'leier'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -40,7 +42,9 @@ class leierScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -50,10 +54,7 @@ class leierScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
-    URL = 'https://www.leier.ro/cariere/'
-    URL_LOGO = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc0aKksxn_ZPQOnyn9-dAc9KQkWMPWwG5d7cuYX8AUgGV0xIuDqAFpt14Q7b5yNwqHGAk'
-    company_name = 'leier'
-    leier = leierScrapper(company_name, URL, URL_LOGO)
+    leier = leierScraper()
     leier.get_response()
     leier.scrape_jobs()
     leier.sent_to_future()

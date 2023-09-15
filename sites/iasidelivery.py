@@ -6,19 +6,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class iasideliveryScrapper(BS4Scraper):
+class iasideliveryScraper(BS4Scraper):
     
     """
     A class for scraping job data from iasidelivery website.
     """
+    url = 'https://iasi.delivery/cariere-horeca/'
+    url_logo = 'https://iasi.delivery/wp-content/uploads/2023/04/IasiDelivery_LOGO_HPositive-1.png'
+    company_name = 'iasidelivery'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -49,7 +51,9 @@ class iasideliveryScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -61,10 +65,7 @@ class iasideliveryScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://iasi.delivery/cariere-horeca/'
-    URL_LOGO = 'https://iasi.delivery/wp-content/uploads/2023/04/IasiDelivery_LOGO_HPositive-1.png'
-    company_name = 'iasidelivery'
-    iasidelivery = iasideliveryScrapper(company_name, URL, URL_LOGO)
+    iasidelivery = iasideliveryScraper()
     iasidelivery.get_response()
     iasidelivery.scrape_jobs()
     iasidelivery.sent_to_future()

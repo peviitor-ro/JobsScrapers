@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class NolimitsScrapper(BS4Scraper):
+class NolimitsScraper(BS4Scraper):
     
     """
     A class for scraping job data from Nolimits website.
     """
+    url = 'https://www.nolimits.ro/cariere.html'
+    url_logo = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/nolimits.PNG'
+    company_name = 'Nolimits'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -36,7 +38,9 @@ class NolimitsScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -46,10 +50,7 @@ class NolimitsScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, self.url, "România", "Satu Mare")
 
 if __name__ == "__main__":
-    URL = 'https://www.nolimits.ro/cariere.html'
-    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/nolimits.PNG'
-    company_name = 'Nolimits'
-    Nolimits = NolimitsScrapper(company_name, URL, URL_LOGO)
+    Nolimits = NolimitsScraper()
     Nolimits.get_response()
     Nolimits.scrape_jobs()
     Nolimits.sent_to_future()

@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class apavitalScrapper(BS4Scraper):
+class apavitalScraper(BS4Scraper):
     
     """
     A class for scraping job data from apavital website.
     """
+    url = 'https://www.apavital.ro/cariere'
+    url_logo = 'https://www.apavital.ro/assets/images/logo.png'
+    company_name = 'apavital'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -44,7 +46,9 @@ class apavitalScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -55,10 +59,7 @@ class apavitalScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
-    URL = 'https://www.apavital.ro/cariere'
-    URL_LOGO = 'https://www.apavital.ro/assets/images/logo.png'
-    company_name = 'apavital'
-    apavital = apavitalScrapper(company_name, URL, URL_LOGO)
+    apavital = apavitalScraper()
     apavital.get_response()
     apavital.scrape_jobs()
     apavital.sent_to_future()

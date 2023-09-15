@@ -6,18 +6,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class electraScrapper(BS4Scraper):
+class electraScraper(BS4Scraper):
     
     """
     A class for scraping job data from electra website.
     """
+    url = 'https://www.electra.ro/ro/cariere'
+    url_logo = 'https://www.electra.ro/images/layout/electra-logo.png'
+    company_name = 'electra'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,10 +40,12 @@ class electraScrapper(BS4Scraper):
 
     def sent_to_future(self):
         self.send_to_viitor()
-    
+        
     def return_data(self):
-        return self.formatted_data
-
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
+    
     def format_data(self):
         """
         Iterate over all job details and send to the create jobs dictionary.
@@ -51,10 +55,7 @@ class electraScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
-    URL = 'https://www.electra.ro/ro/cariere'
-    URL_LOGO = 'https://www.electra.ro/images/layout/electra-logo.png'
-    company_name = 'electra'
-    electra = electraScrapper(company_name, URL, URL_LOGO)
+    electra = electraScraper()
     electra.get_response()
     electra.scrape_jobs()
     electra.sent_to_future()

@@ -5,19 +5,22 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class saladboxScrapper(BS4Scraper):
+class saladboxScraper(BS4Scraper):
     
     """
     A class for scraping job data from saladbox website.
     """
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    url = 'https://saladbox.ro/ro/cariere'
+    url_logo = 'https://saladbox.ro/images/layout/logo.png'
+    company_name = 'saladbox'
+    
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -37,7 +40,9 @@ class saladboxScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -50,10 +55,7 @@ class saladboxScrapper(BS4Scraper):
 
 
 if __name__ == "__main__":
-    URL = 'https://saladbox.ro/ro/cariere'
-    URL_LOGO = 'https://saladbox.ro/images/layout/logo.png'
-    company_name = 'saladbox'
-    saladbox = saladboxScrapper(company_name, URL, URL_LOGO)
+    saladbox = saladboxScraper()
     saladbox.get_response()
     saladbox.scrape_jobs()
     saladbox.sent_to_future()

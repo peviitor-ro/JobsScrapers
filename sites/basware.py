@@ -4,22 +4,24 @@
 # basware > https://careers.basware.com/
 
 
-from website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_bs4 import BS4Scraper
 import subprocess
 import re
 
-class baswareScrapper(BS4Scraper):
+class baswareScraper(BS4Scraper):
     
     """
     A class for scraping job data from basware website.
     """
+    url = 'https://cdn.jobylon.com/jobs/company-groups/195/embed/v2/?target=jobylon-jobs-widget&page_size=200#'
+    url_logo = 'https://www.basware.com/assets/images/basware-logo.svg?v=1'
+    company_name = 'basware'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     # def get_response(self):
     #     self.get_content(self.url)
@@ -67,7 +69,8 @@ class baswareScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
     
     def format_data(self):
         """
@@ -75,13 +78,10 @@ class baswareScrapper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://emp.jobylon.com{job_url}"
-            self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
-    URL = 'https://cdn.jobylon.com/jobs/company-groups/195/embed/v2/?target=jobylon-jobs-widget&page_size=200#'
-    URL_LOGO = 'https://www.basware.com/assets/images/basware-logo.svg?v=1'
-    company_name = 'basware'
-    basware = baswareScrapper(company_name, URL, URL_LOGO)
+    basware = baswareScraper()
     basware.scrape_jobs()
     basware.sent_to_future()
     

@@ -6,19 +6,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class polipolmobilaScrapper(BS4Scraper):
+class polipolmobilaScraper(BS4Scraper):
     
     """
     A class for scraping job data from polipolmobila website.
     """
+    url = 'https://www.polipolmobila.ro/locuri-de-munca-disponibile/'
+    url_logo = 'https://www.polipolmobila.ro/media/images/web/logo.png'
+    company_name = 'polipolmobila'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class polipolmobilaScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -50,10 +54,7 @@ class polipolmobilaScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://www.polipolmobila.ro/locuri-de-munca-disponibile/'
-    URL_LOGO = 'https://www.polipolmobila.ro/media/images/web/logo.png'
-    company_name = 'polipolmobila'
-    polipolmobila = polipolmobilaScrapper(company_name, URL, URL_LOGO)
+    polipolmobila = polipolmobilaScraper()
     polipolmobila.get_response()
     polipolmobila.scrape_jobs()
     polipolmobila.sent_to_future()

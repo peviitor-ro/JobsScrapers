@@ -6,19 +6,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class typingdnaScrapper(BS4Scraper):
+class typingdnaScraper(BS4Scraper):
     
     """
     A class for scraping job data from typingdna website.
     """
+    url = 'https://www.typingdna.com/careers'
+    url_logo = 'https://www.typingdna.com/assets/images/typingdna-logo-blue.svg'
+    company_name = 'typingdna'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -42,7 +44,9 @@ class typingdnaScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -55,10 +59,7 @@ class typingdnaScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://www.typingdna.com/careers'
-    URL_LOGO = 'https://www.typingdna.com/assets/images/typingdna-logo-blue.svg'
-    company_name = 'typingdna'
-    typingdna = typingdnaScrapper(company_name, URL, URL_LOGO)
+    typingdna = typingdnaScraper()
     typingdna.get_response()
     typingdna.scrape_jobs()
     typingdna.sent_to_future()

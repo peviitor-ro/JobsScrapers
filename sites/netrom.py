@@ -6,18 +6,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class NetromScrapper(BS4Scraper):
+class NetromScraper(BS4Scraper):
     
     """
     A class for scraping job data from Netrom website.
     """
+    url = 'https://www.netromsoftware.ro/jobs'
+    url_logo = 'https://www.netromsoftware.ro/images/logo.png'
+    company_name = 'Netrom'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -39,7 +41,9 @@ class NetromScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -49,10 +53,7 @@ class NetromScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Craiova")
 
 if __name__ == "__main__":
-    URL = 'https://www.netromsoftware.ro/jobs'
-    URL_LOGO = 'https://www.netromsoftware.ro/images/logo.png'
-    company_name = 'Netrom'
-    Netrom = NetromScrapper(company_name, URL, URL_LOGO)
+    Netrom = NetromScraper()
     Netrom.get_response()
     Netrom.scrape_jobs()
     Netrom.sent_to_future()

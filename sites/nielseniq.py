@@ -6,18 +6,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class nielseniqScrapper(BS4Scraper):
+class nielseniqScraper(BS4Scraper):
     
     """
     A class for scraping job data from nielseniq website.
     """
+    url = 'https://nielseniq.com/?s=&market=global&language=en&orderby=&order=&post_type=career_job&job_locations=romania&job_teams=&job_types='
+    url_logo = 'https://c.smartrecruiters.com/sr-company-images-prod-aws-dc5/5f20077aa2b8ac7a5a26cb93/c83a18a7-1926-4be1-9572-10cc0fbdc9b3/huge?r=s3-eu-central-1&_1677595339802'
+    company_name = 'nielseniq'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -41,7 +43,9 @@ class nielseniqScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -51,10 +55,7 @@ class nielseniqScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
-    URL = 'https://nielseniq.com/?s=&market=global&language=en&orderby=&order=&post_type=career_job&job_locations=romania&job_teams=&job_types='
-    URL_LOGO = 'https://c.smartrecruiters.com/sr-company-images-prod-aws-dc5/5f20077aa2b8ac7a5a26cb93/c83a18a7-1926-4be1-9572-10cc0fbdc9b3/huge?r=s3-eu-central-1&_1677595339802'
-    company_name = 'nielseniq'
-    nielseniq = nielseniqScrapper(company_name, URL, URL_LOGO)
+    nielseniq = nielseniqScraper()
     nielseniq.get_response()
     nielseniq.scrape_jobs()
     nielseniq.sent_to_future()

@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class velpitarScrapper(BS4Scraper):
+class velpitarScraper(BS4Scraper):
     
     """
     A class for scraping job data from velpitar website.
     """
+    url = 'https://velpitar.ro/cariere-vel-pitar/'
+    url_logo = 'https://velpitar.ro/wp-content/uploads/2023/05/cropped-Backup_of_Sigla-Finala-fara-spate-CMYK.png'
+    company_name = 'velpitar'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class velpitarScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -48,10 +52,7 @@ class velpitarScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
-    URL = 'https://velpitar.ro/cariere-vel-pitar/'
-    URL_LOGO = 'https://velpitar.ro/wp-content/uploads/2023/05/cropped-Backup_of_Sigla-Finala-fara-spate-CMYK.png'
-    company_name = 'velpitar'
-    velpitar = velpitarScrapper(company_name, URL, URL_LOGO)
+    velpitar = velpitarScraper()
     velpitar.get_response()
     velpitar.scrape_jobs()
     velpitar.sent_to_future()

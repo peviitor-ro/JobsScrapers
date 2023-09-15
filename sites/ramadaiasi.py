@@ -5,19 +5,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class ramadaiasiScrapper(BS4Scraper):
+class ramadaiasiScraper(BS4Scraper):
     
     """
     A class for scraping job data from ramadaiasi website.
     """
+    url = 'http://www.ramadaiasi.ro/cariere/'
+    url_logo = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/ramadaiasi.png'
+    company_name = 'ramadaiasi'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -37,7 +39,9 @@ class ramadaiasiScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -49,10 +53,7 @@ class ramadaiasiScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'http://www.ramadaiasi.ro/cariere/'
-    URL_LOGO = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/ramadaiasi.png'
-    company_name = 'ramadaiasi'
-    ramadaiasi = ramadaiasiScrapper(company_name, URL, URL_LOGO)
+    ramadaiasi = ramadaiasiScraper()
     ramadaiasi.get_response()
     ramadaiasi.scrape_jobs()
     ramadaiasi.sent_to_future()

@@ -6,17 +6,20 @@
 import requests
 from sites.website_scraper_api import WebsiteScraperAPI
 
-class kimballelectronicsScrape(WebsiteScraperAPI):
+class kimballelectronicsScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from kimballelectronics website.
     """
+    url = 'https://kei.wd1.myworkdayjobs.com/wday/cxs/kei/GlobalKimballCareers/jobs'
+    url_logo = 'https://www.kimballelectronics.com/images/default-source/default-album/logo97f9e1ec-d733-4299-b1b1-6cf4691c0ecc.png?sfvrsn=45be445e_2'
+    company_name = 'kimballelectronics'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the WebsitescraperAPI class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
     
     def set_headers(self):
         self.headers = {
@@ -54,7 +57,11 @@ class kimballelectronicsScrape(WebsiteScraperAPI):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.set_headers()
+        self.set_json_data()
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -66,10 +73,7 @@ class kimballelectronicsScrape(WebsiteScraperAPI):
         
 
 if __name__ == "__main__":
-    URL = 'https://kei.wd1.myworkdayjobs.com/wday/cxs/kei/GlobalKimballCareers/jobs'
-    URL_LOGO = 'https://www.kimballelectronics.com/images/default-source/default-album/logo97f9e1ec-d733-4299-b1b1-6cf4691c0ecc.png?sfvrsn=45be445e_2'
-    company_name = 'kimballelectronics'
-    kimballelectronics = kimballelectronicsScrape(company_name, URL, URL_LOGO)
+    kimballelectronics = kimballelectronicsScraper()
     kimballelectronics.set_headers()
     kimballelectronics.set_json_data()
     kimballelectronics.get_response()

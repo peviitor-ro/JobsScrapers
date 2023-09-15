@@ -4,19 +4,22 @@
 # CGM > https://cgm.wd3.myworkdayjobs.com/cgm?q=iasi&locationCountry=f2e609fe92974a55a05fc1cdc2852122
 
 import requests
-from website_scraper_api import WebsiteScraperAPI
+from sites.website_scraper_api import WebsiteScraperAPI
 
-class CGMScrape(WebsiteScraperAPI):
+class CGMScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from CGM website.
     """
+    url = 'https://cgm.wd3.myworkdayjobs.com/wday/cxs/cgm/cgm/jobs'
+    url_logo = 'https://www.cgm.com/_Resources/Static/Packages/Cgm.CgmCom/Assets/Icons/Logo/cgm-logo-large-376.png?bust=bf948c66'
+    company_name = 'CGM'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the WebsitescraperAPI class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
     
     def set_headers(self):
         self.headers = {
@@ -50,7 +53,16 @@ class CGMScrape(WebsiteScraperAPI):
         self.job_cities = self.get_job_details(['locationsText'])
         self.job_urls = self.get_job_details(['externalPath'])
         self.format_data()
+        
+    def sent_to_future(self):
         self.send_to_viitor()
+    
+    def return_data(self):
+        self.set_headers()
+        self.set_json_data()
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -58,16 +70,13 @@ class CGMScrape(WebsiteScraperAPI):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://cgm.wd3.myworkdayjobs.com/en-US/cgm{job_url}"
-            if job_url and job_title and job_city:
-                self.create_jobs_dict(job_title, job_url, "Romania", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
         
 
 if __name__ == "__main__":
-    URL = 'https://cgm.wd3.myworkdayjobs.com/wday/cxs/cgm/cgm/jobs'
-    URL_LOGO = 'https://www.cgm.com/_Resources/Static/Packages/Cgm.CgmCom/Assets/Icons/Logo/cgm-logo-large-376.png?bust=bf948c66'
-    company_name = 'CGM'
-    CGM = CGMScrape(company_name, URL, URL_LOGO)
+    CGM = CGMScraper()
     CGM.set_headers()
     CGM.set_json_data()
     CGM.get_response()
     CGM.scrape_jobs()
+    CGM.sent_to_future()

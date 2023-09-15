@@ -5,19 +5,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class urbioScrapper(BS4Scraper):
+class urbioScraper(BS4Scraper):
     
     """
     A class for scraping job data from urbio website.
     """
+    url = 'https://urbio-romania.ro/cariere/#1662454401930-ce44399a-786c'
+    url_logo = 'https://urbio-romania.ro/wp-content/uploads/2022/11/urbio-logo.svg'
+    company_name = 'urbio'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -39,7 +41,9 @@ class urbioScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -51,10 +55,7 @@ class urbioScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://urbio-romania.ro/cariere/#1662454401930-ce44399a-786c'
-    URL_LOGO = 'https://urbio-romania.ro/wp-content/uploads/2022/11/urbio-logo.svg'
-    company_name = 'urbio'
-    urbio = urbioScrapper(company_name, URL, URL_LOGO)
+    urbio = urbioScraper()
     urbio.get_response()
     urbio.scrape_jobs()
     urbio.sent_to_future()

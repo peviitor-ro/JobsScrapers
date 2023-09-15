@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class signalidunaScrapper(BS4Scraper):
+class signalidunaScraper(BS4Scraper):
     
     """
     A class for scraping job data from signaliduna website.
     """
+    url = 'https://www.signal-iduna.ro/cariere'
+    url_logo = 'https://www.signal-iduna.ro/images/og_image_v1.jpg'
+    company_name = 'signaliduna'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class signalidunaScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -48,10 +52,7 @@ class signalidunaScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
 
 if __name__ == "__main__":
-    URL = 'https://www.signal-iduna.ro/cariere'
-    URL_LOGO = 'https://www.signal-iduna.ro/images/og_image_v1.jpg'
-    company_name = 'signaliduna'
-    signaliduna = signalidunaScrapper(company_name, URL, URL_LOGO)
+    signaliduna = signalidunaScraper()
     signaliduna.get_response()
     signaliduna.scrape_jobs()
     signaliduna.sent_to_future()

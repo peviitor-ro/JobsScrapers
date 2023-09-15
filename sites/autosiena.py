@@ -6,19 +6,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class autosienaScrapper(BS4Scraper):
+class autosienaScraper(BS4Scraper):
     
     """
     A class for scraping job data from autosiena website.
     """
+    url = 'https://autosiena.ro/cariera/'
+    url_logo = 'https://autosiena.ro/wp-content/uploads/autosiena-300.svg'
+    company_name = 'autosiena'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
         self.job_count = 1
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class autosienaScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -50,10 +54,7 @@ class autosienaScrapper(BS4Scraper):
             self.job_count += 1
 
 if __name__ == "__main__":
-    URL = 'https://autosiena.ro/cariera/'
-    URL_LOGO = 'https://autosiena.ro/wp-content/uploads/autosiena-300.svg'
-    company_name = 'autosiena'
-    autosiena = autosienaScrapper(company_name, URL, URL_LOGO)
+    autosiena = autosienaScraper()
     autosiena.get_response()
     autosiena.scrape_jobs()
     autosiena.sent_to_future()

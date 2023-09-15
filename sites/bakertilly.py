@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class bakertillyScrapper(BS4Scraper):
+class bakertillyScraper(BS4Scraper):
     
     """
     A class for scraping job data from bakertilly website.
     """
+    url = 'https://www.bakertilly.ro/careers/job-openings/'
+    url_logo = 'https://www.bakertilly.ro/wp-content/uploads/2019/08/BK-Logoweb.jpg'
+    company_name = 'bakertilly'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -37,7 +39,9 @@ class bakertillyScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -52,10 +56,7 @@ class bakertillyScrapper(BS4Scraper):
             #     self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
 
 if __name__ == "__main__":
-    URL = 'https://www.bakertilly.ro/careers/job-openings/'
-    URL_LOGO = 'https://www.bakertilly.ro/wp-content/uploads/2019/08/BK-Logoweb.jpg'
-    company_name = 'bakertilly'
-    bakertilly = bakertillyScrapper(company_name, URL, URL_LOGO)
+    bakertilly = bakertillyScraper()
     bakertilly.get_response()
     bakertilly.scrape_jobs()
     bakertilly.sent_to_future()

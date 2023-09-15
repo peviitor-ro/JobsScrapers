@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class titanmachineryScrapper(BS4Scraper):
+class titanmachineryScraper(BS4Scraper):
     
     """
     A class for scraping job data from titanmachinery website.
     """
+    url = 'https://www.titanmachinery.ro/en/pag/careers?page='
+    url_logo = 'https://www.titanmachinery.ro/images/default_image_categories.png'
+    company_name = 'titanmachinery'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -82,9 +84,10 @@ class titanmachineryScrapper(BS4Scraper):
     def sent_to_future(self):
         self.send_to_viitor()
         
-    
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -99,10 +102,7 @@ class titanmachineryScrapper(BS4Scraper):
             passed_urls.append(job_url)
 
 if __name__ == "__main__":
-    URL = 'https://www.titanmachinery.ro/en/pag/careers?page='
-    URL_LOGO = 'https://www.titanmachinery.ro/images/default_image_categories.png'
-    company_name = 'titanmachinery'
-    titanmachinery = titanmachineryScrapper(company_name, URL, URL_LOGO)
+    titanmachinery = titanmachineryScraper()
     titanmachinery.get_response()
     titanmachinery.scrape_jobs()
     titanmachinery.sent_to_future()

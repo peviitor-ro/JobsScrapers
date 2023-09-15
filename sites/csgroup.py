@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class CSGroupScrapper(BS4Scraper):
+class CSGroupScraper(BS4Scraper):
     
     """
     A class for scraping job data from CSGroup website.
     """
+    url = 'https://www.c-s.ro/careers/jobs/'
+    url_logo = 'https://www.c-s.ro/wp-content/uploads/2018/04/cropped-CS-Group-ROMANIA-227x103.png'
+    company_name = 'CSGroup'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -38,7 +40,9 @@ class CSGroupScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -48,10 +52,7 @@ class CSGroupScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Craiova")
 
 if __name__ == "__main__":
-    URL = 'https://www.c-s.ro/careers/jobs/'
-    URL_LOGO = 'https://www.c-s.ro/wp-content/uploads/2018/04/cropped-CS-Group-ROMANIA-227x103.png'
-    company_name = 'CSGroup'
-    CSGroup = CSGroupScrapper(company_name, URL, URL_LOGO)
+    CSGroup = CSGroupScraper()
     CSGroup.get_response()
     CSGroup.scrape_jobs()
     CSGroup.sent_to_future()

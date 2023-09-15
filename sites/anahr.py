@@ -5,18 +5,20 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class anahrScrapper(BS4Scraper):
+class anahrScraper(BS4Scraper):
     
     """
     A class for scraping job data from anahr website.
     """
+    url = 'https://anahr.ro/domenii/joburi-pe-domenii/page/'
+    url_logo = 'https://anahr.ro/wp-content/uploads/2023/01/logo-01.svg'
+    company_name = 'anahr'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -49,7 +51,9 @@ class anahrScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -59,10 +63,7 @@ class anahrScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Oradea")
 
 if __name__ == "__main__":
-    URL = 'https://anahr.ro/domenii/joburi-pe-domenii/page/'
-    URL_LOGO = 'https://anahr.ro/wp-content/uploads/2023/01/logo-01.svg'
-    company_name = 'anahr'
-    anahr = anahrScrapper(company_name, URL, URL_LOGO)
+    anahr = anahrScraper()
     anahr.get_response()
     anahr.scrape_jobs()
     anahr.sent_to_future()

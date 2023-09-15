@@ -6,17 +6,20 @@
 import requests
 from sites.website_scraper_api import WebsiteScraperAPI
 
-class sephoraScrape(WebsiteScraperAPI):
+class sephoraScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from sephora website.
     """
+    url = 'https://www.inside-sephora.com/api/proxy/sap/search'
+    url_logo = 'https://bucurestimall.ro/wp-content/uploads/2016/12/sephora_logo_1024x.png'
+    company_name = 'sephora'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the WebsitescraperAPI class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
     
     def set_headers(self):
         self.headers = {
@@ -59,7 +62,11 @@ class sephoraScrape(WebsiteScraperAPI):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.set_headers()
+        self.set_params()
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -71,10 +78,7 @@ class sephoraScrape(WebsiteScraperAPI):
         
 
 if __name__ == "__main__":
-    URL = 'https://www.inside-sephora.com/api/proxy/sap/search'
-    URL_LOGO = 'https://bucurestimall.ro/wp-content/uploads/2016/12/sephora_logo_1024x.png'
-    company_name = 'sephora'
-    sephora = sephoraScrape(company_name, URL, URL_LOGO)
+    sephora = sephoraScraper()
     sephora.set_headers()
     sephora.set_params()
     sephora.get_response()

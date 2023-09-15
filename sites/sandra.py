@@ -5,18 +5,21 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class sandraScrapper(BS4Scraper):
+class sandraScraper(BS4Scraper):
     
     """
     A class for scraping job data from sandra website.
     """
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    url = 'https://www.sandra.ro/job-uri'
+    url_logo = 'https://www.sandra.ro/@@poi.imageproxy/dee829ad349d413cb021a58367333415/dealer-logo.svg'
+    company_name = 'sandra'
+    
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
         self.get_content(self.url)
@@ -41,7 +44,9 @@ class sandraScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -51,10 +56,7 @@ class sandraScrapper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
-    URL = 'https://www.sandra.ro/job-uri'
-    URL_LOGO = 'https://www.sandra.ro/@@poi.imageproxy/dee829ad349d413cb021a58367333415/dealer-logo.svg'
-    company_name = 'sandra'
-    sandra = sandraScrapper(company_name, URL, URL_LOGO)
+    sandra = sandraScraper()
     sandra.get_response()
     sandra.scrape_jobs()
     sandra.send_to_viitor()

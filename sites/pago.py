@@ -6,21 +6,23 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class PagoScrapper(BS4Scraper):
+class PagoScraper(BS4Scraper):
     
     """
     A class for scraping job data from Pago website.
     """
+    url = 'https://pago.ro/#section-13'
+    url_logo = 'https://besticon-demo.herokuapp.com/lettericons/P-120-6a4397.png'
+    company_name = 'Pago'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.website_url = url
-        super().__init__(company_name, company_logo_url)
+        super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.website_url)
+        self.get_content(self.url)
     
     def scrape_jobs(self):
         """
@@ -50,7 +52,9 @@ class PagoScrapper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.get_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -58,14 +62,10 @@ class PagoScrapper(BS4Scraper):
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             job_url = f"https://pago.ro/{job_url}"
-            if job_title and job_city and job_url:
-                self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
-    URL = 'https://pago.ro/#section-13'
-    URL_LOGO = 'https://besticon-demo.herokuapp.com/lettericons/P-120-6a4397.png'
-    company_name = 'Pago'
-    Pago = PagoScrapper(company_name, URL, URL_LOGO)
+    Pago = PagoScraper()
     Pago.get_response()
     Pago.scrape_jobs()
     Pago.sent_to_future()

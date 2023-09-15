@@ -7,17 +7,20 @@ import requests
 from sites.website_scraper_api import WebsiteScraperAPI
 import subprocess
 
-class nokiaScrape(WebsiteScraperAPI):
+class nokiaScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from nokia website.
     """
+    url = 'https://careers.nokia.com/ajax/content/job_results'
+    url_logo = 'https://www.nokia.com/themes/custom/onenokia_reskin/logo.svg'
+    company_name = 'nokia'
     
-    def __init__(self, company_name: str, url: str, company_logo_url: str):
+    def __init__(self):
         """
         Initialize the WebsitescraperAPI class.
         """
-        super().__init__(company_name, url, company_logo_url)
+        super().__init__(self.company_name, self.url, self.url_logo)
         
     
     def set_headers(self):
@@ -127,7 +130,11 @@ class nokiaScrape(WebsiteScraperAPI):
         self.send_to_viitor()
     
     def return_data(self):
-        return self.formatted_data
+        self.set_headers()
+        self.set_cookies()
+        self.post_response()
+        self.scrape_jobs()
+        return self.formatted_data, self.company_name
 
     def format_data(self):
         """
@@ -138,10 +145,7 @@ class nokiaScrape(WebsiteScraperAPI):
         
 
 if __name__ == "__main__":
-    URL = 'https://careers.nokia.com/ajax/content/job_results'
-    URL_LOGO = 'https://www.nokia.com/themes/custom/onenokia_reskin/logo.svg'
-    company_name = 'nokia'
-    nokia = nokiaScrape(company_name, URL, URL_LOGO)
+    nokia = nokiaScraper()
     nokia.set_headers()
     nokia.set_cookies()
     nokia.post_response()
