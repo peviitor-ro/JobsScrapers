@@ -11,7 +11,7 @@ class SetupTests:
         # for module_name, class_name in zip(module_names, class_names):
         for module_name, class_name in module_names.items():
             try:
-                module = importlib.import_module(f"sites2.{module_name}")
+                module = importlib.import_module(f"sites.{module_name}")
                 class_obj = getattr(module, class_name)
                 scraper_classes.append(class_obj)
                 print(f"Imported class {class_name} from module {module_name}")
