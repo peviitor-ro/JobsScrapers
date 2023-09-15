@@ -40,4 +40,4 @@ jobs:
         python3 sites/script_runner.py
         
     - name: Run pytest
-      run: pytest -v
+      run: pytest -vv
