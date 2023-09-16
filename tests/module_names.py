@@ -83,6 +83,7 @@ module_names = {
             'anahr': 'anahrScraper',
             'allengra': 'allengraScraper',
             'aeroportoradea': 'aeroportoradeaScraper',
+            'ppromania': 'ppromaniaScraper',
             
             # Add more module names as needed
             }
