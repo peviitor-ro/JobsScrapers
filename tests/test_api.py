@@ -34,6 +34,7 @@ class TestScrapers:
     def scraper_class(self, request):
         return request.param
     
+    @pytest.mark.regression
     def test_scrapers(self, scraper_class):
         setup_tests = SetupTests()
         setup_tests.get_jobs_careers(scraper_class)
