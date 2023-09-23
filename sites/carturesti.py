@@ -32,9 +32,9 @@ class carturestiScraper(BS4Scraper):
         job_location_elements = self.get_jobs_elements('css_', 'tr:nth-child(2) > td:nth-child(2)')
         job_url_elements = self.get_jobs_elements('class_', 'job-button')
         
-        self.job_titles = self.get_jobs_details_text(job_title_elements)[:-1]
+        self.job_titles = self.get_jobs_details_text(job_title_elements)
         self.job_cities = self.get_jobs_details_text(job_location_elements)
-        self.job_urls = self.get_jobs_details_tag('onclick', job_url_elements)[:-1]
+        self.job_urls = self.get_jobs_details_tag('onclick', job_url_elements)
 
         self.format_data()
         
