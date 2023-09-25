@@ -37,4 +37,4 @@ jobs:
 
     - name: Run pytest
       continue-on-error: true
-      run: pytest -vv
+      run: pytest -m regression -vv
