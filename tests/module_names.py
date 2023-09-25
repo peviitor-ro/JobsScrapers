@@ -87,6 +87,7 @@ module_names = {
             'expresscredit': 'expresscreditScraper',
             'arcadiamedical': 'arcadiamedicalScraper',
             'mennekes': 'mennekesScraper',
+            'sinaps': 'sinapsScraper',
             
             # Add more module names as needed
             }
