@@ -90,6 +90,7 @@ module_names = {
             'sinaps': 'sinapsScraper',
             'affidearomania': 'affidearomaniaScraper',
             'pimcopy': 'pimcopyScraper',
+            'canopy': 'canopyScraper',
             
             # Add more module names as needed
             }
