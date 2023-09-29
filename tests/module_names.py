@@ -91,6 +91,7 @@ module_names = {
             'affidearomania': 'affidearomaniaScraper',
             'pimcopy': 'pimcopyScraper',
             'canopy': 'canopyScraper',
+            'dentesse': 'dentesseScraper',
             
             # Add more module names as needed
             }
