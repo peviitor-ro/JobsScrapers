@@ -92,6 +92,7 @@ module_names = {
             'pimcopy': 'pimcopyScraper',
             'canopy': 'canopyScraper',
             'dentesse': 'dentesseScraper',
+            'verla': 'verlaScraper',
             
             # Add more module names as needed
             }
