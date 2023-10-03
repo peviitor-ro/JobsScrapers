@@ -93,6 +93,7 @@ module_names = {
             'canopy': 'canopyScraper',
             'dentesse': 'dentesseScraper',
             'verla': 'verlaScraper',
+            'eurotech': 'eurotechScraper',
             
             # Add more module names as needed
             }
