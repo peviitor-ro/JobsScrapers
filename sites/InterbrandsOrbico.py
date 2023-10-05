@@ -29,9 +29,9 @@ class InterbrandsOrbicoScraper(BS4Scraper):
         Scrape job data from InterbrandsOrbico website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', "title")
-        locations = self.get_jobs_elements('css_', "li[class='location']")
-        job_urls = self.get_jobs_elements('class_', "col-md-6")
+        job_titles_elements = self.get_jobs_elements('class_', "sc-6exb5d-1 dLpFZe")
+        locations = self.get_jobs_elements('class_', "custom-css-style-job-location")
+        job_urls = self.get_jobs_elements('class_', "sc-s03za1-0 iCILJS")
         
         job_cities = self.get_jobs_details_text(locations)
         job_countries = self.get_jobs_details_text(locations)
