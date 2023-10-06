@@ -1,6 +1,7 @@
 import uuid
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
+import json
 
 
 # Work in progress this might change significant during the creation of the following scrappers, might need further testing and improvements
@@ -69,3 +70,4 @@ class WebsiteScraperAPI:
         api_load = UpdatePeviitorAPI(self.company_name, self.formatted_data)
         api_load()
         update_logo(self.company_name, self.logo_url)
+        print(json.dumps(self.formatted_data, indent=4, sort_keys=True))
