@@ -32,6 +32,7 @@ if __name__ == "__main__":
                'website_scraper_api.py',
                'website_scraper_bs4.py',
                'website_scraper_selenium.py',
+               'sephora',
                'test.py'
                 ]
 
