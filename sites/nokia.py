@@ -1,7 +1,7 @@
 #
 #
 #
-# nokia > https://careers.nokia.com/ajax/content/job_results
+# nokia > https://careers.nokia.com/jobs/search/40601155
 
 import requests
 from sites.website_scraper_api import WebsiteScraperAPI
