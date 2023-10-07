@@ -12,7 +12,7 @@ class NetromScraper(BS4Scraper):
     A class for scraping job data from Netrom website.
     """
     url = 'https://www.netromsoftware.ro/jobs'
-    url_logo = 'https://www.netromsoftware.ro/images/logo.png'
+    url_logo = 'https://www.icelakecapital.com/wp-content/uploads/2019/01/netrom-logo-clean.png'
     company_name = 'Netrom'
     
     def __init__(self):
