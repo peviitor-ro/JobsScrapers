@@ -26,22 +26,22 @@ class nokiaScraper(WebsiteScraperAPI):
     def set_headers(self):
         self.headers = {
         'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Referer': 'https://careers.nokia.com/jobs/search/39325305',
-        'tss-token': 'HZlgnlrLqWDc1YipgHq3kjs4hK6aK24GxivyinAF1zw=',
+        'Referer': 'https://careers.nokia.com/jobs/search/40601155',
+        'tss-token': 'bC9QdKulsUsqxUxRAjywuSS6iqoVfCHhb0Fy0hbJcm8=',
         }
         
     def set_params(self, page_index): 
         self.params = {
-        'JobSearch.id': '39325305',
+        'JobSearch.id': '40601155',
         'page_index': page_index,
         'site-name': 'default1784',
         'include_site': 'true',
-        'uid': '289',
+        'uid': '857',
         }
     
     def set_cookies(self):
         self.cookies = {
-        'ORA_OTSS_SESSION_ID': 'fd6e440660b66b8a42ce652a44ef4c2cb934a0c3927b163c191c5aa1252a49ca.aluperf.frprapq11308.tee.taleocloud.net'
+        'ORA_OTSS_SESSION_ID': '7b05bca5b1e7a3ca264ec7d36b440c38b8d06f5dd00adf823f4b5ff82bbac101.aluperf.frprapq11308.tee.taleocloud.net'
         }
         
     def post_response(self):
