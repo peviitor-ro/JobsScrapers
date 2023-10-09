@@ -33,7 +33,7 @@ class aeroportoradeaScraper(BS4Scraper):
         job_title_elements = self.get_jobs_elements('css_', "#article-101 > div > h3")
         job_url_elements = self.get_jobs_elements('css_', "#article-101 > div > div > span > a")
         
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
+        self.job_titles = [job_title for job_title in self.get_jobs_details_text(job_title_elements) if job_title != '']
         self.job_urls = self.get_jobs_details_href(job_url_elements)[::3]
 
         self.format_data()
