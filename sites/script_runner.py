@@ -34,7 +34,7 @@ if __name__ == "__main__":
                'website_scraper_selenium.py',
                'sephora',
                'zucchetti',
-               'reinest'
+               'reinest',
                'test.py'
                 ]
 
