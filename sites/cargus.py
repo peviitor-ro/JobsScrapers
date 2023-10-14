@@ -28,9 +28,9 @@ class CargusScraper(BS4Scraper):
         Scrape job data from Cargus website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', 'div.jobOpis > p:nth-child(1) > strong')
-        job_cities_elements = self.get_jobs_elements('css_', 'div.jobInfo > p:nth-child(2)')
-        job_urls_elements = self.get_jobs_elements('css_', "a[class='btn1']")
+        job_titles_elements = self.get_jobs_elements('css_', 'div > h3')
+        job_cities_elements = self.get_jobs_elements('css_', 'div > h2 > strong > mark')
+        job_urls_elements = self.get_jobs_elements('css_', "div > div > div > div > div > div > a")[2:]
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_cities = self.get_jobs_details_text(job_cities_elements)
@@ -51,7 +51,7 @@ class CargusScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Național", "Romania"))
 
 if __name__ == "__main__":
     Cargus = CargusScraper()
