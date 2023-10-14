@@ -55,7 +55,7 @@ class panifcomScraper(BS4Scraper):
             job_title = job_title.replace("Căutăm ", "").replace("pentru ", "").replace("din ", "").replace("din ", "").replace("magazinele ", "").replace("noastre ", "").replace("personal", "").replace("postul", "").replace("de ", "").replace(",", "").replace(job_city, "").replace("  ", "")
             
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title[:-1], job_url, "România", job_city)
+            self.create_jobs_dict(job_title[:-2], job_url, "România", job_city)
             self.job_count += 1
 
 if __name__ == "__main__":
