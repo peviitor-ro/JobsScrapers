@@ -52,7 +52,7 @@ class aeroportoradeaScraper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = "https://www.aeroportoradea.ro" + job_url.replace(" ", "%20") + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title.split("-")[0], job_url, "România", "Oradea")
+            self.create_jobs_dict(job_title.split("-")[0][:-1], job_url, "România", "Oradea")
             self.job_count += 1
 
 if __name__ == "__main__":
