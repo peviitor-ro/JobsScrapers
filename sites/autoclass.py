@@ -50,7 +50,7 @@ class autoclassScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title[1:], job_url, "România", "Satu Mare")
+            self.create_jobs_dict(job_title[2:], job_url, "România", "Satu Mare")
             self.job_count += 1
 
 if __name__ == "__main__":
