@@ -34,6 +34,7 @@ class trencadisScraper(BS4Scraper):
         self.job_urls = self.get_jobs_details_href(job_elements)
 
         self.format_data()
+        print(self.job_urls, len(self.job_urls))
         
     def sent_to_future(self):
         self.send_to_viitor()
@@ -48,7 +49,7 @@ class trencadisScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
+            self.create_jobs_dict(job_title, job_url.replace(" ", "%20"), "România", "Bucuresti")
 
 if __name__ == "__main__":
     trencadis = trencadisScraper()

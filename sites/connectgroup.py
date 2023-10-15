@@ -34,9 +34,10 @@ class connectgroupScraper(BS4Scraper):
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)[:-1]
         self.job_countries = self.get_jobs_details_text(job_countries_elements)[:-1]
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)[:-1]
+        self.job_urls = [job_url.replace("ë", "%C3%AB") for job_url in self.get_jobs_details_href(job_urls_elements)[:-1]]
 
         self.format_data()
+        print(self.job_urls, len(self.job_urls))
         
     def sent_to_future(self):
         self.send_to_viitor()
