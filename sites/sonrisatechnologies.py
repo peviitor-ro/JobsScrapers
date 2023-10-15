@@ -29,7 +29,7 @@ class sonrisatechnologiesScraper(BS4Scraper):
         """
 
         job_titles_elements = self.get_jobs_elements('class_', 'text-block-base-link sm:min-w-[25%] sm:truncate company-link-style')
-        job_urls_elements = self.get_jobs_elements('css_', "#jobs > div > ul > li > a")
+        job_urls_elements = self.get_jobs_elements('class_', "hover:bg-block-base-text hover:bg-opacity-3 flex flex-col sm:flex-row justify-between items-center py-4 px-6")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_urls = self.get_jobs_details_href(job_urls_elements)

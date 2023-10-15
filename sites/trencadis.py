@@ -34,7 +34,6 @@ class trencadisScraper(BS4Scraper):
         self.job_urls = self.get_jobs_details_href(job_elements)
 
         self.format_data()
-        print(self.job_urls, len(self.job_urls))
         
     def sent_to_future(self):
         self.send_to_viitor()
