@@ -96,6 +96,7 @@ module_names = {
             'eurotech': 'eurotechScraper',
             # 'bras': 'brasScraper', REMOVED FROM TESTS UNTIL COMPANY FILTER IS ADDED
             'ipso': 'ipsoScraper',
+            'bioclinica': 'bioclinicaScraper',
             
             # Add more module names as needed
             }
