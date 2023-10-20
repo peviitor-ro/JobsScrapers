@@ -27,7 +27,8 @@ The project incorporates the following key features:
 
 ## HTML Report
 
-For detailed insights into the test results, an HTML report is generated, providing a comprehensive overview of the scraping process. 
+For detailed insights into the test results, an HTML report is generated, providing a comprehensive overview of the scraping process. ![jobsscrapersapi](https://github.com/peviitor-ro/JobsScrapers/assets/91252395/49a3f31e-72c0-4c0b-acd9-265bc8160f51)
+
 
 ## Setup
 
