@@ -11,7 +11,7 @@ class canopyScraper(BS4Scraper):
     A class for scraping job data from canopy website.
     """
     url = 'https://canopy.ro/online-marketing-jobs/'
-    url_logo = 'https://canopy.ro/wp-content/uploads/2021/01/canopy_simple_white_logo.png'
+    url_logo = 'https://canopy.ro/wp-content/uploads/2021/01/logo_principal_pozitiv-01-1.png'
     company_name = 'canopy'
     
     def __init__(self):
