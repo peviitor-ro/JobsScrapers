@@ -12,7 +12,7 @@ class sinapsScraper(BS4Scraper):
     A class for scraping job data from sinaps website.
     """
     url = 'https://www.sinaps.ro/cariere/'
-    url_logo = 'https://www.sinaps.ro/wp-content/uploads/2019/07/Sinaps-Logo-Semi-01-01.svg'
+    url_logo = 'https://www.sinaps.ro/wp-content/uploads/2018/05/rebrandingsinaps.jpg'
     company_name = 'sinaps'
     
     def __init__(self):
