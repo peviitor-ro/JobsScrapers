@@ -11,7 +11,7 @@ class verlaScraper(BS4Scraper):
     A class for scraping job data from verla website.
     """
     url = 'https://www.verla.ro/oferte/cariere.html'
-    url_logo = 'https://www.verla.ro/images/2018/logo-alb2.png'
+    url_logo = 'https://www.interiorsprinted.com/wp-content/uploads/2019/04/logo-Verla-fara-text-patrat.png'
     company_name = 'verla'
     
     
