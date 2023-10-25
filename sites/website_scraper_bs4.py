@@ -87,3 +87,10 @@ class BS4Scraper:
         api_load()
         update_logo(self.company_name, self.logo_url)
         print(json.dumps(self.formatted_data, indent=4, sort_keys=True))
+
+        # don't delete this lines if you want to see the graph on scraper's page
+        file = self.company_name.lower() + '.py'
+        data = {'data': len(self.formatted_data)}
+        dataset_url = f'https://dev.laurentiumarian.ro/dataset/JobsScrapers/{file}/'
+        requests.post(dataset_url, json=data)
+        ########################################################
