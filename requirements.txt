@@ -5,3 +5,4 @@ bs4==0.0.1
 beautifulsoup4==4.9.3
 webdriver-manager==3.5.0
 lxml==4.6.3
+pytest-xdist==3.3.1
