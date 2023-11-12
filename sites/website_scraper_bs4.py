@@ -66,7 +66,7 @@ class BS4Scraper:
         element = self.soup.find(element_locator, element)
         return element.text if element else None
 
-    def create_jobs_dict(self, job_title, job_url, job_country, job_city):
+    def create_jobs_dict(self, job_title, job_url, job_country, job_city, county=None, remote='On-site'):
         """
         Create the job dictionary for the future api
         """
@@ -75,7 +75,10 @@ class BS4Scraper:
             "job_link": job_url,
             "company": self.company_name,
             "country": job_country,
-            "city": job_city
+            "county": county,
+            "city": job_city,
+            "remote": remote
+            
         })
 
     def send_to_viitor(self):
