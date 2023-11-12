@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
 from math import ceil
-import uuid
 import json
 
 
@@ -33,6 +32,7 @@ class BS4Scraper:
         self._set_headers()
         # Ignoring ssl cert check as many websites don't update it
         response = requests.get(url, headers=self.DEFAULT_HEADERS, verify=False)
+        # response = requests.get(url, headers=self.DEFAULT_HEADERS)
         self.soup = BeautifulSoup(response.content, 'lxml')
 
 
@@ -71,7 +71,6 @@ class BS4Scraper:
         Create the job dictionary for the future api
         """
         self.formatted_data.append({
-            "id": str(uuid.uuid4()),
             "job_title": job_title,
             "job_link": job_url,
             "company": self.company_name,

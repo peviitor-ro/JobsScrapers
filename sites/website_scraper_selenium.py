@@ -7,7 +7,6 @@ from selenium import webdriver
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
 from math import ceil
-import uuid
 
 
 # Work in progress this might change significant during the creation of the following scrappers, might need further testing and improvements
@@ -90,14 +89,12 @@ class SeleniumScraper:
         Create the job dictionary for the future api
         """
         self.formatted_data.append({
-            "id": str(uuid.uuid4()),
             "job_title": job_title,
             "job_link": job_url,
             "company": self.company_name,
             "country": job_country,
             "city": job_city
         })
-        # print(self.formatted_data)
 
     def send_to_viitor(self):
         """
