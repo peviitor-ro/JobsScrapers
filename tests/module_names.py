@@ -79,7 +79,7 @@ module_names = {
             'autoclass': 'autoclassScraper',
             'atp-group': 'atpgroupScraper',
             'artvertising': 'artvertisingScraper',
-            'apavital': 'apavitalScraper',
+            # 'apavital': 'apavitalScraper',
             'anahr': 'anahrScraper',
             'allengra': 'allengraScraper',
             # 'aeroportoradea': 'aeroportoradeaScraper',
@@ -98,6 +98,7 @@ module_names = {
             'ipso': 'ipsoScraper',
             'bioclinica': 'bioclinicaScraper',
             'vetro': 'vetroScraper',
+            'urbica': 'urbicaScraper',
             
             # Add more module names as needed
             }
