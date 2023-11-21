@@ -99,6 +99,7 @@ module_names = {
             'bioclinica': 'bioclinicaScraper',
             'vetro': 'vetroScraper',
             'urbica': 'urbicaScraper',
+            'noodlepack': 'noodlepackScraper',
             
             # Add more module names as needed
             }
