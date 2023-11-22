@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
-from math import ceil
+from getCounty import get_county
 
 
 # Work in progress this might change significant during the creation of the following scrappers, might need further testing and improvements
@@ -83,17 +83,31 @@ class SeleniumScraper:
         Close the browser when done
         """
         self.driver.quit()
-    
-    def create_jobs_dict(self, job_title, job_url, job_country, job_city, county=None, remote='On-site'):
+        
+    def get_county(self, city):
+        return get_county(city)
+
+    def create_jobs_dict(self, job_title, job_url, job_country, job_city, remote='On-site'):
         """
         Create the job dictionary for the future api
         """
+        # Define a list for counties in case there is more than one
+        self.counties = []
+        
+        # Get the county using the city
+        if type(job_city) == list:
+            for city in job_city:
+                self.counties.append(self.get_county(city))
+            job_county = self.counties
+        else:
+            job_county = self.get_county(job_city)
+                
         self.formatted_data.append({
             "job_title": job_title,
             "job_link": job_url,
             "company": self.company_name,
             "country": job_country,
-            "county": county,
+            "county": job_county,
             "city": job_city,
             "remote": remote
             
