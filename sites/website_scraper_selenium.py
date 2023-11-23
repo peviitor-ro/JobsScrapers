@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
-from getCounty import get_county
+from sites.getCounty import get_county
 
 
 # Work in progress this might change significant during the creation of the following scrappers, might need further testing and improvements

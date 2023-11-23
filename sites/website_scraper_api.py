@@ -1,6 +1,6 @@
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
-from getCounty import get_county
+from sites.getCounty import get_county
 import json
 
 
