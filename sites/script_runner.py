@@ -33,7 +33,6 @@ if __name__ == "__main__":
                'website_scraper_bs4.py',
                'website_scraper_selenium.py',
                'sephora.py', # returns wrong jobs
-               'zucchetti.py', # gives api error
                'reinest.py', # This does not have a career's page now
                'typingdna.py', # This does not have a career's page now
                'netrom.py', # This does not have a career's page now

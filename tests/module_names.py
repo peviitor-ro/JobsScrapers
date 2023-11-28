@@ -2,7 +2,7 @@ module_names = {
             'saladbox': 'saladboxScraper',
             'takeandeat': 'takeandeatScraper',
             'sandra': 'sandraScraper',
-            # 'zucchetti': 'zucchettiScraper',
+            'zucchetti': 'zucchettiScraper',
             'urbio': 'urbioScraper',
             'velpitar': 'velpitarScraper',
             'zeelandia': 'zeelandiaScraper',
