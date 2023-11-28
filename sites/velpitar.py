@@ -33,7 +33,6 @@ class velpitarScraper(BS4Scraper):
         self.job_titles = self.get_jobs_details_text(job_elements)
         self.job_urls = self.get_jobs_details_href(job_elements)
         self.job_cities = [job_city.split("–")[-1] if "–" in job_city else job_city.split("-")[-1] for job_city in self.job_titles]
-
         self.format_data()
         
     def sent_to_future(self):
@@ -49,7 +48,7 @@ class velpitarScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city[1:])
 
 if __name__ == "__main__":
     velpitar = velpitarScraper()
