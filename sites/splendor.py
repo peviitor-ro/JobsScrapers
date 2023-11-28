@@ -57,6 +57,8 @@ class splendorScraper(BS4Scraper):
             for city_index in range(len(job_city)):
                 if job_city[city_index][0] == " ":
                     job_city[city_index] = job_city[city_index][1:]
+                if job_city[city_index] == "Targu Mures":
+                    job_city[city_index] = "Targu-Mures"
                 
             self.create_jobs_dict(job_title, job_url, "România", job_city)
             self.job_count += 1
