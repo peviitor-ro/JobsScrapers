@@ -51,7 +51,14 @@ class splendorScraper(BS4Scraper):
         """
         for job_title, job_city in zip(self.job_titles, self.job_cities):
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", job_city[18:].replace(".", "").split(","))
+            job_city = job_city[18:].replace(".", "").split(",")
+            
+            # Get rid of empty spaces in cities at the start of city name
+            for city_index in range(len(job_city)):
+                if job_city[city_index][0] == " ":
+                    job_city[city_index] = job_city[city_index][1:]
+                
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
             self.job_count += 1
 
 if __name__ == "__main__":

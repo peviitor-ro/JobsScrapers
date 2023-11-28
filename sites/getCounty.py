@@ -53,11 +53,17 @@ def remove_diacritics(input_string):
     return ''.join(char for char in normalized_string if not has_diacritics(char))
 
 def get_county(town):
-    if town == "Cluj":
-        town = "Cluj-Napoca"
     town = remove_diacritics(town)
+    town = format_county(town)
     for county in counties:
         for key, value in county.items():
             if town in value:
                 return key
     return None
+
+def format_county(town):
+    if town == "Cluj":
+        town = "Cluj-Napoca"
+    if town == "Targu Mures":
+        town = "Targu-Mures"
+    return town
