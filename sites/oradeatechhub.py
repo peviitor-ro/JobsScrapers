@@ -55,6 +55,9 @@ class oradeatechhubScraper(BS4Scraper):
             if job_city == "Remote":
                 remote = "Remote"
                 job_city = "Oradea"
+            elif job_city == "Oradea/Remote":
+                job_city = "Oradea"
+                remote = "On-site"
             else:
                 remote = "On-site"
             self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Romania", "Oradea").split(", "), remote)
