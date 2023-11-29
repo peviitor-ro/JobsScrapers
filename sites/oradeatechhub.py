@@ -52,7 +52,12 @@ class oradeatechhubScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://www.oradeatechhub.ro{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            if job_city == "Remote":
+                remote = "Remote"
+                job_city = "Oradea"
+            else:
+                remote = "On-site"
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Romania", "Oradea").split(", "), remote)
 
 if __name__ == "__main__":
     oradeatechhub = oradeatechhubScraper()
