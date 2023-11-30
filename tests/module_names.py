@@ -16,7 +16,7 @@ module_names = {
             'softing': 'softingScraper',
             'softexco': 'softexcoScraper',
             'signaliduna': 'signalidunaScraper',
-            # 'sephora': 'sephoraScraper',
+            'sephora': 'sephoraScraper',
             'secondtex': 'secondtexScraper',
             'rervest': 'rervestScraper',
             # 'reinert': 'reinertScraper',

@@ -23,11 +23,11 @@ class sephoraScraper(WebsiteScraperAPI):
     
     def set_headers(self):
         self.headers = {
-            'sec-ch-ua': '"Not/A)Brand";v="99", "Brave";v="115", "Chromium";v="115"',
+            'sec-ch-ua': '"Brave";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
             'Accept': 'application/json, text/plain, */*',
-            'Referer': 'https://www.inside-sephora.com/en/romania/join-us',
+            'Referer': 'https://www.inside-sephora.com/en/romania/join-us?market=22',
             'sec-ch-ua-mobile': '?0',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
             'sec-ch-ua-platform': '"Windows"',
         }
         
@@ -36,7 +36,14 @@ class sephoraScraper(WebsiteScraperAPI):
             'page': '1',
             'lang': 'en',
             'pageSize': '100',
+            'origin': '22',
+            'keywords': '',
+            'function': '',
+            'contract': '',
+            'type': '',
+            'location': '',
             'market': '22',
+            'region': '',
         }
         
     def get_response(self):
@@ -74,7 +81,7 @@ class sephoraScraper(WebsiteScraperAPI):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://jobs.sephora.com/job-invite/{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city.lower().title().replace("Cluj-napoca", "Cluj-Napoca"))
         
 
 if __name__ == "__main__":
