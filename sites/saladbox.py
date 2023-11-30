@@ -41,7 +41,9 @@ class saladboxScraper(BS4Scraper):
             if job_city == "Alba-Iulia":
                 self.job_cities.append("Alba Iulia")
             elif job_city == "Piatra Neamt":
-                self.job_cities.append("Piatra Neamt")
+                self.job_cities.append("Piatra-Neamt")
+            elif job_city == "Targu Mures":
+                self.job_cities.append("Targu-Mures")
             elif job_city == "RÂMICU VALCEA":
                 self.job_cities.append("Ramnicu Valcea")
             else:
