@@ -26,22 +26,22 @@ class nokiaScraper(WebsiteScraperAPI):
     def set_headers(self):
         self.headers = {
         'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Referer': 'https://careers.nokia.com/jobs/search/40601155',
-        'tss-token': 'bC9QdKulsUsqxUxRAjywuSS6iqoVfCHhb0Fy0hbJcm8=',
+        'Referer': 'https://careers.nokia.com/jobs/search/41287831',
+        'tss-token': 'lNb54E1CR/r3o/TYFBAZgdbG10vbrN2zbnpLovnsGVQ=',
         }
         
     def set_params(self, page_index): 
         self.params = {
-        'JobSearch.id': '40601155',
+        'JobSearch.id': '41303682',
         'page_index': page_index,
         'site-name': 'default1784',
         'include_site': 'true',
-        'uid': '857',
+        'uid': '341',
         }
     
     def set_cookies(self):
         self.cookies = {
-        'ORA_OTSS_SESSION_ID': '7b05bca5b1e7a3ca264ec7d36b440c38b8d06f5dd00adf823f4b5ff82bbac101.aluperf.frprapq11308.tee.taleocloud.net'
+        'ORA_OTSS_SESSION_ID': '1f738a50df32752ccfcabb4218e734ab538bc124af71f7df1a9094b07fb293bb.aluperf.frac1a-app-001.a.frac.oraclevcn.com',
         }
         
     def post_response(self):
@@ -141,6 +141,8 @@ class nokiaScraper(WebsiteScraperAPI):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            if job_city.startswith("href="):
+                job_city = "Cluj-Napoca"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
         
 
