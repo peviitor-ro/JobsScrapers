@@ -81,7 +81,8 @@ class sephoraScraper(WebsiteScraperAPI):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://jobs.sephora.com/job-invite/{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_city.lower().title().replace("Cluj-napoca", "Cluj-Napoca"))
+            
+            self.create_jobs_dict(job_title, job_url, "România", job_city.lower().title().replace("Cluj-napoca", "Cluj-Napoca").replace("Targu Mures", "Targu-Mures"))
         
 
 if __name__ == "__main__":
