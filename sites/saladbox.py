@@ -31,8 +31,21 @@ class saladboxScraper(BS4Scraper):
         """
 
         job_titles_elements = self.get_jobs_elements('class_', 'career-position-link js-open-career-detail-modal')
+        job_locations_elements = self.get_jobs_elements('css_', '#ddlCities > option')
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
+        temp_job_cities = self.get_jobs_details_text(job_locations_elements)[1:]
+        
+        self.job_cities = []
+        for job_city in temp_job_cities:
+            if job_city == "Alba-Iulia":
+                self.job_cities.append("Alba Iulia")
+            elif job_city == "Piatra Neamt":
+                self.job_cities.append("Piatra Neamt")
+            elif job_city == "RÂMICU VALCEA":
+                self.job_cities.append("Ramnicu Valcea")
+            else:
+                self.job_cities.append(job_city)
 
         self.format_data()
         
@@ -50,7 +63,7 @@ class saladboxScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", "România")
+            self.create_jobs_dict(job_title, job_url, "România", self.job_cities)
             self.job_count += 1
 
 

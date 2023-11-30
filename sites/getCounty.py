@@ -64,6 +64,6 @@ def get_county(town):
 def format_county(town):
     if town == "Cluj":
         town = "Cluj-Napoca"
-    if town == "Targu Mures":
+    elif town == "Targu Mures":
         town = "Targu-Mures"
     return town
