@@ -96,6 +96,10 @@ class titanmachineryScraper(BS4Scraper):
         passed_titles = []
         passed_urls = []
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            if "-" not in job_city:
+                job_city = "Alexandria"
+            elif "Ilfov" in job_city:
+                job_city = "Dragomirești"
             if job_title not in passed_titles and job_url not in passed_urls:
                 self.create_jobs_dict(job_title, job_url, "România", job_city)
             passed_titles.append(job_title)
