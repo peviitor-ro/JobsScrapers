@@ -49,3 +49,10 @@ class UpdatePeviitorAPI:
         # print(json.dumps(self.data_list))
         requests.post('https://api.peviitor.ro/v4/update/', headers=post_header, data=json.dumps(self.data_list))
 
+        # don't delete this lines if you want to see the graph on scraper's page
+        file = self.company_name.lower() + '.py'
+        data = {'data': len(self.data_list)}
+        dataset_url = f'https://dev.laurentiumarian.ro/dataset/JobsScrapers/{file}/'
+        requests.post(dataset_url, json=data)
+        ########################################################
+
