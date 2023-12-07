@@ -36,7 +36,7 @@ module_names = {
             'kinetic': 'kineticScraper',
             'kimballelectronics': 'kimballelectronicsScraper',
             # 'kaizengaming': 'KaizenGamingScraper',
-            'InterbrandsOrbico': 'InterbrandsOrbicoScraper',
+            'interbrandsorbico': 'InterbrandsOrbicoScraper',
             'inova': 'inovagroupScraper',
             'iasidelivery': 'iasideliveryScraper',
             'htecgroup': 'htecgroupScraper',
