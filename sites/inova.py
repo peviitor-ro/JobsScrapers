@@ -13,7 +13,7 @@ class inovagroupScraper(BS4Scraper):
     """
     url = 'https://www.inova-group.ro/cariere/'
     url_logo = 'https://www.inova-group.ro/wp-content/uploads/2018/01/logo-mediu-1.png'
-    company_name = 'inovagroup'
+    company_name = 'inova'
     
     def __init__(self):
         """
