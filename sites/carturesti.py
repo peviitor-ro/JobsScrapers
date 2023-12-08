@@ -52,7 +52,11 @@ class carturestiScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = "https:" + job_url.replace("location.href=", "").replace("'", "")
-            self.create_jobs_dict(job_title, job_url, "România", job_city.split(", "))
+            job_city = job_city.split(", ")
+            if "Targu Mures" in job_city:
+                job_city.remove("Targu Mures")
+                job_city.append("Targu-Mures")
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     carturesti = carturestiScraper()
