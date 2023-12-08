@@ -11,7 +11,7 @@ class edutrustScraper(BS4Scraper):
     A class for scraping job data from edutrust website.
     """
     url = 'https://www.edutrust.ro/cariera/#open-positions'
-    url_logo = 'https://www.edutrust.ro/wp-content/themes/yootheme/cache/39/logo-edutrust-39288933.webp'
+    url_logo = 'https://www.edutrust.ro/wp-content/themes/yootheme/cache/3c/logo-edutrust-3ced61da.webp'
     company_name = 'edutrust'
     
     def __init__(self):
