@@ -50,7 +50,7 @@ class covalactScraper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = self.url + job_url
-            self.create_jobs_dict(job_title, job_url, "România", "România")
+            self.create_jobs_dict(job_title, job_url, "România", "Covasna")
 
 if __name__ == "__main__":
     covalact = covalactScraper()
