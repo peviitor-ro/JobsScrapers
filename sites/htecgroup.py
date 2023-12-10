@@ -27,7 +27,7 @@ class htecgroupScraper(WebsiteScraperAPI):
             'language': 'en',
             'sort': 'modified_date',
             'page': '1',
-            'perPage': '7',
+            'perPage': '100',
             'status': 'Published',
             'd': '17839',
         }
