@@ -28,15 +28,29 @@ class nielseniqScraper(BS4Scraper):
         """
         Scrape job data from nielseniq website.
         """
+        
+        self.job_titles = []
+        self.job_cities = []
+        self.job_urls = []
+        
+        job_counter_element = self.get_jobs_elements('css_', "a[href^='https://nielseniq.com/page/']")
+        job_counter = self.get_jobs_details_href(job_counter_element)
+        
+        while job_counter:
 
-        job_title_elements = self.get_jobs_elements('class_', 'entry-title')
-        job_city_elements = self.get_jobs_elements('css_', 'header > div:nth-child(2) > span:nth-child(1)')
-        job_url_elements = self.get_jobs_elements('class_', 'card-cover-link')
-        
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
-        self.job_cities = self.get_jobs_details_text(job_city_elements)
-        self.job_urls = self.get_jobs_details_href(job_url_elements)
-        
+            job_title_elements = self.get_jobs_elements('class_', 'entry-title')
+            job_city_elements = self.get_jobs_elements('css_', 'header > div:nth-child(2) > span:nth-child(1)')
+            job_url_elements = self.get_jobs_elements('class_', 'card-cover-link')
+
+            self.job_titles.extend(self.get_jobs_details_text(job_title_elements))
+            self.job_cities.extend(self.get_jobs_details_text(job_city_elements))
+            self.job_urls.extend(self.get_jobs_details_href(job_url_elements))
+
+            job_counter_element = self.get_jobs_elements('css_', "a[href^='https://nielseniq.com/page/']")
+            job_counter = self.get_jobs_details_href(job_counter_element)
+            if job_counter:
+                self.get_content(job_counter[0])
+
         self.format_data()
 
     def sent_to_future(self):
@@ -52,6 +66,8 @@ class nielseniqScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            if job_city == "Bucharest":
+                job_city = "Bucuresti"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
