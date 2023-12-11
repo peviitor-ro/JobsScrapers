@@ -64,6 +64,8 @@ class InterbrandsOrbicoScraper(BS4Scraper):
             job_url = f"https://interbrandsorbico.recruitee.com{job_url}"
             if job_country == "Romania":
                 job_country = "România"
+            if job_city == "Targu Mures":
+                job_city = "Targu-Mures"
             self.create_jobs_dict(job_title, job_url, job_country, job_city)
 
 if __name__ == "__main__":
