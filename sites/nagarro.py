@@ -59,9 +59,10 @@ class NagarroScraper(WebsiteScraperAPI):
         """     
         for job_title, job_url, job_country, job_city in zip(self.job_titles, self.job_urls, self.job_countries, self.job_cities):
             if job_city == "WFA/Remote":
-                job_city = job_country
-            # print(job_url)
-            self.create_jobs_dict(job_title, job_url, job_country, job_city)
+                remote = "remote"
+            else:
+                remote = "On-site"
+            self.create_jobs_dict(job_title, job_url, job_country, ['Bucuresti', 'Brasov', 'Cluj-Napoca', 'Timisoara'], remote)
     
     def sent_to_future(self):
         self.send_to_viitor()

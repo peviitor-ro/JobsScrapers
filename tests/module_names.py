@@ -30,7 +30,7 @@ module_names = {
             'nokia': 'nokiaScraper',
             'nielseniq': 'nielseniqScraper',
             # 'netrom': 'NetromScraper', 
-            # 'nagarro': 'NagarroScraper',
+            'nagarro': 'NagarroScraper',
             'metamob': 'metamobScraper',
             'leier': 'leierScraper',
             'kinetic': 'kineticScraper',
