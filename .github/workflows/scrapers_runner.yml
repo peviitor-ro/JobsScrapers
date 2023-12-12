@@ -46,7 +46,6 @@ jobs:
         git config --local user.name "GitHub Action"
         git add report.html
         git commit -m "Add pytest HTML report"
-        git remote add testrepo git@github.com:peviitor-ro/testrepo.git
-        git push testrepo HEAD:main
+        git push origin HEAD:main
 
 
