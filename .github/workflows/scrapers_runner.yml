@@ -39,11 +39,17 @@ jobs:
       run: |
         pytest -m regression -vv --html=report.html
 
-    - name: Commit and push report.html
+    - name: Configure Git
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+    
+    - name: Set up Git credentials
+      run: echo -e "machine github.com\n  login ${{ secrets.PAT_TOKEN }}\n" > ~/.netrc
+    
+    - name: Commit and push report.html
+      run: |
         git add report.html
         git commit -m "Add pytest HTML report"
-        git push https://${{ secrets.PAT_TOKEN }}@github.com/peviitor-ro/testrepo.git HEAD:main
-        continue-on-error: true
+        git push https://github.com/peviitor-ro/testrepo.git HEAD:main
+
