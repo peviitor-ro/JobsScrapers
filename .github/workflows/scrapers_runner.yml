@@ -8,18 +8,18 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+
     - name: Add Python Path
-      run: |
-        echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
+      run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
     - name: Install dependencies
       run: |
@@ -27,6 +27,7 @@ jobs:
         pip3 install -r requirements.txt
         sudo apt-get install curl
 
+    # Commented out as per your original workflow
     # - name: All scrapers run
     #   env:
     #     API_KEY: ${{ secrets.API_KEY }}
@@ -43,12 +44,20 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-    
-    - name: Commit and push report.html
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+        echo "StrictHostKeyChecking no" >> ~/.ssh/config
+
+    - name: Commit and push report.html with SSH
       run: |
         git add report.html
         git commit -m "Add pytest HTML report"
-        git remote add origin_with_token https://${{ secrets.PAT_TOKEN }}@github.com/peviitor-ro/testrepo.git
-        git push origin_with_token HEAD:main
-
-
+        git remote add origin_ssh git@github.com:peviitor-ro/testrepo.git
+        git push origin_ssh HEAD:main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
