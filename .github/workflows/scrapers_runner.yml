@@ -46,7 +46,8 @@ jobs:
         git config --local user.name "GitHub Action"
         git add report.html
         git commit -m "Add pytest HTML report"
-        git push origin main
+        git remote add origin_pat https://${{ secrets.EXTERNAL_REPOSITORY_PERSONAL_ACCESS_TOKEN }}@github.com/peviitor-ro/testrepo.git
+        git push origin_pat HEAD:main
 
 
 
