@@ -34,30 +34,18 @@ jobs:
     #   run: |
     #     python3 sites/script_runner.py || true
     #     echo "Continuing despite potential failure..."
-
+    
     - name: Run pytest with HTML reporting
       continue-on-error: true
       run: |
         pytest -m regression -vv --html=report.html
-
-    - name: Configure Git
+    
+    - name: Commit and push report.html
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-        echo "StrictHostKeyChecking no" >> ~/.ssh/config
-
-    - name: Commit and push report.html with SSH
-      run: |
         git add report.html
         git commit -m "Add pytest HTML report"
-        git remote add origin_ssh git@github.com:peviitor-ro/testrepo.git
-        git push origin_ssh HEAD:main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        git remote add testrepo https://${{ secrets.PAT_TOKEN }}@github.com/peviitor-ro/testrepo.git
+        git push testrepo HEAD:main
+
