@@ -44,12 +44,11 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
     
-    - name: Set up Git credentials
-      run: echo -e "machine github.com\n  login ${{ secrets.PAT_TOKEN }}\n" > ~/.netrc
-    
     - name: Commit and push report.html
       run: |
         git add report.html
         git commit -m "Add pytest HTML report"
-        git push https://github.com/peviitor-ro/testrepo.git HEAD:main
+        git remote add origin_with_token https://${{ secrets.PAT_TOKEN }}@github.com/peviitor-ro/testrepo.git
+        git push origin_with_token HEAD:main
+
 
