@@ -46,3 +46,4 @@ jobs:
         git add report.html
         git commit -m "Add pytest HTML report"
         git push https://${{ secrets.PAT_TOKEN }}@github.com/peviitor-ro/testrepo.git HEAD:main
+        continue-on-error: true
