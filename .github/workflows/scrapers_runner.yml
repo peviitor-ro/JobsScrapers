@@ -40,7 +40,7 @@ jobs:
         pytest -m regression -vv --html=api_test_report.html
     
     - name: Move api_report.html to docs folder
-      run: mv api_report.html "docs/api_test_report.html"
+      run: mv api_test_report.html "docs/api_test_report.html"
 
     - name: Commit and push api_test_report.html
       run: |
