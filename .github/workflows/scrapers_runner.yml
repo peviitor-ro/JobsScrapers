@@ -37,16 +37,16 @@ jobs:
     - name: Run pytest with HTML reporting
       continue-on-error: true
       run: |
-        pytest -m regression -vv --html=api_report.html
+        pytest -m regression -vv --html=api_test_report.html
     
-    - name: Move api_report.html to Test Results folder
-      run: mv api_report.html "Test Results/api_report.html"
+    - name: Move api_report.html to docs folder
+      run: mv api_report.html "docs/api_test_report.html"
 
-    - name: Commit and push api_report.html
+    - name: Commit and push api_test_report.html
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add "Test Results/api_report.html"
+        git add "docs/api_test_report.html"
         git commit -m "Add pytest API HTML report"
         git push origin main
 
