@@ -24,7 +24,7 @@ The project incorporates the following key features:
 - API Testing: In-depth testing of APIs to guarantee data accuracy and reliability.
 - Multiple Assertions: Rigorous validation of multiple data points to ensure comprehensive accuracy.
 - Data Validation: The project emphasizes the importance of verifying scraped data against the information available on peviitor.ro.
-- HTML Reporting: Comprehensive reports are generated for detailed insights into the scraping process.
+- HTML Reporting: Comprehensive reports are generated for detailed insights of the testing process execution
 
 ## API Test Run with parallel running
 
