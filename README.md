@@ -24,6 +24,7 @@ The project incorporates the following key features:
 - API Testing: In-depth testing of APIs to guarantee data accuracy and reliability.
 - Multiple Assertions: Rigorous validation of multiple data points to ensure comprehensive accuracy.
 - Data Validation: The project emphasizes the importance of verifying scraped data against the information available on peviitor.ro.
+- HTML Reporting: Comprehensive reports are generated for detailed insights into the scraping process.
 
 ## API Test Run with parallel running
 
@@ -36,6 +37,8 @@ The project incorporates the following key features:
 ## HTML Report
 
 For detailed insights into the test results, an HTML report is generated, providing a comprehensive overview of the scraping process.
+The report is updated every day when github actions runs and it can be seen live at https://peviitor-ro.github.io/JobsScrapers/api_test_report.html
+
 
 ![jobsscrapersapi](https://github.com/peviitor-ro/JobsScrapers/assets/91252395/49a3f31e-72c0-4c0b-acd9-265bc8160f51)
 
