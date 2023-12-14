@@ -41,13 +41,11 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Install Allure Command-Line
+    - name: Install Allure Command-Line (via Docker)
       run: |
-        wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.25.0/allure-commandline-2.25.0.zip
-        unzip allure-commandline-2.25.0.zip
-        sudo cp -r allure-2.25.0/. /usr/local/bin
-        echo 'export PATH=$PATH:/usr/local/bin/allure-2.25.0/bin' >> $GITHUB_ENV
-        allure --version
+        docker pull qameta/allure-commandline:latest
+        alias allure='docker run -it --rm -v "$(pwd)":/workspace -w /workspace qameta/allure-commandline:latest allure'
+
 
     - name: Check Allure binary permissions
       run: |
