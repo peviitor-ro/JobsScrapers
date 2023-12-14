@@ -46,6 +46,9 @@ jobs:
         wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.25.0/allure-commandline-2.25.0.zip
         unzip allure-commandline-2.25.0.zip
         sudo cp -r allure-2.25.0/. /usr/local/bin
+        echo 'export PATH=$PATH:/usr/local/bin/allure-2.25.0/bin' >> $HOME/.bashrc
+        source $HOME/.bashrc
+        allure --version
 
     - name: Run pytest with HTML Allure Reporting
       continue-on-error: true
