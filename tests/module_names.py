@@ -77,7 +77,7 @@ module_names = {
             'autosiena': 'autosienaScraper',
             'autonet': 'autonetScraper',
             'autoclass': 'autoclassScraper',
-            'atp-group': 'atpgroupScraper',
+            'atpgroup': 'atpgroupScraper',
             'artvertising': 'artvertisingScraper',
             # 'apavital': 'apavitalScraper',
             'anahr': 'anahrScraper',
