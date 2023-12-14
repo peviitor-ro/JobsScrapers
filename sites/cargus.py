@@ -51,7 +51,10 @@ class CargusScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Național", "Romania"))
+            if job_city == "Național":
+                job_city = ["Bucuresti", "Timisoara", "Cluj-Napoca", "Brasov", "Iasi"]
+            
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     Cargus = CargusScraper()
