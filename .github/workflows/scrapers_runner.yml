@@ -55,7 +55,7 @@ jobs:
 
     - name: Generate Allure report
       run: |
-        allure/allure-2.15.0/bin/allure generate --single-file
+        allure/allure-2.15.0/bin/allure generate --single-file --clean
 
     - name: List generated files
       run: |
