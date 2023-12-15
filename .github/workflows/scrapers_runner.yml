@@ -54,7 +54,7 @@ jobs:
 
     - name: Generate Allure report
       run: |
-        java -jar allure/allure-2.15.0/allure-commandline.jar generate --single-file docs/allure-results
+        java -jar $(find allure -name allure-commandline.jar) generate --single-file docs/allure-results
       
     - name: Move Allure results to docs folder
       run: mv allure-results "docs/allure-results"
