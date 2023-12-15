@@ -50,11 +50,11 @@ jobs:
       run: |
         wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.15.0/allure-commandline-2.15.0.zip
         unzip allure-commandline-2.15.0.zip -d allure
-        sudo mv allure/allure-2.15.0/bin/* /usr/local/bin/
-        rm -rf allure allure-commandline-2.15.0.zip
-        
+        rm allure-commandline-2.15.0.zip
+
     - name: Generate Allure report
-      run: /usr/local/bin/allure generate --single-file docs/allure-results --classpath /usr/local/bin/allure-commandline-2.15.0.jar
+      run: |
+        java -jar allure/allure-2.15.0/allure-commandline.jar generate --single-file docs/allure-results
       
     - name: Move Allure results to docs folder
       run: mv allure-results "docs/allure-results"
