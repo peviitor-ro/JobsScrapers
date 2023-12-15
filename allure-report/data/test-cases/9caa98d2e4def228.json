@@ -1,0 +1,83 @@
+{
+  "uid" : "9caa98d2e4def228",
+  "name" : "test_scrapers[softexcoScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "b6e826867de7bf7ec8351d23fd38361c",
+  "time" : {
+    "start" : 1702672966059,
+    "stop" : 1702672967568,
+    "duration" : 1509
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ['Php Web Developer'] == []\n  Left contains one more item: 'Php Web Developer'\n  Full diff:\n  - []\n  + ['Php Web Developer']",
+  "statusTrace" : "self = <test_api.TestScrapers object at 0x7f39e007eec0>\nscraper_class = <class 'sites.softexco.softexcoScraper'>\n\n    @pytest.mark.regression\n    def test_scrapers(self, scraper_class):\n        setup_tests = SetupTests()\n        setup_tests.get_jobs_careers(scraper_class)\n    \n        # You can now use the utility methods from TestUtils to avoid code duplication\n        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])\n        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')\n    \n        # Test Title\n>       assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])\nE       AssertionError: assert ['Php Web Developer'] == []\nE         Left contains one more item: 'Php Web Developer'\nE         Full diff:\nE         - []\nE         + ['Php Web Developer']\n\ntests/test_api.py:47: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702672966059,
+      "stop" : 1702672966059,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.softexco.softexcoScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "9caa98d2e4def228.json",
+  "parameterValues" : [ "<class 'sites.softexco.softexcoScraper'>" ]
+}

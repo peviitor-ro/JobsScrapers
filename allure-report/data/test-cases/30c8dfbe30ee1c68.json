@@ -1,0 +1,83 @@
+{
+  "uid" : "30c8dfbe30ee1c68",
+  "name" : "test_scrapers[iasideliveryScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "7867eb0e0cf65b2a64ed083aef6e4f89",
+  "time" : {
+    "start" : 1702673010287,
+    "stop" : 1702673012866,
+    "duration" : 2579
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ['Ajutor de bucatar', 'Asistent Manager', 'Barman', 'Bucatar', 'Lucrator in alimentatie', 'Manager', 'Ospatar', 'Sef Sala', 'Sofer Livrari'] == []\n  Left contains 9 more items, first extra item: 'Ajutor de bucatar'\n  Full diff:\n    [\n  -  ,\n  +  'Ajutor de bucatar',\n  +  'Asistent Manager',\n  +  'Barman',\n  +  'Bucatar',\n  +  'Lucrator in alimentatie',\n  +  'Manager',\n  +  'Ospatar',\n  +  'Sef Sala',\n  +  'Sofer Livrari',\n    ]",
+  "statusTrace" : "self = <test_api.TestScrapers object at 0x7f39e007c7c0>\nscraper_class = <class 'sites.iasidelivery.iasideliveryScraper'>\n\n    @pytest.mark.regression\n    def test_scrapers(self, scraper_class):\n        setup_tests = SetupTests()\n        setup_tests.get_jobs_careers(scraper_class)\n    \n        # You can now use the utility methods from TestUtils to avoid code duplication\n        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])\n        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')\n    \n        # Test Title\n>       assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])\nE       AssertionError: assert ['Ajutor de bucatar', 'Asistent Manager', 'Barman', 'Bucatar', 'Lucrator in alimentatie', 'Manager', 'Ospatar', 'Sef Sala', 'Sofer Livrari'] == []\nE         Left contains 9 more items, first extra item: 'Ajutor de bucatar'\nE         Full diff:\nE           [\nE         -  ,\nE         +  'Ajutor de bucatar',\nE         +  'Asistent Manager',\nE         +  'Barman',\nE         +  'Bucatar',\nE         +  'Lucrator in alimentatie',\nE         +  'Manager',\nE         +  'Ospatar',\nE         +  'Sef Sala',\nE         +  'Sofer Livrari',\nE           ]\n\ntests/test_api.py:47: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702673010287,
+      "stop" : 1702673010287,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.iasidelivery.iasideliveryScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "30c8dfbe30ee1c68.json",
+  "parameterValues" : [ "<class 'sites.iasidelivery.iasideliveryScraper'>" ]
+}

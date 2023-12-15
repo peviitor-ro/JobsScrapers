@@ -1,0 +1,83 @@
+{
+  "uid" : "ceeeeea0953d4d22",
+  "name" : "test_scrapers[electraScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "f26328964dbb15f81383113a8101dbb0",
+  "time" : {
+    "start" : 1702673028865,
+    "stop" : 1702673030523,
+    "duration" : 1658
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ['Inginer Electronist (ELECTRA)', 'Tehnician Proiectare Electronică (EMS-Electra)'] == []\n  Left contains 2 more items, first extra item: 'Inginer Electronist (ELECTRA)'\n  Full diff:\n    [\n  -  ,\n  +  'Inginer Electronist (ELECTRA)',\n  +  'Tehnician Proiectare Electronică (EMS-Electra)',\n    ]",
+  "statusTrace" : "self = <test_api.TestScrapers object at 0x7f39e0052f50>\nscraper_class = <class 'sites.electra.electraScraper'>\n\n    @pytest.mark.regression\n    def test_scrapers(self, scraper_class):\n        setup_tests = SetupTests()\n        setup_tests.get_jobs_careers(scraper_class)\n    \n        # You can now use the utility methods from TestUtils to avoid code duplication\n        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])\n        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')\n    \n        # Test Title\n>       assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])\nE       AssertionError: assert ['Inginer Electronist (ELECTRA)', 'Tehnician Proiectare Electronică (EMS-Electra)'] == []\nE         Left contains 2 more items, first extra item: 'Inginer Electronist (ELECTRA)'\nE         Full diff:\nE           [\nE         -  ,\nE         +  'Inginer Electronist (ELECTRA)',\nE         +  'Tehnician Proiectare Electronică (EMS-Electra)',\nE           ]\n\ntests/test_api.py:47: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702673028865,
+      "stop" : 1702673028865,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.electra.electraScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "ceeeeea0953d4d22.json",
+  "parameterValues" : [ "<class 'sites.electra.electraScraper'>" ]
+}

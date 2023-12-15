@@ -1,0 +1,723 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert ['Agent de vanzari', 'Lucrator comercial', 'Manager restaurant'] == []\n  Left contains 3 more items, first extra item: 'Agent de vanzari'\n  Full diff:\n  - []\n  + ['Agent de vanzari', 'Lucrator comercial', 'Manager restaurant']",
+      "children" : [ {
+        "name" : "test_scrapers[saladboxScraper]",
+        "uid" : "ed1aa586daf2b1f5",
+        "parentUid" : "df55ff2183432c50088eba9d87ceb838",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672920909,
+          "stop" : 1702672922612,
+          "duration" : 1703
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.saladbox.saladboxScraper'>" ]
+      } ],
+      "uid" : "df55ff2183432c50088eba9d87ceb838"
+    }, {
+      "name" : "AssertionError: assert ['AJUTOR BUCĂTAR', 'BUCĂTAR ȘEF', 'DISPECER', 'PERSONAL BUCĂTĂRIE CATERING - PERSOANE CU DIZABILITĂȚI', 'RESPONSABIL GESTIUNE GRANDCHEF', 'SPECIALIST RESURSE UMANE', 'ȘEF DE TURĂ'] == []\n  Left contains 7 more items, first extra item: 'AJUTOR BUCĂTAR'\n  Full diff:\n    [\n  -  ,\n  +  'AJUTOR BUCĂTAR',\n  +  'BUCĂTAR ȘEF',\n  +  'DISPECER',\n  +  'PERSONAL BUCĂTĂRIE CATERING - PERSOANE CU DIZABILITĂȚI',\n  +  'RESPONSABIL GESTIUNE GRANDCHEF',\n  +  'SPECIALIST RESURSE UMANE',\n  +  'ȘEF DE TURĂ',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[takeandeatScraper]",
+        "uid" : "f6d239b79a581378",
+        "parentUid" : "db1f38d5dec39d4c286acbd6c5677156",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672922642,
+          "stop" : 1702672927787,
+          "duration" : 5145
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.takeandeat.takeandeatScraper'>" ]
+      } ],
+      "uid" : "db1f38d5dec39d4c286acbd6c5677156"
+    }, {
+      "name" : "AssertionError: assert ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Tehnician auto'] == ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)', 'Tehnician auto']\n  At index 2 diff: 'Tehnician auto' != 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)'\n  Right contains one more item: 'Tehnician auto'\n  Full diff:\n    [\n     'Consilier vanzari autovehicule comerciale',\n     'Operator Info Desk',\n  -  'Senior Manager PGP Production, Technology and Innovation - Region Europe '\n  -  'East (m/f/d)',\n     'Tehnician auto',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[sandraScraper]",
+        "uid" : "e3848be07ede067d",
+        "parentUid" : "d905edb46d97154b9f8cc7009143cea6",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672927792,
+          "stop" : 1702672929430,
+          "duration" : 1638
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.sandra.sandraScraper'>" ]
+      } ],
+      "uid" : "d905edb46d97154b9f8cc7009143cea6"
+    }, {
+      "name" : "AssertionError: assert ['Java Developer'] == []\n  Left contains one more item: 'Java Developer'\n  Full diff:\n  - []\n  + ['Java Developer']",
+      "children" : [ {
+        "name" : "test_scrapers[urbioScraper]",
+        "uid" : "9112f91d5af7756b",
+        "parentUid" : "31698b12a201e849cf0335f26791ee5a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672930988,
+          "stop" : 1702672933613,
+          "duration" : 2625
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.urbio.urbioScraper'>" ]
+      } ],
+      "uid" : "31698b12a201e849cf0335f26791ee5a"
+    }, {
+      "name" : "AssertionError: assert ['Absolvent Inginerie electrică, Electronică, Automatizări - Iași', 'Ambalator - Pitești', 'Ambalator manual/Brutar - Brașov', 'Analist financiar junior - București', 'Analist financiar senior - București', 'Analist vanzari - Bucuresti', 'Brand Manager - Bucuresti', 'Brutar - Iași', 'Brutar - Pitești', 'Brutar – Brașov', 'Conducător autospecială - Iași', 'Electrician de intreținere și reparații - Giurgiu', 'Electrician întreţinere şi reparaţii – Chitila', 'Electrician întreținere și reparații - București, Cluj', 'Electrician întreținere și reparații - Iași', 'Gestionar depozit - Brasov', 'Gestionar depozit - Iasi', 'Inginer mentenanța - Chitila', 'Lăcătuș mecanic - Iași', 'Lăcătuș mecanic / Instalator – Chitila', 'Manager Vanzari IKA / Key Account Manager - București', 'Manager Vânzări (Distribuitori) - București', 'Manager zonă – Oradea', 'Manipulant mărfuri/Picker - Iași', 'Mecanic/Lacătuș mecanic - Giurgiu', 'Operator producție - Iași', 'Șef formație - Iași', 'Șofer distributie - Brașov'] == ['Absolvent Inginerie electrică, Electronică, Automatizări - Iași', 'Ambalator - Pitești', 'Ambalator manual/Brutar - Brașov', 'Analist financiar junior - București', 'Analist financiar senior - București', 'Analist vanzari - Bucuresti', 'Brand Manager - Bucuresti', 'Brutar - Iași', 'Brutar - Pitești', 'Brutar – Brașov', 'Conducător autospecială - Iași', 'Electrician de intreținere și reparații - Giurgiu', 'Electrician întreținere și reparații - București, Cluj', 'Electrician întreținere și reparații - Iași', 'Gestionar depozit - Brasov', 'Gestionar depozit - Iasi', 'Inginer mentenanța - Chitila', 'Lăcătuș mecanic - Iași', 'Lăcătuș mecanic / Instalator – Chitila', 'Manager Vanzari IKA / Key Account Manager - București', 'Manager Vânzări (Distribuitori) - București', 'Manager zonă – Oradea', 'Manipulant mărfuri/Picker - Iași', 'Mecanic/Lacătuș mecanic - Giurgiu', 'Operator producție - Iași', 'Șef formație - Iași', 'Șofer distributie - Brașov']\n  At index 12 diff: 'Electrician întreţinere şi reparaţii – Chitila' != 'Electrician întreținere și reparații - București, Cluj'\n  Left contains one more item: 'Șofer distributie - Brașov'\n  Full diff:\n    [\n     'Absolvent Inginerie electrică, Electronică, Automatizări - Iași',\n     'Ambalator - Pitești',\n     'Ambalator manual/Brutar - Brașov',\n     'Analist financiar junior - București',\n     'Analist financiar senior - București',\n     'Analist vanzari - Bucuresti',\n     'Brand Manager - Bucuresti',\n     'Brutar - Iași',\n     'Brutar - Pitești',\n     'Brutar – Brașov',\n     'Conducător autospecială - Iași',\n     'Electrician de intreținere și reparații - Giurgiu',\n  +  'Electrician întreţinere şi reparaţii – Chitila',\n     'Electrician întreținere și reparații - București, Cluj',\n     'Electrician întreținere și reparații - Iași',\n     'Gestionar depozit - Brasov',\n     'Gestionar depozit - Iasi',\n     'Inginer mentenanța - Chitila',\n     'Lăcătuș mecanic - Iași',\n     'Lăcătuș mecanic / Instalator – Chitila',\n     'Manager Vanzari IKA / Key Account Manager - București',\n     'Manager Vânzări (Distribuitori) - București',\n     'Manager zonă – Oradea',\n     'Manipulant mărfuri/Picker - Iași',\n     'Mecanic/Lacătuș mecanic - Giurgiu',\n     'Operator producție - Iași',\n     'Șef formație - Iași',\n     'Șofer distributie - Brașov',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[velpitarScraper]",
+        "uid" : "d9c837bcdc109311",
+        "parentUid" : "66c3ff905eec639afdcf553a0aa311fb",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672933617,
+          "stop" : 1702672939483,
+          "duration" : 5866
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.velpitar.velpitarScraper'>" ]
+      } ],
+      "uid" : "66c3ff905eec639afdcf553a0aa311fb"
+    }, {
+      "name" : "AssertionError: assert ['Stivuitorist depozit Bratuleni'] == []\n  Left contains one more item: 'Stivuitorist depozit Bratuleni'\n  Full diff:\n  - []\n  + ['Stivuitorist depozit Bratuleni']",
+      "children" : [ {
+        "name" : "test_scrapers[zeelandiaScraper]",
+        "uid" : "8e53adfcb5bc9957",
+        "parentUid" : "152e9eef98637b02e95f785fedf4ab96",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672939487,
+          "stop" : 1702672940182,
+          "duration" : 695
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.zeelandia.zeelandiaScraper'>" ]
+      } ],
+      "uid" : "152e9eef98637b02e95f785fedf4ab96"
+    }, {
+      "name" : "AssertionError: assert ['ELECTRICIAN AUTO', 'MECANIC AUTO'] == []\n  Left contains 2 more items, first extra item: 'ELECTRICIAN AUTO'\n  Full diff:\n  - []\n  + ['ELECTRICIAN AUTO', 'MECANIC AUTO']",
+      "children" : [ {
+        "name" : "test_scrapers[speedservicesatumareScraper]",
+        "uid" : "31a0069b1bb3f6fc",
+        "parentUid" : "7f6466ddb3285dd7626cd0f3bb9bab10",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672959877,
+          "stop" : 1702672963640,
+          "duration" : 3763
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.speedservicesatumare.speedservicesatumareScraper'>" ]
+      } ],
+      "uid" : "7f6466ddb3285dd7626cd0f3bb9bab10"
+    }, {
+      "name" : "AssertionError: assert ['Php Web Developer'] == []\n  Left contains one more item: 'Php Web Developer'\n  Full diff:\n  - []\n  + ['Php Web Developer']",
+      "children" : [ {
+        "name" : "test_scrapers[softexcoScraper]",
+        "uid" : "9caa98d2e4def228",
+        "parentUid" : "1b44317bbd5fcc2714b17d8555020a5a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672966059,
+          "stop" : 1702672967568,
+          "duration" : 1509
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.softexco.softexcoScraper'>" ]
+      } ],
+      "uid" : "1b44317bbd5fcc2714b17d8555020a5a"
+    }, {
+      "name" : "AssertionError: assert ['Consultant Suport Clienti', 'Corporate Healthcare Manager', 'Executive Secretary to the Board', 'Medic Evaluare Daune'] == []\n  Left contains 4 more items, first extra item: 'Consultant Suport Clienti'\n  Full diff:\n    [\n  -  ,\n  +  'Consultant Suport Clienti',\n  +  'Corporate Healthcare Manager',\n  +  'Executive Secretary to the Board',\n  +  'Medic Evaluare Daune',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[signalidunaScraper]",
+        "uid" : "a623a35963866610",
+        "parentUid" : "ac26aa9ccba6ecf97c23872c38e5ea3a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672967572,
+          "stop" : 1702672968749,
+          "duration" : 1177
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.signaliduna.signalidunaScraper'>" ]
+      } ],
+      "uid" : "ac26aa9ccba6ecf97c23872c38e5ea3a"
+    }, {
+      "name" : "AssertionError: assert ['Agenti contractare', 'Angajăm agenți contractare, verificare și conștientizare', 'Angajăm șoferi profesioniști pentru autocamion/mașină de mare tonaj', 'Responsabil de Mediu'] == ['Agenti contractare', 'Angajăm șoferi profesioniști pentru autocamion/mașină de mare tonaj', 'Responsabil de Mediu']\n  At index 1 diff: 'Angajăm agenți contractare, verificare și conștientizare' != 'Angajăm șoferi profesioniști pentru autocamion/mașină de mare tonaj'\n  Left contains one more item: 'Responsabil de Mediu'\n  Full diff:\n    [\n     'Agenti contractare',\n  +  'Angajăm agenți contractare, verificare și conștientizare',\n     'Angajăm șoferi profesioniști pentru autocamion/mașină de mare tonaj',\n     'Responsabil de Mediu',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[rervestScraper]",
+        "uid" : "44cab29df655680e",
+        "parentUid" : "f2c97a5eb3b739d3a3abb38ef19133a3",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672970805,
+          "stop" : 1702672972025,
+          "duration" : 1220
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.rervest.rervestScraper'>" ]
+      } ],
+      "uid" : "f2c97a5eb3b739d3a3abb38ef19133a3"
+    }, {
+      "name" : "AssertionError: assert ['camerista', 'ospatar', 'receptioner'] == []\n  Left contains 3 more items, first extra item: 'camerista'\n  Full diff:\n  - []\n  + ['camerista', 'ospatar', 'receptioner']",
+      "children" : [ {
+        "name" : "test_scrapers[ramadaiasiScraper]",
+        "uid" : "421637fb91e3faae",
+        "parentUid" : "45b2404dfc4047c7aba2bceb188bc894",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672973430,
+          "stop" : 1702672974800,
+          "duration" : 1370
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.ramadaiasi.ramadaiasiScraper'>" ]
+      } ],
+      "uid" : "45b2404dfc4047c7aba2bceb188bc894"
+    }, {
+      "name" : "AssertionError: assert ['vânzător (vânzătoare)', 'șoferi', 'șoferi'] == []\n  Left contains 3 more items, first extra item: 'vânzător (vânzătoare)'\n  Full diff:\n  - []\n  + ['vânzător (vânzătoare)', 'șoferi', 'șoferi']",
+      "children" : [ {
+        "name" : "test_scrapers[panifcomScraper]",
+        "uid" : "17230f82042c802e",
+        "parentUid" : "68fbabe77719ad2d66df55ab9fc3f911",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672988277,
+          "stop" : 1702672989161,
+          "duration" : 884
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.panifcom.panifcomScraper'>" ]
+      } ],
+      "uid" : "68fbabe77719ad2d66df55ab9fc3f911"
+    }, {
+      "name" : "AssertionError: assert ['Associate Staff Consultant ,SAP Enterprise Asset Management', 'Distinguished Engineer, Enterprise Architect', 'Engineer, CRM Salesforce', 'Engineer, Cloud', 'Principal Consultant, Business Analyst', 'Principal Engineer, .Net Windows', 'Principal Engineer, DevOps', 'Principal Engineer, Java', 'Senior Staff Consultant ,SAP Basis', 'Senior Staff Consultant ,SAP Sales Service', 'Staff Consultant ,SAP Authorisations', 'Staff Consultant ,SAP Industry Solutions', 'Staff Consultant ,Sap Development BTP', 'Staff Consultant, Talent Acquisition', 'Staff Engineer, C++', 'Staff Engineer, DevOps', 'Staff Engineer, Frontend Angular2x', 'Staff Engineer, InfraOps', 'Staff Engineer, Java', 'Staff Engineer, PHP', 'Staff Engineer, QA Automation'] == ['Associate Staff Consultant ,SAP Enterprise Asset Management', 'Distinguished Engineer, Enterprise Architect', 'Engineer, CRM Salesforce', 'Engineer, Cloud', 'Principal Consultant, Business Analyst', 'Principal Engineer, C++', 'Principal Engineer, DevOps', 'Principal Engineer, Java', 'Senior Staff Consultant ,SAP Basis', 'Senior Staff Consultant ,SAP Sales Service', 'Staff Consultant ,SAP Authorisations', 'Staff Consultant ,SAP Industry Solutions', 'Staff Consultant ,Sap Development BTP', 'Staff Consultant, Talent Acquisition', 'Staff Engineer, C++', 'Staff Engineer, DevOps', 'Staff Engineer, Frontend Angular2x', 'Staff Engineer, InfraOps', 'Staff Engineer, Java', 'Staff Engineer, PHP', 'Staff Engineer, QA Automation']\n  At index 5 diff: 'Principal Engineer, .Net Windows' != 'Principal Engineer, C++'\n  Full diff:\n    [\n     'Associate Staff Consultant ,SAP Enterprise Asset Management',\n     'Distinguished Engineer, Enterprise Architect',\n     'Engineer, CRM Salesforce',\n     'Engineer, Cloud',\n     'Principal Consultant, Business Analyst',\n  -  'Principal Engineer, C++',\n  ?                       ^^^\n  +  'Principal Engineer, .Net Windows',\n  ?                       ^^^^^^^^^^^^\n     'Principal Engineer, DevOps',\n     'Principal Engineer, Java',\n     'Senior Staff Consultant ,SAP Basis',\n     'Senior Staff Consultant ,SAP Sales Service',\n     'Staff Consultant ,SAP Authorisations',\n     'Staff Consultant ,SAP Industry Solutions',\n     'Staff Consultant ,Sap Development BTP',\n     'Staff Consultant, Talent Acquisition',\n     'Staff Engineer, C++',\n     'Staff Engineer, DevOps',\n     'Staff Engineer, Frontend Angular2x',\n     'Staff Engineer, InfraOps',\n     'Staff Engineer, Java',\n     'Staff Engineer, PHP',\n     'Staff Engineer, QA Automation',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[NagarroScraper]",
+        "uid" : "b4e09eb120d8f5d3",
+        "parentUid" : "349c60ed17b1f688c9db8fdd2fc829c8",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672994861,
+          "stop" : 1702672996832,
+          "duration" : 1971
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.nagarro.NagarroScraper'>" ]
+      } ],
+      "uid" : "349c60ed17b1f688c9db8fdd2fc829c8"
+    }, {
+      "name" : "AssertionError: assert ['Business Developer', 'Business Developer', 'Lacatus Mecanic', 'Operator maşini', 'Reprezentant comercial', 'Sculer', 'Specialist Resurse Umane', 'Sudor'] == ['Business Developer', 'Business Developer', 'Lacatus Mecanic', 'Operator maşini', 'Sculer', 'Specialist Resurse Umane', 'Sudor']\n  At index 4 diff: 'Reprezentant comercial' != 'Sculer'\n  Left contains one more item: 'Sudor'\n  Full diff:\n    [\n     'Business Developer',\n     'Business Developer',\n     'Lacatus Mecanic',\n     'Operator maşini',\n  +  'Reprezentant comercial',\n     'Sculer',\n     'Specialist Resurse Umane',\n     'Sudor',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[metamobScraper]",
+        "uid" : "d8579293341e947",
+        "parentUid" : "fbf27ff028d9b422b9bd8ae7049faea8",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672996836,
+          "stop" : 1702672998789,
+          "duration" : 1953
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.metamob.metamobScraper'>" ]
+      } ],
+      "uid" : "fbf27ff028d9b422b9bd8ae7049faea8"
+    }, {
+      "name" : "AssertionError: assert ['Manager de produs – Elemente vibropresate'] == []\n  Left contains one more item: 'Manager de produs – Elemente vibropresate'\n  Full diff:\n  - []\n  + ['Manager de produs – Elemente vibropresate']",
+      "children" : [ {
+        "name" : "test_scrapers[leierScraper]",
+        "uid" : "a6da8c67f08cbf80",
+        "parentUid" : "ebc068c93c3c3dd3c5beb0a1c96cbfb6",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702672998794,
+          "stop" : 1702673001653,
+          "duration" : 2859
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.leier.leierScraper'>" ]
+      } ],
+      "uid" : "ebc068c93c3c3dd3c5beb0a1c96cbfb6"
+    }, {
+      "name" : "AssertionError: assert ['Fizioterapeut', 'Fizioterapeut', 'Kinetoterapeut', 'Kinetoterapeut copii', 'Receptionist', 'Receptionist'] == []\n  Left contains 6 more items, first extra item: 'Fizioterapeut'\n  Full diff:\n    [\n  -  ,\n  +  'Fizioterapeut',\n  +  'Fizioterapeut',\n  +  'Kinetoterapeut',\n  +  'Kinetoterapeut copii',\n  +  'Receptionist',\n  +  'Receptionist',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[kineticScraper]",
+        "uid" : "5a398d10c1cb9806",
+        "parentUid" : "e7781ebcfbbed773e1b1fc92ee27a0eb",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673001658,
+          "stop" : 1702673002879,
+          "duration" : 1221
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.kinetic.kineticScraper'>" ]
+      } ],
+      "uid" : "e7781ebcfbbed773e1b1fc92ee27a0eb"
+    }, {
+      "name" : "AssertionError: assert ['Accountant', 'Angajatori de top Bucuresti Octombrie 2023', 'Area Shop Manager IQOS - Constanta', 'Beauty Advisor - Bucuresti', 'Brand Manager - Wella Professionals - Bucuresti', 'Business Development Specialist Fashion-Bucuresti', 'Deputy Chief Accountant', 'Digital Marketing Specialist - Salon Professional', 'Distribution Account Manager - P&G - Bistrita', 'Distribution Account Manager - P&G - Bucuresti', 'Distribution Account Manager - P&G - Constanta', 'Distribution Account Manager - P&G - Pitesti', 'FLEET SPECIALIST', 'Junior Key Account Executive-Modern Trade-Sibiu', 'Junior Recruiter', 'Junior Storekeeper - Philip Morris - Cluj', 'Junior Storekeeper - Philip Morris - Domnesti', 'Key Account Executive - Modern Trade - Bacau', 'Key Account Executive - TT Food - Craiova', 'Key Account Executive - TT Non Food - Oradea', 'Key Account Manager - Beauty - Bucuresti', 'Key Account Manager - Style - Bucuresti', 'Key Account Manager Toys - Modern Trade - Bucharest', 'Locuri de munca Interbrands Orbico Supply', 'Manipulant marfa - Philip Morris - Domnesti', 'Merchandiser- Philip Morris - Bucuresti', 'Operator PC - Philip Morris - Domnesti', 'SALES TRAINEE @ INTERBRANDS ORBICO', 'STOCK CONTROLLER-RETAIL IQOS', 'Sales Consultant IQOS - Bucuresti', 'Sales Consultant IQOS - Cluj (Part time)', 'Sales Consultant IQOS - Onesti', 'Sales Consultant IQOS - Râmnicu Vâlcea', 'Sales Consultant IQOS - Timisoara', 'Sales Representative - Philip Morris - Bucuresti', 'Sales Representative - Philip Morris - Iasi', 'Sales Representative - Philip Morris - Targu Mures', 'Sales Representative - Philip Morris - Timisoara', 'Sales Representative - Philip Morris - Zalau', 'Sales Representative - TT Corporate - Dragasani', 'Sales Representative - TT Corporate - Pitesti', 'Sales Representative - TT Corporate - Targoviste', 'Sales Representative - Traditional Trade - Bacau', 'Sales Supervisor - Philip Morris - Ramnicu Valcea', 'Shop Manager IQOS - Baia Mare (Determinat 2ani)', 'Shop Manager IQOS - Bucuresti', 'Storekeeper - Philip Morris - Domnesti', 'Trade Account Executive-Philip Morris-Rm. Valcea', 'Trade Marketing Manager', 'Treasurer'] == ['Accountant', 'Angajatori de top Bucuresti Octombrie 2023', 'Area Shop Manager IQOS - Constanta', 'Beauty Advisor - Bucuresti', 'Brand Manager - Wella Professionals - Bucuresti', 'Business Development Specialist Fashion-Bucuresti', 'Deputy Chief Accountant', 'Digital Marketing Specialist - Salon Professional', 'Distribution Account Manager - P&G - Bistrita', 'Distribution Account Manager - P&G - Bucuresti', 'Distribution Account Manager - P&G - Constanta', 'Distribution Account Manager - P&G - Pitesti', 'FLEET SPECIALIST', 'Junior Key Account Executive-Modern Trade-Sibiu', 'Junior Recruiter', 'Junior Storekeeper - Philip Morris - Cluj', 'Junior Storekeeper - Philip Morris - Domnesti', 'Key Account Executive - Modern Trade - Bacau', 'Key Account Executive - TT Food - Craiova', 'Key Account Executive - TT Non Food - Oradea', 'Key Account Manager - Beauty - Bucuresti', 'Key Account Manager - Style - Bucuresti', 'Key Account Manager Toys - Modern Trade - Bucharest', 'Locuri de munca Interbrands Orbico Supply', 'Manipulant marfa - Philip Morris - Domnesti', 'Merchandiser - P&G - Alba Iulia', 'Merchandiser - P&G - Bucuresti', 'Merchandiser- Philip Morris - Bucuresti', 'Operator PC - Philip Morris - Domnesti', 'SALES TRAINEE @ INTERBRANDS ORBICO', 'STOCK CONTROLLER-RETAIL IQOS', 'Sales Consultant IQOS - Bucuresti', 'Sales Consultant IQOS - Cluj (Part time)', 'Sales Consultant IQOS - Onesti', 'Sales Consultant IQOS - Râmnicu Vâlcea', 'Sales Consultant IQOS - Timisoara', 'Sales Representative - Philip Morris - Bucuresti', 'Sales Representative - Philip Morris - Iasi', 'Sales Representative - Philip Morris - Targu Mures', 'Sales Representative - Philip Morris - Timisoara', 'Sales Representative - Philip Morris - Zalau', 'Sales Representative - TT Corporate - Dragasani', 'Sales Representative - TT Corporate - Pitesti', 'Sales Representative - TT Corporate - Targoviste', 'Sales Representative - Traditional Trade - Bacau', 'Sales Supervisor - Philip Morris - Ramnicu Valcea', 'Shop Manager IQOS - Baia Mare (Determinat 2ani)', 'Shop Manager IQOS - Bucuresti', 'Storekeeper - Philip Morris - Domnesti', 'Trade Account Executive-Philip Morris-Bacau', 'Trade Account Executive-Philip Morris-Rm. Valcea', 'Trade Account Executive-Philip Morris-Vaslui', 'Trade Marketing Manager', 'Treasurer']\n  At index 25 diff: 'Merchandiser- Philip Morris - Bucuresti' != 'Merchandiser - P&G - Alba Iulia'\n  Right contains 4 more items, first extra item: 'Trade Account Executive-Philip Morris-Rm. Valcea'\n  Full diff:\n    [\n     'Accountant',\n     'Angajatori de top Bucuresti Octombrie 2023',\n     'Area Shop Manager IQOS - Constanta',\n     'Beauty Advisor - Bucuresti',\n     'Brand Manager - Wella Professionals - Bucuresti',\n     'Business Development Specialist Fashion-Bucuresti',\n     'Deputy Chief Accountant',\n     'Digital Marketing Specialist - Salon Professional',\n     'Distribution Account Manager - P&G - Bistrita',\n     'Distribution Account Manager - P&G - Bucuresti',\n     'Distribution Account Manager - P&G - Constanta',\n     'Distribution Account Manager - P&G - Pitesti',\n     'FLEET SPECIALIST',\n     'Junior Key Account Executive-Modern Trade-Sibiu',\n     'Junior Recruiter',\n     'Junior Storekeeper - Philip Morris - Cluj',\n     'Junior Storekeeper - Philip Morris - Domnesti',\n     'Key Account Executive - Modern Trade - Bacau',\n     'Key Account Executive - TT Food - Craiova',\n     'Key Account Executive - TT Non Food - Oradea',\n     'Key Account Manager - Beauty - Bucuresti',\n     'Key Account Manager - Style - Bucuresti',\n     'Key Account Manager Toys - Modern Trade - Bucharest',\n     'Locuri de munca Interbrands Orbico Supply',\n     'Manipulant marfa - Philip Morris - Domnesti',\n  -  'Merchandiser - P&G - Alba Iulia',\n  -  'Merchandiser - P&G - Bucuresti',\n     'Merchandiser- Philip Morris - Bucuresti',\n     'Operator PC - Philip Morris - Domnesti',\n     'SALES TRAINEE @ INTERBRANDS ORBICO',\n     'STOCK CONTROLLER-RETAIL IQOS',\n     'Sales Consultant IQOS - Bucuresti',\n     'Sales Consultant IQOS - Cluj (Part time)',\n     'Sales Consultant IQOS - Onesti',\n     'Sales Consultant IQOS - Râmnicu Vâlcea',\n     'Sales Consultant IQOS - Timisoara',\n     'Sales Representative - Philip Morris - Bucuresti',\n     'Sales Representative - Philip Morris - Iasi',\n     'Sales Representative - Philip Morris - Targu Mures',\n     'Sales Representative - Philip Morris - Timisoara',\n     'Sales Representative - Philip Morris - Zalau',\n     'Sales Representative - TT Corporate - Dragasani',\n     'Sales Representative - TT Corporate - Pitesti',\n     'Sales Representative - TT Corporate - Targoviste',\n     'Sales Representative - Traditional Trade - Bacau',\n     'Sales Supervisor - Philip Morris - Ramnicu Valcea',\n     'Shop Manager IQOS - Baia Mare (Determinat 2ani)',\n     'Shop Manager IQOS - Bucuresti',\n     'Storekeeper - Philip Morris - Domnesti',\n  -  'Trade Account Executive-Philip Morris-Bacau',\n     'Trade Account Executive-Philip Morris-Rm. Valcea',\n  -  'Trade Account Executive-Philip Morris-Vaslui',\n     'Trade Marketing Manager',\n     'Treasurer',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[InterbrandsOrbicoScraper]",
+        "uid" : "18f254b216f8e76a",
+        "parentUid" : "2088ee638b0d31084843c890658ba348",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673003806,
+          "stop" : 1702673005920,
+          "duration" : 2114
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.interbrandsorbico.InterbrandsOrbicoScraper'>" ]
+      } ],
+      "uid" : "2088ee638b0d31084843c890658ba348"
+    }, {
+      "name" : "AssertionError: assert ['Director tehnic', 'Tehnician sisteme securitate – entry level'] == []\n  Left contains 2 more items, first extra item: 'Director tehnic'\n  Full diff:\n  - []\n  + ['Director tehnic', 'Tehnician sisteme securitate – entry level']",
+      "children" : [ {
+        "name" : "test_scrapers[inovagroupScraper]",
+        "uid" : "9e6ad1c8a5876398",
+        "parentUid" : "bd9c7abb5ef43e88926e02281722fdae",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673005924,
+          "stop" : 1702673010283,
+          "duration" : 4359
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.inova.inovagroupScraper'>" ]
+      } ],
+      "uid" : "bd9c7abb5ef43e88926e02281722fdae"
+    }, {
+      "name" : "AssertionError: assert ['Ajutor de bucatar', 'Asistent Manager', 'Barman', 'Bucatar', 'Lucrator in alimentatie', 'Manager', 'Ospatar', 'Sef Sala', 'Sofer Livrari'] == []\n  Left contains 9 more items, first extra item: 'Ajutor de bucatar'\n  Full diff:\n    [\n  -  ,\n  +  'Ajutor de bucatar',\n  +  'Asistent Manager',\n  +  'Barman',\n  +  'Bucatar',\n  +  'Lucrator in alimentatie',\n  +  'Manager',\n  +  'Ospatar',\n  +  'Sef Sala',\n  +  'Sofer Livrari',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[iasideliveryScraper]",
+        "uid" : "30c8dfbe30ee1c68",
+        "parentUid" : "f67a72df3b907cdd70d1242950bb1357",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673010287,
+          "stop" : 1702673012866,
+          "duration" : 2579
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.iasidelivery.iasideliveryScraper'>" ]
+      } ],
+      "uid" : "f67a72df3b907cdd70d1242950bb1357"
+    }, {
+      "name" : "AssertionError: assert ['JAVA Developers', 'Social Media & Marketing', 'Software Developers', 'Tehnical Game Hosting Specialist', 'Tehnical Web Hosting Specialist'] == []\n  Left contains 5 more items, first extra item: 'JAVA Developers'\n  Full diff:\n    [\n  -  ,\n  +  'JAVA Developers',\n  +  'Social Media & Marketing',\n  +  'Software Developers',\n  +  'Tehnical Game Hosting Specialist',\n  +  'Tehnical Web Hosting Specialist',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[GazduireJocuriScraper]",
+        "uid" : "1523f10eb4b6fcfe",
+        "parentUid" : "cf50505eb79ca60e7f2688a722c51a72",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673013948,
+          "stop" : 1702673015284,
+          "duration" : 1336
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.gazduirejocuri.GazduireJocuriScraper'>" ]
+      } ],
+      "uid" : "cf50505eb79ca60e7f2688a722c51a72"
+    }, {
+      "name" : "AssertionError: assert ['Asistent Medical Angiografie', 'Asistent Medical Ati', 'Asistent Medical Generalist', 'Asistent Medical Hematologie', 'Asistent Medical Neonatologie', 'Asistent Medical Neurochirurgie', 'Asistent Medical Pediatrie', 'Asistent Medical Policlinici/pct.recoltare/imagistica', 'Asistent Medical Radiologie', 'Asistent Medical Radiologie - Medicina Nucleara (pet-ct, Scintigrafie)', 'Asistent Medical Spital', 'Asistent Medical Stomatologie', 'Dutch Language Course Online', 'Extindem Echipa De Medici Specialisti', 'Farmacist', 'Farmacist', 'Farmacist', 'Farmacist', 'Farmacist', 'Foreign Language Courses', 'French Language Course Online', 'General English Course Online', 'German Language Course Online', 'Ielts Academic Advanced Course Online', 'Ielts Academic Beginner Course Online', 'Ielts Academic Medium Course Online', 'Ingrijitor', 'Kinetoterapeut', 'Medic - Medicina GeneralĂ | MedicinĂ De Familie', 'Medic - Medicina GeneralĂ | MedicinĂ De Familie', 'Medic Anestezie Si Terapie Intensiva', 'Medic Boli Infectioase', 'Medic Boli Infectioase', 'Medic Cardiolog', 'Medic Diabet Zahart, Nutritie Si Boli Metabolice', 'Medic Generalist / Medic Specialist Medicina Interna', 'Medic Generalist Sau Medic Specialist Medicina Interna', 'Medic Ginecolog, Dermatolog, Chirurg , Administrator', 'Medic Medicina De Laborator', 'Medic Medicina De Laborator', 'Medic Medicina Generala', 'Medic Medicina Generala', 'Medic Medicina Interna', 'Medic Medicina Interna', 'Medic Medicina Interna', 'Medic Medicina Muncii', 'Medic Oftalmolog', 'Medic Pneumolog', 'Medic Pneumolog', 'Medic Primar Chirurgie Vasculara - Bucuresti', 'Medic Sef Sectie', 'Medic Sef Sectie', 'Medic Specialist', 'Medic Specialist - Clinica Medicover Timisoara', 'Medic Specialist - Clinici Medicover Cluj Napoca', 'Medic Specialist - Clinici Si Spital - Bucuresti', 'Medic Specialist / Primar Oncologie', 'Medic Specialist Implantologie Si Chirurgie Orala Si Maxilofaciala In Suceava', 'Medic Specialist Neurolog Pentru Spital De Stat - Slobozia', 'Medic Specialist/ Primar Orl', 'Medic | Epidemiologie', 'Medic | Epidemiologie', 'Medic | Medicina Muncii', 'Medic | Medicina Muncii', 'Medic | Orl', 'Medic | Orl', 'Medic | Psihiatrie', 'Medic | Psihiatrie', 'Medic | Radiologie', 'Medic | Radiologie', 'Medici Ginecologi & Neonatologi', 'Medici Ginecologi & Neonatologi', 'Oet Advanced Course Online', 'Oet Beginner Course Online', 'Oet Medium Course Online'] == ['Asistent Medical Angiografie', 'Asistent Medical Ati', 'Asistent Medical Generalist', 'Asistent Medical Hematologie', 'Asistent Medical Neonatologie', 'Asistent Medical Neurochirurgie', 'Asistent Medical Pediatrie', 'Asistent Medical Policlinici/pct.recoltare/imagistica', 'Asistent Medical Radiologie', 'Asistent Medical Radiologie - Medicina Nucleara (pet-ct, Scintigrafie)', 'Asistent Medical Spital', 'Asistent Medical Stomatologie', 'Dutch Language Course Online', 'Extindem Echipa De Medici Specialisti', 'Farmacist', 'Farmacist', 'Farmacist', 'Farmacist', 'Farmacist', 'Foreign Language Courses', 'French Language Course Online', 'General English Course Online', 'German Language Course Online', 'Ielts Academic Advanced Course Online', 'Ielts Academic Beginner Course Online', 'Ielts Academic Medium Course Online', 'Ingrijitor', 'Kinetoterapeut', 'Medic - Medicina GeneralĂ | MedicinĂ De Familie', 'Medic - Medicina GeneralĂ | MedicinĂ De Familie', 'Medic Boli Infectioase', 'Medic Boli Infectioase', 'Medic Cardiolog', 'Medic Generalist / Medic Specialist Medicina Interna', 'Medic Generalist Sau Medic Specialist Medicina Interna', 'Medic Ginecolog, Dermatolog, Chirurg , Administrator', 'Medic Medicina De Laborator', 'Medic Medicina De Laborator', 'Medic Medicina Generala', 'Medic Medicina Generala', 'Medic Medicina Interna', 'Medic Medicina Interna', 'Medic Medicina Interna', 'Medic Medicina Muncii', 'Medic Oftalmolog', 'Medic Pneumolog', 'Medic Pneumolog', 'Medic Primar Chirurgie Vasculara - Bucuresti', 'Medic Sef Sectie', 'Medic Sef Sectie', 'Medic Specialist', 'Medic Specialist - Clinica Medicover Timisoara', 'Medic Specialist - Clinici Medicover Cluj Napoca', 'Medic Specialist / Primar Oncologie', 'Medic Specialist Neurolog Pentru Spital De Stat - Slobozia', 'Medic Specialist/ Primar Orl', 'Medic | Epidemiologie', 'Medic | Epidemiologie', 'Medic | Medicina Muncii', 'Medic | Medicina Muncii', 'Medic | Orl', 'Medic | Orl', 'Medic | Psihiatrie', 'Medic | Psihiatrie', 'Medic | Radiologie', 'Medic | Radiologie', 'Medici Ginecologi & Neonatologi', 'Medici Ginecologi & Neonatologi', 'Oet Advanced Course Online', 'Oet Beginner Course Online', 'Oet Medium Course Online']\n  At index 30 diff: 'Medic Anestezie Si Terapie Intensiva' != 'Medic Boli Infectioase'\n  Left contains 4 more items, first extra item: 'Medici Ginecologi & Neonatologi'\n  Full diff:\n    [\n     'Asistent Medical Angiografie',\n     'Asistent Medical Ati',\n     'Asistent Medical Generalist',\n     'Asistent Medical Hematologie',\n     'Asistent Medical Neonatologie',\n     'Asistent Medical Neurochirurgie',\n     'Asistent Medical Pediatrie',\n     'Asistent Medical Policlinici/pct.recoltare/imagistica',\n     'Asistent Medical Radiologie',\n     'Asistent Medical Radiologie - Medicina Nucleara (pet-ct, Scintigrafie)',\n     'Asistent Medical Spital',\n     'Asistent Medical Stomatologie',\n     'Dutch Language Course Online',\n     'Extindem Echipa De Medici Specialisti',\n     'Farmacist',\n     'Farmacist',\n     'Farmacist',\n     'Farmacist',\n     'Farmacist',\n     'Foreign Language Courses',\n     'French Language Course Online',\n     'General English Course Online',\n     'German Language Course Online',\n     'Ielts Academic Advanced Course Online',\n     'Ielts Academic Beginner Course Online',\n     'Ielts Academic Medium Course Online',\n     'Ingrijitor',\n     'Kinetoterapeut',\n     'Medic - Medicina GeneralĂ | MedicinĂ De Familie',\n     'Medic - Medicina GeneralĂ | MedicinĂ De Familie',\n  +  'Medic Anestezie Si Terapie Intensiva',\n     'Medic Boli Infectioase',\n     'Medic Boli Infectioase',\n     'Medic Cardiolog',\n  +  'Medic Diabet Zahart, Nutritie Si Boli Metabolice',\n     'Medic Generalist / Medic Specialist Medicina Interna',\n     'Medic Generalist Sau Medic Specialist Medicina Interna',\n     'Medic Ginecolog, Dermatolog, Chirurg , Administrator',\n     'Medic Medicina De Laborator',\n     'Medic Medicina De Laborator',\n     'Medic Medicina Generala',\n     'Medic Medicina Generala',\n     'Medic Medicina Interna',\n     'Medic Medicina Interna',\n     'Medic Medicina Interna',\n     'Medic Medicina Muncii',\n     'Medic Oftalmolog',\n     'Medic Pneumolog',\n     'Medic Pneumolog',\n     'Medic Primar Chirurgie Vasculara - Bucuresti',\n     'Medic Sef Sectie',\n     'Medic Sef Sectie',\n     'Medic Specialist',\n     'Medic Specialist - Clinica Medicover Timisoara',\n     'Medic Specialist - Clinici Medicover Cluj Napoca',\n  +  'Medic Specialist - Clinici Si Spital - Bucuresti',\n     'Medic Specialist / Primar Oncologie',\n  +  'Medic Specialist Implantologie Si Chirurgie Orala Si Maxilofaciala In '\n  +  'Suceava',\n     'Medic Specialist Neurolog Pentru Spital De Stat - Slobozia',\n     'Medic Specialist/ Primar Orl',\n     'Medic | Epidemiologie',\n     'Medic | Epidemiologie',\n     'Medic | Medicina Muncii',\n     'Medic | Medicina Muncii',\n     'Medic | Orl',\n     'Medic | Orl',\n     'Medic | Psihiatrie',\n     'Medic | Psihiatrie',\n     'Medic | Radiologie',\n     'Medic | Radiologie',\n     'Medici Ginecologi & Neonatologi',\n     'Medici Ginecologi & Neonatologi',\n     'Oet Advanced Course Online',\n     'Oet Beginner Course Online',\n     'Oet Medium Course Online',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[expomedicsScraper]",
+        "uid" : "6f710f8cf1f8c957",
+        "parentUid" : "01cd65f28e2751729a47801471083139",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673015288,
+          "stop" : 1702673023374,
+          "duration" : 8086
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.expomedics.expomedicsScraper'>" ]
+      } ],
+      "uid" : "01cd65f28e2751729a47801471083139"
+    }, {
+      "name" : "AssertionError: assert ['Coafor', 'Cosmetica', 'Manichiura si pedichiura'] == []\n  Left contains 3 more items, first extra item: 'Coafor'\n  Full diff:\n  - []\n  + ['Coafor', 'Cosmetica', 'Manichiura si pedichiura']",
+      "children" : [ {
+        "name" : "test_scrapers[ellisiumScraper]",
+        "uid" : "e18b7577dd907377",
+        "parentUid" : "3a2837317ca417736bb08b35602d364c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673027884,
+          "stop" : 1702673028861,
+          "duration" : 977
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.ellisium.ellisiumScraper'>" ]
+      } ],
+      "uid" : "3a2837317ca417736bb08b35602d364c"
+    }, {
+      "name" : "AssertionError: assert ['Inginer Electronist (ELECTRA)', 'Tehnician Proiectare Electronică (EMS-Electra)'] == []\n  Left contains 2 more items, first extra item: 'Inginer Electronist (ELECTRA)'\n  Full diff:\n    [\n  -  ,\n  +  'Inginer Electronist (ELECTRA)',\n  +  'Tehnician Proiectare Electronică (EMS-Electra)',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[electraScraper]",
+        "uid" : "ceeeeea0953d4d22",
+        "parentUid" : "3bd56e3903fcba00caee65de062cba2a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673028865,
+          "stop" : 1702673030523,
+          "duration" : 1658
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.electra.electraScraper'>" ]
+      } ],
+      "uid" : "3bd56e3903fcba00caee65de062cba2a"
+    }, {
+      "name" : "AssertionError: assert ['Electrician', 'Lacatus mecanic', 'Sef atelier mecanic'] == []\n  Left contains 3 more items, first extra item: 'Electrician'\n  Full diff:\n  - []\n  + ['Electrician', 'Lacatus mecanic', 'Sef atelier mecanic']",
+      "children" : [ {
+        "name" : "test_scrapers[covalactScraper]",
+        "uid" : "1d792ca4aa72b9c9",
+        "parentUid" : "c61d2d4af40684fcf99b51d958c77950",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673048812,
+          "stop" : 1702673049628,
+          "duration" : 816
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.covalact.covalactScraper'>" ]
+      } ],
+      "uid" : "c61d2d4af40684fcf99b51d958c77950"
+    }, {
+      "name" : "AssertionError: assert ['asistent medical', 'medic medicină internă', 'medic specialitatea cardiologie', 'medic specialitatea diabet', 'medic specialitatea neurologie', 'personal recepție'] == []\n  Left contains 6 more items, first extra item: 'asistent medical'\n  Full diff:\n    [\n  -  ,\n  +  'asistent medical',\n  +  'medic medicină internă',\n  +  'medic specialitatea cardiologie',\n  +  'medic specialitatea diabet',\n  +  'medic specialitatea neurologie',\n  +  'personal recepție',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[consultmedScraper]",
+        "uid" : "db357957d5bbfdb3",
+        "parentUid" : "c707ed717632d137f2c8a276f4a9cb6e",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673049632,
+          "stop" : 1702673051535,
+          "duration" : 1903
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.consultmed.consultmedScraper'>" ]
+      } ],
+      "uid" : "c707ed717632d137f2c8a276f4a9cb6e"
+    }, {
+      "name" : "AssertionError: assert ['Analist Vânzări', 'Lucrător Depozit', 'Manager Zonal Logistică', 'Pickeri / Lucrători Depozit / Manipulanți', 'Specialist în Achiziții și Relaționare Furnizori', 'Șofer distribuție piese auto'] == []\n  Left contains 6 more items, first extra item: 'Analist Vânzări'\n  Full diff:\n    [\n  -  ,\n  +  'Analist Vânzări',\n  +  'Lucrător Depozit',\n  +  'Manager Zonal Logistică',\n  +  'Pickeri / Lucrători Depozit / Manipulanți',\n  +  'Specialist în Achiziții și Relaționare Furnizori',\n  +  'Șofer distribuție piese auto',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[conexdistScraper]",
+        "uid" : "11eb797f508af906",
+        "parentUid" : "a625f7e789dd867edc9170e5595e2b64",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673052882,
+          "stop" : 1702673053821,
+          "duration" : 939
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.conexdist.conexdistScraper'>" ]
+      } ],
+      "uid" : "a625f7e789dd867edc9170e5595e2b64"
+    }, {
+      "name" : "AssertionError: assert ['CONSILIER RECEPŢIE SERVICE', 'CONSILIER VÂNZĂRI PIESE ŞI ACCESORII AUTO', 'CONSULTANT VÂNZĂRI AUTO', 'MECANIC AUTO', 'PREGĂTITOR VOPSITOR AUTO', 'RESPONSABIL PIESE', 'TINICHIGIU AUTO'] == []\n  Left contains 7 more items, first extra item: 'CONSILIER RECEPŢIE SERVICE'\n  Full diff:\n    [\n  -  ,\n  +  'CONSILIER RECEPŢIE SERVICE',\n  +  'CONSILIER VÂNZĂRI PIESE ŞI ACCESORII AUTO',\n  +  'CONSULTANT VÂNZĂRI AUTO',\n  +  'MECANIC AUTO',\n  +  'PREGĂTITOR VOPSITOR AUTO',\n  +  'RESPONSABIL PIESE',\n  +  'TINICHIGIU AUTO',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[casaautoiasiScraper]",
+        "uid" : "29ca113c2249966a",
+        "parentUid" : "f316ba8fd16fb9a5548b47f0e19416bc",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673054933,
+          "stop" : 1702673055663,
+          "duration" : 730
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.casaautoiasi.casaautoiasiScraper'>" ]
+      } ],
+      "uid" : "f316ba8fd16fb9a5548b47f0e19416bc"
+    }, {
+      "name" : "AssertionError: assert ['Hourly-paid teacher 1', 'Teaching Assistant', 'Teaching Operations Coordinator'] == []\n  Left contains 3 more items, first extra item: 'Hourly-paid teacher 1'\n  Full diff:\n    [\n  -  ,\n  +  'Hourly-paid teacher 1',\n  +  'Teaching Assistant',\n  +  'Teaching Operations Coordinator',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[britishcouncilScraper]",
+        "uid" : "5a6c0980539ea222",
+        "parentUid" : "32b690e30f333449a7721d4343932564",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673055667,
+          "stop" : 1702673056177,
+          "duration" : 510
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.britishcouncil.britishcouncilScraper'>" ]
+      } ],
+      "uid" : "32b690e30f333449a7721d4343932564"
+    }, {
+      "name" : "AssertionError: assert ['Coordonator echipă administrare personal și salarizare', 'Librar', 'Manager librărie', 'Operator depozit (manipulant, picker)', 'Responsabil tehnic regional/național'] == ['Librar', 'Manager librărie', 'Operator depozit (manipulant, picker)', 'Responsabil tehnic regional/național']\n  At index 0 diff: 'Coordonator echipă administrare personal și salarizare' != 'Librar'\n  Left contains one more item: 'Responsabil tehnic regional/național'\n  Full diff:\n    [\n  +  'Coordonator echipă administrare personal și salarizare',\n     'Librar',\n     'Manager librărie',\n     'Operator depozit (manipulant, picker)',\n     'Responsabil tehnic regional/național',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[carturestiScraper]",
+        "uid" : "a7ec404c85aca2fa",
+        "parentUid" : "fc2bd4021ad28d622909fa6e094d85a3",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673056181,
+          "stop" : 1702673057740,
+          "duration" : 1559
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.carturesti.carturestiScraper'>" ]
+      } ],
+      "uid" : "fc2bd4021ad28d622909fa6e094d85a3"
+    }, {
+      "name" : "AssertionError: assert ['Cargus caută curier/șofer/livratori cu autoutilitare proprii', 'Team Leader', 'Telesales Executive – Bucuresti/Ilfov'] == []\n  Left contains 3 more items, first extra item: 'Cargus caută curier/șofer/livratori cu autoutilitare proprii'\n  Full diff:\n    [\n  -  ,\n  +  'Cargus caută curier/șofer/livratori cu autoutilitare proprii',\n  +  'Team Leader',\n  +  'Telesales Executive – Bucuresti/Ilfov',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[CargusScraper]",
+        "uid" : "10f714db8437cf88",
+        "parentUid" : "f6a2745087c28799edf946c7422b5bab",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673057744,
+          "stop" : 1702673058674,
+          "duration" : 930
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.cargus.CargusScraper'>" ]
+      } ],
+      "uid" : "f6a2745087c28799edf946c7422b5bab"
+    }, {
+      "name" : "AssertionError: assert ['Account Manager', 'Channel Manager', 'Consultant Implementare', 'Consultant Senior - Suport Tehnic', 'Product Manager'] == []\n  Left contains 5 more items, first extra item: 'Account Manager'\n  Full diff:\n    [\n  -  ,\n  +  'Account Manager',\n  +  'Channel Manager',\n  +  'Consultant Implementare',\n  +  'Consultant Senior - Suport Tehnic',\n  +  'Product Manager',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[BitSoftwareScraper]",
+        "uid" : "ed293f0570f64b88",
+        "parentUid" : "8b852751174add11adc1c42167e6a34d",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673065018,
+          "stop" : 1702673066739,
+          "duration" : 1721
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.bitsoftware.BitSoftwareScraper'>" ]
+      } ],
+      "uid" : "8b852751174add11adc1c42167e6a34d"
+    }, {
+      "name" : "AssertionError: assert ['Contabil', 'Lucrător depozit', 'Reprezentant vânzări', 'Responsabil Produs', 'Responsabil Proiecte Marketing', 'Software developer', 'Stivuitorist'] == []\n  Left contains 7 more items, first extra item: 'Contabil'\n  Full diff:\n    [\n  -  ,\n  +  'Contabil',\n  +  'Lucrător depozit',\n  +  'Reprezentant vânzări',\n  +  'Responsabil Produs',\n  +  'Responsabil Proiecte Marketing',\n  +  'Software developer',\n  +  'Stivuitorist',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[autonetScraper]",
+        "uid" : "7c1cf2d373a57b14",
+        "parentUid" : "64d573be6a06e6209c1bf446a6332960",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673078148,
+          "stop" : 1702673079434,
+          "duration" : 1286
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.autonet.autonetScraper'>" ]
+      } ],
+      "uid" : "64d573be6a06e6209c1bf446a6332960"
+    }, {
+      "name" : "AssertionError: assert ['Ajutor mecanic Oradea', 'Key account manager regiunea Sud', 'Key account manager regiunea Sud-Vest', 'Key account manager regiunea Vest', 'Maistru service caroserie', 'Mecanic auto service camioane Baia Mare', 'Mecanic auto service camioane Oradea', 'Mecanic auto service turisme Cluj-Napoca', 'Mecanic auto service turisme Oradea', 'Tehnician diagnoză turisme Oradea'] == []\n  Left contains 10 more items, first extra item: 'Ajutor mecanic Oradea'\n  Full diff:\n    [\n  -  ,\n  +  'Ajutor mecanic Oradea',\n  +  'Key account manager regiunea Sud',\n  +  'Key account manager regiunea Sud-Vest',\n  +  'Key account manager regiunea Vest',\n  +  'Maistru service caroserie',\n  +  'Mecanic auto service camioane Baia Mare',\n  +  'Mecanic auto service camioane Oradea',\n  +  'Mecanic auto service turisme Cluj-Napoca',\n  +  'Mecanic auto service turisme Oradea',\n  +  'Tehnician diagnoză turisme Oradea',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[atpgroupScraper]",
+        "uid" : "1a441ceebd478817",
+        "parentUid" : "3110f26a1e80bad44ce4a6f9dea2e3b8",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673080838,
+          "stop" : 1702673086278,
+          "duration" : 5440
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.atpgroup.atpgroupScraper'>" ]
+      } ],
+      "uid" : "3110f26a1e80bad44ce4a6f9dea2e3b8"
+    }, {
+      "name" : "AssertionError: assert ['Asistent Marketing magazin online', 'Job Brand Manager', 'Job Copywriter', 'Job Digital Marketing Specialist', 'Job Specialist Comunicare', 'Job Specialist Marketing Content', 'Senior Graphic Designer Iasi'] == []\n  Left contains 7 more items, first extra item: 'Asistent Marketing magazin online'\n  Full diff:\n    [\n  -  ,\n  +  'Asistent Marketing magazin online',\n  +  'Job Brand Manager',\n  +  'Job Copywriter',\n  +  'Job Digital Marketing Specialist',\n  +  'Job Specialist Comunicare',\n  +  'Job Specialist Marketing Content',\n  +  'Senior Graphic Designer Iasi',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[artvertisingScraper]",
+        "uid" : "a6ff1db680559be2",
+        "parentUid" : "910762792d933be8b9cd98b31907c754",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673086282,
+          "stop" : 1702673088419,
+          "duration" : 2137
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.artvertising.artvertisingScraper'>" ]
+      } ],
+      "uid" : "910762792d933be8b9cd98b31907c754"
+    }, {
+      "name" : "AssertionError: assert ['Operator Amanet'] == []\n  Left contains one more item: 'Operator Amanet'\n  Full diff:\n  - []\n  + ['Operator Amanet']",
+      "children" : [ {
+        "name" : "test_scrapers[expresscreditScraper]",
+        "uid" : "7862636f2906cb02",
+        "parentUid" : "afd983e1e783becba576fcfa771240a2",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673097774,
+          "stop" : 1702673099175,
+          "duration" : 1401
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.expresscredit.expresscreditScraper'>" ]
+      } ],
+      "uid" : "afd983e1e783becba576fcfa771240a2"
+    }, {
+      "name" : "AssertionError: assert ['Analist financiar', 'Asistent medical generalist Bloc Operator', 'Asistent medical generalist Gastroenterologie', 'Asistent medical generalist Sterilizare', 'Asistent medical generalist voluntar (spital si ambulatoriu)', 'Asistent medical generalist |ngrijri Paliative', 'Specialist Marketing', 'Specialist Resurse Umane'] == []\n  Left contains 8 more items, first extra item: 'Analist financiar'\n  Full diff:\n    [\n  -  ,\n  +  'Analist financiar',\n  +  'Asistent medical generalist Bloc Operator',\n  +  'Asistent medical generalist Gastroenterologie',\n  +  'Asistent medical generalist Sterilizare',\n  +  'Asistent medical generalist voluntar (spital si ambulatoriu)',\n  +  'Asistent medical generalist |ngrijri Paliative',\n  +  'Specialist Marketing',\n  +  'Specialist Resurse Umane',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[arcadiamedicalScraper]",
+        "uid" : "f8c93d411d430bef",
+        "parentUid" : "36a1f80172d75a3cc44872598cb3ae91",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673099179,
+          "stop" : 1702673100022,
+          "duration" : 843
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.arcadiamedical.arcadiamedicalScraper'>" ]
+      } ],
+      "uid" : "36a1f80172d75a3cc44872598cb3ae91"
+    }, {
+      "name" : "AssertionError: assert ['ASISTENT MEDICAL/ REGISTRATOR MEDICAL (Timisoara, Focsani)', 'Angajari deschidere Clinica, Bucuresti', 'Asistent medical generalist ( Complexul Rezidential Cosmopolis)', 'Asistent medical radiologie si imagistica - Bucuresti, Cluj', 'Campaign Manager', 'Candidatura spontanta la Affidea - Medici, Tehnicieni radiologie-imagistica, Asistenti', 'Consultant Relatii Clienti in domeniul medical (Contact Center) - Brasov', 'Financial Analyst', 'Inspector în domeniul Securității şi Sănătății în Muncă', 'Medici specialisti/primari', 'Patient Advisor / Registrator Medical - Brasov', 'Patient Advisor / Registrator Medical - Bucuresti, Cluj', 'Patient Advisor / Registrator Medical - Oradea', 'Personal curatenie - Bucuresti, Timisoara', 'Senior M&A Manager'] == ['ASISTENT MEDICAL/ REGISTRATOR MEDICAL (Timisoara, Focsani)', 'Angajari deschidere Clinica, Bucuresti', 'Asistent medical generalist ( Complexul Rezidential Cosmopolis)', 'Campaign Manager', 'Candidatura spontanta la Affidea - Medici, Tehnicieni radiologie-imagistica, Asistenti', 'Consultant Relatii Clienti in domeniul medical (Contact Center) - Brasov', 'Financial Analyst', 'Medici specialisti/primari', 'Patient Advisor / Registrator Medical - Brasov', 'Patient Advisor / Registrator Medical - Bucuresti, Cluj', 'Patient Advisor / Registrator Medical - Oradea', 'Personal curatenie - Bucuresti, Timisoara', 'Senior M&A Manager']\n  At index 3 diff: 'Asistent medical radiologie si imagistica - Bucuresti, Cluj' != 'Campaign Manager'\n  Left contains 2 more items, first extra item: 'Personal curatenie - Bucuresti, Timisoara'\n  Full diff:\n    [\n     'ASISTENT MEDICAL/ REGISTRATOR MEDICAL (Timisoara, Focsani)',\n     'Angajari deschidere Clinica, Bucuresti',\n     'Asistent medical generalist ( Complexul Rezidential Cosmopolis)',\n  +  'Asistent medical radiologie si imagistica - Bucuresti, Cluj',\n     'Campaign Manager',\n     'Candidatura spontanta la Affidea - Medici, Tehnicieni radiologie-imagistica, '\n     'Asistenti',\n     'Consultant Relatii Clienti in domeniul medical (Contact Center) - Brasov',\n     'Financial Analyst',\n  +  'Inspector în domeniul Securității şi Sănătății în Muncă',\n     'Medici specialisti/primari',\n     'Patient Advisor / Registrator Medical - Brasov',\n     'Patient Advisor / Registrator Medical - Bucuresti, Cluj',\n     'Patient Advisor / Registrator Medical - Oradea',\n     'Personal curatenie - Bucuresti, Timisoara',\n     'Senior M&A Manager',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[affidearomaniaScraper]",
+        "uid" : "86b9f7e0abd3b5f8",
+        "parentUid" : "1e4335533283c0fb49cb935dfccf7675",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673101603,
+          "stop" : 1702673102508,
+          "duration" : 905
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.affidearomania.affidearomaniaScraper'>" ]
+      } ],
+      "uid" : "1e4335533283c0fb49cb935dfccf7675"
+    }, {
+      "name" : "AssertionError: assert ['OPERATOR CALCULATOR – TIPOGRAFIE / COPY CENTER', 'OPERATOR GHILOTINĂ /MANIPULARE HARTIE', 'TEHNICIAN SERVICE'] == []\n  Left contains 3 more items, first extra item: 'OPERATOR CALCULATOR – TIPOGRAFIE / COPY CENTER'\n  Full diff:\n    [\n  -  ,\n  +  'OPERATOR CALCULATOR – TIPOGRAFIE / COPY CENTER',\n  +  'OPERATOR GHILOTINĂ /MANIPULARE HARTIE',\n  +  'TEHNICIAN SERVICE',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[pimcopyScraper]",
+        "uid" : "f3acc3023f6f889",
+        "parentUid" : "e3cc38ff3617f001eb4238abf83b2824",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673102512,
+          "stop" : 1702673103413,
+          "duration" : 901
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.pimcopy.pimcopyScraper'>" ]
+      } ],
+      "uid" : "e3cc38ff3617f001eb4238abf83b2824"
+    }, {
+      "name" : "AssertionError: assert ['Asistent stomatologie', 'Consilier clienti', 'Medic specialist endodont', 'Medic specialist implantolog', 'Medic specialist ortodont', 'Medic specialist protetica dentara', 'Medic stomatolog', 'Medic stomatolog pediatru'] == []\n  Left contains 8 more items, first extra item: 'Asistent stomatologie'\n  Full diff:\n    [\n  -  ,\n  +  'Asistent stomatologie',\n  +  'Consilier clienti',\n  +  'Medic specialist endodont',\n  +  'Medic specialist implantolog',\n  +  'Medic specialist ortodont',\n  +  'Medic specialist protetica dentara',\n  +  'Medic stomatolog',\n  +  'Medic stomatolog pediatru',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[dentesseScraper]",
+        "uid" : "9c62c3943e9cbcc9",
+        "parentUid" : "6bb60cbab27551d1d2aeb1a972524161",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673104765,
+          "stop" : 1702673106164,
+          "duration" : 1399
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.dentesse.dentesseScraper'>" ]
+      } ],
+      "uid" : "6bb60cbab27551d1d2aeb1a972524161"
+    }, {
+      "name" : "AssertionError: assert ['Administrator Garantii', 'Asistent Comercial', 'Mecanic Service Utilaje Agricole', 'Specialist Suport Comercial', 'Suport Service Implemente', 'Tehnician Irigatii', 'Tehnician Service'] == []\n  Left contains 7 more items, first extra item: 'Administrator Garantii'\n  Full diff:\n    [\n  -  ,\n  +  'Administrator Garantii',\n  +  'Asistent Comercial',\n  +  'Mecanic Service Utilaje Agricole',\n  +  'Specialist Suport Comercial',\n  +  'Suport Service Implemente',\n  +  'Tehnician Irigatii',\n  +  'Tehnician Service',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[ipsoScraper]",
+        "uid" : "51ac22c6bfcf1bec",
+        "parentUid" : "b558177e7fad3cba417f27578b6fc07a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673109091,
+          "stop" : 1702673111628,
+          "duration" : 2537
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.ipso.ipsoScraper'>" ]
+      } ],
+      "uid" : "b558177e7fad3cba417f27578b6fc07a"
+    }, {
+      "name" : "AssertionError: assert ['Full Time', 'Iași', 'Reprezentant Medical Veterinar'] == []\n  Left contains 3 more items, first extra item: 'Full Time'\n  Full diff:\n  - []\n  + ['Full Time', 'Iași', 'Reprezentant Medical Veterinar']",
+      "children" : [ {
+        "name" : "test_scrapers[vetroScraper]",
+        "uid" : "9066b6813e8194f2",
+        "parentUid" : "7182141aa598774b0b0d49b06df43142",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673112771,
+          "stop" : 1702673114187,
+          "duration" : 1416
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.vetro.vetroScraper'>" ]
+      } ],
+      "uid" : "7182141aa598774b0b0d49b06df43142"
+    }, {
+      "name" : "AssertionError: assert ['Construcții', 'Instalații sanitare sau electrice', 'Responsabil administrativ', 'Îngrijitori spații verzi'] == []\n  Left contains 4 more items, first extra item: 'Construcții'\n  Full diff:\n    [\n  -  ,\n  +  'Construcții',\n  +  'Instalații sanitare sau electrice',\n  +  'Responsabil administrativ',\n  +  'Îngrijitori spații verzi',\n    ]",
+      "children" : [ {
+        "name" : "test_scrapers[urbicaScraper]",
+        "uid" : "83e9e13cec58b702",
+        "parentUid" : "2ca9b6643ea6eaa17bde6b64d4b00def",
+        "status" : "failed",
+        "time" : {
+          "start" : 1702673114191,
+          "stop" : 1702673116616,
+          "duration" : 2425
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "<class 'sites.urbica.urbicaScraper'>" ]
+      } ],
+      "uid" : "2ca9b6643ea6eaa17bde6b64d4b00def"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

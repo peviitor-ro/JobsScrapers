@@ -1,0 +1,83 @@
+{
+  "uid" : "e3848be07ede067d",
+  "name" : "test_scrapers[sandraScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "76baf016af23397eeb522b216a9bc961",
+  "time" : {
+    "start" : 1702672927792,
+    "stop" : 1702672929430,
+    "duration" : 1638
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Tehnician auto'] == ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)', 'Tehnician auto']\n  At index 2 diff: 'Tehnician auto' != 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)'\n  Right contains one more item: 'Tehnician auto'\n  Full diff:\n    [\n     'Consilier vanzari autovehicule comerciale',\n     'Operator Info Desk',\n  -  'Senior Manager PGP Production, Technology and Innovation - Region Europe '\n  -  'East (m/f/d)',\n     'Tehnician auto',\n    ]",
+  "statusTrace" : "self = <test_api.TestScrapers object at 0x7f39e007d6c0>\nscraper_class = <class 'sites.sandra.sandraScraper'>\n\n    @pytest.mark.regression\n    def test_scrapers(self, scraper_class):\n        setup_tests = SetupTests()\n        setup_tests.get_jobs_careers(scraper_class)\n    \n        # You can now use the utility methods from TestUtils to avoid code duplication\n        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])\n        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')\n    \n        # Test Title\n>       assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])\nE       AssertionError: assert ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Tehnician auto'] == ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)', 'Tehnician auto']\nE         At index 2 diff: 'Tehnician auto' != 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)'\nE         Right contains one more item: 'Tehnician auto'\nE         Full diff:\nE           [\nE            'Consilier vanzari autovehicule comerciale',\nE            'Operator Info Desk',\nE         -  'Senior Manager PGP Production, Technology and Innovation - Region Europe '\nE         -  'East (m/f/d)',\nE            'Tehnician auto',\nE           ]\n\ntests/test_api.py:47: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702672927792,
+      "stop" : 1702672927792,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.sandra.sandraScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "e3848be07ede067d.json",
+  "parameterValues" : [ "<class 'sites.sandra.sandraScraper'>" ]
+}

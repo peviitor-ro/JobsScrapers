@@ -1,0 +1,77 @@
+{
+  "uid" : "f1bf9d5a54528c61",
+  "name" : "test_scrapers[eurotechScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "5cdecd41890b9d7d227799b29e52190b",
+  "time" : {
+    "start" : 1702673108006,
+    "stop" : 1702673109089,
+    "duration" : 1083
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702673108005,
+      "stop" : 1702673108005,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.eurotech.eurotechScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "f1bf9d5a54528c61.json",
+  "parameterValues" : [ "<class 'sites.eurotech.eurotechScraper'>" ]
+}

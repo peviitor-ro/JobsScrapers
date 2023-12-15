@@ -1,0 +1,83 @@
+{
+  "uid" : "d9c837bcdc109311",
+  "name" : "test_scrapers[velpitarScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "5dd1ba01765eab0a6f1264969fe07058",
+  "time" : {
+    "start" : 1702672933617,
+    "stop" : 1702672939483,
+    "duration" : 5866
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ['Absolvent Inginerie electrică, Electronică, Automatizări - Iași', 'Ambalator - Pitești', 'Ambalator manual/Brutar - Brașov', 'Analist financiar junior - București', 'Analist financiar senior - București', 'Analist vanzari - Bucuresti', 'Brand Manager - Bucuresti', 'Brutar - Iași', 'Brutar - Pitești', 'Brutar – Brașov', 'Conducător autospecială - Iași', 'Electrician de intreținere și reparații - Giurgiu', 'Electrician întreţinere şi reparaţii – Chitila', 'Electrician întreținere și reparații - București, Cluj', 'Electrician întreținere și reparații - Iași', 'Gestionar depozit - Brasov', 'Gestionar depozit - Iasi', 'Inginer mentenanța - Chitila', 'Lăcătuș mecanic - Iași', 'Lăcătuș mecanic / Instalator – Chitila', 'Manager Vanzari IKA / Key Account Manager - București', 'Manager Vânzări (Distribuitori) - București', 'Manager zonă – Oradea', 'Manipulant mărfuri/Picker - Iași', 'Mecanic/Lacătuș mecanic - Giurgiu', 'Operator producție - Iași', 'Șef formație - Iași', 'Șofer distributie - Brașov'] == ['Absolvent Inginerie electrică, Electronică, Automatizări - Iași', 'Ambalator - Pitești', 'Ambalator manual/Brutar - Brașov', 'Analist financiar junior - București', 'Analist financiar senior - București', 'Analist vanzari - Bucuresti', 'Brand Manager - Bucuresti', 'Brutar - Iași', 'Brutar - Pitești', 'Brutar – Brașov', 'Conducător autospecială - Iași', 'Electrician de intreținere și reparații - Giurgiu', 'Electrician întreținere și reparații - București, Cluj', 'Electrician întreținere și reparații - Iași', 'Gestionar depozit - Brasov', 'Gestionar depozit - Iasi', 'Inginer mentenanța - Chitila', 'Lăcătuș mecanic - Iași', 'Lăcătuș mecanic / Instalator – Chitila', 'Manager Vanzari IKA / Key Account Manager - București', 'Manager Vânzări (Distribuitori) - București', 'Manager zonă – Oradea', 'Manipulant mărfuri/Picker - Iași', 'Mecanic/Lacătuș mecanic - Giurgiu', 'Operator producție - Iași', 'Șef formație - Iași', 'Șofer distributie - Brașov']\n  At index 12 diff: 'Electrician întreţinere şi reparaţii – Chitila' != 'Electrician întreținere și reparații - București, Cluj'\n  Left contains one more item: 'Șofer distributie - Brașov'\n  Full diff:\n    [\n     'Absolvent Inginerie electrică, Electronică, Automatizări - Iași',\n     'Ambalator - Pitești',\n     'Ambalator manual/Brutar - Brașov',\n     'Analist financiar junior - București',\n     'Analist financiar senior - București',\n     'Analist vanzari - Bucuresti',\n     'Brand Manager - Bucuresti',\n     'Brutar - Iași',\n     'Brutar - Pitești',\n     'Brutar – Brașov',\n     'Conducător autospecială - Iași',\n     'Electrician de intreținere și reparații - Giurgiu',\n  +  'Electrician întreţinere şi reparaţii – Chitila',\n     'Electrician întreținere și reparații - București, Cluj',\n     'Electrician întreținere și reparații - Iași',\n     'Gestionar depozit - Brasov',\n     'Gestionar depozit - Iasi',\n     'Inginer mentenanța - Chitila',\n     'Lăcătuș mecanic - Iași',\n     'Lăcătuș mecanic / Instalator – Chitila',\n     'Manager Vanzari IKA / Key Account Manager - București',\n     'Manager Vânzări (Distribuitori) - București',\n     'Manager zonă – Oradea',\n     'Manipulant mărfuri/Picker - Iași',\n     'Mecanic/Lacătuș mecanic - Giurgiu',\n     'Operator producție - Iași',\n     'Șef formație - Iași',\n     'Șofer distributie - Brașov',\n    ]",
+  "statusTrace" : "self = <test_api.TestScrapers object at 0x7f39e007e9b0>\nscraper_class = <class 'sites.velpitar.velpitarScraper'>\n\n    @pytest.mark.regression\n    def test_scrapers(self, scraper_class):\n        setup_tests = SetupTests()\n        setup_tests.get_jobs_careers(scraper_class)\n    \n        # You can now use the utility methods from TestUtils to avoid code duplication\n        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])\n        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')\n    \n        # Test Title\n>       assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])\nE       AssertionError: assert ['Absolvent Inginerie electrică, Electronică, Automatizări - Iași', 'Ambalator - Pitești', 'Ambalator manual/Brutar - Brașov', 'Analist financiar junior - București', 'Analist financiar senior - București', 'Analist vanzari - Bucuresti', 'Brand Manager - Bucuresti', 'Brutar - Iași', 'Brutar - Pitești', 'Brutar – Brașov', 'Conducător autospecială - Iași', 'Electrician de intreținere și reparații - Giurgiu', 'Electrician întreţinere şi reparaţii – Chitila', 'Electrician întreținere și reparații - București, Cluj', 'Electrician întreținere și reparații - Iași', 'Gestionar depozit - Brasov', 'Gestionar depozit - Iasi', 'Inginer mentenanța - Chitila', 'Lăcătuș mecanic - Iași', 'Lăcătuș mecanic / Instalator – Chitila', 'Manager Vanzari IKA / Key Account Manager - București', 'Manager Vânzări (Distribuitori) - București', 'Manager zonă – Oradea', 'Manipulant mărfuri/Picker - Iași', 'Mecanic/Lacătuș mecanic - Giurgiu', 'Operator producție - Iași', 'Șef formație - Iași', 'Șofer distributie - Brașov'] == ['Absolvent Inginerie electrică, Electronică, Automatizări - Iași', 'Ambalator - Pitești', 'Ambalator manual/Brutar - Brașov', 'Analist financiar junior - București', 'Analist financiar senior - București', 'Analist vanzari - Bucuresti', 'Brand Manager - Bucuresti', 'Brutar - Iași', 'Brutar - Pitești', 'Brutar – Brașov', 'Conducător autospecială - Iași', 'Electrician de intreținere și reparații - Giurgiu', 'Electrician întreținere și reparații - București, Cluj', 'Electrician întreținere și reparații - Iași', 'Gestionar depozit - Brasov', 'Gestionar depozit - Iasi', 'Inginer mentenanța - Chitila', 'Lăcătuș mecanic - Iași', 'Lăcătuș mecanic / Instalator – Chitila', 'Manager Vanzari IKA / Key Account Manager - București', 'Manager Vânzări (Distribuitori) - București', 'Manager zonă – Oradea', 'Manipulant mărfuri/Picker - Iași', 'Mecanic/Lacătuș mecanic - Giurgiu', 'Operator producție - Iași', 'Șef formație - Iași', 'Șofer distributie - Brașov']\nE         At index 12 diff: 'Electrician întreţinere şi reparaţii – Chitila' != 'Electrician întreținere și reparații - București, Cluj'\nE         Left contains one more item: 'Șofer distributie - Brașov'\nE         Full diff:\nE           [\nE            'Absolvent Inginerie electrică, Electronică, Automatizări - Iași',\nE            'Ambalator - Pitești',\nE            'Ambalator manual/Brutar - Brașov',\nE            'Analist financiar junior - București',\nE            'Analist financiar senior - București',\nE            'Analist vanzari - Bucuresti',\nE            'Brand Manager - Bucuresti',\nE            'Brutar - Iași',\nE            'Brutar - Pitești',\nE            'Brutar – Brașov',\nE            'Conducător autospecială - Iași',\nE            'Electrician de intreținere și reparații - Giurgiu',\nE         +  'Electrician întreţinere şi reparaţii – Chitila',\nE            'Electrician întreținere și reparații - București, Cluj',\nE            'Electrician întreținere și reparații - Iași',\nE            'Gestionar depozit - Brasov',\nE            'Gestionar depozit - Iasi',\nE            'Inginer mentenanța - Chitila',\nE            'Lăcătuș mecanic - Iași',\nE            'Lăcătuș mecanic / Instalator – Chitila',\nE            'Manager Vanzari IKA / Key Account Manager - București',\nE            'Manager Vânzări (Distribuitori) - București',\nE            'Manager zonă – Oradea',\nE            'Manipulant mărfuri/Picker - Iași',\nE            'Mecanic/Lacătuș mecanic - Giurgiu',\nE            'Operator producție - Iași',\nE            'Șef formație - Iași',\nE            'Șofer distributie - Brașov',\nE           ]\n\ntests/test_api.py:47: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702672933617,
+      "stop" : 1702672933617,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.velpitar.velpitarScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "d9c837bcdc109311.json",
+  "parameterValues" : [ "<class 'sites.velpitar.velpitarScraper'>" ]
+}

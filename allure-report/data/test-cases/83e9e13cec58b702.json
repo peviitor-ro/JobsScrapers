@@ -1,0 +1,83 @@
+{
+  "uid" : "83e9e13cec58b702",
+  "name" : "test_scrapers[urbicaScraper]",
+  "fullName" : "tests.test_api.TestScrapers#test_scrapers",
+  "historyId" : "cd286b5e9f34e5c70c77f25f28125468",
+  "time" : {
+    "start" : 1702673114191,
+    "stop" : 1702673116616,
+    "duration" : 2425
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ['Construcții', 'Instalații sanitare sau electrice', 'Responsabil administrativ', 'Îngrijitori spații verzi'] == []\n  Left contains 4 more items, first extra item: 'Construcții'\n  Full diff:\n    [\n  -  ,\n  +  'Construcții',\n  +  'Instalații sanitare sau electrice',\n  +  'Responsabil administrativ',\n  +  'Îngrijitori spații verzi',\n    ]",
+  "statusTrace" : "self = <test_api.TestScrapers object at 0x7f39e0045c90>\nscraper_class = <class 'sites.urbica.urbicaScraper'>\n\n    @pytest.mark.regression\n    def test_scrapers(self, scraper_class):\n        setup_tests = SetupTests()\n        setup_tests.get_jobs_careers(scraper_class)\n    \n        # You can now use the utility methods from TestUtils to avoid code duplication\n        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])\n        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')\n    \n        # Test Title\n>       assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])\nE       AssertionError: assert ['Construcții', 'Instalații sanitare sau electrice', 'Responsabil administrativ', 'Îngrijitori spații verzi'] == []\nE         Left contains 4 more items, first extra item: 'Construcții'\nE         Full diff:\nE           [\nE         -  ,\nE         +  'Construcții',\nE         +  'Instalații sanitare sau electrice',\nE         +  'Responsabil administrativ',\nE         +  'Îngrijitori spații verzi',\nE           ]\n\ntests/test_api.py:47: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "scraper_class",
+    "time" : {
+      "start" : 1702673114190,
+      "stop" : 1702673114191,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regression"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_api"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestScrapers"
+  }, {
+    "name" : "host",
+    "value" : "fv-az739-442"
+  }, {
+    "name" : "thread",
+    "value" : "2122-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_api"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "scraper_class",
+    "value" : "<class 'sites.urbica.urbicaScraper'>"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "regression" ]
+  },
+  "source" : "83e9e13cec58b702.json",
+  "parameterValues" : [ "<class 'sites.urbica.urbicaScraper'>" ]
+}
