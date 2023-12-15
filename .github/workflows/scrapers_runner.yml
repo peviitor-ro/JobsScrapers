@@ -57,6 +57,9 @@ jobs:
       run: |
         allure/allure-2.15.0/bin/allure generate --single-file
 
+    - name: List generated files
+      run: ls -R
+
     # - name: Move Allure results to docs folder
     #   run: mv -f "allure-report/index.html" "docs/api_test_report_allure.html"
 
