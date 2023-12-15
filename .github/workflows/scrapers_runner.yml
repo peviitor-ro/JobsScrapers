@@ -25,46 +25,30 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
-        pip3 install allure-pytest
         sudo apt-get install curl
 
-    # - name: All scrapers run
-    #   env:
-    #     API_KEY: ${{ secrets.API_KEY }}
-    #   run: |
-    #     python3 sites/script_runner.py || true
-    #     echo "Continuing despite potential failure..."
-
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '11'
-
-    - name: Download and install Allure Commandline 2.25.0
+    - name: All scrapers run
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
       run: |
-        curl -o allure-commandline.zip -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.25.0/allure-commandline-2.25.0.zip
-        unzip allure-commandline.zip -d allure
-        rm allure-commandline.zip
-        chmod +x allure/allure-2.25.0/bin/allure
-
-    - name: Run pytest with Allure reporting
+        python3 sites/script_runner.py || true
+        echo "Continuing despite potential failure..."
+    
+    - name: Run pytest with HTML reporting
       continue-on-error: true
       run: |
-        pytest -m regression -vv --alluredir=allure-results
+        pytest -m regression -vv --html=api_test_report.html
+    
+    - name: Move api_report.html to docs folder
+      run: mv api_test_report.html "docs/api_test_report.html"
 
-    - name: Generate Allure report
-      run: |
-        allure/allure-2.25.0/bin/allure generate --single-file
-        
-    - name: Move Allure results to docs folder
-      run: mv -f "allure-report/index.html" "docs/api_test_report_allure.html"
-
-    - name: Commit and push Allure report
+    - name: Commit and push api_test_report.html
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/api_test_report_allure.html
-        git commit -m "Add Allure test report"
+        git add "docs/api_test_report.html"
+        git commit -m "Add pytest API HTML report"
         git push origin main
-        
+
+
+
