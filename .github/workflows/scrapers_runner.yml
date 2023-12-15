@@ -33,21 +33,32 @@ jobs:
       run: |
         python3 sites/script_runner.py || true
         echo "Continuing despite potential failure..."
-    
-    - name: Run pytest with HTML reporting
+
+    - name: Run pytest with Allure reporting
       continue-on-error: true
       run: |
-        pytest -m regression -vv --html=api_test_report.html
-    
-    - name: Move api_report.html to docs folder
-      run: mv api_test_report.html "docs/api_test_report.html"
+        pytest -m regression -vv --alluredir=allure-results
 
-    - name: Commit and push api_test_report.html
+    - name: Move Allure results to docs folder
+      run: mv allure-results "docs/allure-results"
+
+    - name: Generate Allure report
+      uses: simple-elf/allure-report-action@master
+      with:
+        allure_results: docs/allure-results
+        allure_history: docs/allure-history
+        keep_reports: 20
+
+    - name: Commit and push Allure report
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add "docs/api_test_report.html"
-        git commit -m "Add pytest API HTML report"
+        git add "docs/allure-results" "docs/allure-history"
+        git commit -m "Add Allure test report"
         git push origin main
 
-
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs
