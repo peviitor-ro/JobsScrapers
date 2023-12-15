@@ -48,14 +48,15 @@ jobs:
 
     - name: Download and install Allure Commandline
       run: |
-        wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.15.0/allure-commandline-2.15.0.zip
-        unzip allure-commandline-2.15.0.zip -d allure
-        rm allure-commandline-2.15.0.zip
+        curl -o allure-commandline.zip -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.15.0/allure-commandline-2.15.0.zip
+        unzip allure-commandline.zip -d allure
+        rm allure-commandline.zip
+        chmod +x allure/allure-2.15.0/bin/allure
 
     - name: Generate Allure report
       run: |
-        java -jar allure/allure-2.15.0/allure-commandline.jar generate --single-file docs/allure-results
-      
+        allure/allure-2.15.0/bin/allure generate --single-file docs/allure-results
+
     - name: Move Allure results to docs folder
       run: mv allure-results "docs/allure-results"
 
