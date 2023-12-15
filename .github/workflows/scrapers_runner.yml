@@ -54,7 +54,10 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add "docs/allure-results" "docs/allure-history"
+        allure generate --single-file docs\allure-results
+        mv allure-results "docs/allure-results"
+        mv -force "allure-report/index.html" "docs/api_test_report_allure.html"
+        git add "docs/allure-results" "docs/allure-history" "api_test_report_allure.html"
         git commit -m "Add Allure test report"
         git push origin main
 
@@ -63,3 +66,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: docs
+        
