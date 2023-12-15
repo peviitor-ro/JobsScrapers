@@ -35,11 +35,6 @@ jobs:
     #     python3 sites/script_runner.py || true
     #     echo "Continuing despite potential failure..."
 
-    - name: Run pytest with Allure reporting
-      continue-on-error: true
-      run: |
-        pytest -m regression -vv --alluredir=allure-results
-
     - name: Set up Java
       uses: actions/setup-java@v2
       with:
@@ -53,15 +48,17 @@ jobs:
         rm allure-commandline.zip
         chmod +x allure/allure-2.25.0/bin/allure
 
+    - name: Run pytest with Allure reporting
+      continue-on-error: true
+      run: |
+        pytest -m regression -vv --alluredir=allure-results
+
     - name: Generate Allure report
       run: |
-        allure/allure-2.25.0/bin/allure generate --single-file allure-results
-        ls
-        cd allure-report
-        ls
-
-    # - name: Move Allure results to docs folder
-    #   run: mv -f "allure-report/index.html" "docs/api_test_report_allure.html"
+        allure/allure-2.25.0/bin/allure generate --single-file
+        
+    - name: Move Allure results to docs folder
+      run: mv -f "allure-report/index.html" "docs/api_test_report_allure.html"
 
     - name: Commit and push Allure report
       run: |
