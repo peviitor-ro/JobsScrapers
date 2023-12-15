@@ -54,7 +54,7 @@ jobs:
         rm -rf allure allure-commandline-2.15.0.zip
         
     - name: Generate Allure report
-      run: /usr/local/bin/allure generate --single-file docs/allure-results
+      run: /usr/local/bin/allure generate --single-file docs/allure-results --classpath /usr/local/bin/allure-commandline-2.15.0.jar
       
     - name: Move Allure results to docs folder
       run: mv allure-results "docs/allure-results"
