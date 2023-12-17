@@ -56,19 +56,17 @@ jobs:
     - name: Keep previous run history
       continue-on-error: true
       run: |
-        cd docs
-        ls
-        allure/allure-2.25.0/bin/allure generate --clean
-        mv -f allure-report/history allure-results
+        allure/allure-2.25.0/bin/allure generate --clean docs/allure-results
+        mv -f allure-report/history docs/allure-results
           
     - name: Generate Allure report
       run: |
-        allure/allure-2.25.0/bin/allure generate --single-file --clean
+        allure/allure-2.25.0/bin/allure generate --single-file --clean docs/allure-results
         
     - name: Move Allure results to docs folder
       run: |
         rm -rf docs/api_test_report.html
-        mv -f docs/allure-report/index.html docs/api_test_report.html
+        mv -f allure-report/index.html docs/api_test_report.html
 
     - name: Commit and push Allure report
       run: |
