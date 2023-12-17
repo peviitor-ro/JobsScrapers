@@ -41,7 +41,7 @@ jobs:
         pytest -m regression -vv --alluredir=allure-results
 
     - name: Move Allure results to docs folder
-      run: mv -f allure-results "docs/allure-results"
+      run: mv -force allure-results docs
 
     - name: Generate Allure report
       uses: simple-elf/allure-report-action@master
