@@ -39,9 +39,7 @@ The project incorporates the following key features:
 For detailed insights into the test results, an HTML report is generated, providing a comprehensive overview of the scraping process.
 The report is updated every day when github actions runs and it can be seen live at https://peviitor-ro.github.io/JobsScrapers/api_test_report.html
 
-
-![jobsscrapersapi](https://github.com/peviitor-ro/JobsScrapers/assets/91252395/49a3f31e-72c0-4c0b-acd9-265bc8160f51)
-
+![allure result 2](https://github.com/peviitor-ro/JobsScrapers/assets/91252395/fe1565c8-5ddd-481f-9211-c9fb41c02571)
 
 ## Setup
 
