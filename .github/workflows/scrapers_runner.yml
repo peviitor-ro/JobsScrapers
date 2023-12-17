@@ -35,36 +35,32 @@ jobs:
     #     python3 sites/script_runner.py || true
     #     echo "Continuing despite potential failure..."
 
-    - name: Set up Java
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '11'
-
-    - name: Download and install Allure Commandline 2.25.0
-      run: |
-        curl -o allure-commandline.zip -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.25.0/allure-commandline-2.25.0.zip
-        unzip allure-commandline.zip -d allure
-        rm allure-commandline.zip
-        chmod +x allure/allure-2.25.0/bin/allure
-
     - name: Run pytest with Allure reporting
       continue-on-error: true
       run: |
         pytest -m regression -vv --alluredir=allure-results
 
-    - name: Generate Allure report
-      run: |
-        allure/allure-2.25.0/bin/allure generate --single-file
-        
     - name: Move Allure results to docs folder
-      run: mv -f "allure-report/index.html" "docs/api_test_report.html"
+      run: mv -f allure-results "docs/allure-results"
+
+    - name: Generate Allure report
+      uses: simple-elf/allure-report-action@master
+      with:
+        allure_results: docs/allure-results
+        allure_history: docs/allure-history
+        keep_reports: 20
 
     - name: Commit and push Allure report
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/api_test_report.html
+        git add "docs/allure-results" "docs/allure-history"
         git commit -m "Add Allure test report"
         git push origin main
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs
         
