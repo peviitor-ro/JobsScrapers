@@ -28,12 +28,12 @@ jobs:
         pip3 install allure-pytest
         sudo apt-get install curl
 
-    # - name: All scrapers run
-    #   env:
-    #     API_KEY: ${{ secrets.API_KEY }}
-    #   run: |
-    #     python3 sites/script_runner.py || true
-    #     echo "Continuing despite potential failure..."
+    - name: All scrapers run
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+      run: |
+        python3 sites/script_runner.py || true
+        echo "Continuing despite potential failure..."
 
     - name: Set up Java
       uses: actions/setup-java@v2
