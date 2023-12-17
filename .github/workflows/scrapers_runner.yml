@@ -57,6 +57,7 @@ jobs:
       continue-on-error: true
       run: |
         allure/allure-2.25.0/bin/allure generate --clean docs/allure-results
+        rm -rf docs/allure-results/history
         mv -f allure-report/history docs/allure-results
           
     - name: Generate Allure report
