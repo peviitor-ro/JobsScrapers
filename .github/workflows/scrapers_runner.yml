@@ -56,9 +56,10 @@ jobs:
     - name: Keep previous run history
       continue-on-error: true
       run: |
-         cd docs
-         allure/allure-2.25.0/bin/allure generate --clean allure-results
-         mv -f allure-report/history allure-results
+        cd docs
+        ls
+        allure/allure-2.25.0/bin/allure generate --clean
+        mv -f allure-report/history allure-results
           
     - name: Generate Allure report
       run: |
