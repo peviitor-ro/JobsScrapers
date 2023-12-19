@@ -27,14 +27,12 @@ class bioclinicaScraper(BS4Scraper):
         """
         Scrape job data from bioclinica website.
         """
-        job_titles_elements = self.get_jobs_elements('css_', 'div.col-lg-7.col-md-6.col-sm-8 > a')
-        job_cities_elements = self.get_jobs_elements('class_', 'text-15 text-dark-blue')
-        job_url_elements = self.get_jobs_elements('class_', 'btn btn-primary text-uppercase w-100')
+        job_titles_elements = self.get_jobs_elements('class_', 'text-primary decoration-2 underline-offset-4 hover:underline md:mb-1')
+        job_cities_elements = self.get_jobs_elements('css_', "div[class='text-primary']")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_cities = self.get_jobs_details_text(job_cities_elements)
-        self.job_urls = self.get_jobs_details_href(job_url_elements)
-        
+        self.job_urls = self.get_jobs_details_href(job_titles_elements)
             
         self.format_data()
         
