@@ -5,49 +5,150 @@ import pytest
 
 class SetupTests:
     def import_all_modules(self):
-
         scraper_classes = []
 
-        # for module_name, class_name in zip(module_names, class_names):
         for module_name, class_name in module_names.items():
             try:
                 module = importlib.import_module(f"sites.{module_name}")
                 class_obj = getattr(module, class_name)
                 scraper_classes.append(class_obj)
                 print(f"Imported class {class_name} from module {module_name}")
-                # You can now use class_obj for further operations
             except ModuleNotFoundError:
                 print(f"Module not found: {module_name}")
             except AttributeError:
                 print(f"Class not found: {class_name} in module {module_name}")
-        
+
         return scraper_classes
-    
+
     def get_jobs_careers(self, scraper_class):
-        """
-        Fixture for scraping process from the career section.
-        """
         self.scraper_data = scraper_class().return_data()
+        self.scraped_jobs_data = TestUtils.scrape_jobs(self.scraper_data[0])
+        self.peviitor_jobs_data = TestUtils.scrape_peviitor(self.scraper_data[1], 'România')
 
+@pytest.fixture(params=SetupTests().import_all_modules(), scope="class")
+def scraper_class(request):
+    return request.param
+
+@pytest.fixture(scope="class")
+def setup_tests(scraper_class):
+    setup_tests_instance = SetupTests()
+    setup_tests_instance.get_jobs_careers(scraper_class)
+    return setup_tests_instance
+
+@pytest.mark.usefixtures("setup_tests")
 class TestScrapers:
-    @pytest.fixture(params=SetupTests().import_all_modules())
-    def scraper_class(self, request):
-        return request.param
-    
-    @pytest.mark.regression
-    def test_scrapers(self, scraper_class):
-        setup_tests = SetupTests()
-        setup_tests.get_jobs_careers(scraper_class)
-        
-        # You can now use the utility methods from TestUtils to avoid code duplication
-        scraped_jobs_data = TestUtils.scrape_jobs(setup_tests.scraper_data[0])
-        peviitor_jobs_data = TestUtils.scrape_peviitor(setup_tests.scraper_data[1], 'România')
 
-        # Test Title
-        assert sorted(scraped_jobs_data[0]) == sorted(peviitor_jobs_data[0])
-        # Test job city
-        assert sorted(scraped_jobs_data[1]) == sorted(peviitor_jobs_data[1])
-        # Test job country
-        assert sorted(scraped_jobs_data[2]) == sorted(peviitor_jobs_data[2])
-        # Test job link
-        assert sorted(scraped_jobs_data[3]) == sorted(peviitor_jobs_data[3])
+    @pytest.mark.regression
+    @pytest.mark.API
+    def test_scrapers_title(self, setup_tests):
+        print(f"Validate job titles from the company website against Peviitor API Response\n")
+        
+        print("Step 1: Get job titles from the scraper")
+        job_titles_scraper = sorted(setup_tests.scraped_jobs_data[0])
+        
+        print("Step 2: Get job titles from the Peviitor API")
+        job_titles_peviitor = sorted(setup_tests.peviitor_jobs_data[0])
+        
+        missing_job_titles = []
+        # Itterate over job titles and if not present on peviitor add to missing job title list
+        for job_title in job_titles_scraper:
+            if job_title not in job_titles_peviitor:
+                missing_job_titles.append(job_title)
+        
+        print("Step 3: Compare of job titles from scraper response against Peviitor API Response\n")
+        # If the missing job list is empty it might mean there are more jobs on peviitor than needed
+        if missing_job_titles == []:
+            missing_job_titles_peviitor = []
+            for job_title in job_titles_peviitor:
+                if job_title not in job_titles_scraper:
+                    missing_job_titles_peviitor.append(job_title)
+                    
+            # If there are way too many jobs titles only list a couple of them
+            if len(missing_job_titles_peviitor) > 20:
+                missing_job_titles_peviitor = f"{missing_job_titles_peviitor[:5]} and many more"
+                            
+            print(f"Expected Results: {job_titles_scraper}\n")
+            print(f"Actual Results: {job_titles_peviitor}")
+            assert job_titles_scraper == job_titles_peviitor, f"Peviitor is having the following extra jobs titles: {missing_job_titles_peviitor}\n\n"
+        else:
+            if len(missing_job_titles) > 20:
+                missing_job_titles = f"{missing_job_titles[:5]} and many more"
+                
+            print(f"Expected Results: {job_titles_scraper}\n")
+            print(f"Actual Results: {job_titles_peviitor}")
+            assert job_titles_scraper == job_titles_peviitor, f"Peviitor is missing the following job titles: {missing_job_titles}\n\n"
+            
+
+    @pytest.mark.regression
+    @pytest.mark.API
+    def test_scrapers_city(self, setup_tests):
+        print(f"Validate job cities from the company website against Peviitor API Response\n")
+        
+        print("Step 1: Get job cities from the scraper")
+        job_cities_scraper = sorted(setup_tests.scraped_jobs_data[1])
+        
+        print("Step 2: Get job cities from the Peviitor API")
+        job_cities_peviitor = sorted(setup_tests.peviitor_jobs_data[1])
+        
+        print("Step 3: Compare of job titles from scraper response against Peviitor API Response\n")
+        print(f"Expected Results: {job_cities_scraper}\n")
+        print(f"Actual Results: {job_cities_peviitor}")
+        
+        if job_cities_scraper != job_cities_peviitor:
+            assert job_cities_scraper == job_cities_peviitor, f"Peviitor is having extra jobs cities\n\n"
+        else:
+            assert job_cities_scraper == job_cities_peviitor, f"Peviitor is missing job cities\n\n"
+                
+    @pytest.mark.regression
+    @pytest.mark.API
+    def test_scrapers_country(self, setup_tests):
+        print(f"Validate job countries from the company website against Peviitor API Response\n")
+        
+        print("Step 1: Get job countries from the scraper")
+        job_countries_scraper = sorted(setup_tests.scraped_jobs_data[2])
+        
+        print("Step 2: Get job countries from the Peviitor API")
+        job_countries_peviitor = sorted(setup_tests.peviitor_jobs_data[2])
+        
+        print("Step 3: Compare of job countries from scraper response against Peviitor API Response\n")
+        print(f"Expected Results: {job_countries_scraper}\n")
+        print(f"Actual Results: {job_countries_peviitor}")
+        if job_countries_scraper != job_countries_peviitor:
+            assert job_countries_scraper == job_countries_peviitor, f"Peviitor is having extra job countries\n\n"
+        else:
+            assert job_countries_scraper == job_countries_peviitor, f"Peviitor is missing job countries\n\n"
+
+    @pytest.mark.regression
+    @pytest.mark.API
+    def test_scrapers_link(self, setup_tests):
+        print(f"Validate job links from the company website against Peviitor API Response\n")
+        
+        print("Step 1: Get job links from the scraper")
+        job_links_scraper = sorted(setup_tests.scraped_jobs_data[3])
+        
+        print("Step 2: Get job links from the Peviitor API")
+        job_links_peviitor = sorted(setup_tests.peviitor_jobs_data[3])
+        
+        missing_job_links = []
+        
+        for job_link in job_links_scraper:
+            if job_link not in job_links_peviitor:
+                missing_job_links.append(job_link)
+        
+        print("Step 3: Compare of job links from scraper response against Peviitor API Response\n")
+        print(f"Expected Results: {job_links_scraper}\n")
+        print(f"Actual Results: {job_links_peviitor}")
+        if missing_job_links == []:
+            missing_job_links_peviitor = []
+            if job_link in job_links_peviitor:
+                if job_link not in job_links_scraper:
+                    missing_job_links_peviitor.append(job_link)
+                    
+            if len(missing_job_links_peviitor) > 20:
+                missing_job_links_peviitor = f"{missing_job_links_peviitor[:5]} and many more"
+            assert job_links_scraper == job_links_peviitor, f"Peviitor is having the following extra jobs links: {missing_job_links_peviitor}\n\n"
+        else:
+            if len(missing_job_links) > 20:
+                missing_job_links = f"{missing_job_links[:5]} and many more"
+            assert job_links_scraper == job_links_peviitor, f"Peviitor is missing the following job links: {missing_job_links}\n\n"
+            
