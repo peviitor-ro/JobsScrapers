@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare of job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://dualit.ro/careers/android-developer/', 'https://dualit.ro/careers/backend-java-developer/', 'https://dualit.ro/careers/frontend-developer-with-angular/', 'https://dualit.ro/careers/frontend-developer/', 'https://dualit.ro/careers/integration-design-manager/', 'https://dualit.ro/careers/java-developer-2/', 'https://dualit.ro/careers/mid-senior-ios-developer/', 'https://dualit.ro/careers/net-developer/', 'https://dualit.ro/careers/python-with-node-js-backend-developer/', 'https://dualit.ro/careers/qa-manual-engineer/', 'https://dualit.ro/careers/react-native-developer/', 'https://dualit.ro/careers/scala-developer/', 'https://dualit.ro/careers/senior-ui-developer/', 'https://dualit.ro/careers/ui-ux-designer/']
+
+Actual Results: ['https://dualit.ro/careers/android-developer/', 'https://dualit.ro/careers/backend-java-developer/', 'https://dualit.ro/careers/frontend-developer-with-angular/', 'https://dualit.ro/careers/frontend-developer/', 'https://dualit.ro/careers/integration-design-manager/', 'https://dualit.ro/careers/java-developer-2/', 'https://dualit.ro/careers/mid-senior-ios-developer/', 'https://dualit.ro/careers/net-developer/', 'https://dualit.ro/careers/python-with-node-js-backend-developer/', 'https://dualit.ro/careers/qa-manual-engineer/', 'https://dualit.ro/careers/react-native-developer/', 'https://dualit.ro/careers/scala-developer/', 'https://dualit.ro/careers/senior-ui-developer/', 'https://dualit.ro/careers/ui-ux-designer/']

@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare of job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://www.autoclass.ro/info/cariera.html#1', 'https://www.autoclass.ro/info/cariera.html#2', 'https://www.autoclass.ro/info/cariera.html#3', 'https://www.autoclass.ro/info/cariera.html#4', 'https://www.autoclass.ro/info/cariera.html#5', 'https://www.autoclass.ro/info/cariera.html#6', 'https://www.autoclass.ro/info/cariera.html#7']
+
+Actual Results: ['https://www.autoclass.ro/info/cariera.html#1', 'https://www.autoclass.ro/info/cariera.html#2', 'https://www.autoclass.ro/info/cariera.html#3', 'https://www.autoclass.ro/info/cariera.html#4', 'https://www.autoclass.ro/info/cariera.html#5', 'https://www.autoclass.ro/info/cariera.html#6', 'https://www.autoclass.ro/info/cariera.html#7']
