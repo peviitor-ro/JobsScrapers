@@ -1,0 +1,9 @@
+Validate job cities from the company website against Peviitor API Response
+
+Step 1: Get job cities from the scraper
+Step 2: Get job cities from the Peviitor API
+Step 3: Compare of job titles from scraper response against Peviitor API Response
+
+Expected Results: [['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti']]
+
+Actual Results: [['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti']]

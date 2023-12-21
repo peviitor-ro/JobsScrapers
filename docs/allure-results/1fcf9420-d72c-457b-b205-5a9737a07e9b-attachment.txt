@@ -1,0 +1,9 @@
+Validate job titles from the company website against Peviitor API Response
+
+Step 1: Get job titles from the scraper
+Step 2: Get job titles from the Peviitor API
+Step 3: Compare of job titles from scraper response against Peviitor API Response
+
+Expected Results: ['Agent control acces (Dispecerat)', 'Agent control acces trafic', 'Debarasator', 'Dispecer Centru de Alarmă - Palas Campus Iași', 'Economist', 'Economist', 'Electrician', 'Electromecanic', 'Finisor', 'Grădinar', 'HR Data Analyst', 'HR Data Analyst', 'Human Resources Consultant', 'Inginer Automatist (BMS)', 'Inginer Cartea Tehnică', 'Inginer instalații sanitare', 'Instalator', 'Instalator', 'Internal Communication Specialist', 'Leasing Retail Specialist', 'Lucrător Curățenie - Family Market Miroslava', 'Lucrător curățenie - sortator reciclare', 'Lucrător curățenie exterior', 'Lăcătuș', 'Manager Trainee', 'Media Sales Specialist', 'Tehnician Parcare', 'Tehnician curenti slabi', 'Tehnician curenți slabi - Palas Campus', 'Vino în echipa Patinoarului PALAS!']
+
+Actual Results: ['Agent control acces (Dispecerat)', 'Agent control acces trafic', 'Debarasator', 'Dispecer Centru de Alarmă - Palas Campus Iași', 'Economist', 'Economist', 'Electrician', 'Electromecanic', 'Finisor', 'Grădinar', 'HR Data Analyst', 'HR Data Analyst', 'Human Resources Consultant', 'Inginer Automatist (BMS)', 'Inginer Cartea Tehnică', 'Inginer instalații sanitare', 'Instalator', 'Instalator', 'Internal Communication Specialist', 'Leasing Retail Specialist', 'Lucrător Curățenie - Family Market Miroslava', 'Lucrător curățenie - sortator reciclare', 'Lucrător curățenie exterior', 'Lăcătuș', 'Manager Trainee', 'Media Sales Specialist', 'Tehnician Parcare', 'Tehnician curenti slabi', 'Tehnician curenți slabi - Palas Campus', 'Vino în echipa Patinoarului PALAS!']

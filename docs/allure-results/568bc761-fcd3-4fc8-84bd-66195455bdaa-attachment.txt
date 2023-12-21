@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare of job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://www.bakertilly.ro/2023/06/27/accountant/', 'https://www.bakertilly.ro/2023/08/29/junior-auditor-bucharest-office/', 'https://www.bakertilly.ro/2023/09/05/audit-manager-bucharest-office/', 'https://www.bakertilly.ro/2023/09/25/audit-director-bucharest-office/', 'https://www.bakertilly.ro/2023/10/11/senior-accountant-bucharest-office/']
+
+Actual Results: ['https://www.bakertilly.ro/2023/06/27/accountant/', 'https://www.bakertilly.ro/2023/08/29/junior-auditor-bucharest-office/', 'https://www.bakertilly.ro/2023/09/05/audit-manager-bucharest-office/', 'https://www.bakertilly.ro/2023/09/25/audit-director-bucharest-office/', 'https://www.bakertilly.ro/2023/10/11/senior-accountant-bucharest-office/']

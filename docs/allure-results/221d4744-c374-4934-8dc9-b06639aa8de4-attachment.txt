@@ -1,0 +1,9 @@
+Validate job titles from the company website against Peviitor API Response
+
+Step 1: Get job titles from the scraper
+Step 2: Get job titles from the Peviitor API
+Step 3: Compare of job titles from scraper response against Peviitor API Response
+
+Expected Results: ['Android Developer', 'Business Analyst with German', 'Frontend Software Engineer (with Angular)', 'Full Stack Developer', 'Full Stack Java Software Engineer', 'IT PROJECT MANAGER', 'JAVA SOFTWARE ENGINEER', 'Java Software Engineer', 'Java Software Engineer', 'Junior SAP Support Consultant with german', 'MID/Senior Java Developer', 'Microsoft Dynamics 365 Sales Developer', 'PHP Developer', 'Presales Proposal Specialist', 'Product owner with german', 'Project Delivery Manager', 'RPA Software Engineer', 'React Developer', 'SAP Basis Consultant', 'SAP Support Consultant', 'SENIOR JAVA SOFTWARE ENGINEER', 'Senior .NET Developer', 'Senior QA Automation Engineer', 'Siem sSecurity Engineer', 'Software Engineer in test with german', 'Technical Support Engineer with German (office 365)']
+
+Actual Results: ['Android Developer', 'Business Analyst with German', 'Frontend Software Engineer (with Angular)', 'Full Stack Developer', 'Full Stack Java Software Engineer', 'IT PROJECT MANAGER', 'JAVA SOFTWARE ENGINEER', 'Java Software Engineer', 'Java Software Engineer', 'Junior SAP Support Consultant with german', 'MID/Senior Java Developer', 'Microsoft Dynamics 365 Sales Developer', 'PHP Developer', 'Presales Proposal Specialist', 'Product owner with german', 'Project Delivery Manager', 'RPA Software Engineer', 'React Developer', 'SAP Basis Consultant', 'SAP Support Consultant', 'SENIOR JAVA SOFTWARE ENGINEER', 'Senior .NET Developer', 'Senior QA Automation Engineer', 'Siem sSecurity Engineer', 'Software Engineer in test with german', 'Technical Support Engineer with German (office 365)']
