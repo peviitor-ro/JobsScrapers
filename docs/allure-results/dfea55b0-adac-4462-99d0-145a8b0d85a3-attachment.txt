@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#1', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#2', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#3', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#4', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#5', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#6']
-
-Actual Results: ['https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#1', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#2', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#3', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#4', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#5', 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/#6']

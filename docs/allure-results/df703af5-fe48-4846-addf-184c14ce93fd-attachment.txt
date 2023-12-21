@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://carturesti.ro/info/coordonator-echipa-administrare-personal-si-salarizare', 'https://carturesti.ro/info/librar', 'https://carturesti.ro/info/manager-librarie', 'https://carturesti.ro/info/operator-depozit', 'https://carturesti.ro/info/responsabil-tehnic-regional-national']
-
-Actual Results: ['https://carturesti.ro/info/coordonator-echipa-administrare-personal-si-salarizare', 'https://carturesti.ro/info/librar', 'https://carturesti.ro/info/manager-librarie', 'https://carturesti.ro/info/operator-depozit', 'https://carturesti.ro/info/responsabil-tehnic-regional-national']

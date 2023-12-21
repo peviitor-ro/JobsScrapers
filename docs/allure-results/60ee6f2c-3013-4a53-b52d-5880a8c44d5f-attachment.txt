@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://www.trencadis.ro/jobs/Junior-Mid%20Java%20Developer.pdf', 'https://www.trencadis.ro/jobs/Mid-level%20Business%20Analyst%202022.pdf', 'https://www.trencadis.ro/jobs/QA%20Specialist.pdf', 'https://www.trencadis.ro/jobs/Support%20Specialist%20LV2-2022.pdf', 'https://www.trencadis.ro/jobs/Technical%20Support%20Specialist%20LV1.pdf', 'https://www.trencadis.ro/jobs/Trencadis-Full-Time%20Java%20Developer.pdf']
-
-Actual Results: ['https://www.trencadis.ro/jobs/Junior-Mid%20Java%20Developer.pdf', 'https://www.trencadis.ro/jobs/Mid-level%20Business%20Analyst%202022.pdf', 'https://www.trencadis.ro/jobs/QA%20Specialist.pdf', 'https://www.trencadis.ro/jobs/Support%20Specialist%20LV2-2022.pdf', 'https://www.trencadis.ro/jobs/Technical%20Support%20Specialist%20LV1.pdf', 'https://www.trencadis.ro/jobs/Trencadis-Full-Time%20Java%20Developer.pdf']
