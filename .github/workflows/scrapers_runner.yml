@@ -51,7 +51,7 @@ jobs:
     - name: Run pytest with Allure reporting
       continue-on-error: true
       run: |
-        pytest -m regression -vv --alluredir=docs/allure-results
+        pytest --alluredir=docs/allure-results
         
     - name: Keep previous run history
       continue-on-error: true

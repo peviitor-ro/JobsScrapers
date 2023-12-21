@@ -1,0 +1,3 @@
+Validate job cities from the company website against Peviitor API Response
+
+Step 1: Get job cities from the scraper

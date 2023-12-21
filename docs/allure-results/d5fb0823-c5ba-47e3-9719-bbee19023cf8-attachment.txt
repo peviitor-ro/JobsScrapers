@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare of job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://urbica.ro/cariere-urbica/#1', 'https://urbica.ro/cariere-urbica/#2', 'https://urbica.ro/cariere-urbica/#3', 'https://urbica.ro/cariere-urbica/#4']
+
+Actual Results: ['https://urbica.ro/cariere-urbica/#1', 'https://urbica.ro/cariere-urbica/#2', 'https://urbica.ro/cariere-urbica/#3', 'https://urbica.ro/cariere-urbica/#4']
