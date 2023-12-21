@@ -55,7 +55,7 @@ class TestScrapers:
             if job_title not in job_titles_peviitor:
                 missing_job_titles.append(job_title)
         
-        print("Step 3: Compare of job titles from scraper response against Peviitor API Response\n")
+        print("Step 3: Compare job titles from scraper response against Peviitor API Response\n")
         # If the missing job list is empty it might mean there are more jobs on peviitor than needed
         if missing_job_titles == []:
             missing_job_titles_peviitor = []
@@ -90,7 +90,7 @@ class TestScrapers:
         print("Step 2: Get job cities from the Peviitor API")
         job_cities_peviitor = sorted(setup_tests.peviitor_jobs_data[1])
         
-        print("Step 3: Compare of job titles from scraper response against Peviitor API Response\n")
+        print("Step 3: Compare job cities from scraper response against Peviitor API Response\n")
         print(f"Expected Results: {job_cities_scraper}\n")
         print(f"Actual Results: {job_cities_peviitor}")
         
@@ -110,7 +110,7 @@ class TestScrapers:
         print("Step 2: Get job countries from the Peviitor API")
         job_countries_peviitor = sorted(setup_tests.peviitor_jobs_data[2])
         
-        print("Step 3: Compare of job countries from scraper response against Peviitor API Response\n")
+        print("Step 3: Compare job countries from scraper response against Peviitor API Response\n")
         print(f"Expected Results: {job_countries_scraper}\n")
         print(f"Actual Results: {job_countries_peviitor}")
         if job_countries_scraper != job_countries_peviitor:
@@ -135,7 +135,7 @@ class TestScrapers:
             if job_link not in job_links_peviitor:
                 missing_job_links.append(job_link)
         
-        print("Step 3: Compare of job links from scraper response against Peviitor API Response\n")
+        print("Step 3: Compare job links from scraper response against Peviitor API Response\n")
         print(f"Expected Results: {job_links_scraper}\n")
         print(f"Actual Results: {job_links_peviitor}")
         if missing_job_links == []:
