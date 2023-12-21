@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare of job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://www.artvertising.com.ro/cariere/asistent-marketing', 'https://www.artvertising.com.ro/cariere/content-marketing', 'https://www.artvertising.com.ro/cariere/content-writer-limba-romana', 'https://www.artvertising.com.ro/cariere/digital-marketing-performance-specialist', 'https://www.artvertising.com.ro/cariere/senior-graphic-designer-iasi', 'https://www.artvertising.com.ro/cariere/specialist-online', 'https://www.artvertising.com.ro/cariere/specialist-pr-publicitate']
+
+Actual Results: ['https://www.artvertising.com.ro/cariere/asistent-marketing', 'https://www.artvertising.com.ro/cariere/content-marketing', 'https://www.artvertising.com.ro/cariere/content-writer-limba-romana', 'https://www.artvertising.com.ro/cariere/digital-marketing-performance-specialist', 'https://www.artvertising.com.ro/cariere/senior-graphic-designer-iasi', 'https://www.artvertising.com.ro/cariere/specialist-online', 'https://www.artvertising.com.ro/cariere/specialist-pr-publicitate']
