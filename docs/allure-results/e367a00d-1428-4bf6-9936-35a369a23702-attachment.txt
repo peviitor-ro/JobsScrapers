@@ -1,0 +1,9 @@
+Validate job titles from the company website against Peviitor API Response
+
+Step 1: Get job titles from the scraper
+Step 2: Get job titles from the Peviitor API
+Step 3: Compare of job titles from scraper response against Peviitor API Response
+
+Expected Results: ['Asistent Marketing magazin online', 'Job Brand Manager', 'Job Copywriter', 'Job Digital Marketing Specialist', 'Job Specialist Comunicare', 'Job Specialist Marketing Content', 'Senior Graphic Designer Iasi']
+
+Actual Results: ['Asistent Marketing magazin online', 'Job Brand Manager', 'Job Copywriter', 'Job Digital Marketing Specialist', 'Job Specialist Comunicare', 'Job Specialist Marketing Content', 'Senior Graphic Designer Iasi']
