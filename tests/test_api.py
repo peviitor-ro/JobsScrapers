@@ -6,6 +6,10 @@ import allure
 
 class SetupTests:
     def import_all_modules(self):
+        """
+        Import all scraper modules specified in module_names.
+        """
+        
         scraper_classes = []
 
         for module_name, class_name in module_names.items():
@@ -22,16 +26,23 @@ class SetupTests:
         return scraper_classes
 
     def get_jobs_careers(self, scraper_class):
+        """
+        Get job data using the provided scraper class.
+        """
         self.scraper_data = scraper_class().return_data()
         self.scraped_jobs_data = TestUtils.scrape_jobs(self.scraper_data[0])
         self.peviitor_jobs_data = TestUtils.scrape_peviitor(self.scraper_data[1], 'România')
 
 @pytest.fixture(params=SetupTests().import_all_modules(), scope="class")
 def scraper_class(request):
+    """Fixture for providing different scraper classes as parameters."""
     return request.param
 
 @pytest.fixture(scope="class")
 def setup_tests(scraper_class):
+    """
+    Fixture for setting up tests with the provided scraper class.
+    """
     setup_tests_instance = SetupTests()
     setup_tests_instance.get_jobs_careers(scraper_class)
     return setup_tests_instance
