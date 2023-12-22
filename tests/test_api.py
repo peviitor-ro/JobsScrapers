@@ -55,7 +55,7 @@ class TestScrapers:
         
         # Dynamically set the title with the company name
         company_name = setup_tests.scraper_data[1]
-        allure.dynamic.title(f"Validate job titles from the {company_name} website against Peviitor API Response")
+        allure.dynamic.title(f"Test job titles from the {company_name} website against Peviitor API Response")
 
         with allure.step("Step 1: Get job titles from the scraper"):
             job_titles_scraper = sorted(setup_tests.scraped_jobs_data[0])
@@ -99,7 +99,7 @@ class TestScrapers:
         
         # Dynamically set the title with the company name
         company_name = setup_tests.scraper_data[1]
-        allure.dynamic.title(f"Validate job cities from the {company_name} website against Peviitor API Response")
+        allure.dynamic.title(f"Test job cities from the {company_name} website against Peviitor API Response")
         
         with allure.step("Step 1: Get job cities from the scraper"):
             job_cities_scraper = sorted(setup_tests.scraped_jobs_data[1])
@@ -122,7 +122,7 @@ class TestScrapers:
         
         # Dynamically set the title with the company name
         company_name = setup_tests.scraper_data[1]
-        allure.dynamic.title(f"Validate job countries from the {company_name} website against Peviitor API Response")
+        allure.dynamic.title(f"Test job countries from the {company_name} website against Peviitor API Response")
         
         with allure.step("Step 1: Get job countries from the scraper"):
             job_countries_scraper = sorted(setup_tests.scraped_jobs_data[2])
@@ -144,7 +144,7 @@ class TestScrapers:
         
         # Dynamically set the title with the company name
         company_name = setup_tests.scraper_data[1]
-        allure.dynamic.title(f"Validate job links from the {company_name} website against Peviitor API Response")
+        allure.dynamic.title(f"Test job links from the {company_name} website against Peviitor API Response")
         
         with allure.step("Step 1: Get job links from the scraper"):
             job_links_scraper = sorted(setup_tests.scraped_jobs_data[3])
