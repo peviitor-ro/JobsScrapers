@@ -1,0 +1,3 @@
+Expected Results: ['Cargus caută curier/șofer/livratori cu autoutilitare proprii', 'Team Leader', 'Telesales Executive – Bucuresti/Ilfov']
+
+Actual Results: ['Cargus caută curier/șofer/livratori cu autoutilitare proprii', 'Team Leader', 'Telesales Executive – Bucuresti/Ilfov']

@@ -1,0 +1,3 @@
+Expected Results: ['https://rervest.ro/job/2134/', 'https://rervest.ro/job/agenti-contractare/', 'https://rervest.ro/job/angajam-agenti-contractare-verificare-si-constientizare/', 'https://rervest.ro/job/responsabil-de-mediu/']
+
+Actual Results: ['https://rervest.ro/job/2134/', 'https://rervest.ro/job/agenti-contractare/', 'https://rervest.ro/job/angajam-agenti-contractare-verificare-si-constientizare/', 'https://rervest.ro/job/responsabil-de-mediu/']

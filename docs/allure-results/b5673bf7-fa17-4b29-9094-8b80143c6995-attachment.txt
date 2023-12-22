@@ -1,0 +1,3 @@
+Expected Results: ['Manager de produs – Elemente vibropresate']
+
+Actual Results: ['Manager de produs – Elemente vibropresate']
