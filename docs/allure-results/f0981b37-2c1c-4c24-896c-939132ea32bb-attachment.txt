@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare job links from scraper response against Peviitor API Response
+
+Expected Results: ['http://www.ramadaiasi.ro/cariere/#1', 'http://www.ramadaiasi.ro/cariere/#2', 'http://www.ramadaiasi.ro/cariere/#3']
+
+Actual Results: ['http://www.ramadaiasi.ro/cariere/#1', 'http://www.ramadaiasi.ro/cariere/#2', 'http://www.ramadaiasi.ro/cariere/#3']

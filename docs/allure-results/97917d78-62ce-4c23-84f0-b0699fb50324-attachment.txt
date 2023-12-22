@@ -1,0 +1,9 @@
+Validate job titles from the company website against Peviitor API Response
+
+Step 1: Get job titles from the scraper
+Step 2: Get job titles from the Peviitor API
+Step 3: Compare job titles from scraper response against Peviitor API Response
+
+Expected Results: ['Associate Staff Consultant ,SAP Enterprise Asset Management', 'Distinguished Engineer, Enterprise Architect', 'Engineer, CRM Salesforce', 'Engineer, Cloud', 'Principal Consultant, Business Analyst', 'Principal Engineer, DevOps', 'Principal Engineer, Java', 'Senior Staff Consultant ,SAP Basis', 'Senior Staff Consultant ,SAP Sales Service', 'Staff Consultant ,SAP Human Experience Management', 'Staff Consultant ,SAP Industry Solutions', 'Staff Consultant ,Sap Development BTP', 'Staff Consultant, Talent Acquisition', 'Staff Engineer, C++', 'Staff Engineer, Frontend Angular2x', 'Staff Engineer, InfraOps', 'Staff Engineer, Java', 'Staff Engineer, PHP', 'Staff Engineer, QA Automation']
+
+Actual Results: ['Associate Staff Consultant ,SAP Enterprise Asset Management', 'Distinguished Engineer, Enterprise Architect', 'Engineer, CRM Salesforce', 'Engineer, Cloud', 'Principal Consultant, Business Analyst', 'Principal Engineer, DevOps', 'Principal Engineer, Java', 'Senior Staff Consultant ,SAP Basis', 'Senior Staff Consultant ,SAP Sales Service', 'Staff Consultant ,SAP Human Experience Management', 'Staff Consultant ,SAP Industry Solutions', 'Staff Consultant ,Sap Development BTP', 'Staff Consultant, Talent Acquisition', 'Staff Engineer, C++', 'Staff Engineer, Frontend Angular2x', 'Staff Engineer, InfraOps', 'Staff Engineer, Java', 'Staff Engineer, PHP', 'Staff Engineer, QA Automation']
