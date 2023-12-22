@@ -1,0 +1,9 @@
+Validate job titles from the company website against Peviitor API Response
+
+Step 1: Get job titles from the scraper
+Step 2: Get job titles from the Peviitor API
+Step 3: Compare job titles from scraper response against Peviitor API Response
+
+Expected Results: ['Coordonator echipă administrare personal și salarizare', 'Librar', 'Manager librărie', 'Operator depozit (manipulant, picker)', 'Responsabil tehnic regional/național']
+
+Actual Results: ['Coordonator echipă administrare personal și salarizare', 'Librar', 'Manager librărie', 'Operator depozit (manipulant, picker)', 'Responsabil tehnic regional/național']

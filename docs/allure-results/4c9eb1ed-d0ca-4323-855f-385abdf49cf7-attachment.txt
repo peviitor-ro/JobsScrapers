@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://atp-group.ro/cariere/ajutor-mecanic-oradea/', 'https://atp-group.ro/cariere/key-account-manager-regiunea-sud-vest/', 'https://atp-group.ro/cariere/key-account-manager-regiunea-sud/', 'https://atp-group.ro/cariere/key-acount-manager/', 'https://atp-group.ro/cariere/maistru-service-caroserie/', 'https://atp-group.ro/cariere/mecanic-auto-service-camioane-2/', 'https://atp-group.ro/cariere/mecanic-auto-service-camioane-baia-mare/', 'https://atp-group.ro/cariere/mecanic-auto-service-turisme-2/', 'https://atp-group.ro/cariere/mecanic-auto-service-turisme-3/', 'https://atp-group.ro/cariere/tehnician-diagnoza-turisme-oradea/']
+
+Actual Results: ['https://atp-group.ro/cariere/ajutor-mecanic-oradea/', 'https://atp-group.ro/cariere/key-account-manager-regiunea-sud-vest/', 'https://atp-group.ro/cariere/key-account-manager-regiunea-sud/', 'https://atp-group.ro/cariere/key-acount-manager/', 'https://atp-group.ro/cariere/maistru-service-caroserie/', 'https://atp-group.ro/cariere/mecanic-auto-service-camioane-2/', 'https://atp-group.ro/cariere/mecanic-auto-service-camioane-baia-mare/', 'https://atp-group.ro/cariere/mecanic-auto-service-turisme-2/', 'https://atp-group.ro/cariere/mecanic-auto-service-turisme-3/', 'https://atp-group.ro/cariere/tehnician-diagnoza-turisme-oradea/']

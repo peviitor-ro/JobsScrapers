@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://www.beenear.com/career/data-engineer-e175/', 'https://www.beenear.com/career/technical-customer-assistant-e165/', 'https://www.beenear.com/data-integration-specialist-e177/', 'https://www.beenear.com/sql-database-administrator-e176/']
+
+Actual Results: ['https://www.beenear.com/career/data-engineer-e175/', 'https://www.beenear.com/career/technical-customer-assistant-e165/', 'https://www.beenear.com/data-integration-specialist-e177/', 'https://www.beenear.com/sql-database-administrator-e176/']

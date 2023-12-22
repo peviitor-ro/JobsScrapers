@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://www.tcandc.com/company/career/senior-systems-engineer.html', 'https://www.tcandc.com/company/career/software-developer.html', 'https://www.tcandc.com/company/career/software-tester.html', 'https://www.tcandc.com/company/career/systems-engineer.html']
+
+Actual Results: ['https://www.tcandc.com/company/career/senior-systems-engineer.html', 'https://www.tcandc.com/company/career/software-developer.html', 'https://www.tcandc.com/company/career/software-tester.html', 'https://www.tcandc.com/company/career/systems-engineer.html']

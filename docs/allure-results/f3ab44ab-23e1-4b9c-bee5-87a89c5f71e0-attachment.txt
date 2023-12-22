@@ -1,0 +1,9 @@
+Validate job links from the company website against Peviitor API Response
+
+Step 1: Get job links from the scraper
+Step 2: Get job links from the Peviitor API
+Step 3: Compare job links from scraper response against Peviitor API Response
+
+Expected Results: ['https://dentesse.ro/cariere/#1', 'https://dentesse.ro/cariere/#2', 'https://dentesse.ro/cariere/#3', 'https://dentesse.ro/cariere/#4', 'https://dentesse.ro/cariere/#5', 'https://dentesse.ro/cariere/#6', 'https://dentesse.ro/cariere/#7', 'https://dentesse.ro/cariere/#8']
+
+Actual Results: ['https://dentesse.ro/cariere/#1', 'https://dentesse.ro/cariere/#2', 'https://dentesse.ro/cariere/#3', 'https://dentesse.ro/cariere/#4', 'https://dentesse.ro/cariere/#5', 'https://dentesse.ro/cariere/#6', 'https://dentesse.ro/cariere/#7', 'https://dentesse.ro/cariere/#8']
