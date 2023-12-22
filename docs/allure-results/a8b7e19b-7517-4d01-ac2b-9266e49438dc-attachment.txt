@@ -1,0 +1,3 @@
+Expected Results: ['https://anahr.ro/job/economist/', 'https://anahr.ro/job/manager-echipe-mobile-curatenie-oradea/', 'https://anahr.ro/job/mid-devops-engineer/', 'https://anahr.ro/job/mid-senior-net-developer/', 'https://anahr.ro/job/reprezentant-vanzari-2/', 'https://anahr.ro/job/reprezentant-vanzari-moldova/', 'https://anahr.ro/job/reprezentant-vanzari-timisoara/']
+
+Actual Results: ['https://anahr.ro/job/economist/', 'https://anahr.ro/job/manager-echipe-mobile-curatenie-oradea/', 'https://anahr.ro/job/mid-devops-engineer/', 'https://anahr.ro/job/mid-senior-net-developer/', 'https://anahr.ro/job/reprezentant-vanzari-2/', 'https://anahr.ro/job/reprezentant-vanzari-moldova/', 'https://anahr.ro/job/reprezentant-vanzari-timisoara/']
