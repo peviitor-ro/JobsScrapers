@@ -1,0 +1,9 @@
+Validate job titles from the company website against Peviitor API Response
+
+Step 1: Get job titles from the scraper
+Step 2: Get job titles from the Peviitor API
+Step 3: Compare job titles from scraper response against Peviitor API Response
+
+Expected Results: ['Asistent stomatologie', 'Consilier clienti', 'Medic specialist endodont', 'Medic specialist implantolog', 'Medic specialist ortodont', 'Medic specialist protetica dentara', 'Medic stomatolog', 'Medic stomatolog pediatru']
+
+Actual Results: ['Asistent stomatologie', 'Consilier clienti', 'Medic specialist endodont', 'Medic specialist implantolog', 'Medic specialist ortodont', 'Medic specialist protetica dentara', 'Medic stomatolog', 'Medic stomatolog pediatru']
