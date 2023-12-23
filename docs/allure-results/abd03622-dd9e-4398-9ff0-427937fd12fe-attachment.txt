@@ -1,0 +1,3 @@
+Expected Results: ['https://www.expresscredit.ro/despre-express-credit-amanet/cariere/#1']
+
+Actual Results: ['https://www.expresscredit.ro/despre-express-credit-amanet/cariere/#1']

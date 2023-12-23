@@ -1,0 +1,3 @@
+Expected Results: ['Application Support Consultant', 'Associate Support Consultant with English and French', 'Associate Support Consultant with English and German', 'Bid Management Lead', 'Customer Support Consultant', 'Lead Database Administrator - Oracle', 'Project Coordinator', 'Regional Support Consultant', 'Senior Technical Consultant', 'Support Consultant', 'Technical Consultant']
+
+Actual Results: ['Application Support Consultant', 'Associate Support Consultant with English and French', 'Associate Support Consultant with English and German', 'Bid Management Lead', 'Customer Support Consultant', 'Lead Database Administrator - Oracle', 'Project Coordinator', 'Regional Support Consultant', 'Senior Technical Consultant', 'Support Consultant', 'Technical Consultant']

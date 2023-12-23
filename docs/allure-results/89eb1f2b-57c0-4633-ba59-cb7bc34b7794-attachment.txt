@@ -1,0 +1,3 @@
+Expected Results: ['http://www.zucchettiromania.com/romania/dms/romania/lavoro/Business%20Consultant_ERP_2.pdf', 'http://www.zucchettiromania.com/romania/dms/romania/lavoro/Software_Engineer_2.pdf']
+
+Actual Results: ['http://www.zucchettiromania.com/romania/dms/romania/lavoro/Business%20Consultant_ERP_2.pdf', 'http://www.zucchettiromania.com/romania/dms/romania/lavoro/Software_Engineer_2.pdf']

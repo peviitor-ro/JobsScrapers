@@ -1,0 +1,3 @@
+Expected Results: ['https://jobs.sephora.com/job-invite/235764', 'https://jobs.sephora.com/job-invite/235779', 'https://jobs.sephora.com/job-invite/235784', 'https://jobs.sephora.com/job-invite/239666', 'https://jobs.sephora.com/job-invite/240368']
+
+Actual Results: ['https://jobs.sephora.com/job-invite/232248', 'https://jobs.sephora.com/job-invite/235764', 'https://jobs.sephora.com/job-invite/235779', 'https://jobs.sephora.com/job-invite/235784', 'https://jobs.sephora.com/job-invite/239666']

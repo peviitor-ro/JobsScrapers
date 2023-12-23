@@ -1,0 +1,3 @@
+Expected Results: ['https://www.c-scale.ro/careers#1', 'https://www.c-scale.ro/careers#2']
+
+Actual Results: ['https://www.c-scale.ro/careers#1', 'https://www.c-scale.ro/careers#2']

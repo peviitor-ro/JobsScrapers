@@ -1,0 +1,3 @@
+Expected Results: ['https://www.bbcollection.ro/cariera-arhivar.html', 'https://www.bbcollection.ro/cariera-consilier-juridic.html', 'https://www.bbcollection.ro/cariera-consilier-vanzari.html', 'https://www.bbcollection.ro/cariera-manager-produs.html', 'https://www.bbcollection.ro/cariera-sef-raion.html']
+
+Actual Results: ['https://www.bbcollection.ro/cariera-arhivar.html', 'https://www.bbcollection.ro/cariera-consilier-juridic.html', 'https://www.bbcollection.ro/cariera-consilier-vanzari.html', 'https://www.bbcollection.ro/cariera-manager-produs.html', 'https://www.bbcollection.ro/cariera-sef-raion.html']

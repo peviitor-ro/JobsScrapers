@@ -1,0 +1,3 @@
+Expected Results: ['CONSILIER SERVICE', 'CONSILIER VÂNZĂRI DACIA - RENAULT', 'ELECTROMECANIC AUTO', 'Mecanic auto', 'Pregătitor vopsele auto', 'Tinichigiu auto', 'Vopsitor auto']
+
+Actual Results: ['CONSILIER SERVICE', 'CONSILIER VÂNZĂRI DACIA - RENAULT', 'ELECTROMECANIC AUTO', 'Mecanic auto', 'Pregătitor vopsele auto', 'Tinichigiu auto', 'Vopsitor auto']
