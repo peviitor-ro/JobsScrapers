@@ -1,3 +1,0 @@
-Expected Results: ['Agent vânzări', 'Economist', 'Economist', 'Responsabil Administrativ - Teren', 'Specialist HR']
-
-Actual Results: ['Agent vânzări', 'Economist', 'Economist', 'Responsabil Administrativ - Teren', 'Specialist HR']

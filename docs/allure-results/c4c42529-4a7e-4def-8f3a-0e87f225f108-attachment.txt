@@ -1,3 +1,0 @@
-Expected Results: ['JAVA Developers', 'Social Media & Marketing', 'Software Developers', 'Tehnical Game Hosting Specialist', 'Tehnical Web Hosting Specialist']
-
-Actual Results: ['JAVA Developers', 'Social Media & Marketing', 'Software Developers', 'Tehnical Game Hosting Specialist', 'Tehnical Web Hosting Specialist']

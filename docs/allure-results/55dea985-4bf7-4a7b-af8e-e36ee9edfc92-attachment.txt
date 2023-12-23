@@ -1,3 +1,0 @@
-Expected Results: ['camerista', 'ospatar', 'receptioner']
-
-Actual Results: ['camerista', 'ospatar', 'receptioner']

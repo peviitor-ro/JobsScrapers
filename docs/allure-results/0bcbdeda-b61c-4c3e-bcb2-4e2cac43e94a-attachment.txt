@@ -1,9 +1,0 @@
-Validate job countries from the company website against Peviitor API Response
-
-Step 1: Get job countries from the scraper
-Step 2: Get job countries from the Peviitor API
-Step 3: Compare job countries from scraper response against Peviitor API Response
-
-Expected Results: ['România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România']
-
-Actual Results: ['România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România']

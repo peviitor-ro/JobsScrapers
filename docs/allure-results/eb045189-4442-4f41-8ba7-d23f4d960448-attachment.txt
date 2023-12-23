@@ -1,3 +1,0 @@
-Expected Results: [['Baia Mare '], ['Cluj '], ['Cluj '], ['Oradea '], ['Oradea '], ['Oradea '], ['Oradea '], ['Romania'], ['Romania'], ['Romania']]
-
-Actual Results: [['Baia Mare '], ['Cluj '], ['Cluj '], ['Oradea '], ['Oradea '], ['Oradea '], ['Oradea '], ['Romania'], ['Romania'], ['Romania']]

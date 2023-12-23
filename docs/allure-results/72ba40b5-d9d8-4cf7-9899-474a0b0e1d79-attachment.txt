@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://www.bbcollection.ro/cariera-arhivar.html', 'https://www.bbcollection.ro/cariera-consilier-juridic.html', 'https://www.bbcollection.ro/cariera-consilier-vanzari.html', 'https://www.bbcollection.ro/cariera-manager-produs.html', 'https://www.bbcollection.ro/cariera-sef-raion.html']
-
-Actual Results: ['https://www.bbcollection.ro/cariera-arhivar.html', 'https://www.bbcollection.ro/cariera-consilier-juridic.html', 'https://www.bbcollection.ro/cariera-consilier-vanzari.html', 'https://www.bbcollection.ro/cariera-manager-produs.html', 'https://www.bbcollection.ro/cariera-sef-raion.html']

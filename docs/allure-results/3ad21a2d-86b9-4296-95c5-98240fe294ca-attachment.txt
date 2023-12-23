@@ -1,3 +1,0 @@
-Expected Results: ['Construcții', 'Instalații sanitare sau electrice', 'Responsabil administrativ', 'Îngrijitori spații verzi']
-
-Actual Results: ['Construcții', 'Instalații sanitare sau electrice', 'Responsabil administrativ', 'Îngrijitori spații verzi']

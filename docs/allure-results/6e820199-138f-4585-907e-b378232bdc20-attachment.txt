@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://takeandeat.ro/cariere/ajutor-bucatar/', 'https://takeandeat.ro/cariere/anunt-dispecer/', 'https://takeandeat.ro/cariere/bucatar-cu-experienta/', 'https://takeandeat.ro/cariere/personal-bucatarie-catering-persoane-cu-dizabilitati/', 'https://takeandeat.ro/cariere/responsabil-gestiune-grandchef/', 'https://takeandeat.ro/cariere/sef-de-tura/', 'https://takeandeat.ro/cariere/specialist-resurse-umane/']
-
-Actual Results: ['https://takeandeat.ro/cariere/ajutor-bucatar/', 'https://takeandeat.ro/cariere/anunt-dispecer/', 'https://takeandeat.ro/cariere/bucatar-cu-experienta/', 'https://takeandeat.ro/cariere/personal-bucatarie-catering-persoane-cu-dizabilitati/', 'https://takeandeat.ro/cariere/responsabil-gestiune-grandchef/', 'https://takeandeat.ro/cariere/sef-de-tura/', 'https://takeandeat.ro/cariere/specialist-resurse-umane/']

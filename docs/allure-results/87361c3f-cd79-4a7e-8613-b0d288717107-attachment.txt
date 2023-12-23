@@ -1,3 +1,0 @@
-Expected Results: ['Early Career Booking']
-
-Actual Results: ['Early Career Booking']

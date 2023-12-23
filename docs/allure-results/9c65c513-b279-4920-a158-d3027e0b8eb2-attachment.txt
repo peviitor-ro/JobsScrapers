@@ -1,3 +1,0 @@
-Expected Results: ['TEHNICIAN SERVICE']
-
-Actual Results: ['TEHNICIAN SERVICE']

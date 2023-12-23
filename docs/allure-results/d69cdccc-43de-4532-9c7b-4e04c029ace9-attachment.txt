@@ -1,3 +1,0 @@
-Expected Results: ['vânzător (vânzătoare)', 'șoferi', 'șoferi']
-
-Actual Results: ['vânzător (vânzătoare)', 'șoferi', 'șoferi']

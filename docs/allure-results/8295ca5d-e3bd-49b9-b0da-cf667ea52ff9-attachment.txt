@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://iasi.delivery/cariere-horeca/#1', 'https://iasi.delivery/cariere-horeca/#2', 'https://iasi.delivery/cariere-horeca/#3', 'https://iasi.delivery/cariere-horeca/#4', 'https://iasi.delivery/cariere-horeca/#5', 'https://iasi.delivery/cariere-horeca/#6', 'https://iasi.delivery/cariere-horeca/#7', 'https://iasi.delivery/cariere-horeca/#8', 'https://iasi.delivery/cariere-horeca/#9']
-
-Actual Results: ['https://iasi.delivery/cariere-horeca/#1', 'https://iasi.delivery/cariere-horeca/#2', 'https://iasi.delivery/cariere-horeca/#3', 'https://iasi.delivery/cariere-horeca/#4', 'https://iasi.delivery/cariere-horeca/#5', 'https://iasi.delivery/cariere-horeca/#6', 'https://iasi.delivery/cariere-horeca/#7', 'https://iasi.delivery/cariere-horeca/#8', 'https://iasi.delivery/cariere-horeca/#9']

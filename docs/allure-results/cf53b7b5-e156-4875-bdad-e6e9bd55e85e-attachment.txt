@@ -1,3 +1,0 @@
-Expected Results: [['Covasna'], ['Covasna'], ['Covasna']]
-
-Actual Results: [['Covasna'], ['Covasna'], ['Covasna']]

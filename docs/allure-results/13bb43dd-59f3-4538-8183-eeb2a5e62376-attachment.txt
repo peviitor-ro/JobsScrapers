@@ -1,3 +1,0 @@
-Expected Results: ['Full Time', 'Iași', 'Reprezentant Medical Veterinar']
-
-Actual Results: ['Full Time', 'Iași', 'Reprezentant Medical Veterinar']

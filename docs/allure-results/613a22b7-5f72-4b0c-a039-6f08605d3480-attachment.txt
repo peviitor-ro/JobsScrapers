@@ -1,3 +1,0 @@
-Expected Results: ['http://www.ramadaiasi.ro/cariere/#1', 'http://www.ramadaiasi.ro/cariere/#2', 'http://www.ramadaiasi.ro/cariere/#3']
-
-Actual Results: ['http://www.ramadaiasi.ro/cariere/#1', 'http://www.ramadaiasi.ro/cariere/#2', 'http://www.ramadaiasi.ro/cariere/#3']

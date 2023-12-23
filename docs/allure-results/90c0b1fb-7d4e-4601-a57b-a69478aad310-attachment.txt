@@ -1,3 +1,0 @@
-Expected Results: ['https://www.tcandc.com/company/career/senior-systems-engineer.html', 'https://www.tcandc.com/company/career/software-developer.html', 'https://www.tcandc.com/company/career/software-tester.html', 'https://www.tcandc.com/company/career/systems-engineer.html']
-
-Actual Results: ['https://www.tcandc.com/company/career/senior-systems-engineer.html', 'https://www.tcandc.com/company/career/software-developer.html', 'https://www.tcandc.com/company/career/software-tester.html', 'https://www.tcandc.com/company/career/systems-engineer.html']

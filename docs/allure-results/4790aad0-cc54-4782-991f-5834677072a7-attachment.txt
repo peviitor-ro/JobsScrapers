@@ -1,9 +1,0 @@
-Validate job cities from the company website against Peviitor API Response
-
-Step 1: Get job cities from the scraper
-Step 2: Get job cities from the Peviitor API
-Step 3: Compare of job titles from scraper response against Peviitor API Response
-
-Expected Results: [['Bacau'], ['Bacau'], ['Baia Mare'], ['Bistrita'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Cluj'], ['Cluj'], ['Constanta'], ['Constanta'], ['Craiova'], ['Craiova'], ['Deva'], ['Domnesti'], ['Domnesti'], ['Domnesti'], ['Domnesti'], ['Dragasani'], ['Iasi'], ['Onesti'], ['Oradea'], ['Pitesti'], ['Pitesti'], ['Ramnicu Valcea'], ['Ramnicu Valcea'], ['Râmnicu Vâlcea'], ['Sibiu'], ['Targoviste'], ['Targu-Mures'], ['Targu-Mures'], ['Timisoara'], ['Timisoara'], ['Timisoara'], ['Zalau']]
-
-Actual Results: [['Bacau'], ['Bacau'], ['Baia Mare'], ['Bistrita'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Cluj'], ['Cluj'], ['Constanta'], ['Constanta'], ['Craiova'], ['Craiova'], ['Deva'], ['Domnesti'], ['Domnesti'], ['Domnesti'], ['Domnesti'], ['Dragasani'], ['Iasi'], ['Onesti'], ['Oradea'], ['Pitesti'], ['Pitesti'], ['Ramnicu Valcea'], ['Ramnicu Valcea'], ['Râmnicu Vâlcea'], ['Sibiu'], ['Targoviste'], ['Targu-Mures'], ['Targu-Mures'], ['Timisoara'], ['Timisoara'], ['Timisoara'], ['Zalau']]

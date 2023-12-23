@@ -1,3 +1,0 @@
-Expected Results: ['Data Engineer', 'Data Integration Specialist', 'SQL Database Administrator', 'Technical Customer Assistant (with Italian)']
-
-Actual Results: ['Data Engineer', 'Data Integration Specialist', 'SQL Database Administrator', 'Technical Customer Assistant (with Italian)']

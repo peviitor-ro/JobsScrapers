@@ -1,3 +1,0 @@
-Expected Results: ['Backend Developer', 'Full-Stack Developer']
-
-Actual Results: ['Backend Developer', 'Full-Stack Developer']

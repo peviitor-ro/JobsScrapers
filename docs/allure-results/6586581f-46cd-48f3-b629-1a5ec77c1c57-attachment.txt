@@ -1,3 +1,0 @@
-Expected Results: ['https://autosiena.ro/cariera/#1', 'https://autosiena.ro/cariera/#2']
-
-Actual Results: ['https://autosiena.ro/cariera/#1', 'https://autosiena.ro/cariera/#2']

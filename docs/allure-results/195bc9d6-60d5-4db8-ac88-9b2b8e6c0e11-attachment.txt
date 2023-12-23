@@ -1,3 +1,0 @@
-Expected Results: ['https://pimcopy.ro/cariere#1', 'https://pimcopy.ro/cariere#2', 'https://pimcopy.ro/cariere#3']
-
-Actual Results: ['https://pimcopy.ro/cariere#1', 'https://pimcopy.ro/cariere#2', 'https://pimcopy.ro/cariere#3']

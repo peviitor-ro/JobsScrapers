@@ -1,3 +1,0 @@
-Expected Results: ['https://www.cargus.ro/cariere/agent-telesales/', 'https://www.cargus.ro/cariere/curieri-si-parteneri-pentru-activitatea-de-curierat/', 'https://www.cargus.ro/cariere/teamleader/']
-
-Actual Results: ['https://www.cargus.ro/cariere/agent-telesales/', 'https://www.cargus.ro/cariere/curieri-si-parteneri-pentru-activitatea-de-curierat/', 'https://www.cargus.ro/cariere/teamleader/']

@@ -1,3 +1,0 @@
-Expected Results: [['Iasi'], ['Iasi'], ['Iasi'], ['Iasi'], ['Iasi'], ['Iasi']]
-
-Actual Results: [['Iasi'], ['Iasi'], ['Iasi'], ['Iasi'], ['Iasi'], ['Iasi']]

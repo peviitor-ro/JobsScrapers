@@ -1,3 +1,0 @@
-Expected Results: ['https://www.etusoft.com/locuridemunca.html#1']
-
-Actual Results: ['https://www.etusoft.com/locuridemunca.html#1']

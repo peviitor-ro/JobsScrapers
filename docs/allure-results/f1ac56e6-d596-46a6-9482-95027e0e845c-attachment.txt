@@ -1,3 +1,0 @@
-Expected Results: ['https://www.britishcouncil.ro/despre-noi/cariere#1', 'https://www.britishcouncil.ro/despre-noi/cariere#2', 'https://www.britishcouncil.ro/despre-noi/cariere#3', 'https://www.britishcouncil.ro/despre-noi/cariere#4']
-
-Actual Results: ['https://www.britishcouncil.ro/despre-noi/cariere#1', 'https://www.britishcouncil.ro/despre-noi/cariere#2', 'https://www.britishcouncil.ro/despre-noi/cariere#3', 'https://www.britishcouncil.ro/despre-noi/cariere#4']

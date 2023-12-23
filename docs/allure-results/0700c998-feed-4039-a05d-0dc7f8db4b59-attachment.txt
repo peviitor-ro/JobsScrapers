@@ -1,3 +1,0 @@
-Expected Results: ['Contabil', 'Lucrător depozit', 'Reprezentant vânzări', 'Responsabil Produs', 'Responsabil Proiecte Marketing', 'Software developer', 'Stivuitorist']
-
-Actual Results: ['Contabil', 'Lucrător depozit', 'Reprezentant vânzări', 'Responsabil Produs', 'Responsabil Proiecte Marketing', 'Software developer', 'Stivuitorist']

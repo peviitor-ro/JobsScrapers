@@ -1,3 +1,0 @@
-Expected Results: ['https://www.gazduirejocuri.ro/cariere/#1', 'https://www.gazduirejocuri.ro/cariere/#2', 'https://www.gazduirejocuri.ro/cariere/#3', 'https://www.gazduirejocuri.ro/cariere/#4', 'https://www.gazduirejocuri.ro/cariere/#5']
-
-Actual Results: ['https://www.gazduirejocuri.ro/cariere/#1', 'https://www.gazduirejocuri.ro/cariere/#2', 'https://www.gazduirejocuri.ro/cariere/#3', 'https://www.gazduirejocuri.ro/cariere/#4', 'https://www.gazduirejocuri.ro/cariere/#5']

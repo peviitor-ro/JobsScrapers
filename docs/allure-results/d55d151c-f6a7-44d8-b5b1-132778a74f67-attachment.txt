@@ -1,3 +1,0 @@
-Expected Results: ['https://www.ipso.ro/cariere/#1', 'https://www.ipso.ro/cariere/#2', 'https://www.ipso.ro/cariere/#3', 'https://www.ipso.ro/cariere/#4', 'https://www.ipso.ro/cariere/#5', 'https://www.ipso.ro/cariere/#6', 'https://www.ipso.ro/cariere/#7']
-
-Actual Results: ['https://www.ipso.ro/cariere/#1', 'https://www.ipso.ro/cariere/#2', 'https://www.ipso.ro/cariere/#3', 'https://www.ipso.ro/cariere/#4', 'https://www.ipso.ro/cariere/#5', 'https://www.ipso.ro/cariere/#6', 'https://www.ipso.ro/cariere/#7']

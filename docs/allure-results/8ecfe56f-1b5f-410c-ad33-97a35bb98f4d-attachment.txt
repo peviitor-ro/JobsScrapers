@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://urbio-romania.ro/cariere/#1662454401930-ce44399a-786c#1']
-
-Actual Results: ['https://urbio-romania.ro/cariere/#1662454401930-ce44399a-786c#1']

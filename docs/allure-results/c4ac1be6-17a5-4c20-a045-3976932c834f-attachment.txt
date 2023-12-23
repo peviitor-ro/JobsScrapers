@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://allengra.eu/career.php#1', 'https://allengra.eu/career.php#2', 'https://allengra.eu/career.php#3', 'https://allengra.eu/career.php#4']
-
-Actual Results: ['https://allengra.eu/career.php#1', 'https://allengra.eu/career.php#2', 'https://allengra.eu/career.php#3', 'https://allengra.eu/career.php#4']

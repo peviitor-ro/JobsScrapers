@@ -1,3 +1,0 @@
-Expected Results: [['Bucuresti, Cluj-Napoca, Iasi']]
-
-Actual Results: [['Bucuresti, Cluj-Napoca, Iasi']]

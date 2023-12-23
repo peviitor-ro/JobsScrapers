@@ -1,9 +1,0 @@
-Validate job titles from the company website against Peviitor API Response
-
-Step 1: Get job titles from the scraper
-Step 2: Get job titles from the Peviitor API
-Step 3: Compare job titles from scraper response against Peviitor API Response
-
-Expected Results: ['AI Research Engineer', 'Experienced Data Engineer', 'Experienced PHP Engineer', 'Experienced Solution Architect', 'Machine Learning Engineer', 'PowerBI Data Analyst', 'Prompt Engineer & Librarian', 'Senior Embedded Python Engineer', 'Software Engineer, Generative AI', 'Software Test Engineer']
-
-Actual Results: ['AI Research Engineer', 'Experienced Data Engineer', 'Experienced PHP Engineer', 'Experienced Solution Architect', 'Machine Learning Engineer', 'PowerBI Data Analyst', 'Prompt Engineer & Librarian', 'Senior Embedded Python Engineer', 'Software Engineer, Generative AI', 'Software Test Engineer']

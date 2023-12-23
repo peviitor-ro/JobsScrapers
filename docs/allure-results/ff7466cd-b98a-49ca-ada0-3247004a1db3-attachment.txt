@@ -1,3 +1,0 @@
-Expected Results: [['Alba Iulia'], ['Oradea'], ['Oradea'], ['Oradea']]
-
-Actual Results: [['Alba Iulia'], ['Oradea'], ['Oradea'], ['Oradea']]

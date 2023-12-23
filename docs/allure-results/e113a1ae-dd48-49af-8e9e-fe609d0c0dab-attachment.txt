@@ -1,3 +1,0 @@
-Expected Results: ['Director tehnic', 'Tehnician sisteme securitate – entry level']
-
-Actual Results: ['Director tehnic', 'Tehnician sisteme securitate – entry level']

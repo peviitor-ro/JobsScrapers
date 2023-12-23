@@ -1,3 +1,0 @@
-Expected Results: ['https://www.splendor.ro/cariera.html#1', 'https://www.splendor.ro/cariera.html#2']
-
-Actual Results: ['https://www.splendor.ro/cariera.html#1', 'https://www.splendor.ro/cariera.html#2']

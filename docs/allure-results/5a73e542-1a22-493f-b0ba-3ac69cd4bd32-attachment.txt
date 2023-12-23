@@ -1,3 +1,0 @@
-Expected Results: ['https://www.conexdist.ro/ro/cariere/analist-vanzari/', 'https://www.conexdist.ro/ro/cariere/lucrator-depozit-2/', 'https://www.conexdist.ro/ro/cariere/lucrator-depozit/', 'https://www.conexdist.ro/ro/cariere/manager-zonal-logistica/', 'https://www.conexdist.ro/ro/cariere/ro-sofer-distributie/', 'https://www.conexdist.ro/ro/cariere/specialist-achizitii/']
-
-Actual Results: ['https://www.conexdist.ro/ro/cariere/analist-vanzari/', 'https://www.conexdist.ro/ro/cariere/lucrator-depozit-2/', 'https://www.conexdist.ro/ro/cariere/lucrator-depozit/', 'https://www.conexdist.ro/ro/cariere/manager-zonal-logistica/', 'https://www.conexdist.ro/ro/cariere/ro-sofer-distributie/', 'https://www.conexdist.ro/ro/cariere/specialist-achizitii/']

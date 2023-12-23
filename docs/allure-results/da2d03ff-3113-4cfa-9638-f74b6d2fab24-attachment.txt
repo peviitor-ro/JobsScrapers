@@ -1,3 +1,0 @@
-Expected Results: [['Iași'], ['Iași'], ['Suceava']]
-
-Actual Results: [['Iași'], ['Iași'], ['Suceava']]

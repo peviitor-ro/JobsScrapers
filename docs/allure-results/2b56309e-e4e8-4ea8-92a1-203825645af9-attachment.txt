@@ -1,3 +1,0 @@
-Expected Results: [['Iași', 'Suceava', 'Botosani', 'Vaslui', 'Piatra-Neamt', 'Bacau', 'Vrancea', 'Galati']]
-
-Actual Results: [['Iași', 'Suceava', 'Botosani', 'Vaslui', 'Piatra-Neamt', 'Bacau', 'Vrancea', 'Galati']]

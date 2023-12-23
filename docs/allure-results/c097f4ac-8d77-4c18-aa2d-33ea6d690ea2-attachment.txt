@@ -1,3 +1,0 @@
-Expected Results: [['Timisoara']]
-
-Actual Results: [['Timisoara']]

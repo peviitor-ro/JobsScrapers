@@ -1,3 +1,0 @@
-Expected Results: [['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca']]
-
-Actual Results: [['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca'], ['Cluj-Napoca']]

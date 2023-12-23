@@ -1,3 +1,0 @@
-Expected Results: ['https://carturesti.ro/info/coordonator-echipa-administrare-personal-si-salarizare', 'https://carturesti.ro/info/librar', 'https://carturesti.ro/info/manager-librarie', 'https://carturesti.ro/info/operator-depozit', 'https://carturesti.ro/info/responsabil-tehnic-regional-national']
-
-Actual Results: ['https://carturesti.ro/info/coordonator-echipa-administrare-personal-si-salarizare', 'https://carturesti.ro/info/librar', 'https://carturesti.ro/info/manager-librarie', 'https://carturesti.ro/info/operator-depozit', 'https://carturesti.ro/info/responsabil-tehnic-regional-national']

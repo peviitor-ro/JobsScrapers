@@ -1,3 +1,0 @@
-Expected Results: ['Specialist marketing']
-
-Actual Results: ['Specialist marketing']

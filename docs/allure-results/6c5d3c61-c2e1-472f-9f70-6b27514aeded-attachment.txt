@@ -1,3 +1,0 @@
-Expected Results: ['https://www.inova-group.ro/cariere/#1', 'https://www.inova-group.ro/cariere/#2']
-
-Actual Results: ['https://www.inova-group.ro/cariere/#1', 'https://www.inova-group.ro/cariere/#2']

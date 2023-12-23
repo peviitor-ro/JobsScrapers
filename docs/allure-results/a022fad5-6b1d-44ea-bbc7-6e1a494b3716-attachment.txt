@@ -1,3 +1,0 @@
-Expected Results: ['Inginer Electronist (ELECTRA)', 'Tehnician Proiectare Electronică (EMS-Electra)']
-
-Actual Results: ['Inginer Electronist (ELECTRA)', 'Tehnician Proiectare Electronică (EMS-Electra)']

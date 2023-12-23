@@ -1,3 +1,0 @@
-Expected Results: ['https://www.verla.ro/oferte/cariere.html#1']
-
-Actual Results: ['https://www.verla.ro/oferte/cariere.html#1']

@@ -1,3 +1,0 @@
-Expected Results: [['Bucharest'], ['Bucharest'], ['Bucharest'], ['Bucharest']]
-
-Actual Results: [['Bucharest'], ['Bucharest'], ['Bucharest'], ['Bucharest']]

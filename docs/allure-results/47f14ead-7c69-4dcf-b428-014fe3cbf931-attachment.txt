@@ -1,3 +1,0 @@
-Expected Results: ['Account Manager', 'Channel Manager', 'Consultant Implementare', 'Consultant Senior - Suport Tehnic', 'Product Manager']
-
-Actual Results: ['Account Manager', 'Channel Manager', 'Consultant Implementare', 'Consultant Senior - Suport Tehnic', 'Product Manager']

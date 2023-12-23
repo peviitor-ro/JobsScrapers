@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['http://www.zucchettiromania.com/romania/dms/romania/lavoro/Business%20Consultant_ERP_2.pdf', 'http://www.zucchettiromania.com/romania/dms/romania/lavoro/Software_Engineer_2.pdf']
-
-Actual Results: ['http://www.zucchettiromania.com/romania/dms/romania/lavoro/Business%20Consultant_ERP_2.pdf', 'http://www.zucchettiromania.com/romania/dms/romania/lavoro/Software_Engineer_2.pdf']

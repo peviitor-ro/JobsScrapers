@@ -1,3 +1,0 @@
-Expected Results: ['Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania', 'Romania']
-
-Actual Results: ['România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România', 'România']

@@ -1,3 +1,0 @@
-Expected Results: ['https://www.nolimits.ro/cariere.html']
-
-Actual Results: ['https://www.nolimits.ro/cariere.html']
