@@ -1,0 +1,3 @@
+Expected Results: [['Bihor'], ['Full Time'], ['Specialist Marketing']]
+
+Actual Results: [['Bihor'], ['Full Time'], ['Specialist Marketing']]

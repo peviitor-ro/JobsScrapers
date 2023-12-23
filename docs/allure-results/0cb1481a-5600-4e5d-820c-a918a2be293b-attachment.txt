@@ -1,0 +1,3 @@
+Expected Results: ['ELECTRICIAN AUTO', 'MECANIC AUTO']
+
+Actual Results: ['ELECTRICIAN AUTO', 'MECANIC AUTO']

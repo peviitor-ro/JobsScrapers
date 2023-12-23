@@ -1,0 +1,3 @@
+Expected Results: ['https://www.expertmind.ro/joburi/admin_teren/', 'https://www.expertmind.ro/joburi/call_center/', 'https://www.expertmind.ro/joburi/economist_audit/', 'https://www.expertmind.ro/joburi/economist_contabil/', 'https://www.expertmind.ro/joburi/specialist_hr2/']
+
+Actual Results: ['https://www.expertmind.ro/joburi/admin_teren/', 'https://www.expertmind.ro/joburi/call_center/', 'https://www.expertmind.ro/joburi/economist_audit/', 'https://www.expertmind.ro/joburi/economist_contabil/', 'https://www.expertmind.ro/joburi/specialist_hr2/']

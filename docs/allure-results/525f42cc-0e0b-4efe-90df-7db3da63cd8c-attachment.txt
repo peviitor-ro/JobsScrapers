@@ -1,0 +1,3 @@
+Expected Results: ['https://www.casaautoiasi.ro/cariere/#1', 'https://www.casaautoiasi.ro/cariere/#2', 'https://www.casaautoiasi.ro/cariere/#3', 'https://www.casaautoiasi.ro/cariere/#4', 'https://www.casaautoiasi.ro/cariere/#5', 'https://www.casaautoiasi.ro/cariere/#6', 'https://www.casaautoiasi.ro/cariere/#7']
+
+Actual Results: ['https://www.casaautoiasi.ro/cariere/#1', 'https://www.casaautoiasi.ro/cariere/#2', 'https://www.casaautoiasi.ro/cariere/#3', 'https://www.casaautoiasi.ro/cariere/#4', 'https://www.casaautoiasi.ro/cariere/#5', 'https://www.casaautoiasi.ro/cariere/#6', 'https://www.casaautoiasi.ro/cariere/#7']

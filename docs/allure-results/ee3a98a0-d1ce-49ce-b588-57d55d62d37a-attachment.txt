@@ -1,0 +1,3 @@
+Expected Results: ['https://www.autoclass.ro/info/cariera.html#1', 'https://www.autoclass.ro/info/cariera.html#2', 'https://www.autoclass.ro/info/cariera.html#3', 'https://www.autoclass.ro/info/cariera.html#4', 'https://www.autoclass.ro/info/cariera.html#5', 'https://www.autoclass.ro/info/cariera.html#6', 'https://www.autoclass.ro/info/cariera.html#7']
+
+Actual Results: ['https://www.autoclass.ro/info/cariera.html#1', 'https://www.autoclass.ro/info/cariera.html#2', 'https://www.autoclass.ro/info/cariera.html#3', 'https://www.autoclass.ro/info/cariera.html#4', 'https://www.autoclass.ro/info/cariera.html#5', 'https://www.autoclass.ro/info/cariera.html#6', 'https://www.autoclass.ro/info/cariera.html#7']

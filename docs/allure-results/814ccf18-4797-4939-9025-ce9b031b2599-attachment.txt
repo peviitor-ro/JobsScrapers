@@ -1,0 +1,3 @@
+Expected Results: ['Asistent stomatologie', 'Consilier clienti', 'Medic specialist endodont', 'Medic specialist implantolog', 'Medic specialist ortodont', 'Medic specialist protetica dentara', 'Medic stomatolog', 'Medic stomatolog pediatru']
+
+Actual Results: ['Asistent stomatologie', 'Consilier clienti', 'Medic specialist endodont', 'Medic specialist implantolog', 'Medic specialist ortodont', 'Medic specialist protetica dentara', 'Medic stomatolog', 'Medic stomatolog pediatru']

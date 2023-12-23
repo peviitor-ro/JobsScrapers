@@ -1,0 +1,3 @@
+Expected Results: ['Director Financiar FMCG', 'Director Operațiuni România', 'Manager Depozit Oradea', 'PET Plant Manager']
+
+Actual Results: ['Director Financiar FMCG', 'Director Operațiuni România', 'Manager Depozit Oradea', 'PET Plant Manager']

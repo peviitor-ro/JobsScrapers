@@ -1,0 +1,3 @@
+Expected Results: ['AMBALATOR / MANIPULANT MARFĂ']
+
+Actual Results: ['AMBALATOR / MANIPULANT MARFĂ']

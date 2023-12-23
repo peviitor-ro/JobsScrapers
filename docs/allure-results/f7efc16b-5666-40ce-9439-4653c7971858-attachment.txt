@@ -1,0 +1,3 @@
+Expected Results: ['https://www.careerscenter.ro/jobs/contabil-cu-experienta-in-cabinet-de-contabilitate/', 'https://www.careerscenter.ro/jobs/relationship-manager-sme-servicii-financiar-bancare/', 'https://www.careerscenter.ro/jobs/reprezentant-vanzari-franciza-vodafone/']
+
+Actual Results: ['https://www.careerscenter.ro/jobs/contabil-cu-experienta-in-cabinet-de-contabilitate/', 'https://www.careerscenter.ro/jobs/relationship-manager-sme-servicii-financiar-bancare/', 'https://www.careerscenter.ro/jobs/reprezentant-vanzari-franciza-vodafone/']

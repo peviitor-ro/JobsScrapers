@@ -1,0 +1,3 @@
+Expected Results: ['Electrician', 'Lacatus mecanic', 'Sef atelier mecanic']
+
+Actual Results: ['Electrician', 'Lacatus mecanic', 'Sef atelier mecanic']

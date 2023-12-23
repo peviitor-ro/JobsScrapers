@@ -1,0 +1,3 @@
+Expected Results: ['Mecanic Auto', 'Responsabil Curatenie']
+
+Actual Results: ['Mecanic Auto', 'Responsabil Curatenie']

@@ -1,0 +1,3 @@
+Expected Results: ['https://ellisium.ro/cariere/#1', 'https://ellisium.ro/cariere/#2', 'https://ellisium.ro/cariere/#3']
+
+Actual Results: ['https://ellisium.ro/cariere/#1', 'https://ellisium.ro/cariere/#2', 'https://ellisium.ro/cariere/#3']
