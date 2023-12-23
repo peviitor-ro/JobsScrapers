@@ -30,7 +30,7 @@ class TestUtils:
         Setting params for peviitor jobs request
         """
         params = {
-            'q': company_name,
+            'company': company_name,
             'country': country,
             'page': page,
         }
