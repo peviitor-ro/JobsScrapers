@@ -1,0 +1,3 @@
+Expected Results: ['Analist Vânzări', 'Lucrător Depozit', 'Manager Zonal Logistică', 'Pickeri / Lucrători Depozit / Manipulanți', 'Specialist în Achiziții și Relaționare Furnizori', 'Șofer distribuție piese auto']
+
+Actual Results: ['Analist Vânzări', 'Lucrător Depozit', 'Manager Zonal Logistică', 'Pickeri / Lucrători Depozit / Manipulanți', 'Specialist în Achiziții și Relaționare Furnizori', 'Șofer distribuție piese auto']

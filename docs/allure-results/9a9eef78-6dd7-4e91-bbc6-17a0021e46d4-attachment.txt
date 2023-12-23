@@ -1,0 +1,3 @@
+Expected Results: ['https://creatopy.bamboohr.com/careers/109', 'https://creatopy.bamboohr.com/careers/110', 'https://creatopy.bamboohr.com/careers/111', 'https://creatopy.bamboohr.com/careers/112']
+
+Actual Results: ['https://creatopy.bamboohr.com/careers/109', 'https://creatopy.bamboohr.com/careers/110', 'https://creatopy.bamboohr.com/careers/111', 'https://creatopy.bamboohr.com/careers/112']

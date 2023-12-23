@@ -1,0 +1,3 @@
+Expected Results: ['https://calcrom.ro/#careers#1', 'https://calcrom.ro/#careers#2']
+
+Actual Results: ['https://calcrom.ro/#careers#1', 'https://calcrom.ro/#careers#2']

@@ -1,0 +1,3 @@
+Expected Results: ['Accountant', 'Audit director (Bucharest office)', 'Financial Audit Manager (Bucharest office)', 'Junior Auditor (Bucharest Office)', 'Senior Accountant (Bucharest office)']
+
+Actual Results: ['Accountant', 'Audit director (Bucharest office)', 'Financial Audit Manager (Bucharest office)', 'Junior Auditor (Bucharest Office)', 'Senior Accountant (Bucharest office)']

@@ -1,0 +1,3 @@
+Expected Results: [['Brasov'], ['Brasov'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['București'], ['București'], ['Cluj-Napoca'], ['Complex Cosmopolis'], ['Oradea'], ['Timisoara'], ['Timisoara']]
+
+Actual Results: [['Brasov'], ['Brasov'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['Bucuresti'], ['București'], ['București'], ['Cluj-Napoca'], ['Complex Cosmopolis'], ['Oradea'], ['Timisoara'], ['Timisoara']]

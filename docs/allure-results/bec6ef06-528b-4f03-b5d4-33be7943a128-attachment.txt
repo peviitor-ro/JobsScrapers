@@ -1,0 +1,3 @@
+Expected Results: ['Fizioterapeut', 'Fizioterapeut', 'Kinetoterapeut', 'Kinetoterapeut copii', 'Receptionist', 'Receptionist']
+
+Actual Results: ['Fizioterapeut', 'Fizioterapeut', 'Kinetoterapeut', 'Kinetoterapeut copii', 'Receptionist', 'Receptionist']
