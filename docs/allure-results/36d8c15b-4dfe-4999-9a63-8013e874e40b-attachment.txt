@@ -1,0 +1,3 @@
+Expected Results: ['Account Manager', 'Digital Marketing Sales Consultant', 'Digital Marketing Specialist', 'Graphic Designer!', 'Junior PPC Specialist. Internship']
+
+Actual Results: ['Account Manager', 'Digital Marketing Sales Consultant', 'Digital Marketing Specialist', 'Graphic Designer!', 'Junior PPC Specialist. Internship']

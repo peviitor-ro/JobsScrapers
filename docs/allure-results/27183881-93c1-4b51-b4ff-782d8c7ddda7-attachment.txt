@@ -1,0 +1,3 @@
+Expected Results: ['Full Stack Developer', 'Tehnician Montaje', 'Vreau să lucrez la CargoTrack!']
+
+Actual Results: ['Full Stack Developer', 'Tehnician Montaje', 'Vreau să lucrez la CargoTrack!']

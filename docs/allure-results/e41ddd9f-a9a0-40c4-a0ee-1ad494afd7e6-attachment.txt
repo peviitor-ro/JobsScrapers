@@ -1,0 +1,3 @@
+Expected Results: ['https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/planner', 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/quality-engineer-2', 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/quality-process-engineer-specialist', 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/smd-technician']
+
+Actual Results: ['https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/planner', 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/quality-engineer-2', 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/quality-process-engineer-specialist', 'https://www.connectgroup.com/en/vacancies/roemeni%C3%AB/smd-technician']

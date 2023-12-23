@@ -1,0 +1,3 @@
+Expected Results: ['https://avaelgo.ro/job/fullstack-net-developer', 'https://avaelgo.ro/job/microsoft-azure-cloud-engineer', 'https://avaelgo.ro/job/sales-specialist', 'https://avaelgo.ro/job/senior-test-automation']
+
+Actual Results: ['https://avaelgo.ro/job/fullstack-net-developer', 'https://avaelgo.ro/job/microsoft-azure-cloud-engineer', 'https://avaelgo.ro/job/sales-specialist', 'https://avaelgo.ro/job/senior-test-automation']

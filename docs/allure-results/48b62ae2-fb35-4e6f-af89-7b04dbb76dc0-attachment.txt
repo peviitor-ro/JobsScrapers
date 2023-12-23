@@ -1,0 +1,3 @@
+Expected Results: ['Operator Amanet']
+
+Actual Results: ['Operator Amanet']
