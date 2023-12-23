@@ -1,0 +1,3 @@
+Expected Results: ['Business Developer', 'Business Developer', 'Lacatus Mecanic', 'Operator maşini', 'Reprezentant comercial', 'Sculer', 'Specialist Resurse Umane', 'Sudor']
+
+Actual Results: ['Business Developer', 'Business Developer', 'Lacatus Mecanic', 'Operator maşini', 'Reprezentant comercial', 'Sculer', 'Specialist Resurse Umane', 'Sudor']

@@ -1,0 +1,3 @@
+Expected Results: [['Arad', 'Brasov', 'Bucuresti', 'Constanta', 'Cluj-Napoca', 'Craiova', 'Deva', 'Satu Mare', 'Suceava', 'Targu-Mures', 'Targoviste', 'Timisoara', 'Tulcea'], ['Bucuresti', 'Cluj-Napoca', 'Timisoara']]
+
+Actual Results: [['Arad', 'Brasov', 'Bucuresti', 'Constanta', 'Cluj-Napoca', 'Craiova', 'Deva', 'Satu Mare', 'Suceava', 'Targu-Mures', 'Targoviste', 'Timisoara', 'Tulcea'], ['Bucuresti', 'Cluj-Napoca', 'Timisoara']]

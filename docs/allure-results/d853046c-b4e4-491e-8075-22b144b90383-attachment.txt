@@ -1,0 +1,3 @@
+Expected Results: ['Economist', 'Manager Echipe Mobile curatenie Oradea', 'Mid DevOps Engineer', 'Mid-Senior .NET Developer', 'Reprezentant Vânzări', 'Reprezentant Vânzări Moldova', 'Reprezentant Vânzări Timișoara']
+
+Actual Results: ['Economist', 'Manager Echipe Mobile curatenie Oradea', 'Mid DevOps Engineer', 'Mid-Senior .NET Developer', 'Reprezentant Vânzări', 'Reprezentant Vânzări Moldova', 'Reprezentant Vânzări Timișoara']

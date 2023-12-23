@@ -1,0 +1,3 @@
+Expected Results: ['https://eurotech-iasi.ro/operator-depozit/']
+
+Actual Results: ['https://eurotech-iasi.ro/operator-depozit/']

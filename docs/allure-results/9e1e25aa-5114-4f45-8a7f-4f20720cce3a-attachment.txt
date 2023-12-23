@@ -1,0 +1,3 @@
+Expected Results: ['https://www.edutrust.ro/cariera/#open-positions#1', 'https://www.edutrust.ro/cariera/#open-positions#2']
+
+Actual Results: ['https://www.edutrust.ro/cariera/#open-positions#1', 'https://www.edutrust.ro/cariera/#open-positions#2']

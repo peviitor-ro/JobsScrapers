@@ -1,0 +1,3 @@
+Expected Results: ['Consultant Suport Clienti', 'Corporate Healthcare Manager', 'Executive Secretary to the Board', 'Medic Evaluare Daune', 'Risk Manager', 'Subscriitor de Raspundere Civila / Bunuri', 'Subscriitor junior']
+
+Actual Results: ['Consultant Suport Clienti', 'Corporate Healthcare Manager', 'Executive Secretary to the Board', 'Medic Evaluare Daune', 'Risk Manager', 'Subscriitor de Raspundere Civila / Bunuri', 'Subscriitor junior']

@@ -1,0 +1,3 @@
+Expected Results: ['https://pago.ro//en/jobs/android-junior.html', 'https://pago.ro//en/jobs/ios-junior.html', 'https://pago.ro//en/jobs/java-medium.html', 'https://pago.ro//en/jobs/qa-tester.html']
+
+Actual Results: ['https://pago.ro//en/jobs/android-junior.html', 'https://pago.ro//en/jobs/ios-junior.html', 'https://pago.ro//en/jobs/java-medium.html', 'https://pago.ro//en/jobs/qa-tester.html']

@@ -1,0 +1,3 @@
+Expected Results: ['https://vetro.vet/cariere/key-account-manager-divizia-ferme-moldova', 'https://vetro.vet/cariere/reprezentant-medical-veterinar-promovare-3/', 'https://vetro.vet/cariere/specialist-marketing-3/']
+
+Actual Results: ['https://vetro.vet/cariere/key-account-manager-divizia-ferme-moldova', 'https://vetro.vet/cariere/reprezentant-medical-veterinar-promovare-3/', 'https://vetro.vet/cariere/specialist-marketing-3/']

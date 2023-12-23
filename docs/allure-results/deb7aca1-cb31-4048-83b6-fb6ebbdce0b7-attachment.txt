@@ -1,0 +1,3 @@
+Expected Results: ['Full-Time Java Developer', 'Junior-Mid Java Developer', 'Mid-level Business Analyst', 'QA Specialist', 'Support Specialist LV2', 'Technical Support Specialist LV1.pdf']
+
+Actual Results: ['Full-Time Java Developer', 'Junior-Mid Java Developer', 'Mid-level Business Analyst', 'QA Specialist', 'Support Specialist LV2', 'Technical Support Specialist LV1.pdf']
