@@ -26,5 +26,6 @@ jobs:
         pip3 install requests
     - name: Update API
       run: |
-        git reset --hard HEAD
+        git fetch origin
+        git reset --hard origin/main
         python3 apiUpdateFiles.py
