@@ -50,6 +50,16 @@ class nielseniqScraper(BS4Scraper):
             job_counter = self.get_jobs_details_href(job_counter_element)
             if job_counter:
                 self.get_content(job_counter[0])
+        
+        # If the initial loop didn't get triggered due to missing next page element
+        if not job_counter:
+            job_title_elements = self.get_jobs_elements('class_', 'entry-title')
+            job_city_elements = self.get_jobs_elements('css_', 'header > div:nth-child(2) > span:nth-child(1)')
+            job_url_elements = self.get_jobs_elements('class_', 'card-cover-link')
+
+            self.job_titles.extend(self.get_jobs_details_text(job_title_elements))
+            self.job_cities.extend(self.get_jobs_details_text(job_city_elements))
+            self.job_urls.extend(self.get_jobs_details_href(job_url_elements))
 
         self.format_data()
 
