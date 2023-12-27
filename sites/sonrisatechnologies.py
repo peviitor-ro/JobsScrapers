@@ -28,8 +28,8 @@ class sonrisatechnologiesScraper(BS4Scraper):
         Scrape job data from sonrisatechnologies website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'text-block-base-link sm:min-w-[25%] sm:truncate company-link-style')
-        job_urls_elements = self.get_jobs_elements('class_', "hover:bg-block-base-text hover:bg-opacity-3 flex flex-col sm:flex-row justify-between items-center py-4 px-6")
+        job_titles_elements = self.get_jobs_elements('class_', 'hover:bg-block-base-text hover:bg-opacity-3 flex flex-col py-2 px-4')
+        job_urls_elements = self.get_jobs_elements('class_', "hover:bg-block-base-text hover:bg-opacity-3 flex flex-col py-2 px-4")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
@@ -49,7 +49,11 @@ class sonrisatechnologiesScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", "Oradea")
+            if "Fully Remote" in job_title:
+                remote = "remote"
+            else:
+                remote = "On-site"
+            self.create_jobs_dict(job_title, job_url, "România", "Oradea", remote)
 
 if __name__ == "__main__":
     sonrisatechnologies = sonrisatechnologiesScraper()
