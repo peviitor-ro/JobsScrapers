@@ -1,3 +1,0 @@
-Expected Results: [['Craiova'], ['Craiova'], ['Craiova'], ['Craiova'], ['Craiova']]
-
-Actual Results: [['Craiova'], ['Craiova'], ['Craiova'], ['Craiova'], ['Craiova']]

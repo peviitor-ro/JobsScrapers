@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://anahr.ro/job/economist/', 'https://anahr.ro/job/manager-echipe-mobile-curatenie-oradea/', 'https://anahr.ro/job/mid-devops-engineer/', 'https://anahr.ro/job/mid-senior-net-developer/', 'https://anahr.ro/job/reprezentant-vanzari-2/', 'https://anahr.ro/job/reprezentant-vanzari-moldova/', 'https://anahr.ro/job/reprezentant-vanzari-timisoara/']
-
-Actual Results: ['https://anahr.ro/job/economist/', 'https://anahr.ro/job/manager-echipe-mobile-curatenie-oradea/', 'https://anahr.ro/job/mid-devops-engineer/', 'https://anahr.ro/job/mid-senior-net-developer/', 'https://anahr.ro/job/reprezentant-vanzari-2/', 'https://anahr.ro/job/reprezentant-vanzari-moldova/', 'https://anahr.ro/job/reprezentant-vanzari-timisoara/']

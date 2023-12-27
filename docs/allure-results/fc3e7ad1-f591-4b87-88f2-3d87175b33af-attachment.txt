@@ -1,3 +1,0 @@
-Expected Results: ['https://urbica.ro/cariere-urbica/#1', 'https://urbica.ro/cariere-urbica/#2', 'https://urbica.ro/cariere-urbica/#3', 'https://urbica.ro/cariere-urbica/#4']
-
-Actual Results: ['https://urbica.ro/cariere-urbica/#1', 'https://urbica.ro/cariere-urbica/#2', 'https://urbica.ro/cariere-urbica/#3', 'https://urbica.ro/cariere-urbica/#4']

@@ -1,3 +1,0 @@
-Expected Results: [['Bucuresti'], ['Cluj-Napoca'], ['Craiova'], ['Iasi'], ['Targu-Mures']]
-
-Actual Results: [['Bucuresti'], ['Cluj-Napoca'], ['Craiova'], ['Iasi'], ['Targu-Mures']]

@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://www.duk-tech.com/job-aplication#0603de8b-b3f4-41e4-b6bd-be86bdea8d36', 'https://www.duk-tech.com/job-aplication#33f4615b-9df9-4bde-a822-f890073eab67']
-
-Actual Results: ['https://www.duk-tech.com/job-aplication#0603de8b-b3f4-41e4-b6bd-be86bdea8d36', 'https://www.duk-tech.com/job-aplication#33f4615b-9df9-4bde-a822-f890073eab67']

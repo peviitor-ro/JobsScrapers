@@ -1,3 +1,0 @@
-Expected Results: ['Planner', 'Quality Engineer', 'Quality Process Engineer/Specialist', 'SMD Technician']
-
-Actual Results: ['Planner', 'Quality Engineer', 'Quality Process Engineer/Specialist', 'SMD Technician']

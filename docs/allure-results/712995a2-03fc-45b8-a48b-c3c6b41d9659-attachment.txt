@@ -1,3 +1,0 @@
-Expected Results: ['https://allengra.eu/career.php#1', 'https://allengra.eu/career.php#2', 'https://allengra.eu/career.php#3', 'https://allengra.eu/career.php#4']
-
-Actual Results: ['https://allengra.eu/career.php#1', 'https://allengra.eu/career.php#2', 'https://allengra.eu/career.php#3', 'https://allengra.eu/career.php#4']

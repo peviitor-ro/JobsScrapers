@@ -1,3 +1,0 @@
-Expected Results: ['Asistent Manager Restaurant', 'Lucrător comercial', 'Manager Restaurant']
-
-Actual Results: ['Asistent Manager Restaurant', 'Lucrător comercial', 'Manager Restaurant']

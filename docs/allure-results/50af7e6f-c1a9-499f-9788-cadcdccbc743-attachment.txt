@@ -1,3 +1,0 @@
-Expected Results: ['https://saladbox.ro/ro/cariere#1', 'https://saladbox.ro/ro/cariere#2', 'https://saladbox.ro/ro/cariere#3']
-
-Actual Results: ['https://saladbox.ro/ro/cariere#1', 'https://saladbox.ro/ro/cariere#2', 'https://saladbox.ro/ro/cariere#3']

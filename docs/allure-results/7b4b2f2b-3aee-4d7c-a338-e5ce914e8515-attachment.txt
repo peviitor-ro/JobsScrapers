@@ -1,3 +1,0 @@
-Expected Results: ['Senior Software Developer (Embedded)', 'Senior Software Developer (Full Stack)']
-
-Actual Results: ['Senior Software Developer (Embedded)', 'Senior Software Developer (Full Stack)']

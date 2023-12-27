@@ -1,3 +1,0 @@
-Expected Results: [['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare']]
-
-Actual Results: [['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare'], ['Satu Mare']]

@@ -1,3 +1,0 @@
-Expected Results: ['https://www.sinaps.ro/wanted-account-manager/', 'https://www.sinaps.ro/wanted-digital-marketing-sales-consultant/', 'https://www.sinaps.ro/wanted-digital-marketing-specialist/', 'https://www.sinaps.ro/wanted-graphic-designer/', 'https://www.sinaps.ro/wanted-junior-ppc-specialist-internship/']
-
-Actual Results: ['https://www.sinaps.ro/wanted-account-manager/', 'https://www.sinaps.ro/wanted-digital-marketing-sales-consultant/', 'https://www.sinaps.ro/wanted-digital-marketing-specialist/', 'https://www.sinaps.ro/wanted-graphic-designer/', 'https://www.sinaps.ro/wanted-junior-ppc-specialist-internship/']

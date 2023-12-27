@@ -1,3 +1,0 @@
-Expected Results: ['https://softexco.ro/p/cariere#aplica']
-
-Actual Results: ['https://softexco.ro/p/cariere#aplica']

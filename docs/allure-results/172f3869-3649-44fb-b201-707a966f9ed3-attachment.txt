@@ -1,3 +1,0 @@
-Expected Results: ['https://cargotrack.ro/locuri-de-munca/full-stack-developer/', 'https://cargotrack.ro/locuri-de-munca/tehnician-montaje/', 'https://cargotrack.ro/locuri-de-munca/vreau-sa-lucrez-la-cargotrack/']
-
-Actual Results: ['https://cargotrack.ro/locuri-de-munca/full-stack-developer/', 'https://cargotrack.ro/locuri-de-munca/tehnician-montaje/', 'https://cargotrack.ro/locuri-de-munca/vreau-sa-lucrez-la-cargotrack/']

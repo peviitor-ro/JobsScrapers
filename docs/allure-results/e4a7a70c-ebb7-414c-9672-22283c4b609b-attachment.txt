@@ -1,3 +1,0 @@
-Expected Results: [['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj']]
-
-Actual Results: [['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj'], ['Iasi', 'Bucuresti', 'Cluj']]

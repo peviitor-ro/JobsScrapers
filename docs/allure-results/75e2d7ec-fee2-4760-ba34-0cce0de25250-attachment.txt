@@ -1,3 +1,0 @@
-Expected Results: ['Asistent Marketing magazin online', 'Job Brand Manager', 'Job Copywriter', 'Job Digital Marketing Specialist', 'Job Specialist Comunicare', 'Job Specialist Marketing Content', 'Senior Graphic Designer Iasi']
-
-Actual Results: ['Asistent Marketing magazin online', 'Job Brand Manager', 'Job Copywriter', 'Job Digital Marketing Specialist', 'Job Specialist Comunicare', 'Job Specialist Marketing Content', 'Senior Graphic Designer Iasi']

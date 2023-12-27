@@ -1,3 +1,0 @@
-Expected Results: ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Tehnician auto']
-
-Actual Results: ['Consilier vanzari autovehicule comerciale', 'Operator Info Desk', 'Senior Manager PGP Production, Technology and Innovation - Region Europe East (m/f/d)', 'Tehnician auto']

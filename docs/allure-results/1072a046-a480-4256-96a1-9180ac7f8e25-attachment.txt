@@ -1,3 +1,0 @@
-Expected Results: ['https://speedservicesatumare.ro/cariere/#1', 'https://speedservicesatumare.ro/cariere/#2']
-
-Actual Results: ['https://speedservicesatumare.ro/cariere/#1', 'https://speedservicesatumare.ro/cariere/#2']

@@ -1,3 +1,0 @@
-Expected Results: [['Alba', 'Iulia,', 'Constanța'], ['Bistrița,', 'Cluj', 'Napoca,', 'Constanța,', 'Craiova,', 'Iași,', 'Moldovenești', '(Turda),', 'Oradea,', 'Sfântu', 'Gheorghe,', 'Timișoara,', 'Târgu', 'Jiu,', 'Deva'], ['Satu', 'Mare'], ['Satu', 'Mare'], ['Satu', 'Mare'], ['Satu', 'Mare'], ['Turda']]
-
-Actual Results: [['Alba', 'Iulia,', 'Constanța'], ['Bistrița,', 'Cluj', 'Napoca,', 'Constanța,', 'Craiova,', 'Iași,', 'Moldovenești', '(Turda),', 'Oradea,', 'Sfântu', 'Gheorghe,', 'Timișoara,', 'Târgu', 'Jiu,', 'Deva'], ['Satu', 'Mare'], ['Satu', 'Mare'], ['Satu', 'Mare'], ['Satu', 'Mare'], ['Turda']]

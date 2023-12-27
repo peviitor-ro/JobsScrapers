@@ -1,3 +1,0 @@
-Expected Results: ['Beauty Adviser Full Time (8h/zi) - Palas, Iasi', 'Beauty Adviser Part Time (6h/zi) - Baneasa, Bucuresti', 'Beauty Adviser Part Time (6h/zi) - Electroputere, Craiova', 'DIRECTOR ADJUNCT MAGAZIN - TARGU MURES', 'STORE MANAGER - VIVO CLUJ']
-
-Actual Results: ['Beauty Adviser Full Time (8h/zi) - Palas, Iasi', 'Beauty Adviser Part Time (6h/zi) - Baneasa, Bucuresti', 'Beauty Adviser Part Time (6h/zi) - Electroputere, Craiova', 'DIRECTOR ADJUNCT MAGAZIN - TARGU MURES', 'STORE MANAGER - VIVO CLUJ']

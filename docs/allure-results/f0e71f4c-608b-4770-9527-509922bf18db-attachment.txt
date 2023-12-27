@@ -1,3 +1,0 @@
-Expected Results: [['Baia Mare', 'Brasov', 'Cluj'], ['Baia Mare', 'Brasov', 'Cluj']]
-
-Actual Results: [['Baia Mare', 'Brasov', 'Cluj'], ['Baia Mare', 'Brasov', 'Cluj']]

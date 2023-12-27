@@ -1,9 +1,0 @@
-Validate job titles from the company website against Peviitor API Response
-
-Step 1: Get job titles from the scraper
-Step 2: Get job titles from the Peviitor API
-Step 3: Compare job titles from scraper response against Peviitor API Response
-
-Expected Results: ['ASISTENT MEDICAL/ REGISTRATOR MEDICAL (Timisoara, Focsani)', 'Angajari deschidere Clinica, Bucuresti', 'Asistent medical generalist ( Complexul Rezidential Cosmopolis)', 'Asistent medical radiologie si imagistica - Bucuresti, Cluj', 'Candidatura spontanta la Affidea - Medici, Tehnicieni radiologie-imagistica, Asistenti', 'Consultant Relatii Clienti in domeniul medical (Contact Center) - Brasov', 'Controlling Finance Manager', 'Financial Analyst', 'Medici specialisti/primari', 'Patient Advisor / Registrator Medical - Brasov', 'Patient Advisor / Registrator Medical - Bucuresti, Cluj', 'Patient Advisor / Registrator Medical - Oradea', 'Personal curatenie - Bucuresti, Timisoara', 'Senior M&A Manager']
-
-Actual Results: ['ASISTENT MEDICAL/ REGISTRATOR MEDICAL (Timisoara, Focsani)', 'Angajari deschidere Clinica, Bucuresti', 'Asistent medical generalist ( Complexul Rezidential Cosmopolis)', 'Asistent medical radiologie si imagistica - Bucuresti, Cluj', 'Candidatura spontanta la Affidea - Medici, Tehnicieni radiologie-imagistica, Asistenti', 'Consultant Relatii Clienti in domeniul medical (Contact Center) - Brasov', 'Controlling Finance Manager', 'Financial Analyst', 'Medici specialisti/primari', 'Patient Advisor / Registrator Medical - Brasov', 'Patient Advisor / Registrator Medical - Bucuresti, Cluj', 'Patient Advisor / Registrator Medical - Oradea', 'Personal curatenie - Bucuresti, Timisoara', 'Senior M&A Manager']

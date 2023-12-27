@@ -1,3 +1,0 @@
-Expected Results: ['Contabil cu experienta in cabinet de contabilitate', 'Relationship Manager SME – ING Office', 'Reprezentant vânzări – Franciză Vodafone']
-
-Actual Results: ['Contabil cu experienta in cabinet de contabilitate', 'Relationship Manager SME – ING Office', 'Reprezentant vânzări – Franciză Vodafone']

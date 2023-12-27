@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://vetro.vet/cariere/key-account-manager-divizia-ferme-moldova', 'https://vetro.vet/cariere/reprezentant-medical-veterinar-promovare-3/', 'https://vetro.vet/cariere/specialist-marketing-3/']
-
-Actual Results: ['https://vetro.vet/cariere/key-account-manager-divizia-ferme-moldova', 'https://vetro.vet/cariere/reprezentant-medical-veterinar-promovare-3/', 'https://vetro.vet/cariere/specialist-marketing-3/']

@@ -1,3 +1,0 @@
-Expected Results: [['Cluj']]
-
-Actual Results: [['Cluj']]

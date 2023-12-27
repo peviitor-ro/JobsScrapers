@@ -1,3 +1,0 @@
-Expected Results: ['https://www.arcadiamedical.ro/cariere#1', 'https://www.arcadiamedical.ro/cariere#2', 'https://www.arcadiamedical.ro/cariere#3', 'https://www.arcadiamedical.ro/cariere#4', 'https://www.arcadiamedical.ro/cariere#5', 'https://www.arcadiamedical.ro/cariere#6', 'https://www.arcadiamedical.ro/cariere#7', 'https://www.arcadiamedical.ro/cariere#8']
-
-Actual Results: ['https://www.arcadiamedical.ro/cariere#1', 'https://www.arcadiamedical.ro/cariere#2', 'https://www.arcadiamedical.ro/cariere#3', 'https://www.arcadiamedical.ro/cariere#4', 'https://www.arcadiamedical.ro/cariere#5', 'https://www.arcadiamedical.ro/cariere#6', 'https://www.arcadiamedical.ro/cariere#7', 'https://www.arcadiamedical.ro/cariere#8']

@@ -1,3 +1,0 @@
-Expected Results: ['Agenti contractare', 'Angajăm agenți contractare, verificare și conștientizare', 'Angajăm șoferi profesioniști pentru autocamion/mașină de mare tonaj', 'Responsabil de Mediu']
-
-Actual Results: ['Agenti contractare', 'Angajăm agenți contractare, verificare și conștientizare', 'Angajăm șoferi profesioniști pentru autocamion/mașină de mare tonaj', 'Responsabil de Mediu']

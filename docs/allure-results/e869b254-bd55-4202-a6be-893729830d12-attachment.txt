@@ -1,3 +1,0 @@
-Expected Results: [['Craiova'], ['Divizia Moldova'], ['Piatra Neamț, Bacău, Roman, Iași'], ['Romania'], ['Romania'], ['TOATE JUDEȚELE ȚĂRII'], ['Târgu Mureș']]
-
-Actual Results: [['Craiova'], ['Divizia Moldova'], ['Piatra Neamț, Bacău, Roman, Iași'], ['Romania'], ['Romania'], ['TOATE JUDEȚELE ȚĂRII'], ['Târgu Mureș']]

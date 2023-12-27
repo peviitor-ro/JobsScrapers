@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://www.cargus.ro/cariere/agent-telesales/', 'https://www.cargus.ro/cariere/curieri-si-parteneri-pentru-activitatea-de-curierat/', 'https://www.cargus.ro/cariere/teamleader/']
-
-Actual Results: ['https://www.cargus.ro/cariere/agent-telesales/', 'https://www.cargus.ro/cariere/curieri-si-parteneri-pentru-activitatea-de-curierat/', 'https://www.cargus.ro/cariere/teamleader/']

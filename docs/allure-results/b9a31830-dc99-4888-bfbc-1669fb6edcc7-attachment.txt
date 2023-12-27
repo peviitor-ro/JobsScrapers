@@ -1,3 +1,0 @@
-Expected Results: ['Reprezentant vanzari']
-
-Actual Results: ['Reprezentant vanzari']

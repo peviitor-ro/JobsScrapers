@@ -1,3 +1,0 @@
-Expected Results: ['https://www.zeelandia.ro/cariere/23-07-anunt-extern-post-vacant-manipulant-marfuri-chiajna.pdf']
-
-Actual Results: ['https://www.zeelandia.ro/cariere/23-07-anunt-extern-post-vacant-manipulant-marfuri-chiajna.pdf']

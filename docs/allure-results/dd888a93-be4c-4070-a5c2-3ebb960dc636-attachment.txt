@@ -1,3 +1,0 @@
-Expected Results: ['https://www.leier.ro/cariere/manager-de-predus/']
-
-Actual Results: ['https://www.leier.ro/cariere/manager-de-predus/']

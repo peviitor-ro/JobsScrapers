@@ -1,3 +1,0 @@
-Expected Results: ['https://www.bakertilly.ro/2023/06/27/accountant/', 'https://www.bakertilly.ro/2023/08/29/junior-auditor-bucharest-office/', 'https://www.bakertilly.ro/2023/09/05/audit-manager-bucharest-office/', 'https://www.bakertilly.ro/2023/09/25/audit-director-bucharest-office/', 'https://www.bakertilly.ro/2023/10/11/senior-accountant-bucharest-office/']
-
-Actual Results: ['https://www.bakertilly.ro/2023/06/27/accountant/', 'https://www.bakertilly.ro/2023/08/29/junior-auditor-bucharest-office/', 'https://www.bakertilly.ro/2023/09/05/audit-manager-bucharest-office/', 'https://www.bakertilly.ro/2023/09/25/audit-director-bucharest-office/', 'https://www.bakertilly.ro/2023/10/11/senior-accountant-bucharest-office/']

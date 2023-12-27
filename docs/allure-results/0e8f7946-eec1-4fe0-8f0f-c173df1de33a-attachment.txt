@@ -1,3 +1,0 @@
-Expected Results: [['Bucuresti'], ['Ilfov - Prahova'], ['Oradea'], ['Sibiu']]
-
-Actual Results: [['Bucuresti'], ['Ilfov - Prahova'], ['Oradea'], ['Sibiu']]

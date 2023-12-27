@@ -1,3 +1,0 @@
-Expected Results: [['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti']]
-
-Actual Results: [['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti'], ['Iasi', 'Bucuresti']]

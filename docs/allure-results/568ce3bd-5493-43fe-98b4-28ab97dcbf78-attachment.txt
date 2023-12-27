@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare of job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://jobs.sephora.com/job-invite/235764', 'https://jobs.sephora.com/job-invite/235779', 'https://jobs.sephora.com/job-invite/235784', 'https://jobs.sephora.com/job-invite/239666', 'https://jobs.sephora.com/job-invite/240368']
-
-Actual Results: ['https://jobs.sephora.com/job-invite/235764', 'https://jobs.sephora.com/job-invite/235779', 'https://jobs.sephora.com/job-invite/235784', 'https://jobs.sephora.com/job-invite/239666', 'https://jobs.sephora.com/job-invite/240368']

@@ -1,3 +1,0 @@
-Expected Results: ['CONSILIER VANZARI', 'SEF RAION']
-
-Actual Results: ['CONSILIER VANZARI', 'SEF RAION']

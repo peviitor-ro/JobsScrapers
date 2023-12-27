@@ -1,3 +1,0 @@
-Expected Results: ['Coordonator echipă administrare personal și salarizare', 'Librar', 'Manager librărie', 'Operator depozit (manipulant, picker)', 'Responsabil tehnic regional/național']
-
-Actual Results: ['Coordonator echipă administrare personal și salarizare', 'Librar', 'Manager librărie', 'Operator depozit (manipulant, picker)', 'Responsabil tehnic regional/național']

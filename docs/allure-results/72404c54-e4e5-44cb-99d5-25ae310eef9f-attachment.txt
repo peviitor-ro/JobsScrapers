@@ -1,3 +1,0 @@
-Expected Results: ['https://dentesse.ro/cariere/#1', 'https://dentesse.ro/cariere/#2', 'https://dentesse.ro/cariere/#3', 'https://dentesse.ro/cariere/#4', 'https://dentesse.ro/cariere/#5', 'https://dentesse.ro/cariere/#6', 'https://dentesse.ro/cariere/#7', 'https://dentesse.ro/cariere/#8']
-
-Actual Results: ['https://dentesse.ro/cariere/#1', 'https://dentesse.ro/cariere/#2', 'https://dentesse.ro/cariere/#3', 'https://dentesse.ro/cariere/#4', 'https://dentesse.ro/cariere/#5', 'https://dentesse.ro/cariere/#6', 'https://dentesse.ro/cariere/#7', 'https://dentesse.ro/cariere/#8']

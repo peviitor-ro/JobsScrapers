@@ -1,3 +1,0 @@
-Expected Results: ['Administrator Garantii', 'Asistent Comercial', 'Mecanic Service Utilaje Agricole', 'Specialist Suport Comercial', 'Suport Service Implemente', 'Tehnician Irigatii', 'Tehnician Service']
-
-Actual Results: ['Administrator Garantii', 'Asistent Comercial', 'Mecanic Service Utilaje Agricole', 'Specialist Suport Comercial', 'Suport Service Implemente', 'Tehnician Irigatii', 'Tehnician Service']

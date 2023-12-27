@@ -1,9 +1,0 @@
-Validate job links from the company website against Peviitor API Response
-
-Step 1: Get job links from the scraper
-Step 2: Get job links from the Peviitor API
-Step 3: Compare job links from scraper response against Peviitor API Response
-
-Expected Results: ['https://www.metamob.ro/ro/companie/cariera/1047-job-hr-manager-loc-de-munca', 'https://www.metamob.ro/ro/companie/cariera/1110-loc-de-munca-operator-productie', 'https://www.metamob.ro/ro/companie/cariera/1189-business-developer-vorbitor-de-limba-germana', 'https://www.metamob.ro/ro/companie/cariera/1201-sculer', 'https://www.metamob.ro/ro/companie/cariera/1202-mecatronist', 'https://www.metamob.ro/ro/companie/cariera/1248-sudor', 'https://www.metamob.ro/ro/companie/cariera/1253-business-developer-vorbitor-de-limba-romana', 'https://www.metamob.ro/ro/companie/cariera/1280-reprezentant-comercial-fluent-in-limba-romana-engleza-si-maghiara']
-
-Actual Results: ['https://www.metamob.ro/ro/companie/cariera/1047-job-hr-manager-loc-de-munca', 'https://www.metamob.ro/ro/companie/cariera/1110-loc-de-munca-operator-productie', 'https://www.metamob.ro/ro/companie/cariera/1189-business-developer-vorbitor-de-limba-germana', 'https://www.metamob.ro/ro/companie/cariera/1201-sculer', 'https://www.metamob.ro/ro/companie/cariera/1202-mecatronist', 'https://www.metamob.ro/ro/companie/cariera/1248-sudor', 'https://www.metamob.ro/ro/companie/cariera/1253-business-developer-vorbitor-de-limba-romana', 'https://www.metamob.ro/ro/companie/cariera/1280-reprezentant-comercial-fluent-in-limba-romana-engleza-si-maghiara']

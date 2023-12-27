@@ -1,3 +1,0 @@
-Expected Results: ['https://noodlepack.ro/aplica-asistent-manager-restaurant/', 'https://noodlepack.ro/aplica-lucrator-comercial/', 'https://noodlepack.ro/aplica-manager-restaurant/']
-
-Actual Results: ['https://noodlepack.ro/aplica-asistent-manager-restaurant/', 'https://noodlepack.ro/aplica-lucrator-comercial/', 'https://noodlepack.ro/aplica-manager-restaurant/']

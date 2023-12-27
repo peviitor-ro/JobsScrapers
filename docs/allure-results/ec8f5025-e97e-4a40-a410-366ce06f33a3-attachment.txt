@@ -1,3 +1,0 @@
-Expected Results: ['Manager EDU TRUST', 'Profesor de Matematică în Învățământul Gimnazial și Liceal']
-
-Actual Results: ['Manager EDU TRUST', 'Profesor de Matematică în Învățământul Gimnazial și Liceal']

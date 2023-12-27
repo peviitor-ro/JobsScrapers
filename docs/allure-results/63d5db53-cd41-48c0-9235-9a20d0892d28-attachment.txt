@@ -1,3 +1,0 @@
-Expected Results: ['Ajutor mecanic Oradea', 'Key account manager regiunea Sud', 'Key account manager regiunea Sud-Vest', 'Key account manager regiunea Vest', 'Maistru service caroserie', 'Mecanic auto service camioane Baia Mare', 'Mecanic auto service camioane Oradea', 'Mecanic auto service turisme Cluj-Napoca', 'Mecanic auto service turisme Oradea', 'Tehnician diagnoză turisme Oradea']
-
-Actual Results: ['Ajutor mecanic Oradea', 'Key account manager regiunea Sud', 'Key account manager regiunea Sud-Vest', 'Key account manager regiunea Vest', 'Maistru service caroserie', 'Mecanic auto service camioane Baia Mare', 'Mecanic auto service camioane Oradea', 'Mecanic auto service turisme Cluj-Napoca', 'Mecanic auto service turisme Oradea', 'Tehnician diagnoză turisme Oradea']

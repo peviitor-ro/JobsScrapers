@@ -1,3 +1,0 @@
-Expected Results: ['.NET Developer', 'Android Developer', 'Backend Java Developer', 'Frontend Developer', 'Frontend Developer with Angular', 'Integration Design Manager', 'Java Developer', 'Mid-Senior iOS Developer', 'Python with Node.JS', 'QA Manual Engineer', 'React Native Developer', 'Scala Developer', 'Senior UI Developer', 'UI/UX Designer']
-
-Actual Results: ['.NET Developer', 'Android Developer', 'Backend Java Developer', 'Frontend Developer', 'Frontend Developer with Angular', 'Integration Design Manager', 'Java Developer', 'Mid-Senior iOS Developer', 'Python with Node.JS', 'QA Manual Engineer', 'React Native Developer', 'Scala Developer', 'Senior UI Developer', 'UI/UX Designer']

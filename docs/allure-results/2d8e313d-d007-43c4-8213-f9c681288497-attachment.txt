@@ -1,3 +1,0 @@
-Expected Results: ['https://covalact.ro/cariere/cariere/electrician-3198.html', 'https://covalact.ro/cariere/cariere/lacatus-mecanic-3197.html', 'https://covalact.ro/cariere/cariere/sef-atelier-mecanic-3207.html']
-
-Actual Results: ['https://covalact.ro/cariere/cariere/electrician-3198.html', 'https://covalact.ro/cariere/cariere/lacatus-mecanic-3197.html', 'https://covalact.ro/cariere/cariere/sef-atelier-mecanic-3207.html']

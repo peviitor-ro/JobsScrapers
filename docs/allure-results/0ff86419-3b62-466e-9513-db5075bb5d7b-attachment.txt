@@ -1,3 +1,0 @@
-Expected Results: ['asistent medical', 'medic medicină internă', 'medic specialitatea cardiologie', 'medic specialitatea diabet', 'medic specialitatea neurologie', 'personal recepție']
-
-Actual Results: ['asistent medical', 'medic medicină internă', 'medic specialitatea cardiologie', 'medic specialitatea diabet', 'medic specialitatea neurologie', 'personal recepție']

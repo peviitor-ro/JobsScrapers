@@ -1,3 +1,0 @@
-Expected Results: ['Head of Sales', 'Senior Full Stack Developer', 'Senior Sales Executive', 'Senior Web Analyst']
-
-Actual Results: ['Head of Sales', 'Senior Full Stack Developer', 'Senior Sales Executive', 'Senior Web Analyst']

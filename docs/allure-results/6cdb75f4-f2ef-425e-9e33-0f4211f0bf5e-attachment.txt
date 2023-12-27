@@ -1,3 +1,0 @@
-Expected Results: ['Analist financiar', 'Asistent medical generalist Bloc Operator', 'Asistent medical generalist Gastroenterologie', 'Asistent medical generalist Sterilizare', 'Asistent medical generalist voluntar (spital si ambulatoriu)', 'Asistent medical generalist |ngrijri Paliative', 'Specialist Marketing', 'Specialist Resurse Umane']
-
-Actual Results: ['Analist financiar', 'Asistent medical generalist Bloc Operator', 'Asistent medical generalist Gastroenterologie', 'Asistent medical generalist Sterilizare', 'Asistent medical generalist voluntar (spital si ambulatoriu)', 'Asistent medical generalist |ngrijri Paliative', 'Specialist Marketing', 'Specialist Resurse Umane']

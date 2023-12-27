@@ -1,3 +1,0 @@
-Expected Results: [['Bacau'], ['Bacau'], ['Bacau'], ['Bacau'], ['Bacau']]
-
-Actual Results: [['Bacau'], ['Bacau'], ['Bacau'], ['Bacau'], ['Bacau']]

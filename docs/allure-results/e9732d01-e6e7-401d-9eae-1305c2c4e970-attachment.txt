@@ -1,3 +1,0 @@
-Expected Results: ['FullStack .NET Developer', 'Microsoft Azure Cloud Engineer', 'Sales Specialist', 'Senior Test Automation']
-
-Actual Results: ['FullStack .NET Developer', 'Microsoft Azure Cloud Engineer', 'Sales Specialist', 'Senior Test Automation']
