@@ -21,7 +21,7 @@ class Scraper:
                     print("Success scraping " + site)
                 except subprocess.CalledProcessError as e:
                     print("Error in " + site)
-                    print(e.output.decode('utf-8'))
+                    print(e)
 
 if __name__ == "__main__":
     # exclude files
