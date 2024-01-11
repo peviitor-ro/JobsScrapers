@@ -57,9 +57,9 @@ class atpgroupScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        regiune_sud = ['Ilfov', 'Ploiești', 'Pitești']
+        regiune_sud = ['Bucuresti', 'Ploiești', 'Pitești']
         regiune_sud_vest = ['Dolj', 'Olt', 'Vâlcea', 'Mehedinți']
-        regiune_vest = ['Bihor', 'Arad', 'Timișoara']
+        regiune_vest = ['Oradea', 'Arad', 'Timișoara']
         
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             if "Vest" in job_title:
@@ -69,7 +69,7 @@ class atpgroupScraper(BS4Scraper):
             elif "Sud" in job_title:
                 job_city = regiune_sud
             else:
-                job_city = job_city[:-1]
+                job_city = job_city[:-1].replace("Cluj", "Cluj-Napoca")
                 
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
