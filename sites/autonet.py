@@ -59,7 +59,7 @@ class autonetScraper(BS4Scraper):
             if job_city == "Posturi disponibile":
                 job_city = "Romania"
                 
-            job_city = job_city.replace("Posturi disponibile - ", "").replace("sector", "").replace(" (Turda)", "").replace("3,", "").replace("4,", "").replace("-", "").replace("  ", " ").replace("Posturi disponibile", "").replace("  ", " ").split(", ")
+            job_city = job_city.replace("Cluj Napoca", "Cluj-Napoca").replace("Posturi disponibile - ", "").replace("sector", "").replace(" (Turda)", "").replace("3,", "").replace("4,", "").replace("-", "").replace("  ", " ").replace("Posturi disponibile", "").replace("  ", " ").split(", ")
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
