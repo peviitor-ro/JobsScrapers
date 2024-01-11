@@ -36,9 +36,6 @@ class autonetScraper(BS4Scraper):
         self.job_titles = self.get_jobs_details_text(job_title_elements)
         self.job_cities = self.get_jobs_details_text(job_cities_elements)
         self.job_urls = self.get_jobs_details_href(job_url_elements)
-        
-        # while len(self.job_cities) != len(self.job_titles):
-        #     self.job_cities.append("Romania")
 
         self.format_data()
         
@@ -58,8 +55,8 @@ class autonetScraper(BS4Scraper):
             job_url = f"https://www.autonet-group.ro/{job_url}"
             if job_city == "Posturi disponibile":
                 job_city = "Romania"
-                
-            job_city = job_city.replace("Cluj Napoca", "Cluj-Napoca").replace("Posturi disponibile - ", "").replace("sector", "").replace(" (Turda)", "").replace("3,", "").replace("4,", "").replace("-", "").replace("  ", " ").replace("Posturi disponibile", "").replace("  ", " ").split(", ")
+            
+            job_city = job_city.replace("Posturi disponibile - ", "").replace("sector", "").replace(" (Turda)", "").replace("3,", "").replace("4,", "").replace("-", "").replace("  ", " ").replace("Posturi disponibile", "").replace("  ", " ").replace("Cluj Napoca", "Cluj-Napoca").split(", ")
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
