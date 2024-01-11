@@ -14,7 +14,7 @@ class baswareScraper(BS4Scraper):
     A class for scraping job data from basware website.
     """
     url = 'https://cdn.jobylon.com/jobs/company-groups/195/embed/v2/?target=jobylon-jobs-widget&page_size=200#'
-    url_logo = 'https://www.basware.com/assets/images/basware-logo.svg?v=1'
+    url_logo = 'https://www.basware.com/hubfs/basware-com-master/Assets/basware-com/img/basware.svg'
     company_name = 'basware'
     
     def __init__(self):
