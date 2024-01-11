@@ -23,8 +23,6 @@ class ppromaniaScraper(BS4Scraper):
         """
         super().__init__(self.company_name, self.url_logo)
         
-    # def get_response(self):
-    #     self.get_content(self.url)
     
     def scrape_jobs(self):
         """
@@ -59,7 +57,13 @@ class ppromaniaScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            if "Remote" in job_city:
+                job_city = "all"
+                remote = remote
+            else:
+                remote = "On-site"
+                
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace(" / Ilfov", "").split(), remote)
 
 if __name__ == "__main__":
     ppromania = ppromaniaScraper()
