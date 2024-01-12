@@ -41,7 +41,7 @@ class bbcollectionScraper(BS4Scraper):
         self.job_cities = []
         
         for job_city in job_cities:
-            self.job_cities.append(job_city.replace("Job disponibil in ", "").replace("Job disponibil in: ", "").split())
+            self.job_cities.append(job_city.replace("Job disponibil in ", "").replace("Job disponibil in: ", "").replace(".", "").split(", "))
     
 
         self.format_data()
