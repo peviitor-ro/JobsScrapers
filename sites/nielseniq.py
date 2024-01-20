@@ -77,7 +77,7 @@ class nielseniqScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             if job_city == "Bucharest":
-                job_city = "Bucuresti"
+                job_city = "București"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
