@@ -46,6 +46,8 @@ class saladboxScraper(BS4Scraper):
                 self.job_cities.append("Targu-Mures")
             elif job_city == "RÂMICU VALCEA":
                 self.job_cities.append("Ramnicu Valcea")
+            elif job_city == "Cluj":
+                self.job_cities.append("Cluj-Napoca")
             else:
                 self.job_cities.append(job_city)
 
