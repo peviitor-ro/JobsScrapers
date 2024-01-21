@@ -50,7 +50,7 @@ class verlaScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title.replace("ANGAJĂM ", ""), job_url, "România", ["Bucuresti, Cluj-Napoca, Iasi"])
+            self.create_jobs_dict(job_title.replace("ANGAJĂM ", ""), job_url, "România", ["Bucuresti", "Cluj-Napoca", "Iasi"])
             self.job_count += 1
 
 if __name__ == "__main__":
