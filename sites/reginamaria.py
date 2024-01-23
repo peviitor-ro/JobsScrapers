@@ -51,13 +51,13 @@ class reginamariaScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Locatie ", ""))
 
 if __name__ == "__main__":
     reginamaria = reginamariaScraper()
     reginamaria.get_response()
     reginamaria.scrape_jobs()
-    # reginamaria.sent_to_future()
+    reginamaria.sent_to_future()
     
     
 

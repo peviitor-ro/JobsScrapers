@@ -22,9 +22,6 @@ class baswareScraper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         super().__init__(self.company_name, self.url_logo)
-        
-    # def get_response(self):
-    #     self.get_content(self.url)
 
     def unicode_to_text(self, text):
         return text.encode().decode('unicode_escape').encode('latin-1').decode('utf-8')
@@ -78,7 +75,7 @@ class baswareScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://emp.jobylon.com{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city, "hybrid")
 
 if __name__ == "__main__":
     basware = baswareScraper()

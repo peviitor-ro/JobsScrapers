@@ -51,7 +51,7 @@ class noodlepackScraper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = "https://noodlepack.ro" + job_url
-            self.create_jobs_dict(job_title, job_url, "România", ["Arad", "Brasov", "Baia Mare", "Bucuresti", "Cluj Napoca", "Craiova", "Constanta", "Deva", "Iasi", "Oradea", "Pitesti", "Ploiesti", "Satu Mare", "Sibiu", "Suceava", "Timisoara"])
+            self.create_jobs_dict(job_title, job_url, "România", ["Arad", "Brasov", "Baia Mare", "Bucuresti", "Cluj-Napoca", "Craiova", "Constanta", "Deva", "Iasi", "Oradea", "Pitesti", "Ploiesti", "Satu Mare", "Sibiu", "Suceava", "Timisoara"])
 
 if __name__ == "__main__":
     noodlepack = noodlepackScraper()

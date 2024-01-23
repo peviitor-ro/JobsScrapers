@@ -45,8 +45,6 @@ class PagoScraper(BS4Scraper):
         
 
         self.format_data()
-        # print(self.formatted_data)
-        # self.send_to_viitor()
         
     def sent_to_future(self):
         self.send_to_viitor()
@@ -62,7 +60,7 @@ class PagoScraper(BS4Scraper):
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             job_url = f"https://pago.ro/{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city, "remote")
 
 if __name__ == "__main__":
     Pago = PagoScraper()

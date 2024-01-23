@@ -59,7 +59,7 @@ class ppromaniaScraper(BS4Scraper):
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             if "Remote" in job_city:
                 job_city = "all"
-                remote = remote
+                remote = "remote"
             else:
                 remote = "On-site"
                 

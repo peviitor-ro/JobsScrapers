@@ -52,7 +52,7 @@ class softexcoScraper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"{self.url}{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", "Cluj")
+            self.create_jobs_dict(job_title, job_url, "România", "Cluj-Napoca")
 
 if __name__ == "__main__":
     softexco = softexcoScraper()
