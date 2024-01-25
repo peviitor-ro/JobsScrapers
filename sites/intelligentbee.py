@@ -49,8 +49,13 @@ class intelligentbeeScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
+            remote = "On-site"
+            if "remote" in job_title:
+                remote = "remote"
+            elif "hybrid" in job_title:
+                remote = "hybrid"
             job_url = "https://intelligentbee.com" + job_url
-            self.create_jobs_dict(job_title, job_url, "România", "Iasi")
+            self.create_jobs_dict(job_title, job_url, "România", "Iasi", remote)
 
 if __name__ == "__main__":
     intelligentbee = intelligentbeeScraper()

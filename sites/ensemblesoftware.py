@@ -36,7 +36,6 @@ class ensemblesoftwareScraper(BS4Scraper):
         
         self.format_data()
 
-        
     def sent_to_future(self):
         self.send_to_viitor()
     
@@ -51,7 +50,7 @@ class ensemblesoftwareScraper(BS4Scraper):
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             job_url = f"https://www.ensemblesoftware.ro/{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", ['Baia Mare', 'Brasov', 'Cluj'])
+            self.create_jobs_dict(job_title, job_url, "România", ['Baia Mare', 'Brasov', 'Cluj-Napoca'], 'remote')
 
 if __name__ == "__main__":
     ensemblesoftware = ensemblesoftwareScraper()

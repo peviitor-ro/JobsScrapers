@@ -29,8 +29,8 @@ class affidearomaniaScraper(BS4Scraper):
         Scrape job data from affidearomania website.
         """
 
-        job_elements = self.get_jobs_elements('css_', 'h5 > a')
-        job_cities_elements = self.get_jobs_elements('class_', 'job-location')
+        job_elements = self.get_jobs_elements('class_', 'sc-6exb5d-1 cTfiAE')
+        job_cities_elements = self.get_jobs_elements('class_', 'custom-css-style-job-location-city')
         
         self.job_titles = self.get_jobs_details_text(job_elements)
         self.job_cities = self.get_jobs_details_text(job_cities_elements)

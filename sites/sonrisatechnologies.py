@@ -59,7 +59,7 @@ if __name__ == "__main__":
     sonrisatechnologies = sonrisatechnologiesScraper()
     sonrisatechnologies.get_response()
     sonrisatechnologies.scrape_jobs()
-    sonrisatechnologies.sent_to_future()
+    # sonrisatechnologies.sent_to_future()
     
     
 

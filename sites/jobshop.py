@@ -52,9 +52,15 @@ class jobshopScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            job_city = job_city.split("•")[1][1:]
+            if "Remote" in job_city:
+                remote = "remote"
+                job_city = "Iasi"
+            else:
+                remote = "On-site"
+                job_city = job_city.replace("ș", "s").split("•")[1][1:-1]
+                
             job_url = f"https://www.jobshop.bestis.ro{job_url}"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
 
 if __name__ == "__main__":
     jobshop = jobshopScraper()

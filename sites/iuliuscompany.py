@@ -52,7 +52,7 @@ class iuliuscompanyScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = self.url + job_url
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("LOCAȚIE: ", ""))
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("LOCAȚIE: ", "").replace("Cluj", "Cluj-Napoca"))
 
 if __name__ == "__main__":
     iuliuscompany = iuliuscompanyScraper()

@@ -64,6 +64,8 @@ class htecgroupScraper(WebsiteScraperAPI):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
+            if "Kragujevac" in job_title:
+                continue
             self.create_jobs_dict(job_title, job_url, "România", "Bucuresti", "remote")
         
 
