@@ -35,6 +35,7 @@ if __name__ == "__main__":
                'reinest.py', # This does not have a career's page now
                'typingdna.py', # This does not have a career's page now
                'netrom.py', # This does not have a career's page now
+               'nokia.py', # Taking too long
                'kaizengaming.py', # Website changed
                'sonrisatechnologies.py', # Deactivated as no jobs in romania are available
                'brillio.py', # there are no jobs available
