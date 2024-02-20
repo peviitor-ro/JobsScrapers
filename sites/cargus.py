@@ -53,8 +53,10 @@ class CargusScraper(BS4Scraper):
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             if job_city == "Național":
                 job_city = ["Bucuresti", "Timisoara", "Cluj-Napoca", "Brasov", "Iasi"]
+
+            county = "Ilfov" if "Măgurele" in job_city else None
             
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city, "On-site", county)
 
 if __name__ == "__main__":
     Cargus = CargusScraper()

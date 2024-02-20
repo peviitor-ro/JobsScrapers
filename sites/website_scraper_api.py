@@ -47,20 +47,24 @@ class WebsiteScraperAPI:
     def get_county(self, city):
         return get_county(city)
 
-    def create_jobs_dict(self, job_title, job_url, job_country, job_city, remote='On-site'):
+    def create_jobs_dict(self, job_title, job_url, job_country, job_city, remote='On-site', county=None):
         """
         Create the job dictionary for the future api
         """
         # Define a list for counties in case there is more than one
         self.counties = []
         
-        # Get the county using the city
-        if type(job_city) == list:
-            for city in job_city:
-                self.counties.append(self.get_county(city))
-            job_county = self.counties
+        if not county:
+            # Get the county using the city
+            if type(job_city) == list:
+                print(job_city)
+                for city in job_city:
+                    self.counties.append(self.get_county(city))
+                job_county = self.counties
+            else:
+                job_county = self.get_county(job_city)
         else:
-            job_county = self.get_county(job_city)
+            job_county = county
                 
         self.formatted_data.append({
             "job_title": job_title,
