@@ -66,7 +66,8 @@ def get_county(town):
             
     for county in counties:
         for key, value in county.items():
-            if town.lower() in value.lower():
+            convert_cities_lower = [v.lower() for v in value]
+            if town.lower() in convert_cities_lower:
                 return key
     return None
 
