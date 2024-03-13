@@ -87,7 +87,7 @@ class SeleniumScraper:
     def get_county(self, city):
         return get_county(city)
 
-    def create_jobs_dict(self, job_title, job_url, job_country, job_city, remote='On-site', county=None):
+    def create_jobs_dict(self, job_title, job_url, job_country, job_city, remote='on-site', county=None):
         """
         Create the job dictionary for the future api
         """
