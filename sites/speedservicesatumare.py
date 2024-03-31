@@ -29,7 +29,7 @@ class speedservicesatumareScraper(BS4Scraper):
         Scrape job data from speedservicesatumare website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', 'div.module_column.tb-column.col4-2.tb_76bl163.first > div > div > div > h2')
+        job_titles_elements = self.get_jobs_elements('css_', 'div > div > div > div > h2')[:-1]
 
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
 

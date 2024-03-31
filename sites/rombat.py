@@ -31,7 +31,6 @@ class rombatScraper(BS4Scraper):
         """
 
         job_title_elements = self.get_jobs_elements('css_', 'li.cms-singleline-control')
-        job_url_elements = self.get_jobs_elements('css_', 'li.cms-singleline-control')
 
         self.job_titles = self.get_jobs_details_text(job_title_elements)
 
@@ -52,7 +51,7 @@ class rombatScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             if 'APLICA AICI' in job_title:
-                job_url = job_title.split('APLICA AICI')[-1]
+                job_url = job_title.split('APLICA AICI')[-1][1:]
                 job_title = job_title.split('APLICA AICI')[0].split("\u2013")[0]
             else:
                 job_url = self.url + "#" + str(self.job_count)

@@ -52,7 +52,7 @@ class CargusScraper(BS4Scraper):
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             if job_city == "Național":
-                job_city = ["Bucuresti", "Timisoara", "Cluj-Napoca", "Brasov", "Iasi"]
+                job_city = ["all"]
 
             county = "Ilfov" if "Măgurele" in job_city else None
             
