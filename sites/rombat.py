@@ -51,7 +51,7 @@ class rombatScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             if 'APLICA AICI' in job_title:
-                job_url = job_title.split('APLICA AICI')[-1][1:]
+                job_url = job_title.split('APLICA AICI')[-1][1:].replace("www.", "https://")
                 job_title = job_title.split('APLICA AICI')[0].split("\u2013")[0]
             else:
                 job_url = self.url + "#" + str(self.job_count)
