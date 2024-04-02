@@ -29,9 +29,11 @@ class expertmindScraper(BS4Scraper):
         """
 
         job_elements = self.get_jobs_elements('class_', "vc_gitem-link")
+        job_city_elements = self.get_jobs_elements('class_', "vc_gitem-post-category-name")
         
         self.job_titles = self.get_jobs_details_text(job_elements)
         self.job_urls = self.get_jobs_details_href(job_elements)
+        self.job_cities = self.get_jobs_details_text(job_city_elements)[::2]
 
         self.format_data()
         
@@ -47,8 +49,8 @@ class expertmindScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", ['Iasi', 'Bucuresti'])
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            self.create_jobs_dict(job_title, job_url, "România", job_city.split("/"))
 
 if __name__ == "__main__":
     expertmind = expertmindScraper()
