@@ -28,7 +28,7 @@ class sonrisatechnologiesScraper(BS4Scraper):
         Scrape job data from sonrisatechnologies website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'hover:bg-block-base-text hover:bg-opacity-3 flex flex-col py-2 px-4')
+        job_titles_elements = self.get_jobs_elements('class_', 'text-block-base-link company-link-style')
         job_urls_elements = self.get_jobs_elements('class_', "hover:bg-block-base-text hover:bg-opacity-3 flex flex-col py-2 px-4")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     sonrisatechnologies = sonrisatechnologiesScraper()
     sonrisatechnologies.get_response()
     sonrisatechnologies.scrape_jobs()
-    # sonrisatechnologies.sent_to_future()
+    sonrisatechnologies.sent_to_future()
     
     
 

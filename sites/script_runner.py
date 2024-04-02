@@ -37,7 +37,6 @@ if __name__ == "__main__":
                'netrom.py', # This does not have a career's page now
                'nokia.py', # Taking too long
                'kaizengaming.py', # Website changed
-               'sonrisatechnologies.py', # Deactivated as no jobs in romania are available
                'brillio.py', # there are no jobs available
                'aeroportoradea.py', # Removed as they changed the page layout, to be fixed
                'mennekes.py', # This does not have jobs at this moment
