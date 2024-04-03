@@ -50,7 +50,7 @@ class autosienaScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", "oradea")
+            self.create_jobs_dict(job_title, job_url, "România", "Oradea")
             self.job_count += 1
 
 if __name__ == "__main__":
