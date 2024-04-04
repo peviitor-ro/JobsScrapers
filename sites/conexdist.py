@@ -51,7 +51,7 @@ class conexdistScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            job_city = job_city.replace("–", "").replace("Sediul Central", "").replace(" (Jilava)", "").replace("  ", " ").replace(" Iași", "Iași").replace(" (Voluntari și Militari)", "").split(", ")
+            job_city = job_city.replace("–", "").replace("Sediul Central", "").replace(" (Jilava)", "").replace("  ", " ").replace(" Iași", "Iași").replace(" (Voluntari și Militari)", "").replace("Cluj", "Cluj-Napoca").split(", ")
             job_url = f"https://www.conexdist.ro{job_url}"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
