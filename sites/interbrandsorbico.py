@@ -41,7 +41,7 @@ class InterbrandsOrbicoScraper(BS4Scraper):
         
         for city, country in zip(job_cities, job_countries):
             self.job_countries.append(country.replace(",", "").split()[-1])
-            self.job_cities.append(city.replace(",", "").replace("•", "").replace(country.split()[-1], "")[:-1])
+            self.job_cities.append(city.replace(",", "").replace("•", "").replace("Bitrita", "Bistrita").replace(country.split()[-1], "")[:-1])
             
             
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
