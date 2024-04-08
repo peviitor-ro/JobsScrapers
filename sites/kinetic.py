@@ -34,7 +34,6 @@ class kineticScraper(BS4Scraper):
         self.job_titles = self.get_jobs_details_text(job_elements)
 
         self.format_data()
-        # print(self.job_titles)
         
     def sent_to_future(self):
         self.send_to_viitor()
@@ -50,7 +49,7 @@ class kineticScraper(BS4Scraper):
         """
         for job_title in self.job_titles:
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", ["Iasi", "Bucuresti", "Cluj-Napoca"])
+            self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
             self.job_count += 1
 
 if __name__ == "__main__":
