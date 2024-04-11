@@ -60,9 +60,8 @@ class ipsoScraper(BS4Scraper):
                 job_city = "Targu-Mures"
             
             job_url = self.url + "#" + str(self.job_count)
-            # Mihail Kogalniceanu
             
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Târgu Mureș", "Târgu-Mureș").replace("Piatra Neamț", "Piatra-Neamț").replace("Mihai Kogalniceanu", "Mihail Kogalniceanu").split(", "))
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Târgu Mureș", "Targu-Mures").replace("Piatra Neamț", "Piatra-Neamț").replace("Mihai Kogalniceanu", "Mihail Kogalniceanu").split(", "))
             self.job_count += 1
 
 if __name__ == "__main__":
