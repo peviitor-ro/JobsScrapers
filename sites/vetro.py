@@ -64,4 +64,4 @@ if __name__ == "__main__":
     vetro = vetroScraper()
     vetro.get_response()
     vetro.scrape_jobs()
-    # vetro.sent_to_future()
+    vetro.sent_to_future()
