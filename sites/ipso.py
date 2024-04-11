@@ -51,17 +51,18 @@ class ipsoScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+
         for job_title, job_city in zip(self.job_titles, self.job_cities):
             if job_city == "Divizia Moldova":
                 continue
             elif job_city.lower() == 'toate judetele tarii' or job_city == "TOATE JUDEȚELE ȚĂRII":
                 job_city = "all"
-            elif job_city == "Târgu Mureș":
-                job_city = "Targu Mures"
+            elif "Târgu Mureș" in job_city or 'T\u00e2rgu Mure\u015f' in job_city or 'Targu Mures' in job_city:
+                job_city = job_city.replace("Târgu Mureş", 'Targu-Mures').replace("T\u00e2rgu Mure\u015f", 'Targu-Mures').replace("Targu Mures", "Targu-Mures")
             
             job_url = self.url + "#" + str(self.job_count)
             
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Târgu Mureș", "Targu Mures").replace("Piatra Neamț", "Piatra-Neamț").replace("Mihai Kogalniceanu", "Mihail Kogalniceanu").split(", "))
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Piatra Neamț", "Piatra-Neamț").replace("Mihai Kogalniceanu", "Mihail Kogalniceanu").split(", "))
             self.job_count += 1
 
 if __name__ == "__main__":
