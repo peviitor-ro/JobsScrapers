@@ -29,13 +29,14 @@ class vetroScraper(BS4Scraper):
         Scrape job data from vetro website.
         """
 
-        job_elements = self.get_jobs_elements('css_', 'section.elementor-section.elementor-top-section.elementor-element.elementor-element-31c883d.elementor-section-boxed.elementor-section-height-default.elementor-section-height-default > div > div > div > section > div > div > div > div > div > h2')
-        job_urls_elements = self.get_jobs_elements('class_', 'elementor-button elementor-button-link elementor-size-sm')
+        job_elements = self.get_jobs_elements('css_', "section:nth-child(3) > div > div > div > section > div > div > div > div:nth-child(1) > div > h2")
+        job_cities_elements = self.get_jobs_elements('css_', "section:nth-child(3) > div > div > div > section > div > div > div > div:nth-child(2) > div > h2")
+        job_urls_elements = self.get_jobs_elements('css_', "section:nth-child(3) > div > div > div > section > div > div > div > div:nth-child(n+5) > div > div > a")
 
-        self.job_titles = self.get_jobs_details_text(job_elements)[::3]
-        self.job_cities = self.get_jobs_details_text(job_elements)[1::3]
+        self.job_titles = self.get_jobs_details_text(job_elements)
+        self.job_cities = self.get_jobs_details_text(job_cities_elements)
                                          
-        self.job_urls = [job_url for job_url in self.get_jobs_details_href(job_urls_elements) if job_url.startswith('https://vetro.vet/cariere')]
+        self.job_urls = self.get_jobs_details_href(job_urls_elements)
 
         self.format_data()
         
@@ -63,4 +64,4 @@ if __name__ == "__main__":
     vetro = vetroScraper()
     vetro.get_response()
     vetro.scrape_jobs()
-    vetro.sent_to_future()
+    # vetro.sent_to_future()
