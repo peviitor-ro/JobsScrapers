@@ -4,7 +4,6 @@ import json
 import time
 
 
-# Inspired from the Andrei Cojocaru update_peviitor_api Decorator
 class UpdatePeviitorAPI:
     """
     Class for updating data on pe viitor API
@@ -16,7 +15,7 @@ class UpdatePeviitorAPI:
         """
         self.company_name = company_name
         self.data_list = data_list
-        self.api_key = os.environ.get('API_KEY')
+        self.email = os.environ.get('EMAIL')
 
     def __call__(self):
         """
@@ -29,7 +28,7 @@ class UpdatePeviitorAPI:
     def get_token(self):
 
         payload = json.dumps({
-        "email": "irimusrares7@gmail.com"
+        "email": self.email
         })
         
         post_header = {
