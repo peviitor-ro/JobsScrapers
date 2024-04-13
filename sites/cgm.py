@@ -69,6 +69,8 @@ class CGMScraper(WebsiteScraperAPI):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            if "Locations" in job_city:
+                job_city = "Iasi"
             job_url = f"https://cgm.wd3.myworkdayjobs.com/en-US/cgm{job_url}"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
         
