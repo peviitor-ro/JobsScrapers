@@ -50,8 +50,6 @@ class NagarroScraper(WebsiteScraperAPI):
         self.job_urls = self.get_job_details(['Job_Url'])
         
         self.format_data()
-        
-        # print(self.job_urls, len(self.job_urls))
 
     def format_data(self):
         """
