@@ -54,7 +54,7 @@ class affidearomaniaScraper(BS4Scraper):
             job_url = self.url + job_url
             if "Complex Cosmopolis" in job_city:
                 job_city = "Bucuresti"
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace(", Romania", ""))
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace(", Romania", "").replace("PIATRA NEAMT", "Piatra-Neamt").split(", "))
 
 if __name__ == "__main__":
     affidearomania = affidearomaniaScraper()
