@@ -39,8 +39,16 @@ class CreatopyScraper(WebsiteScraperAPI):
         Scrape job data from Creatopy website.
         """
         self.job_titles = self.get_job_details(['jobOpeningName'])
-        self.job_cities = self.get_job_details(['location', 'city'])
-        # self.job_countries = self.get_job_details(['location', 'state'])
+        
+        self.job_cities1 = self.get_job_details(['location', 'city'])
+        self.job_cities2 = self.get_job_details(['atsLocation', 'city'])
+        self.all_job_cities = []
+        for job_city1, job_city2 in zip(self.job_cities1, self.job_cities2):
+            if job_city1:
+                self.all_job_cities.append(job_city1)
+            else:
+                self.all_job_cities.append(job_city2)
+        
         self.job_urls = self.get_job_details(['id'])
         self.job_type = self.get_job_details(['locationType'])
         self.format_data()
@@ -58,7 +66,7 @@ class CreatopyScraper(WebsiteScraperAPI):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url, job_city, job_type in zip(self.job_titles, self.job_urls, self.job_cities, self.job_type):
+        for job_title, job_url, job_city, job_type in zip(self.job_titles, self.job_urls, self.all_job_cities, self.job_type):
             job_url = f"https://creatopy.bamboohr.com/careers/{job_url}"
             if job_city == None or job_city == "Remote":
                 job_city = "Oradea"
@@ -70,7 +78,7 @@ class CreatopyScraper(WebsiteScraperAPI):
                 remote = "hybrid"
             else:
                 remote = "on-site"
-                
+            
             self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
         
 
