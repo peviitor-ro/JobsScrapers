@@ -79,7 +79,7 @@ class CreatopyScraper(WebsiteScraperAPI):
             else:
                 remote = "on-site"
             
-            self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
+            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Bucharest", "Bucuresti").replace("/Remote", "").split("/"), remote)
         
 
 if __name__ == "__main__":
