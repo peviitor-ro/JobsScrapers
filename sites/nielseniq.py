@@ -75,10 +75,18 @@ class nielseniqScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+        # This jobs are hybrid model which are hard coded due to the unstructured page
+        exception_jobs = ['Research Consultant']
+        
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            if job_title in exception_jobs:
+                remote = 'hybrid'
+            else:
+                remote = 'on-site'
+                
             if job_city == "Bucharest":
                 job_city = "București"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
 
 if __name__ == "__main__":
     nielseniq = nielseniqScraper()
