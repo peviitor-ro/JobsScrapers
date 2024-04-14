@@ -56,7 +56,7 @@ class BitSoftwareScraper(BS4Scraper):
             if job_title in job_exceptions:
                 job_city = ['Brasov', 'Bucuresti']
             else:
-                job_city = 'Bucuresti'
+                job_city = 'Brasov'
             job_url = f"{self.url}{job_url}#{self.job_count}"
             self.create_jobs_dict(job_title, job_url, "România", job_city)
             self.job_count += 1
