@@ -49,9 +49,16 @@ class BitSoftwareScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+        # Jobs that are both in brasov and bucharest because they are not structured
+        job_exceptions = ['Channel Manager']
+        
         for job_title, job_url in zip(self.job_titles, self.job_urls):
+            if job_title in job_exceptions:
+                job_city = ['Brasov', 'Bucuresti']
+            else:
+                job_city = 'Bucuresti'
             job_url = f"{self.url}{job_url}#{self.job_count}"
-            self.create_jobs_dict(job_title, job_url, "România", "Bucuresti")
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
             self.job_count += 1
 
 if __name__ == "__main__":
