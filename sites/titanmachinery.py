@@ -113,4 +113,4 @@ if __name__ == "__main__":
     titanmachinery = titanmachineryScraper()
     titanmachinery.get_response()
     titanmachinery.scrape_jobs()
-    # titanmachinery.sent_to_future()
+    titanmachinery.sent_to_future()
