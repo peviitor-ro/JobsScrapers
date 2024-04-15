@@ -101,11 +101,13 @@ class titanmachineryScraper(BS4Scraper):
         passed_urls = []
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             if "-" not in job_city:
-                job_city = job_title.split()[-1]
-            elif "Ilfov" in job_city:
+                job_city = job_title.split()[-1].replace("Cluj", "Cluj-Napoca").replace("CLUJ", "Cluj-Napoca").replace("(", "").replace(")", "")
+            if "Ilfov" in job_city:
                 job_city = exception_jobs['Ilfov']
+            if job_city == "Responsible" or job_city =="Designer":
+                job_city = "Alexandria"
             if job_title not in passed_titles and job_url not in passed_urls:
-                self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Cluj", "Cluj-Napoca").replace("CLUJ", "Cluj-Napoca").replace("(", "").replace(")", ""))
+                self.create_jobs_dict(job_title, job_url, "România", job_city)
             passed_titles.append(job_title)
             passed_urls.append(job_url)
 
