@@ -93,15 +93,19 @@ class titanmachineryScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+        exception_jobs = {
+            "Ilfov":["Voluntari","Buftea","Pantelimon","Popesti Leordeni","Jilava","Chitila","Otopeni","Bragadiru","Branesti","Afumati","Peris","Balotesti","Domnesti","Magurele","1 Decembrie","Mogosoaia","Cornetu","Berceni","Moara Vlasiei","Chiajna","Glina","Clinceni","Vidra","Dobroesti","Tunari","Darasti-Ilfov","Copaceni","Ciorogarla","Ciolpani","Rosu","Cretesti","Fundeni","Tanganu","Catelu","Silistea Snagovului","Cernica","Lipia","Dragomiresti-Deal","Sintesti","Buciumeni","Balaceanca","Stefanestii de Jos","Gruiu","Gradistea","Varteju","Ghermanesti","Dascalu","Darvari","Caciulati","Burias","Stefanestii de Sus","Snagov","Tancabesti","Tamasi","Piteasca","Petrachioaia","Islaz","Alunisu","Rudeni","Corbeanca","Merii Petchii","Caldararu","Olteni","Dragomiresti-Vale","Saftica","Zurbaua","Sitaru","Ciofliceni","Sindrilita","Piscu","Pasarea","Micsunestii Mari","Dudu","Nuci","Cozieni","Dumitrana","Ganeasa","Izvorani","Posta","Moara Domneasca","Santu Floresti","Teghes","Micsunestii-Moara","Gagu","Maineasca","Vanatori","Balteni","Petresti","Surlari","Ostratu","Dumbraveni","Luparia","Manolache","Balta Neagra","Pruni","Cretuleasca","Vladiceasca","Creata","Runcu","Vadu Anei","Buda","Dimieni","Odaile","Ordoreanu"]
+            }
+        
         passed_titles = []
         passed_urls = []
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             if "-" not in job_city:
-                job_city = "Alexandria"
+                job_city = job_title.split()[-1]
             elif "Ilfov" in job_city:
-                job_city = "Dragomirești"
+                job_city = exception_jobs['Ilfov']
             if job_title not in passed_titles and job_url not in passed_urls:
-                self.create_jobs_dict(job_title, job_url, "România", job_city)
+                self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Cluj", "Cluj-Napoca").replace("CLUJ", "Cluj-Napoca").replace("(", "").replace(")", ""))
             passed_titles.append(job_title)
             passed_urls.append(job_url)
 
@@ -109,4 +113,4 @@ if __name__ == "__main__":
     titanmachinery = titanmachineryScraper()
     titanmachinery.get_response()
     titanmachinery.scrape_jobs()
-    titanmachinery.sent_to_future()
+    # titanmachinery.sent_to_future()

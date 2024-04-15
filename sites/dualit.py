@@ -1,7 +1,7 @@
 #
 #
 #
-# dualit > https://dualit.ro/careers/
+# dualit > https://dualitsoft.com/careers/
 
 from sites.website_scraper_bs4 import BS4Scraper
 
@@ -10,7 +10,7 @@ class dualitScraper(BS4Scraper):
     """
     A class for scraping job data from dualit website.
     """
-    url = 'https://dualit.ro/careers/'
+    url = 'https://dualitsoft.com/careers/'
     url_logo = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/dualit.jpg'
     company_name = 'dualit'
     
@@ -28,10 +28,10 @@ class dualitScraper(BS4Scraper):
         Scrape job data from dualit website.
         """
 
-        job_elements = self.get_jobs_elements('css_', "a[href^='https://dualit.ro/careers/'][class='fusion-background-highlight']")
+        job_elements = self.get_jobs_elements('class_', "fusion-column-anchor")
         
-        self.job_titles = self.get_jobs_details_text(job_elements[1:])
-        self.job_urls = self.get_jobs_details_href(job_elements[1:])
+        self.job_urls = self.get_jobs_details_href(job_elements)
+        self.job_titles = [job_title.replace("https://dualitsoft.com/careers/", "").replace("-", " ").replace("/", "").replace("ui ux", "ui/ux").title() for job_title in self.job_urls]
 
         self.format_data()
     
@@ -48,7 +48,7 @@ class dualitScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", "Cluj-Napoca")
+            self.create_jobs_dict(job_title.replace("Java Developer 2", "Java Developer"), job_url, "România", "Cluj-Napoca", "remote")
 
 if __name__ == "__main__":
     dualit = dualitScraper()

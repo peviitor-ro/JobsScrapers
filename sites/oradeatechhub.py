@@ -52,8 +52,8 @@ class oradeatechhubScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_url = f"https://www.oradeatechhub.ro{job_url}"
-            if job_city == "Remote":
-                remote = "Remote"
+            if job_city == "Remote" or not job_city:
+                remote = "remote"
                 job_city = "Oradea"
             elif job_city == "Oradea/Remote":
                 job_city = "Oradea"
