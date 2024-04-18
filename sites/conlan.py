@@ -31,13 +31,11 @@ class conlanScraper(BS4Scraper):
         Scrape job data from conlan website.  Extrage datele locurilor de muncă de pe site-ul conlan.
         """
 
-        job_title_elements =  self.get_jobs_elements('css_',
-                                                  'a[href="https://conlangrup.ro/job/project-manager/"]')
+        job_elements =  self.get_jobs_elements('css_',
+                                                  'a[href^="https://conlangrup.ro/job/"]')
 
-        self.job_url_elements = self.get_jobs_elements('css_',
-                                                  'a[href="https://conlangrup.ro/job/project-manager/"], a[href="https://conlangrup.ro/job/inginer-constructii/"]')
-
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
+        self.job_titles = self.get_jobs_details_text(job_elements)[::2]
+        self.job_urls = self.get_jobs_details_href(job_elements)[::2]
 
         self.format_data()
 
@@ -54,13 +52,8 @@ class conlanScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         Iterează peste toate detaliile locurilor de muncă și le trimite la dicționarul de locuri de muncă.
         """
-        for job_element in self.job_url_elements:
-            job_title = job_element.text.strip()
-            job_url = job_element.get('href').strip()
-
-            if job_title and job_url and not job_title.startswith('+ detalii'):
-                job_url = f"https://conlangrup.ro/cariere/{job_url}"
-                self.create_jobs_dict(job_title, job_url, "România", "Sibiu")
+        for job_title, job_url in zip(self.job_titles, self.job_urls):
+            self.create_jobs_dict(job_title, job_url, "România", "Sibiu")        
 
 
 if __name__ == "__main__":
