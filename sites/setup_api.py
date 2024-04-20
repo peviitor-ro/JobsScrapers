@@ -35,7 +35,7 @@ class UpdatePeviitorAPI:
         'Content-Type': 'application/json'
         }
 
-        self.access_token = requests.request("POST", "https://api.laurentiumarian.ro/get_token", headers=post_header, data=payload).json()['access']
+        self.access_token = requests.request("POST", "https://api.peviitor.ro/v5/get_token/", headers=post_header, data=payload).json()['access']
 
     
     def add_jobs(self):
@@ -45,13 +45,5 @@ class UpdatePeviitorAPI:
         'Content-Type': 'application/json'
         }
 
-        requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list))
-        
-        # don't delete this lines if you want to see the graph on scraper's page
-        file = self.company_name.lower() + '.py'
-        data = {'data': len(self.data_list)}
-        dataset_url = f'https://dev.laurentiumarian.ro/dataset/JobsScrapers/{file}/'
-        requests.post(dataset_url, json=data)
-        ########################################################
-    
+        requests.request("POST", "https://api.peviitor.ro/v5/add/", headers=post_header, data=json.dumps(self.data_list))
 
