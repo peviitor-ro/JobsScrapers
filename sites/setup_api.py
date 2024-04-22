@@ -4,7 +4,6 @@ import json
 import time
 
 
-# Inspired from the Andrei Cojocaru update_peviitor_api Decorator
 class UpdatePeviitorAPI:
     """
     Class for updating data on pe viitor API
@@ -16,43 +15,35 @@ class UpdatePeviitorAPI:
         """
         self.company_name = company_name
         self.data_list = data_list
-        self.api_key = os.environ.get('API_KEY')
+        self.email = os.environ.get('EMAIL')
 
     def __call__(self):
         """
         Perform the data update process.
         """
-        self._send_clean_request()
+        self.get_token()
         time.sleep(0.2)
-        self._send_post_request()
+        self.add_jobs()
+    
+    def get_token(self):
 
-    def _send_clean_request(self):
-        """
-        Send the clean request to the Peviitor API.
-        """
+        payload = json.dumps({
+        "email": self.email
+        })
         
-        clean_url = 'https://api.peviitor.ro/v4/clean/'
-        clean_header = {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'apikey': self.api_key
-        }
-        requests.post(clean_url, headers=clean_header, data={'company': self.company_name})
-
-    def _send_post_request(self):
-        """
-        Send the post request to update the data
-        """
         post_header = {
-            'Content-Type': 'application/json',
-            'apikey': self.api_key
+        'Content-Type': 'application/json'
         }
-        # print(json.dumps(self.data_list))
-        requests.post('https://api.peviitor.ro/v4/update/', headers=post_header, data=json.dumps(self.data_list))
 
-        # don't delete this lines if you want to see the graph on scraper's page
-        file = self.company_name.lower() + '.py'
-        data = {'data': len(self.data_list)}
-        dataset_url = f'https://dev.laurentiumarian.ro/dataset/JobsScrapers/{file}/'
-        requests.post(dataset_url, json=data)
-        ########################################################
+        self.access_token = requests.request("POST", "https://api.peviitor.ro/v5/get_token/", headers=post_header, data=payload).json()['access']
+
+    
+    def add_jobs(self):
+
+        post_header = {
+        'Authorization': f'Bearer {self.access_token}',
+        'Content-Type': 'application/json'
+        }
+
+        requests.request("POST", "https://api.peviitor.ro/v5/add/", headers=post_header, data=json.dumps(self.data_list))
 
