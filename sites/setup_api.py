@@ -34,7 +34,7 @@ class UpdatePeviitorAPI:
         post_header = {
         'Content-Type': 'application/json'
         }
-        print(payload)
+
         self.access_token = requests.request("POST", "https://api.peviitor.ro/v5/get_token/", headers=post_header, data=payload).json()['access']
 
     
