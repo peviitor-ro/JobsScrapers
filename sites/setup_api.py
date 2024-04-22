@@ -36,6 +36,7 @@ class UpdatePeviitorAPI:
         }
 
         self.access_token = requests.request("POST", "https://api.peviitor.ro/v5/get_token/", headers=post_header, data=payload).json()['access']
+        print(self.access_token)
 
     
     def add_jobs(self):
