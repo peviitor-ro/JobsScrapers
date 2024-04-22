@@ -21,8 +21,10 @@ jobs:
     - name: Add Python Path
       run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
-    - name: Debug EMAIL Secret
-      run: echo "EMAIL secret is ${{ secrets.EMAIL }}"
+    - name: Debug Environment Variables
+      run: |
+        env
+        echo "EMAIL secret is ${{ secrets.EMAIL }}"
 
     - name: Install dependencies
       run: |
