@@ -105,5 +105,5 @@ class BS4Scraper:
         api_load = UpdatePeviitorAPI(self.company_name, self.formatted_data)
         api_load()
         update_logo(self.company_name, self.logo_url)
-        print(json.dumps(self.formatted_data, indent=4, sort_keys=True))
+        # print(json.dumps(self.formatted_data, indent=4, sort_keys=True))
 
