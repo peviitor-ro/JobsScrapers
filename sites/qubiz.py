@@ -59,7 +59,7 @@ if __name__ == "__main__":
     Qubiz = QubizScraper()
     Qubiz.get_response()
     Qubiz.scrape_jobs()
-   # Qubiz.sent_to_future()
+    Qubiz.sent_to_future()
     
     
 
