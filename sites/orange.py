@@ -54,7 +54,7 @@ class OrangeScraper(WebsiteScraperAPI):
         job_country = 'Romania'   
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls):
             self.create_jobs_dict(job_title, job_url, job_country, job_city)
-            print(self.create_jobs_dict)
+            
     
     
     def sent_to_future(self):
