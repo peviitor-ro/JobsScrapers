@@ -2,7 +2,7 @@
 #
 #
 #
-## Netrom > https://www.netromsoftware.ro/jobs
+## Netrom > https://www.netromsoftware.ro/cariere/
 
 from sites.website_scraper_bs4 import BS4Scraper
 
@@ -11,8 +11,8 @@ class NetromScraper(BS4Scraper):
     """
     A class for scraping job data from Netrom website.
     """
-    url = 'https://www.netromsoftware.ro/jobs'
-    url_logo = 'https://www.icelakecapital.com/wp-content/uploads/2019/01/netrom-logo-clean.png'
+    url = 'https://www.netromsoftware.ro/cariere/'
+    url_logo = 'https://www.netromsoftware.ro/wp-content/uploads/2019/09/Logo-NetRom-Software-300dpi.png'
     company_name = 'Netrom'
     
     def __init__(self):
@@ -29,11 +29,12 @@ class NetromScraper(BS4Scraper):
         Scrape job data from Netrom website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', 'div.left-column.simple-page > div > ul > li > a')
-        job_urls_elements = self.get_jobs_elements('css_', "div.left-column.simple-page > div > ul > li > a")
+        job_elements = self.get_jobs_elements('css_', 'td > a')
+        job_cities_elements = self.get_jobs_elements('css_', 'tr > td.location')
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements[1:])
-        self.job_urls = self.get_jobs_details_href(job_urls_elements[1:])
+        self.job_titles = self.get_jobs_details_text(job_elements)
+        self.job_cities = self.get_jobs_details_text(job_cities_elements)
+        self.job_urls = self.get_jobs_details_href(job_elements)
 
         self.format_data()
         
@@ -49,8 +50,8 @@ class NetromScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", "Craiova")
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     Netrom = NetromScraper()
