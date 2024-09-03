@@ -42,6 +42,7 @@ if __name__ == "__main__":
                'mennekes.py', # This does not have jobs at this moment
                'iasidelivery.py', # Website not working
                'apavital.py',
+               'qubiz.py',
                'getCounty.py',
                'test.py'
                 ]
