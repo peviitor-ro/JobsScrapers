@@ -37,6 +37,7 @@ if __name__ == "__main__":
                'netrom.py', # This does not have a career's page now
             #    'nokia.py', # Taking too long
                'kaizengaming.py', # Website changed
+               'careerscenter.py' # Website cannot be accessed in actions
                'brillio.py', # there are no jobs available
                'aeroportoradea.py', # Removed as they changed the page layout, to be fixed
                'mennekes.py', # This does not have jobs at this moment
