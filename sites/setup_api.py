@@ -48,7 +48,8 @@ class UpdatePeviitorAPI:
         }
 
         print(f"Data List to send: {json.dumps(self.data_list)}")
-        print(f"This is the post headers: {post_header}")
         requests.request("POST", "https://api.peviitor.ro/v5/add/", headers=post_header, data=json.dumps(self.data_list))
+        print("ADD JOB REQUEST STATUS: ")
+        print(requests.request("POST", "https://api.peviitor.ro/v5/add/", headers=post_header, data=json.dumps(self.data_list)))
         time.sleep(5)
 
