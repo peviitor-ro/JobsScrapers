@@ -15,7 +15,8 @@ class UpdatePeviitorAPI:
         """
         self.company_name = company_name
         self.data_list = data_list
-        self.email = os.environ.get('API_KEY')
+        # self.email = os.environ.get('API_KEY')
+        self.email = "irimusrares7@gmail.com"
 
     def __call__(self):
         """
