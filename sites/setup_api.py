@@ -43,7 +43,7 @@ class UpdatePeviitorAPI:
 
         post_header = {
         # 'Authorization': f'Bearer {self.access_token}',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3OTgwNDgyLCJpYXQiOjE3MjcxMTY0ODIsImp0aSI6IjBiYzZhNWZkNTI2ZjQxNjhiOTU3ZjA4YWJiMTFiMWZiIiwidXNlcl9pZCI6OX0.5x9wJuJi3hne8XbO-DayS06szwMKyICD_K3aLAoPi9w' 
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3OTgwNDgyLCJpYXQiOjE3MjcxMTY0ODIsImp0aSI6IjBiYzZhNWZkNTI2ZjQxNjhiOTU3ZjA4YWJiMTFiMWZiIiwidXNlcl9pZCI6OX0.5x9wJuJi3hne8XbO-DayS06szwMKyICD_K3aLAoPi9w',
         'Content-Type': 'application/json',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         }
