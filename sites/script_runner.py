@@ -10,19 +10,23 @@ class Scraper:
 
     def run(self):
         """
-        Run the scraper for each Python file in the sites directory, excluding the specified files.
+        Run the scraper for each Python file in the current directory, excluding the specified files.
         """
-        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sites')  # Ensure 'sites' folder is used
+        # Get the path of the current directory where this script is located (the 'sites' directory)
+        path = os.path.dirname(os.path.abspath(__file__))
+
+        # Iterate over all files in the 'sites' directory
         for site in os.listdir(path):
             if site.endswith('.py') and site not in self.exclude:
                 try:
                     print(f"Running: {sys.executable} {os.path.join(path, site)}")
-                    subprocess.check_call([sys.executable, os.path.join(path, site)], cwd=path)  # Set cwd
+                    subprocess.check_call([sys.executable, os.path.join(path, site)], cwd=path)  # Set cwd to path
                     print(f"Success scraping {site}")
                 except subprocess.CalledProcessError as e:
                     print(f"Error scraping {site}: {e}")
                 except Exception as e:
                     print(f"An unexpected error occurred while scraping {site}: {e}")
+
 
 
 if __name__ == "__main__":
