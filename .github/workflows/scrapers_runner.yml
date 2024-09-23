@@ -32,6 +32,6 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
       run: |
         # python3 sites/script_runner.py || true
-        python3 sites/Covalact.py
+        python3 sites/covalact.py
         echo "Continuing despite potential failure..."
         
