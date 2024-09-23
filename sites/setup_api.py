@@ -15,8 +15,7 @@ class UpdatePeviitorAPI:
         """
         self.company_name = company_name
         self.data_list = data_list
-        # self.email = os.environ.get('API_KEY')
-        self.email = "irimusrares7@gmail.com"
+        self.email = os.environ.get('API_KEY')
 
     def __call__(self):
         """
@@ -37,9 +36,7 @@ class UpdatePeviitorAPI:
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         }
 
-        print(requests.request("POST", "https://api.laurentiumarian.ro/get_token", headers=post_header, data=payload).json())
         self.access_token = requests.request("POST", "https://api.laurentiumarian.ro/get_token", headers=post_header, data=payload).json()['access']
-        print(self.access_token)
 
     
     def add_jobs(self):
