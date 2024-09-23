@@ -16,7 +16,7 @@ class Scraper:
         for site in os.listdir(path):
             if site.endswith('.py') and site not in self.exclude:
                 try:
-                    subprocess.run(['python', os.path.join(path, site)], check=True)
+                    subprocess.run(['python3', os.path.join(path, site)], check=True)
                     print(f"Success scraping {site}")
                 except subprocess.CalledProcessError as e:
                     # Catch the error, log it, and continue with the next script
