@@ -15,8 +15,7 @@ class UpdatePeviitorAPI:
         """
         self.company_name = company_name
         self.data_list = data_list
-        # self.email = os.environ.get('API_KEY')
-        self.email = "irimusrares7@gmail.com"
+        self.email = os.environ.get('API_KEY')
 
     def __call__(self):
         """
@@ -52,5 +51,4 @@ class UpdatePeviitorAPI:
         requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list))
         print("ADD JOB REQUEST STATUS: ")
         print(requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list)))
-        time.sleep(5)
 
