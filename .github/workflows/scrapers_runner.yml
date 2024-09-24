@@ -31,29 +31,29 @@ jobs:
       env:
         API_KEY: ${{ secrets.API_KEY }}
       run: |
-        # Define the scripts to exclude
-        EXCLUDE=("__init__.py" "script_runner.py" "setup_api.py" "update_logo.py" "website_scraper_api.py" "website_scraper_bs4.py" "website_scraper_selenium.py" "reinest.py" "typingdna.py" "netrom.py" "kaizengaming.py" "careerscenter.py" "brillio.py" "aeroportoradea.py" "mennekes.py" "iasidelivery.py" "apavital.py" "qubiz.py" "getCounty.py" "test.py")
-
-        # Wait time between scripts (in seconds)
-        WAIT_TIME=10
-
-        # Run each Python script in the 'sites' directory except the excluded ones
-        for script in sites/*.py; do
-          script_name=$(basename "$script")
-          if [[ ! " ${EXCLUDE[@]} " =~ " ${script_name} " ]]; then
-            echo "Running: python3 $script"
-            python3 "$script" || echo "Error running $script"
-            echo "Waiting for $WAIT_TIME seconds before the next script..."
-            sleep $WAIT_TIME  # Wait for the specified time
-          else
-            echo "Skipping: $script_name"
-          fi
-        done
+        python3 sites/script_runner.py || true
+        echo "Continuing despite potential failure..."
 
     # - name: All scrapers run
     #   env:
     #     API_KEY: ${{ secrets.API_KEY }}
     #   run: |
-    #     python3 sites/script_runner.py || true
-    #     echo "Continuing despite potential failure..."
+    #     # Define the scripts to exclude
+    #     EXCLUDE=("__init__.py" "script_runner.py" "setup_api.py" "update_logo.py" "website_scraper_api.py" "website_scraper_bs4.py" "website_scraper_selenium.py" "reinest.py" "typingdna.py" "netrom.py" "kaizengaming.py" "careerscenter.py" "brillio.py" "aeroportoradea.py" "mennekes.py" "iasidelivery.py" "apavital.py" "qubiz.py" "getCounty.py" "test.py")
+
+    #     # Wait time between scripts (in seconds)
+    #     WAIT_TIME=10
+
+    #     # Run each Python script in the 'sites' directory except the excluded ones
+    #     for script in sites/*.py; do
+    #       script_name=$(basename "$script")
+    #       if [[ ! " ${EXCLUDE[@]} " =~ " ${script_name} " ]]; then
+    #         echo "Running: python3 $script"
+    #         python3 "$script" || echo "Error running $script"
+    #         echo "Waiting for $WAIT_TIME seconds before the next script..."
+    #         sleep $WAIT_TIME  # Wait for the specified time
+    #       else
+    #         echo "Skipping: $script_name"
+    #       fi
+    #     done
         
