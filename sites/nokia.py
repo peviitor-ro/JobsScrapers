@@ -1,7 +1,7 @@
 #
 #
 #
-# nokia > https://careers.nokia.com/jobs/search/40601155
+# nokia > https://fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions?location=Romania&locationId=300000000471997&locationLevel=country&mode=location
 
 import requests
 from sites.website_scraper_api import WebsiteScraperAPI
