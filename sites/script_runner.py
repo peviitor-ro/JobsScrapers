@@ -43,7 +43,7 @@ if __name__ == "__main__":
         'website_scraper_selenium.py',
         'reinert.py',  # This does not have a career's page now
         'typingdna.py',  # This does not have a career's page now
-        # 'nokia.py',  # Taking too long
+        # 'nokia.py',  # uncomment again if actions take too long
         'careerscenter.py',  # Website cannot be accessed in actions
         'brillio.py',  # there are no jobs available
         'aeroportoradea.py',  # Removed as they changed the page layout, to be fixed
