@@ -50,6 +50,7 @@ if __name__ == "__main__":
         'iasidelivery.py',  # Website not working
         'qubiz.py',
         'getCounty.py',
+        'test2.py',
         'test.py'
     ]
 
