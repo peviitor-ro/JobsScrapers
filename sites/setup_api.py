@@ -48,7 +48,5 @@ class UpdatePeviitorAPI:
         }
 
         print(f"Data List to send: {json.dumps(self.data_list)}")
-        requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list))
         print("ADD JOB REQUEST STATUS: ")
         print(requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list)))
-
