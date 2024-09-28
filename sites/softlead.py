@@ -30,11 +30,10 @@ class SoftleadScraper(BS4Scraper):
         Scrape job data from Softlead website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'blog-title')
-        job_urls_elements = self.get_jobs_elements('class_', 'readmore')    
+        job_elements = self.get_jobs_elements('css_', '#tab-all > div > div > div > div.content > a')
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        self.job_titles = self.get_jobs_details_text(job_elements)
+        self.job_urls = self.get_jobs_details_href(job_elements)
 
         # Convert relative URLs to absolute URLs
         self.job_urls = [self.base_url + job_url for job_url in self.job_urls]
