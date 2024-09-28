@@ -29,10 +29,9 @@ class panifcomScraper(BS4Scraper):
         Scrape job data from panifcom website.
         """
 
-        job_elements = self.get_jobs_elements('class_', 'd2edcug0')
+        job_elements = self.get_jobs_elements('class_', 'w-tabs-section-title')
         
         self.job_titles = self.get_jobs_details_text(job_elements)
-        self.job_cities = self.get_jobs_details_text(job_elements)
 
         self.format_data()
         
@@ -48,14 +47,9 @@ class panifcomScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_city in zip(self.job_titles, self.job_cities):
-            job_city = job_city.split()[-1].replace("!", "")
-            
-            # This needs to be modified in the future
-            job_title = job_title.replace("Căutăm ", "").replace("pentru ", "").replace("din ", "").replace("din ", "").replace("magazinele ", "").replace("noastre ", "").replace("personal", "").replace("postul", "").replace("de ", "").replace(",", "").replace(job_city, "").replace("  ", "")
-            
+        for job_title in self.job_titles:
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title[:-2], job_url, "România", job_city)
+            self.create_jobs_dict(job_title, job_url, "România", "Iasi")
             self.job_count += 1
 
 if __name__ == "__main__":
