@@ -41,17 +41,13 @@ if __name__ == "__main__":
         'website_scraper_api.py',
         'website_scraper_bs4.py',
         'website_scraper_selenium.py',
-        'reinest.py',  # This does not have a career's page now
+        'reinert.py',  # This does not have a career's page now
         'typingdna.py',  # This does not have a career's page now
-        'netrom.py',  # This does not have a career's page now
         # 'nokia.py',  # Taking too long
-        'kaizengaming.py',  # Website changed
         'careerscenter.py',  # Website cannot be accessed in actions
         'brillio.py',  # there are no jobs available
         'aeroportoradea.py',  # Removed as they changed the page layout, to be fixed
-        'mennekes.py',  # This does not have jobs at this moment
         'iasidelivery.py',  # Website not working
-        'apavital.py',
         'qubiz.py',
         'getCounty.py',
         'test.py'
