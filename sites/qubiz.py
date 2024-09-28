@@ -5,13 +5,14 @@
 ## Qubiz > https://www.qubiz.com/jobs
 
 from sites.website_scraper_bs4 import BS4Scraper
+import time
 
 class QubizScraper(BS4Scraper):
     
     """
     A class for scraping job data from Qubiz website.
     """
-    url = 'https://www.qubiz.com/jobs'
+    url = 'https://qubiz.com/jobs?page=1'
     url_logo = 'https://assets-global.website-files.com/603e16fd5761f8f7787bf39a/64491d149607dd73d0e80235_LogoWebsiteAnniversary.svg'
     company_name = 'Qubiz'
     
@@ -29,9 +30,27 @@ class QubizScraper(BS4Scraper):
         Scrape job data from Qubiz website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'head-2-job-title')
-        job_urls_elements = self.get_jobs_elements('class_', 'button-blue---job-openings w-button')
-        job_cities_elements = self.get_jobs_elements('class_', 'text-block-12')
+        page = 1
+        job_titles_elements = []
+        job_urls_elements = []
+        job_cities_elements = []
+
+        while True:
+            titles = self.get_jobs_elements('css_', 'a > h4')
+            urls = self.get_jobs_elements('css_', 'div.flex.flex-col > div > a')
+            cities = self.get_jobs_elements('css_', 'a > h6')
+
+            if not titles:
+                break  # Exit loop if no job elements found
+
+            job_titles_elements.extend(titles)
+            job_urls_elements.extend(urls)
+            job_cities_elements.extend(cities)
+
+            page += 1
+            self.url = f"https://qubiz.com/jobs?page={page}"
+            self.get_response()
+            time.sleep(30)
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_urls = self.get_jobs_details_href(job_urls_elements)
@@ -53,7 +72,17 @@ class QubizScraper(BS4Scraper):
         """
         job_country = "Romania"
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            self.create_jobs_dict(job_title, job_url, job_country, job_city, remote='on-site', county=None)
+            job_city = job_city.split(" | ")[0].split(", ")
+            if "Remote" in job_city:
+                remote = 'remote'
+                job_city.remove("Remote")
+            elif "Hybrid" in job_city:
+                remote = 'hybrid'
+                job_city.remove("Hybrid")
+            else:
+                remote = 'on-site'
+            job_url = f"https://qubiz.com{job_url}"
+            self.create_jobs_dict(job_title, job_url, job_country, job_city, remote=remote, county=None)
 
 if __name__ == "__main__":
     Qubiz = QubizScraper()
