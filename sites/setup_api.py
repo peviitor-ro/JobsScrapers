@@ -36,7 +36,7 @@ class UpdatePeviitorAPI:
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         }
 
-        self.access_token = requests.request("POST", "https://api.peviitor.ro/v5/get_token/", headers=post_header, data=payload).json()['access']
+        self.access_token = requests.request("POST", "https://api.laurentiumarian.ro/get_token", headers=post_header, data=payload).json()['access']
 
     
     def add_jobs(self):
@@ -47,4 +47,6 @@ class UpdatePeviitorAPI:
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         }
 
-        requests.request("POST", "https://api.peviitor.ro/v5/add/", headers=post_header, data=json.dumps(self.data_list))
+        print(f"Data List to send: {json.dumps(self.data_list)}")
+        print("ADD JOB REQUEST STATUS: ")
+        print(requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list)))
