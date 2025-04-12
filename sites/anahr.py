@@ -62,11 +62,11 @@ class anahrScraper(BS4Scraper):
         for job_title, job_url in zip(self.job_titles, self.job_urls):
             self.create_jobs_dict(job_title, job_url, "România", "Oradea")
 
-if __name__ == "__main__":
-    anahr = anahrScraper()
-    anahr.get_response()
-    anahr.scrape_jobs()
-    anahr.sent_to_future()
+#if __name__ == "__main__":
+    #anahr = anahrScraper()
+    #anahr.get_response()
+    #anahr.scrape_jobs()
+    #anahr.sent_to_future()
     
     
 
