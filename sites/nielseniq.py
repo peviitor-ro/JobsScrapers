@@ -88,11 +88,11 @@ class nielseniqScraper(BS4Scraper):
                 job_city = "București"
             self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
 
-if __name__ == "__main__":
-    nielseniq = nielseniqScraper()
-    nielseniq.get_response()
-    nielseniq.scrape_jobs()
-    nielseniq.sent_to_future()
+#if __name__ == "__main__":
+    #nielseniq = nielseniqScraper()
+    #nielseniq.get_response()
+    #nielseniq.scrape_jobs()
+    #nielseniq.sent_to_future()
     
     
 
