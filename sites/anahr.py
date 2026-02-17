@@ -3,54 +3,52 @@
 #
 # anahr > https://anahr.ro/domenii/joburi-pe-domenii/
 
-from sites.website_scraper_bs4 import BS4Scraper
+from sites.website_scraper_api import WebsiteScraperAPI
+import requests
 
-class anahrScraper(BS4Scraper):
+class anahrScraper(WebsiteScraperAPI):
     
     """
     A class for scraping job data from anahr website.
     """
-    url = 'https://anahr.ro/domenii/joburi-pe-domenii/page/'
+    url = 'https://anahr.zohorecruit.com/recruit/v2/public/Job_Openings?pagename=Careers&source=CareerSite'
     url_logo = 'https://anahr.ro/wp-content/uploads/2023/01/logo-01.svg'
     company_name = 'anahr'
     
     def __init__(self):
         """
-        Initialize the BS4Scraper class.
+        Initialize the WebsitescraperAPI class.
         """
-        super().__init__(self.company_name, self.url_logo)
-        
+        super().__init__(self.company_name, self.url, self.url_logo)
+
+    def set_headers(self):
+        self.headers = {
+            'Accept': 'application/json'
+        }
+
     def get_response(self):
-        self.get_content(self.url)
-    
+        """
+        Send a GET request and retrieve the jobs response.
+        """
+        self.job_details = requests.get(
+            self.url, headers=self.headers).json()['data']
+        
+        self.get_jobs_response(self.job_details)
+
     def scrape_jobs(self):
         """
-        Scrape job data from anahr website.
+        Scrape job data from CGM website.
         """
-        error_text = []
-        self.job_titles = []
-        self.job_urls = []
-        count_page = 1
-        
-        while error_text != ['Se pare că nu s-a găsit nimic în această locație. Poate încercați o căutare?']:
-            self.get_content(f"https://anahr.ro/domenii/joburi-pe-domenii/page/{count_page}")
-            job_titles_elements = self.get_jobs_elements('class_', 'uk-link-reset')
-            job_urls_elements = self.get_jobs_elements('class_', "el-link uk-button uk-button-primary")
-            
-            self.job_titles.extend(self.get_jobs_details_text(job_titles_elements))
-            self.job_urls.extend(self.get_jobs_details_href(job_urls_elements))
-            
-            error_text = self.get_jobs_details_text(self.get_jobs_elements('class_', 'uk-text-large uk-text-center uk-margin-large-bottom'))
-            
-            count_page += 1
-
-
+        self.job_titles = self.get_job_details(['Posting_Title'])
+        self.job_cities = self.get_job_details(['City'])
+        self.job_urls = self.get_job_details(['$url'])
         self.format_data()
-        
+
     def sent_to_future(self):
         self.send_to_viitor()
-    
+
     def return_data(self):
+        self.set_headers()
         self.get_response()
         self.scrape_jobs()
         return self.formatted_data, self.company_name
@@ -59,14 +57,14 @@ class anahrScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", "Oradea")
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
-#if __name__ == "__main__":
-    #anahr = anahrScraper()
-    #anahr.get_response()
-    #anahr.scrape_jobs()
-    #anahr.sent_to_future()
-    
-    
+
+if __name__ == "__main__":
+    anahr = anahrScraper()
+    anahr.set_headers()
+    anahr.get_response()
+    anahr.scrape_jobs()
+    anahr.sent_to_future()
 
