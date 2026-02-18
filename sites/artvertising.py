@@ -28,7 +28,9 @@ class artvertisingScraper(BS4Scraper):
         Scrape job data from artvertising website.
         """
 
-        job_elements = self.get_jobs_elements('css_', "div:nth-child(5) > div > div > div > h4 > a")
+        job_elements = self.get_jobs_elements(
+            'css_', "body > div:nth-child(6) > div a")
+        print(job_elements)
         
         self.job_titles = self.get_jobs_details_text(job_elements)
         self.job_urls = self.get_jobs_details_href(job_elements)
