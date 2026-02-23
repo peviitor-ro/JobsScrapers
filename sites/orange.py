@@ -5,13 +5,12 @@
 
 
 import requests
-import uuid
 from sites.website_scraper_api import WebsiteScraperAPI
 
 class OrangeScraper(WebsiteScraperAPI):
     
     """
-    A class for scraping job data from Nagarro website.
+    A class for scraping job data from Orange website.
     """
     url = 'https://www.orange.ro/ux-admin/api/jobs/getJobs?&order=closing_date&direction=desc'
     url_logo = 'https://www.orange.ro/imagini/orange-logo-static.svg'
@@ -37,7 +36,7 @@ class OrangeScraper(WebsiteScraperAPI):
         """
         self.job_details = requests.get(
             self.url,
-            headers=self.headers).json()
+            headers=self.headers, timeout=600).json()
         self.get_jobs_response(self.job_details)
     
     def scrape_jobs(self):
@@ -52,7 +51,7 @@ class OrangeScraper(WebsiteScraperAPI):
 
     def format_data(self):
         job_country = 'Romania'   
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls):
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             self.create_jobs_dict(job_title, job_url, job_country, job_city)
             
     

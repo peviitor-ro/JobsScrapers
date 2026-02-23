@@ -31,7 +31,7 @@ class anahrScraper(WebsiteScraperAPI):
         Send a GET request and retrieve the jobs response.
         """
         self.job_details = requests.get(
-            self.url, headers=self.headers).json()['data']
+            self.url, headers=self.headers, timeout=600).json()['data']
         
         self.get_jobs_response(self.job_details)
 

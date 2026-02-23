@@ -30,7 +30,7 @@ class CreatopyScraper(WebsiteScraperAPI):
         """
         Send a GET request and retrieve the jobs response.
         """
-        self.job_details = requests.get(self.URL, headers=self.headers).json()['result']
+        self.job_details = requests.get(self.URL, headers=self.headers, timeout=600).json()['result']
         self.get_jobs_response(self.job_details)
 
 

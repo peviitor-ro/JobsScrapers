@@ -42,7 +42,7 @@ class kimballelectronicsScraper(WebsiteScraperAPI):
         """
         Send a GET request and retrieve the jobs response.
         """
-        self.job_details = requests.post(self.URL, headers=self.headers, json=self.json_data).json()['jobPostings']
+        self.job_details = requests.post(self.URL, headers=self.headers, json=self.json_data, timeout=600).json()['jobPostings']
         self.get_jobs_response(self.job_details)
 
     def scrape_jobs(self):

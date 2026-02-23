@@ -36,7 +36,7 @@ class nokiaScraper(WebsiteScraperAPI):
         """
         self.job_details = requests.get(
             self.url,
-            headers=self.headers).json()['items'][0]['requisitionList']
+            headers=self.headers, timeout=600).json()['items'][0]['requisitionList']
         self.get_jobs_response(self.job_details)
 
     def scrape_jobs(self):

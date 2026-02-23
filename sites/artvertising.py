@@ -30,7 +30,6 @@ class artvertisingScraper(BS4Scraper):
 
         job_elements = self.get_jobs_elements(
             'css_', "body > div:nth-child(6) > div a")
-        print(job_elements)
         
         self.job_titles = self.get_jobs_details_text(job_elements)
         self.job_urls = self.get_jobs_details_href(job_elements)

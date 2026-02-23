@@ -50,7 +50,7 @@ class sephoraScraper(WebsiteScraperAPI):
         """
         Send a GET request and retrieve the jobs response.
         """
-        self.job_details = requests.get(self.URL, headers=self.headers, params=self.params).json()['offers']
+        self.job_details = requests.get(self.URL, headers=self.headers, params=self.params, timeout=600).json()['offers']
         self.get_jobs_response(self.job_details)
 
 

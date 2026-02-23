@@ -31,7 +31,7 @@ class BS4Scraper:
     def get_content(self, url):
         self._set_headers()
         # Ignoring ssl cert check as many websites don't update it
-        response = requests.get(url, headers=self.DEFAULT_HEADERS, verify=False)
+        response = requests.get(url, headers=self.DEFAULT_HEADERS, verify=False, timeout=600)
         # response = requests.get(url, headers=self.DEFAULT_HEADERS)
         self.soup = BeautifulSoup(response.content, 'lxml')
 

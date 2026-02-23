@@ -36,7 +36,7 @@ class htecgroupScraper(WebsiteScraperAPI):
         """
         Send a GET request and retrieve the jobs response.
         """
-        self.job_details = requests.get(self.URL, params=self.params).json()['Results']
+        self.job_details = requests.get(self.URL, params=self.params, timeout=600).json()['Results']
         self.get_jobs_response(self.job_details)
 
 

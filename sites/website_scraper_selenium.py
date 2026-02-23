@@ -97,7 +97,6 @@ class SeleniumScraper:
         if not county:
             # Get the county using the city
             if type(job_city) == list:
-                print(job_city)
                 for city in job_city:
                     self.counties.append(self.get_county(city))
                 job_county = self.counties

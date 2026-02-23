@@ -5,7 +5,6 @@
 
 
 import requests
-import uuid
 from sites.website_scraper_api import WebsiteScraperAPI
 
 class NagarroScraper(WebsiteScraperAPI):
@@ -37,7 +36,7 @@ class NagarroScraper(WebsiteScraperAPI):
         """
         self.job_details = requests.get(
             self.url,
-            headers=self.headers).json()["value"]
+            headers=self.headers, timeout=600).json()["value"]
         self.get_jobs_response(self.job_details)
     
     def scrape_jobs(self):

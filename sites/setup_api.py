@@ -47,6 +47,5 @@ class UpdatePeviitorAPI:
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         }
 
-        print(f"Data List to send: {json.dumps(self.data_list)}")
         print("ADD JOB REQUEST STATUS: ")
         print(requests.request("POST", "https://api.laurentiumarian.ro/jobs/add/", headers=post_header, data=json.dumps(self.data_list)))

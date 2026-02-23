@@ -36,7 +36,7 @@ class reginamariaScraper(BS4Scraper):
         
         page = 1
         while True:
-            response = requests.get(f'https://cariere.reginamaria.ro/jobs/load?page={page}', headers=self.DEFAULT_HEADERS)
+            response = requests.get(f'https://cariere.reginamaria.ro/jobs/load?page={page}', headers=self.DEFAULT_HEADERS, timeout=600)
             data = response.json()
             
             jobs = data.get('data', {}).get('jobs', [])
