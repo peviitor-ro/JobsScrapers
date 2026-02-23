@@ -1,16 +1,18 @@
 #
 #
 #
-# reginamaria > https://cariere.reginamaria.ro/jobs?search=&p=1000
+# reginamaria > https://cariere.reginamaria.ro/jobs
 
+import requests
 from sites.website_scraper_bs4 import BS4Scraper
+
 
 class reginamariaScraper(BS4Scraper):
     
     """
     A class for scraping job data from reginamaria website.
     """
-    url = 'https://cariere.reginamaria.ro/jobs?search=&p=1000'
+    url = 'https://cariere.reginamaria.ro/jobs'
     url_logo = 'https://www.reginamaria.ro/themes/custom/regina_maria/logo.svg'
     company_name = 'reginamaria'
     
@@ -25,16 +27,33 @@ class reginamariaScraper(BS4Scraper):
     
     def scrape_jobs(self):
         """
-        Scrape job data from reginamaria website.
+        Scrape job data from reginamaria website using API.
         """
 
-        job_elements = self.get_jobs_elements('css_', 'div.theTitle > a')
-        job_city_elements = self.get_jobs_elements('css_', 'div > ul > li:nth-child(5)')
+        self.job_titles = []
+        self.job_urls = []
+        self.job_cities = []
         
-        self.job_cities = self.get_jobs_details_text(job_city_elements)
-        self.job_titles = self.get_jobs_details_text(job_elements)
+        page = 1
+        while True:
+            response = requests.get(f'https://cariere.reginamaria.ro/jobs/load?page={page}', headers=self.DEFAULT_HEADERS)
+            data = response.json()
             
-        self.job_urls = self.get_jobs_details_href(job_elements)
+            jobs = data.get('data', {}).get('jobs', [])
+            if not jobs:
+                break
+                
+            for job in jobs:
+                self.job_titles.append(job.get('title', ''))
+                self.job_urls.append(job.get('url', ''))
+                city_data = job.get('city', [])
+                if city_data and isinstance(city_data, list):
+                    city = city_data[0].get('name', '') if city_data else ''
+                else:
+                    city = ''
+                self.job_cities.append(city)
+            
+            page += 1
 
         self.format_data()
         
@@ -51,7 +70,7 @@ class reginamariaScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Locatie ", ""))
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
     reginamaria = reginamariaScraper()
