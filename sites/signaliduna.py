@@ -1,7 +1,7 @@
 #
 #
 #
-# signaliduna > https://www.signal-iduna.ro/cariere
+# signaliduna > https://www.signal-iduna.ro/ro/cariere
 
 from sites.website_scraper_bs4 import BS4Scraper
 
@@ -10,7 +10,7 @@ class signalidunaScraper(BS4Scraper):
     """
     A class for scraping job data from signaliduna website.
     """
-    url = 'https://www.signal-iduna.ro/cariere'
+    url = 'https://www.signal-iduna.ro/ro/cariere'
     url_logo = 'https://www.signal-iduna.ro/images/og_image_v1.jpg'
     company_name = 'signaliduna'
     
@@ -28,8 +28,8 @@ class signalidunaScraper(BS4Scraper):
         Scrape job data from signaliduna website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', "h4[class='title']")
-        job_urls_elements = self.get_jobs_elements('css_', "div > div:nth-child(2) > div > div > a")
+        job_titles_elements = self.get_jobs_elements('css_', "h3.text-primary")
+        job_urls_elements = self.get_jobs_elements('css_', "a[href*='/cariere/']")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_urls = self.get_jobs_details_href(job_urls_elements)

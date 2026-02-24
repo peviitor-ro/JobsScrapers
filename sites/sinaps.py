@@ -29,8 +29,8 @@ class sinapsScraper(BS4Scraper):
         Scrape job data from sinaps website.
         """
 
-        job_title_elements = self.get_jobs_elements('css_', 'div > h5')
-        job_urls_elements = self.get_jobs_elements('css_', 'div.vc_btn3-container.buton-ghost.vc_btn3-inline > a')
+        job_title_elements = self.get_jobs_elements('css_', 'div.wpb_wrapper > h5')
+        job_urls_elements = self.get_jobs_elements('css_', 'div.vc_general.vc_btn3')
         
         self.job_titles = self.get_jobs_details_text(job_title_elements)
         self.job_urls = self.get_jobs_details_href(job_urls_elements)

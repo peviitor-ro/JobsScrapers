@@ -10,7 +10,7 @@ class rdnautomaticScraper(BS4Scraper):
     """
     A class for scraping job data from rdnautomatic website.
     """
-    url = 'https://www.rndautomatic.com/en/Career.html'
+    url = 'https://www.rndautomatic.com/en/careers'
     url_logo = 'https://www.rndautomatic.com/images/logo/rndlogo.png'
     company_name = 'rdnautomatic'
     
@@ -29,11 +29,12 @@ class rdnautomaticScraper(BS4Scraper):
         Scrape job data from rdnautomatic website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'job-title')
-        job_cities_elements = self.get_jobs_elements('class_', "job-location")
+        job_titles_elements = self.get_jobs_elements('class_', 'service-title')
+        job_cities_elements = self.get_jobs_elements('class_', 'job-atribute-title')
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_cities = self.get_jobs_details_text(job_cities_elements)
+        cities = self.get_jobs_details_text(job_cities_elements)
+        self.job_cities = [c for c in cities if c != 'Full-Time']
 
         self.format_data()
         

@@ -30,9 +30,9 @@ class dentesseScraper(BS4Scraper):
         Scrape job data from dentesse website.
         """
 
-        job_elements = self.get_jobs_elements('class_', 'elementor-accordion-title')
+        job_elements = self.get_jobs_elements('class_', 'panel-title')
         
-        self.job_titles = self.get_jobs_details_text(job_elements)
+        self.job_titles = list(set(self.get_jobs_details_text(job_elements)))
 
         self.format_data()
         
