@@ -1,7 +1,7 @@
 #
 # 
 #
-# duktech > https://www.duk-tech.com/
+# duktech > https://www.duk-tech.com/career
 
 
 from sites.website_scraper_bs4 import BS4Scraper
@@ -11,7 +11,7 @@ class duktechScraper(BS4Scraper):
     """
     A class for scraping job data from duktech website.
     """
-    url = 'https://www.duk-tech.com/'
+    url = 'https://www.duk-tech.com/career'
     url_logo = 'https://imgcdn.bestjobs.eu/cdn/el/plain/employer_logo/5c59670789be5.png'
     company_name = 'duktech'
     
@@ -29,10 +29,10 @@ class duktechScraper(BS4Scraper):
         Scrape job data from duktech website.
         """
 
-        job_elements = self.get_jobs_elements('css_', 'div.flex-column.d-flex.col-md-3.col-6 > span > a')
+        job_elements = self.get_jobs_elements('class_', 'card-title')
         
-        self.job_titles = self.get_jobs_details_text(job_elements)
-        self.job_urls = self.get_jobs_details_href(job_elements)
+        titles = self.get_jobs_details_text(job_elements)
+        self.job_titles = [t for t in titles if 'Manager' in t or 'Architect' in t]
         
         self.format_data()
         
@@ -48,8 +48,8 @@ class duktechScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
-            job_url = f"https://www.duk-tech.com{job_url}"
+        for job_title in self.job_titles:
+            job_url = self.url
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":

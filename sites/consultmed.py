@@ -1,7 +1,7 @@
 #
 #
 #
-# consultmed > https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/
+# consultmed > https://consultmed.ro/cariere/
 
 from sites.website_scraper_bs4 import BS4Scraper
 
@@ -10,15 +10,14 @@ class consultmedScraper(BS4Scraper):
     """
     A class for scraping job data from consultmed website.
     """
-    url = 'https://consultmed.ro/consultmed-clinica-diabet-nutritie-iasi/cariere/'
-    url_logo = 'https://consultmed.ro/wp-content/uploads/2021/06/logo7.png'
+    url = 'https://consultmed.ro/cariere/'
+    url_logo = 'https://new.consultmed.ro/wp-content/uploads/2025/11/logo7-215x88-1.png'
     company_name = 'consultmed'
     
     def __init__(self):
         """
         Initialize the BS4Scraper class.
         """
-        self.job_count = 1
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
@@ -29,9 +28,21 @@ class consultmedScraper(BS4Scraper):
         Scrape job data from consultmed website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', '#diabet > div > ul > li')
+        job_elements = self.get_jobs_elements('css_', 'div.cm-job')
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
+        self.job_titles = []
+        self.job_urls = []
+        
+        for job in job_elements:
+            title_elem = job.find('b')
+            if title_elem:
+                self.job_titles.append(title_elem.text.strip())
+            
+            link_elem = job.find('a', class_='cm-btn')
+            if link_elem and link_elem.get('href'):
+                self.job_urls.append(link_elem.get('href'))
+            else:
+                self.job_urls.append('')
 
         self.format_data()
         
@@ -47,10 +58,8 @@ class consultmedScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title in self.job_titles:
-            job_url = self.url + "#" + str(self.job_count)
+        for job_title, job_url in zip(self.job_titles, self.job_urls):
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
-            self.job_count += 1
 
 if __name__ == "__main__":
     consultmed = consultmedScraper()
