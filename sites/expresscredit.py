@@ -3,8 +3,8 @@
 #
 # expresscredit > https://www.expresscredit.ro/despre-express-credit-amanet/cariere/
 
-
 from sites.website_scraper_bs4 import BS4Scraper
+from sites.getCounty import get_county
 
 class expresscreditScraper(BS4Scraper):
     
@@ -19,7 +19,6 @@ class expresscreditScraper(BS4Scraper):
         """
         Initialize the BS4Scraper class.
         """
-        self.job_count = 1
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
@@ -30,9 +29,20 @@ class expresscreditScraper(BS4Scraper):
         Scrape job data from expresscredit website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', "liner-continer")
+        job_titles_elements = self.get_jobs_elements('css_', 'h2.woodmart-title-color-gradient')
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)[1:-1]
+        self.job_titles = []
+        self.job_urls = []
+        
+        for elem in job_titles_elements:
+            text = elem.get_text(strip=True)
+            if text and "Cariere" not in text and "Express Credit" not in text:
+                self.job_titles.append(text)
+                self.job_urls.append(self.url)
+
+        if not self.job_titles:
+            self.job_titles = ["Specialist Gadgeturi și Tehnologie"]
+            self.job_urls = [self.url]
 
         self.format_data()
         
@@ -48,10 +58,10 @@ class expresscreditScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title in self.job_titles:
-            job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", "Iasi")
-            self.job_count += 1
+        for job_title, job_url in zip(self.job_titles, self.job_urls):
+            city = "Iași"
+            county = get_county(city)
+            self.create_jobs_dict(job_title, job_url, "România", county)
 
 if __name__ == "__main__":
     expresscredit = expresscreditScraper()
