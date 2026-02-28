@@ -1,7 +1,7 @@
 #
 #
 #
-# Pago > https://pago.ro/#section-13
+# Pago > https://pago.ro/en/jobs
 
 
 from sites.website_scraper_bs4 import BS4Scraper
@@ -11,7 +11,7 @@ class PagoScraper(BS4Scraper):
     """
     A class for scraping job data from Pago website.
     """
-    url = 'https://pago.ro/#section-13'
+    url = 'https://pago.ro/en/jobs'
     url_logo = 'https://besticon-demo.herokuapp.com/lettericons/P-120-6a4397.png'
     company_name = 'Pago'
     
@@ -29,21 +29,25 @@ class PagoScraper(BS4Scraper):
         Scrape job data from Pago website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'job-name-text')
-        job_urls_elements = self.get_jobs_elements('css_', "a[class='button green']")
+        section = self.soup.find('section', class_='hai-in-echipa')
+        if section:
+            text = section.get_text(separator='\n', strip=True)
+            lines = text.split('\n')
+            self.job_titles = []
+            self.job_urls = []
+            
+            for line in lines:
+                line = line.strip()
+                if ' - ' in line and ('mid' in line.lower() or 'senior' in line.lower() or 'junior' in line.lower() or 'lead' in line.lower()):
+                    job_title = line.split(' - ')[0].strip()
+                    if job_title and len(job_title) > 3:
+                        self.job_titles.append(job_title)
+            
+            for a in section.find_all('a', href=True):
+                href = a.get('href', '')
+                if 'bamboohr.com/careers/' in href:
+                    self.job_urls.append(href)
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
-        self.job_cities = []
-        
-        # Itterate over links get the job city only remove unwanted data
-        for job_url in self.job_urls:
-            self.get_content(f"https://pago.ro/{job_url}")
-            job_city_element = self.get_jobs_elements('class_', 'job-site')
-            self.job_cities.append(self.get_jobs_details_text(job_city_element)[0].split()[0].replace(",", ""))
-        
-        
-
         self.format_data()
         
     def sent_to_future(self):
@@ -58,11 +62,8 @@ class PagoScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
-            job_url = f"https://pago.ro{job_url}"
-            if job_city == "Bucharest":
-                job_city = "Bucuresti"
-            self.create_jobs_dict(job_title, job_url, "România", job_city, "remote")
+        for job_title, job_url in zip(self.job_titles, self.job_urls):
+            self.create_jobs_dict(job_title, job_url, "România", "Romania", "remote")
 
 if __name__ == "__main__":
     Pago = PagoScraper()

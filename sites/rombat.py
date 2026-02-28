@@ -1,7 +1,7 @@
 #
 #
 #
-# rombat > https://www.rombat.ro/ro/companie/careers/
+# rombat > https://www.rombat.ro/cariere
 
 
 from sites.website_scraper_bs4 import BS4Scraper
@@ -25,14 +25,23 @@ class rombatScraper(BS4Scraper):
     def get_response(self):
         self.get_content(self.url)
 
+    url = 'https://www.rombat.ro/cariere'
+    
     def scrape_jobs(self):
         """
         Scrape job data from rombat website.  Extrage datele locurilor de muncă de pe site-ul rombat.
         """
 
-        job_title_elements = self.get_jobs_elements('css_', 'li.cms-singleline-control')
-
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
+        self.job_titles = []
+        
+        # Find h2 with 'Joburi ROMBAT' and get job titles from following elements
+        h2 = self.soup.find('h2', string=lambda x: x and 'Joburi ROMBAT' in x)
+        if h2:
+            # Find all h3 elements with job titles
+            for h3 in h2.find_all_next('h3'):
+                text = h3.get_text(strip=True)
+                if text and len(text) > 5:
+                    self.job_titles.append(text)
 
         self.format_data()
 
