@@ -1,9 +1,10 @@
 #
 #
 #
-# sonrisatechnologies > https://www.careers.sonrisa.hu/#jobs
+# sonrisatechnologies > https://www.careers.sonrisa.hu/
 
 from sites.website_scraper_bs4 import BS4Scraper
+from sites.getCounty import get_county
 
 class sonrisatechnologiesScraper(BS4Scraper):
     
@@ -28,11 +29,27 @@ class sonrisatechnologiesScraper(BS4Scraper):
         Scrape job data from sonrisatechnologies website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', 'text-block-base-link company-link-style')
-        job_urls_elements = self.get_jobs_elements('class_', "hover:bg-block-base-text hover:bg-opacity-3 flex flex-col py-2 px-4")
+        job_elements = self.get_jobs_elements('css_', 'li.border-b > div')
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        self.job_titles = []
+        self.job_urls = []
+        self.job_cities = []
+        
+        for job in job_elements:
+            title_elem = job.find('a')
+            if title_elem:
+                self.job_titles.append(title_elem.get_text(strip=True))
+                self.job_urls.append(title_elem.get('href'))
+            
+            location_elem = job.find('span', title=True)
+            if location_elem:
+                location_text = location_elem.get('title', '')
+                if location_text:
+                    self.job_cities.append(location_text)
+                else:
+                    self.job_cities.append(location_elem.get_text(strip=True))
+            else:
+                self.job_cities.append("")
 
         self.format_data()
         
@@ -48,12 +65,15 @@ class sonrisatechnologiesScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             if "Fully Remote" in job_title:
                 remote = "remote"
+            elif "Hybrid" in job_title:
+                remote = "hybrid"
             else:
-                remote = "On-site"
-            self.create_jobs_dict(job_title, job_url, "România", "Oradea", remote)
+                remote = "on-site"
+            
+            self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
 
 if __name__ == "__main__":
     sonrisatechnologies = sonrisatechnologiesScraper()
