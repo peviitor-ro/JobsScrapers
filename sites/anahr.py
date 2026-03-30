@@ -23,13 +23,15 @@ class anahrScraper(WebsiteScraperAPI):
 
     def set_headers(self):
         self.headers = {
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         }
 
     def get_response(self):
         """
         Send a GET request and retrieve the jobs response.
         """
+        self.set_headers()
         self.job_details = requests.get(
             self.url, headers=self.headers, timeout=600).json()['data']
         

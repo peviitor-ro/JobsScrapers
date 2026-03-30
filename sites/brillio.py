@@ -51,8 +51,18 @@ class brillioScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+        city_translations = {
+            "Bucharest": "Bucuresti",
+            "Cluj-Napoca": "Cluj-Napoca",
+            "Timisoara": "Timisoara",
+            "Iasi": "Iasi",
+            "Brasov": "Brasov",
+            "Constanta": "Constanta",
+            "Craiova": "Craiova",
+        }
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_city = job_city.split()[0][:-1]
+            job_city = city_translations.get(job_city, job_city)
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":

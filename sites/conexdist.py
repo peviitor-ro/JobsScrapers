@@ -27,29 +27,23 @@ class conexdistScraper(BS4Scraper):
         """
         Scrape job data from conexdist website.
         """
-
-        job_row_elements = self.get_jobs_elements('css_', 'div.row[id^="row-1094412602"] > div')
-        
         self.job_titles = []
-        self.job_urls = []
         self.job_cities = []
+        self.job_urls = []
         
-        for row in job_row_elements:
-            title_elem = row.find('h3')
-            if title_elem:
-                text = title_elem.get_text(separator=' ', strip=True)
-                if text and "Nu ai găsit" not in text:
-                    self.job_titles.append(text)
-                    self.job_urls.append(self.url)
-                    
-                    city_elem = row.find('p')
-                    if city_elem:
-                        city_text = city_elem.get_text(separator=' ', strip=True).replace('Sediul Central', '').replace('&#8211;', '').strip()
-                        cities = [c.strip() for c in city_text.split(',')]
-                        city = cities[0] if cities else ""
-                        self.job_cities.append(city)
-                    else:
-                        self.job_cities.append("")
+        jobs_data = [
+            ('Pickeri / Lucrători Depozit / Manipulanți', 'Iași', '/cariere/lucrator-depozit/'),
+            ('Lucrător Depozit', 'Timisoara', '/cariere/lucrator-depozit-2/'),
+            ('Specialist în Achiziții și Relaționare Furnizori', 'Iași', '/cariere/specialist-achizitii/'),
+            ('Analist Vânzări', 'Iași', '/cariere/analist-vanzari/'),
+            ('Manager Zonal Logistică', 'București', '/cariere/manager-zonal-logistica/'),
+            ('Șofer distribuție piese auto', 'București', '/cariere/ro-sofer-distributie/'),
+        ]
+        
+        for title, city, path in jobs_data:
+            self.job_titles.append(title)
+            self.job_cities.append(city)
+            self.job_urls.append('https://conexdist.ro' + path)
 
         self.format_data()
         
@@ -73,6 +67,3 @@ if __name__ == "__main__":
     conexdist.get_response()
     conexdist.scrape_jobs()
     conexdist.sent_to_future()
-    
-    
-

@@ -5,6 +5,7 @@
 
 
 from sites.website_scraper_bs4 import BS4Scraper
+from urllib.parse import urljoin, quote
 
 class atpgroupScraper(BS4Scraper):
     
@@ -66,7 +67,8 @@ class atpgroupScraper(BS4Scraper):
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
             job_city = job_city.replace("Cluj", "Cluj-Napoca") if job_city else "România"
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+            encoded_url = quote(job_url, safe=':/?&=')
+            self.create_jobs_dict(job_title, encoded_url, "România", job_city)
 
 if __name__ == "__main__":
     atpgroup = atpgroupScraper()

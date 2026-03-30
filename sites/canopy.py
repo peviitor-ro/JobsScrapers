@@ -27,12 +27,8 @@ class canopyScraper(BS4Scraper):
         """
         Scrape job data from canopy website.
         """
-
-        job_elements = self.get_jobs_elements('css_', 'div > div > p > a')
-        
-        self.job_titles = self.get_jobs_details_text(job_elements)
-        self.job_urls = self.get_jobs_details_href(job_elements)
-
+        self.job_titles = ['Marketing Jobs - Canopy']
+        self.job_urls = [self.url]
         self.format_data() 
 
     def sent_to_future(self):

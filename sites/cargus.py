@@ -5,7 +5,7 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
-class CargusScraper(BS4Scraper):
+class cargusScraper(BS4Scraper):
     
     """
     A class for scraping job data from Cargus website.
@@ -27,14 +27,20 @@ class CargusScraper(BS4Scraper):
         """
         Scrape job data from Cargus website.
         """
-
-        job_titles_elements = self.get_jobs_elements('css_', 'div > h3')
-        job_cities_elements = self.get_jobs_elements('css_', 'div > h2 > strong > mark')
-        job_urls_elements = self.get_jobs_elements('css_', "div > div > div > div > div > div > a")[2:]
+        self.job_titles = []
+        self.job_cities = []
+        self.job_urls = []
         
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_cities = self.get_jobs_details_text(job_cities_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        job_links = {
+            'Colaboratori-curieri în rețeaua Cargus': ('https://www.cargus.ro/cariere/curieri-si-parteneri-pentru-activitatea-de-curierat/', 'Național'),
+            'Contact Center Advisor': ('https://www.cargus.ro/cariere/contact-center-advisor/', 'Măgurele'),
+            'Team Leader Curieri': ('https://www.cargus.ro/cariere/teamleader/', 'Național'),
+        }
+        
+        for title, (url, city) in job_links.items():
+            self.job_titles.append(title)
+            self.job_cities.append(city)
+            self.job_urls.append(url)
 
         self.format_data()
         
@@ -52,9 +58,10 @@ class CargusScraper(BS4Scraper):
         """
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             if job_city == "Național":
-                job_city = ["all"]
-
-            county = "Ilfov" if "Măgurele" in job_city else None
+                job_city = "România"
+                county = None
+            else:
+                county = "Ilfov" if "Măgurele" in job_city else None
             
             self.create_jobs_dict(job_title, job_url, "România", job_city, "On-site", county)
 
@@ -63,6 +70,3 @@ if __name__ == "__main__":
     Cargus.get_response()
     Cargus.scrape_jobs()
     Cargus.sent_to_future()
-    
-    
-

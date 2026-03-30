@@ -48,8 +48,8 @@ class duktechScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title in self.job_titles:
-            job_url = self.url
+        for index, job_title in enumerate(self.job_titles, start=1):
+            job_url = f"{self.url}#{index}"
             self.create_jobs_dict(job_title, job_url, "România", "Iasi")
 
 if __name__ == "__main__":
