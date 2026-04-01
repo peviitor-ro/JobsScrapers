@@ -41,16 +41,6 @@ if __name__ == "__main__":
         'website_scraper_api.py',
         'website_scraper_bs4.py',
         'website_scraper_selenium.py',
-        'reinert.py',  # This does not have a career's page now
-        'typingdna.py',  # This does not have a career's page now
-        # 'nokia.py',  # uncomment again if actions take too long
-        'careerscenter.py',  # Website cannot be accessed in actions
-        'brillio.py',  # there are no jobs available
-        'aeroportoradea.py',  # Removed as they changed the page layout, to be fixed
-        'iasidelivery.py',  # Website not working
-        'qubiz.py',
-        'getCounty.py',
-        'canopy', # No jobs displayed on page currently
         'test.py'
     ]
 

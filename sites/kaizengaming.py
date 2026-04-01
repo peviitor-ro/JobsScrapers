@@ -1,17 +1,19 @@
 #
 #
 #
-# KaizenGaming > https://kaizengaming.com/open-positions/
+# KaizenGaming > https://job-boards.greenhouse.io/embed/job_board?for=kaizengaming
 
 
 from sites.website_scraper_bs4 import BS4Scraper
+import re
+
 
 class KaizenGamingScraper(BS4Scraper):
     
     """
     A class for scraping job data from KaizenGaming website.
     """
-    url = 'https://boards.greenhouse.io/embed/job_board?for=kaizengaming'
+    url = 'https://job-boards.greenhouse.io/embed/job_board?for=kaizengaming'
     url_logo = 'https://kaizengaming.com/wp-content/uploads/2022/11/Logo_KaizenGaming_Colour.svg'
     company_name = 'KaizenGaming'
     
@@ -28,13 +30,42 @@ class KaizenGamingScraper(BS4Scraper):
         """
         Scrape job data from KaizenGaming website.
         """
-
-        job_elements = self.get_jobs_elements('css_', "a[href^='https://careers.kaizengaming.com/job-details/']")
-        job_cities_elements = self.get_jobs_elements('class_', 'location')
+        self.job_titles = []
+        self.job_cities = []
+        self.job_urls = []
         
-        self.job_titles = self.get_jobs_details_text(job_elements)
-        self.job_cities = self.get_jobs_details_text(job_cities_elements)
-        self.job_urls = self.get_jobs_details_href(job_elements)
+        job_links = self.soup.find_all('a', href=lambda h: h and 'job-details' in h)
+        
+        for link in job_links:
+            href = link.get('href', '')
+            text = link.text.strip()
+            
+            if not href or not text:
+                continue
+            
+            # Parse title and location from text
+            # Format: "TitleLocation" (no space between title and location)
+            # e.g., "Senior Compliance OfficerBucharest, Romania"
+            
+            location_match = re.search(r'([A-Z][a-z]+(?:[\s,][A-Z][a-z]+)*,\s*[A-Z][a-z]+)$', text)
+            if location_match:
+                location = location_match.group(1)
+                title = text[:location_match.start()].strip()
+            else:
+                # Try another pattern - just look for Romania/Bucharest in text
+                if 'Romania' in text or 'Bucharest' in text:
+                    title = text.replace('Romania', '').replace('Bucharest', '').strip()
+                    location = 'Bucharest' if 'Bucharest' in text else 'Romania'
+                else:
+                    continue
+            
+            # Filter for Romania only
+            if 'Romania' in location or 'Bucharest' in location:
+                city = location.split(',')[0].strip().replace('Bucharest', 'Bucuresti')
+                
+                self.job_titles.append(title)
+                self.job_cities.append(city)
+                self.job_urls.append(href)
         
         self.format_data()
         
@@ -51,11 +82,6 @@ class KaizenGamingScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            if 'Romania' in job_city:
-                job_city = job_city.split(", ")[0].replace("Bucharest", "Bucuresti")
-            else:
-                continue
-            
             self.create_jobs_dict(job_title, job_url, "România", job_city)
 
 if __name__ == "__main__":
@@ -63,6 +89,3 @@ if __name__ == "__main__":
     KaizenGaming.get_response()
     KaizenGaming.scrape_jobs()
     KaizenGaming.sent_to_future()
-    
-    
-

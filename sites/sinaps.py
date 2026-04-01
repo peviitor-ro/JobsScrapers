@@ -6,6 +6,7 @@
 
 from sites.website_scraper_bs4 import BS4Scraper
 
+
 class sinapsScraper(BS4Scraper):
     
     """
@@ -28,12 +29,17 @@ class sinapsScraper(BS4Scraper):
         """
         Scrape job data from sinaps website.
         """
-
-        job_title_elements = self.get_jobs_elements('css_', 'div.wpb_wrapper > h5')
-        job_urls_elements = self.get_jobs_elements('css_', 'div.vc_general.vc_btn3')
+        self.job_titles = []
+        self.job_urls = []
         
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
-        self.job_urls = self.get_jobs_details_href(job_urls_elements)
+        # Find all "Wanted:" job titles
+        for text in self.soup.find_all(string=lambda t: t and 'Wanted:' in t):
+            parent = text.parent
+            if parent:
+                job_title = text.strip().replace('Wanted: ', '').strip()
+                # Jobs don't have individual URLs, use careers page with anchor
+                self.job_titles.append(job_title)
+                self.job_urls.append(self.url)
         
         self.format_data()
         
@@ -49,14 +55,13 @@ class sinapsScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url in zip(self.job_titles, self.job_urls):
-            self.create_jobs_dict(job_title.replace("Wanted: ", ""), job_url, "România", "Iasi")
+        for i, (job_title, job_url) in enumerate(zip(self.job_titles, self.job_urls)):
+            # Add index to make URLs unique
+            unique_url = f"{job_url}#job-{i+1}"
+            self.create_jobs_dict(job_title, unique_url, "România", "Iasi")
 
 if __name__ == "__main__":
     sinaps = sinapsScraper()
     sinaps.get_response()
     sinaps.scrape_jobs()
     sinaps.sent_to_future()
-    
-    
-

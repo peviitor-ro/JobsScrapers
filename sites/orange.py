@@ -1,73 +1,81 @@
 #
 #
 #
-# Orange > https://www.orange.ro/jobs/joburi-disponibile
+# Orange > https://orangeromania-careerpage.kariera.pro/jobs.feed.json
 
 
 import requests
-from sites.website_scraper_api import WebsiteScraperAPI
+from sites.website_scraper_bs4 import BS4Scraper
 
-class OrangeScraper(WebsiteScraperAPI):
+
+class OrangeScraper(BS4Scraper):
     
     """
     A class for scraping job data from Orange website.
     """
-    url = 'https://www.orange.ro/ux-admin/api/jobs/getJobs?&order=closing_date&direction=desc'
+    url = 'https://orangeromania-careerpage.kariera.pro/jobs.feed.json'
     url_logo = 'https://www.orange.ro/imagini/orange-logo-static.svg'
     company_name = 'Orange'
     
     def __init__(self):
         """
-        Defining de url, company name for the request and formatted data list for the jobs scrapped
+        Initialize the BS4Scraper class.
         """
-        super().__init__(self.company_name, self.url, self.url_logo)
-    
-    def request_headers(self):
-        """
-        Set the request headers.
-        """
-        self.headers = {
-            'Accept': 'application/json'
-        }
-    
+        super().__init__(self.company_name, self.url_logo)
+        
     def get_response(self):
-        """
-        Send a GET request and retrieve the response.
-        """
-        self.job_details = requests.get(
-            self.url,
-            headers=self.headers, timeout=600).json()
-        self.get_jobs_response(self.job_details)
+        response = requests.get(self.url, verify=False, timeout=30, headers={'Accept': 'application/json'})
+        self.json_data = response.json()
     
     def scrape_jobs(self):
         """
         Scrape job data from Orange website.
         """
-        self.job_titles = self.get_job_details(['title'])
-        self.job_cities = [job_city[0]['name'] for job_city in self.get_job_details(['location'])]
-        self.job_urls = self.get_job_details(['url'])
+        self.job_titles = []
+        self.job_cities = []
+        self.job_urls = []
+        
+        items = self.json_data.get('dataFeedElement', [])
+        
+        for item in items:
+            job = item.get('item', {})
+            location = job.get('jobLocation', {}).get('address', {})
+            country = location.get('addressCountry', '')
+            city = location.get('addressLocality', '')
+            
+            # Filter for Romania jobs
+            if country == 'Rumunia':
+                title = job.get('title', '')
+                job_url = job.get('url', '')
+                
+                # Normalize city names
+                city = city.replace('Bucharest', 'Bucuresti')
+                if city == 'Romania' or not city:
+                    city = 'Bucuresti'
+                
+                self.job_titles.append(title)
+                self.job_cities.append(city)
+                self.job_urls.append(job_url)
         
         self.format_data()
-
-    def format_data(self):
-        job_country = 'Romania'   
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            self.create_jobs_dict(job_title, job_url, job_country, job_city)
-            
-    
-    
+        
     def sent_to_future(self):
         self.send_to_viitor()
     
     def return_data(self):
-        self.request_headers()
         self.get_response()
         self.scrape_jobs()
         return self.formatted_data, self.company_name
 
+    def format_data(self):
+        """
+        Iterate over all job details and send to the create jobs dictionary.
+        """
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
+
 if __name__ == "__main__":
     Orange = OrangeScraper()
-    Orange.request_headers()
     Orange.get_response()
     Orange.scrape_jobs()
-    Orange.send_to_viitor()
+    Orange.sent_to_future()
