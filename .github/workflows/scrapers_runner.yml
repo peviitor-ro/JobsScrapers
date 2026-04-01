@@ -1,3 +1,5 @@
+name: Run Scrapers
+
 on:
   schedule:
     - cron: '00 04 * * *'
@@ -8,52 +10,53 @@ permissions:
 
 jobs:
   build:
+    if: ${{ github.event.repository.fork == false }}
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-    - name: Add Python Path
-      run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Install dependencies
-      run: |
-        python3 -m pip install --upgrade pip
-        pip3 install -r requirements.txt
-        sudo apt-get install curl
+      - name: Add Python Path
+        run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
-    - name: All scrapers run
-      env:
-        API_KEY: ${{ secrets.API_KEY }}
-      run: |
-        python3 sites/script_runner.py || true
-        echo "Continuing despite potential failure..."
+      - name: Install Python dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install -r requirements.txt
 
-    # - name: All scrapers run
-    #   env:
-    #     API_KEY: ${{ secrets.API_KEY }}
-    #   run: |
-    #     # Define the scripts to exclude
-    #     EXCLUDE=("__init__.py" "script_runner.py" "setup_api.py" "update_logo.py" "website_scraper_api.py" "website_scraper_bs4.py" "website_scraper_selenium.py" "reinest.py" "typingdna.py" "netrom.py" "kaizengaming.py" "careerscenter.py" "brillio.py" "aeroportoradea.py" "mennekes.py" "iasidelivery.py" "apavital.py" "qubiz.py" "getCounty.py" "test.py")
+      - name: Install OpenCode
+        run: npm install -g opencode-ai@latest
 
-    #     # Wait time between scripts (in seconds)
-    #     WAIT_TIME=10
+      - name: Verify OpenCode installation
+        run: opencode --version
 
-    #     # Run each Python script in the 'sites' directory except the excluded ones
-    #     for script in sites/*.py; do
-    #       script_name=$(basename "$script")
-    #       if [[ ! " ${EXCLUDE[@]} " =~ " ${script_name} " ]]; then
-    #         echo "Running: python3 $script"
-    #         python3 "$script" || echo "Error running $script"
-    #         echo "Waiting for $WAIT_TIME seconds before the next script..."
-    #         sleep $WAIT_TIME  # Wait for the specified time
-    #       else
-    #         echo "Skipping: $script_name"
-    #       fi
-    #     done
-        
+      - name: Run all scrapers
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+        run: python3 sites/script_runner.py
+
+      - name: Commit and push changes if needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Update scraper outputs"
+          git push
