@@ -22,7 +22,10 @@ class expresscreditScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        try:
+            self.get_content(self.url)
+        except Exception:
+            pass
     
     def scrape_jobs(self):
         """
