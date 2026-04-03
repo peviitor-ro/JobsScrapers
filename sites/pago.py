@@ -28,13 +28,13 @@ class PagoScraper(BS4Scraper):
         """
         Scrape job data from Pago website.
         """
+        self.job_titles = []
+        self.job_urls = []
 
         section = self.soup.find('section', class_='hai-in-echipa')
         if section:
             text = section.get_text(separator='\n', strip=True)
             lines = text.split('\n')
-            self.job_titles = []
-            self.job_urls = []
             
             for line in lines:
                 line = line.strip()
