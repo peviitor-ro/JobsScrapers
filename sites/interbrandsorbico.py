@@ -4,12 +4,13 @@
 # InterbrandsOrbico > https://interbrandsorbico.recruitee.com/oportunitati-deschise
 
 
-from sites.website_scraper_bs4 import BS4Scraper
-from requests_html import HTMLSession
+from sites.website_scraper_selenium import SeleniumScraper
+from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
+import time
 
 
-class InterbrandsOrbicoScraper(BS4Scraper):
+class InterbrandsOrbicoScraper(SeleniumScraper):
     
     """
     A class for scraping job data from InterbrandsOrbico website.
@@ -20,16 +21,15 @@ class InterbrandsOrbicoScraper(BS4Scraper):
     
     def __init__(self):
         """
-        Initialize the BS4Scraper class.
+        Initialize the SeleniumScraper class.
         """
         super().__init__(self.company_name, self.url_logo)
-        self.session = HTMLSession()
+        self.driver()
         
     def get_response(self):
-        self.session = HTMLSession()
-        r = self.session.get(self.url)
-        r.html.render(sleep=5, timeout=30)
-        self.html_content = r.html.html
+        self.open_website(self.url)
+        time.sleep(5)
+        self.html_content = self.driver.page_source
         
     def scrape_jobs(self):
         """
