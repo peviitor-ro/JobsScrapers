@@ -20,19 +20,40 @@ class deltatelgroupScraper(BS4Scraper):
         Initialize the BS4Scraper class.
         """
         super().__init__(self.company_name, self.url_logo)
+        self.soup = None
         
     def get_response(self):
-        self.get_content(self.url)
+        import requests
+        from requests.adapters import HTTPAdapter
+        from urllib3.util.retry import Retry
+        
+        session = requests.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+        
+        try:
+            self._set_headers()
+            response = session.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=(5, 30))
+            self.soup = self.parse_content(response.content)
+        except requests.exceptions.RequestException:
+            self.soup = None
+    
+    def parse_content(self, content):
+        from bs4 import BeautifulSoup
+        return BeautifulSoup(content, 'lxml')
     
     def scrape_jobs(self):
         """
         Scrape job data from deltatelgroup website.
         """
+        if self.soup is None:
+            return
 
-        job_titles_elements = self.get_jobs_elements('css_', "h2 > a")
-
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_links = self.get_jobs_details_href(job_titles_elements)
+        job_titles_elements = self.soup.select("h2 > a")
+        self.job_titles = [' '.join(el.text.split()) for el in job_titles_elements]
+        self.job_links = [' '.join(el.get('href').split()) for el in job_titles_elements]
 
         self.format_data()
         
@@ -57,6 +78,3 @@ if __name__ == "__main__":
     deltatelgroup.get_response()
     deltatelgroup.scrape_jobs()
     deltatelgroup.sent_to_future()
-    
-    
-

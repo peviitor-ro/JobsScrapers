@@ -21,20 +21,42 @@ class iuliuscompanyScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        import requests
+        from requests.adapters import HTTPAdapter
+        from urllib3.util.retry import Retry
+        
+        session = requests.Session()
+        retry = Retry(total=1, connect=1, backoff_factor=0.3)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+        
+        try:
+            self._set_headers()
+            response = session.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=3)
+            from bs4 import BeautifulSoup
+            self.soup = BeautifulSoup(response.content, 'lxml')
+        except Exception as e:
+            print(f"Error fetching content: {e}")
+            self.soup = None
     
     def scrape_jobs(self):
-        """
-        Scrape job data from iuliuscompany website.
-        """
+        if self.soup is None:
+            return
 
-        job_titles_elements = self.get_jobs_elements('css_', "div > div > div > div.poza-oferta > div.persoana-oferta > a > img")
-        job_location_elements = self.get_jobs_elements('class_', "locatie")
-        job_url_elements = self.get_jobs_elements('css_', 'div > div > div > div.poza-oferta > div.persoana-oferta > a')
+        job_cards = self.soup.select("div.box-oferta")
         
-        self.job_titles = self.get_jobs_details_tag('alt', job_titles_elements)
-        self.job_cities = self.get_jobs_details_text(job_location_elements)
-        self.job_urls = self.get_jobs_details_href(job_url_elements)
+        for card in job_cards:
+            title_elem = card.select_one("h2")
+            city_elem = card.select_one("div.locatie")
+            link_elem = card.select_one("a")
+            
+            if title_elem and city_elem and link_elem:
+                job_title = ' '.join(title_elem.text.split())
+                job_city = ' '.join(city_elem.text.split()).replace("LOCAȚIE: ", "").replace("Cluj", "Cluj-Napoca")
+                job_url = self.url + link_elem.get('href', '')
+                
+                self.create_jobs_dict(job_title, job_url, "România", job_city)
 
         self.format_data()
         
@@ -45,14 +67,6 @@ class iuliuscompanyScraper(BS4Scraper):
         self.get_response()
         self.scrape_jobs()
         return self.formatted_data, self.company_name
-
-    def format_data(self):
-        """
-        Iterate over all job details and send to the create jobs dictionary.
-        """
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            job_url = self.url + job_url
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("LOCAȚIE: ", "").replace("Cluj", "Cluj-Napoca"))
 
 if __name__ == "__main__":
     iuliuscompany = iuliuscompanyScraper()

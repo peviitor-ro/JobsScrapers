@@ -4,6 +4,9 @@
 # atpgroup > https://atp-group.ro/cariere/
 
 
+import time
+import requests
+from bs4 import BeautifulSoup
 from sites.website_scraper_bs4 import BS4Scraper
 from urllib.parse import urljoin, quote
 
@@ -23,7 +26,19 @@ class atpgroupScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                self._set_headers()
+                response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+                self.soup = BeautifulSoup(response.content, 'lxml')
+                return
+            except (requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError, 
+                    requests.exceptions.Timeout) as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                else:
+                    raise
     
     def scrape_jobs(self):
         """
