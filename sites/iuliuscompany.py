@@ -59,6 +59,9 @@ class iuliuscompanyScraper(BS4Scraper):
                 self.create_jobs_dict(job_title, job_url, "România", job_city)
 
         self.format_data()
+
+    def format_data(self):
+        pass
         
     def sent_to_future(self):
         self.send_to_viitor()
