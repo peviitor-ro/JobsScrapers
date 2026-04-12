@@ -4,6 +4,11 @@
 # rombat > https://www.rombat.ro/cariere
 
 
+import time
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+from bs4 import BeautifulSoup
 from sites.website_scraper_bs4 import BS4Scraper
 
 
@@ -22,8 +27,23 @@ class rombatScraper(BS4Scraper):
         self.job_count = 1
         super().__init__(self.company_name, self.url_logo)
 
+    def get_content_with_retry(self, url, max_retries=5):
+        self._set_headers()
+        session = requests.Session()
+        retry_strategy = Retry(
+            total=max_retries,
+            backoff_factor=1,
+            status_forcelist=[104, 429, 500, 502, 503, 504],
+            allowed_methods=["HEAD", "GET", "OPTIONS"]
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        session.mount("https://", adapter)
+        session.mount("http://", adapter)
+        response = session.get(url, headers=self.DEFAULT_HEADERS, verify=False, timeout=60)
+        self.soup = BeautifulSoup(response.content, 'lxml')
+
     def get_response(self):
-        self.get_content(self.url)
+        self.get_content_with_retry(self.url)
 
     url = 'https://www.rombat.ro/cariere'
     
