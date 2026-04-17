@@ -32,13 +32,16 @@ class atpgroupScraper(BS4Scraper):
                 self._set_headers()
                 response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
                 self.soup = BeautifulSoup(response.content, 'lxml')
-                return
+                return True
             except (requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError, 
-                    requests.exceptions.Timeout) as e:
+                    requests.exceptions.Timeout, requests.exceptions.RequestException) as e:
                 if attempt < max_retries - 1:
                     time.sleep(2 ** attempt)
                 else:
-                    raise
+                    print(f"Warning: Could not connect to {self.url}: {e}")
+                    self.soup = BeautifulSoup("", "lxml")
+                    return False
+        return False
     
     def scrape_jobs(self):
         """
