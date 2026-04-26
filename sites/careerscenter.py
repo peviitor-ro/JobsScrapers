@@ -34,39 +34,26 @@ class careerscenterScraper(BS4Scraper):
         self.job_cities = [] 
         self.job_urls = []
         
-        # Get the jobs
-        job_elements = self.get_jobs_elements('css_', "article[id^='post-']:not([data-expired='expirat'])")
-        job_links_elements = self.get_jobs_elements('css_', "div.jobs-content-holder.eq-jobs > div > h2 > a")
-        # Set the error message that will indicate inexistant page
-        error_msg = self.get_jobs_details_text(self.get_jobs_elements('css_', "#post-404 > h2 > a"))
-        
-        
-        
-        while error_msg != ['Vă întoarceţi la prima pagină?']:
+        while True:
+            job_elements = self.get_jobs_elements('css_', "article[id^='post-']:not([data-expired='expirat'])")
+            job_links_elements = self.get_jobs_elements('css_', "div.jobs-content-holder.eq-jobs > div > h2 > a")
             
-            # Remove useless data from title element and get only valid titles
+            if not job_elements:
+                break
+            
             unformatted_job_titles = self.get_jobs_details_text(job_elements)
             for unformatted_job_title in unformatted_job_titles:
                 self.job_titles.append(unformatted_job_title.split("Full time")[0][:-1])
                 self.job_cities.append(unformatted_job_title.split("Full time")[1][1:].split()[0].replace(",", ""))
                 
-            # Get only the links that are in the title
             unfiltered_job_links = self.get_jobs_details_href(job_links_elements)
             unfiltered_job_links_names = self.get_jobs_details_text(job_links_elements)
             for unfiltered_job_links_name, unfiltered_job_link in zip(unfiltered_job_links_names, unfiltered_job_links):
-                
                 if unfiltered_job_links_name in self.job_titles:
                     self.job_urls.append(unfiltered_job_link)
             
-    
-
             current_page += 1
             self.get_content(f"{self.url}{current_page}")
-            
-            error_msg = self.get_jobs_details_text(self.get_jobs_elements('css_', "#post-404 > h2 > a"))
-            
-            job_elements = self.get_jobs_elements('css_', "article[id^='post-']:not([data-expired='expirat'])")
-            job_links_elements = self.get_jobs_elements('css_', "div.jobs-content-holder.eq-jobs > div > h2 > a")
 
         self.format_data()
 
