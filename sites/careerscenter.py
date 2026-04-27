@@ -38,13 +38,17 @@ class careerscenterScraper(BS4Scraper):
             job_elements = self.get_jobs_elements('css_', "article[id^='post-']:not([data-expired='expirat'])")
             job_links_elements = self.get_jobs_elements('css_', "div.jobs-content-holder.eq-jobs > div > h2 > a")
             
-            if not job_elements:
+            if not job_elements or current_page > 50:
                 break
             
             unformatted_job_titles = self.get_jobs_details_text(job_elements)
             for unformatted_job_title in unformatted_job_titles:
-                self.job_titles.append(unformatted_job_title.split("Full time")[0][:-1])
-                self.job_cities.append(unformatted_job_title.split("Full time")[1][1:].split()[0].replace(",", ""))
+                parts = unformatted_job_title.split("Full time")
+                self.job_titles.append(parts[0][:-1] if parts else unformatted_job_title)
+                if len(parts) > 1:
+                    self.job_cities.append(parts[1][1:].split()[0].replace(",", ""))
+                else:
+                    self.job_cities.append("")
                 
             unfiltered_job_links = self.get_jobs_details_href(job_links_elements)
             unfiltered_job_links_names = self.get_jobs_details_text(job_links_elements)
