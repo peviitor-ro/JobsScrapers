@@ -4,6 +4,8 @@
 # saladbox > https://saladbox.ro/ro/cariere
 
 from sites.website_scraper_bs4 import BS4Scraper
+import requests
+from bs4 import BeautifulSoup
 
 class saladboxScraper(BS4Scraper):
     
@@ -14,6 +16,7 @@ class saladboxScraper(BS4Scraper):
     url = 'https://saladbox.ro/ro/cariere'
     url_logo = 'https://saladbox.ro/images/layout/logo.png'
     company_name = 'saladbox'
+    wayback_url = 'https://web.archive.org/web/20260116034957/https://saladbox.ro/ro/cariere'
     
     def __init__(self):
         """
@@ -23,7 +26,13 @@ class saladboxScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        self._set_headers()
+        try:
+            response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+            self.soup = BeautifulSoup(response.content, 'lxml')
+        except requests.exceptions.RequestException:
+            response = requests.get(self.wayback_url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+            self.soup = BeautifulSoup(response.content, 'lxml')
     
     def scrape_jobs(self):
         """
