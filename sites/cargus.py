@@ -66,7 +66,7 @@ class cargusScraper(BS4Scraper):
             self.create_jobs_dict(job_title, job_url, "România", job_city, "On-site", county)
 
 if __name__ == "__main__":
-    Cargus = CargusScraper()
+    Cargus = cargusScraper()
     Cargus.get_response()
     Cargus.scrape_jobs()
     Cargus.sent_to_future()

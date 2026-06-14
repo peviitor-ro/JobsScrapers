@@ -22,12 +22,33 @@ class cargotrackScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        import requests
+        from requests.adapters import HTTPAdapter
+        from urllib3.util.retry import Retry
+        
+        session = requests.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+        
+        try:
+            response = session.get(self.url, headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+            }, verify=False, timeout=(5, 30))
+            from bs4 import BeautifulSoup
+            self.soup = BeautifulSoup(response.content, 'lxml')
+        except requests.exceptions.RequestException:
+            self.soup = None
     
     def scrape_jobs(self):
         """
         Scrape job data from cargotrack website.
         """
+        if self.soup is None:
+            return
 
         job_cards = self.get_jobs_elements('css_', ".card")
         

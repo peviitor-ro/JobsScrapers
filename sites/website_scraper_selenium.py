@@ -1,6 +1,4 @@
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium import webdriver
@@ -24,9 +22,6 @@ class SeleniumScraper:
         self.formatted_data = []
         
     def driver(self):
-        # Set up the service object
-        service = Service(ChromeDriverManager().install())
-        
         # set chromeoptions
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -34,8 +29,8 @@ class SeleniumScraper:
         # Set to headless
         chrome_options.headless = True
         
-        # Create the webdriver using the service object
-        self.driver = webdriver.Chrome(service=service, options=chrome_options)
+        # Create the webdriver - selenium-manager auto-downloads correct driver
+        self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.maximize_window()
 
     def set_expected_wait(self):

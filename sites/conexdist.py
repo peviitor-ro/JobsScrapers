@@ -51,7 +51,6 @@ class conexdistScraper(BS4Scraper):
         self.send_to_viitor()
     
     def return_data(self):
-        self.get_response()
         self.scrape_jobs()
         return self.formatted_data, self.company_name
 
@@ -64,6 +63,5 @@ class conexdistScraper(BS4Scraper):
 
 if __name__ == "__main__":
     conexdist = conexdistScraper()
-    conexdist.get_response()
     conexdist.scrape_jobs()
     conexdist.sent_to_future()

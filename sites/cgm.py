@@ -23,7 +23,9 @@ class CGMScraper(WebsiteScraperAPI):
     
     def set_headers(self):
         self.headers = {
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         }
     
     def set_json_data(self):
@@ -35,27 +37,59 @@ class CGMScraper(WebsiteScraperAPI):
         },
         'limit': 20,
         'offset': 0,
-        'searchText': 'iasi',
+        'searchText': '',
         }
     
     def get_response(self):
         """
         Send a POST request and retrieve the jobs response.
         """
-        self.job_details = requests.post(self.URL, headers=self.headers, json=self.json_data, timeout=600).json()['jobPostings']
-        self.post_jobs_response(self.job_details)
+        response = requests.post(self.URL, headers=self.headers, json=self.json_data, timeout=600, allow_redirects=False)
+
+        if response.status_code in (302, 303, 307, 308):
+            location = response.headers.get('Location', '')
+            if 'maintenance' in location.lower() or 'community.workday.com' in location:
+                print(f"Warning: CGM Workday site is in maintenance mode. Skipping scrape.")
+                self.job_details = []
+                self.get_jobs_response(self.job_details)
+                return
+
+        response.raise_for_status()
+
+        content_type = response.headers.get('Content-Type', '')
+        if 'application/json' not in content_type:
+            print(f"Warning: API returned non-JSON response (Content-Type: {content_type}). Site may be in maintenance.")
+            self.job_details = []
+            self.get_jobs_response(self.job_details)
+            return
+
+        data = response.json()
+        if 'jobPostings' not in data:
+            print(f"Warning: Unexpected API response structure. Returning empty results.")
+            self.job_details = []
+            self.get_jobs_response(self.job_details)
+            return
+
+        self.job_details = data['jobPostings']
+        self.get_jobs_response(self.job_details)
 
     def scrape_jobs(self):
         """
         Scrape job data from CGM website.
         """
+        if not self.job_details:
+            return
+
         self.job_titles = self.get_job_details(['title'])
         self.job_cities = self.get_job_details(['locationsText'])
         self.job_urls = self.get_job_details(['externalPath'])
         self.format_data()
         
     def sent_to_future(self):
-        self.send_to_viitor()
+        if self.formatted_data:
+            self.send_to_viitor()
+        else:
+            print("No jobs to send to API.")
     
     def return_data(self):
         self.set_headers()
@@ -77,8 +111,11 @@ class CGMScraper(WebsiteScraperAPI):
 
 if __name__ == "__main__":
     CGM = CGMScraper()
-    CGM.set_headers()
-    CGM.set_json_data()
-    CGM.get_response()
-    CGM.scrape_jobs()
-    CGM.sent_to_future()
+    try:
+        CGM.set_headers()
+        CGM.set_json_data()
+        CGM.get_response()
+        CGM.scrape_jobs()
+        CGM.sent_to_future()
+    except Exception as e:
+        print(f"Scraper error: {e}")

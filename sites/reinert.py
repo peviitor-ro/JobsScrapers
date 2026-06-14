@@ -23,7 +23,7 @@ class reinertScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        pass
     
     def scrape_jobs(self):
         """
@@ -35,15 +35,7 @@ class reinertScraper(BS4Scraper):
         self.job_titles = []
         self.job_cities = []
         self.job_urls = []
-        
-        # The careers page doesn't have specific job positions listed
-        # It only shows: "If you would like to join us, we kindly ask you to send your CV at hr@reinert-romania.ro"
-        # Since there are no specific jobs, we don't add any jobs
-        # The company has offices in: Oradea (Romania), Bissingen (Germany), Liberec (Czech Republic)
-        
-        # If you want to add jobs when they appear, they would be parsed from the page
-        # For now, we leave it empty as no jobs are listed
-        
+
         self.format_data()
         
     def sent_to_future(self):
