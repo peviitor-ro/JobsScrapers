@@ -102,6 +102,9 @@ class BS4Scraper:
         """
         Sending the scrapped jobs to the future :)
         """
+        if not self.formatted_data:
+            print(f"{self.company_name} has no jobs")
+            return
         api_load = UpdatePeviitorAPI(self.company_name, self.formatted_data)
         api_load()
         update_logo(self.company_name, self.logo_url)
