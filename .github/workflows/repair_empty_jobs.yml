@@ -1,19 +1,23 @@
-name: Run Scrapers
 
-# Detection run: scrapers returning 0 jobs are recorded in the .cache repair
-# state and nothing else happens to them. Repair itself is disabled here on
-# purpose - it is reserved for repair_empty_jobs.yml (10 scrapers per day).
+# Daily repair run for scrapers that returned no jobs.
+#
+# scrapers_runner.yml runs first (04:00 UTC) and only detects empty scrapers,
+# recording them in .cache. This workflow picks them up from there, oldest
+# first, at most 10 per day (OPENCODE_EMPTY_JOBS_REPAIR_DAILY_BUDGET).
+# Scheduled at 14:00 UTC so it never overlaps with the detection run.
+
+name: Daily empty-jobs repair queue
 
 on:
   schedule:
-    - cron: '00 04 * * *'
+    - cron: '0 14 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  repair:
     if: ${{ github.event.repository.fork == false }}
     runs-on: ubuntu-latest
 
@@ -54,11 +58,10 @@ jobs:
           restore-keys: |
             empty-jobs-${{ runner.os }}-
 
-      - name: Run all scrapers
+      - name: Repair queued scrapers
         env:
           API_KEY: ${{ secrets.API_KEY }}
-          OPENCODE_EMPTY_JOBS_REPAIR_DISABLED: "1"
-        run: python3 sites/script_runner.py
+        run: python3 sites/script_runner.py --repair-backlog
 
       - name: Save empty-jobs repair state
         uses: actions/cache/save@v4

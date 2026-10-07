@@ -3,6 +3,11 @@ from bs4 import BeautifulSoup
 from sites.setup_api import UpdatePeviitorAPI
 from sites.update_logo import update_logo
 from sites.getCounty import get_county
+from sites.empty_jobs_repair import (
+    NO_JOBS_MARKER,
+    maybe_repair_empty_jobs_output,
+    scraper_path_for,
+)
 import json
 
 
@@ -104,6 +109,12 @@ class BS4Scraper:
         """
         if not self.formatted_data:
             print(f"{self.company_name} has no jobs")
+            # markerul se tipareste inainte de hook: repararea reusita se
+            # incheie cu SystemExit(0) si ar suprima orice print de dupa el
+            print(f"{NO_JOBS_MARKER} {self.company_name}", flush=True)
+            maybe_repair_empty_jobs_output(
+                self.company_name, scraper_path=scraper_path_for(self)
+            )
             return
         api_load = UpdatePeviitorAPI(self.company_name, self.formatted_data)
         api_load()
