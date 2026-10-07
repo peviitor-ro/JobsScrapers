@@ -32,9 +32,9 @@ class anahrScraper(WebsiteScraperAPI):
         Send a GET request and retrieve the jobs response.
         """
         self.set_headers()
-        self.job_details = requests.get(
-            self.url, headers=self.headers, timeout=600).json()['data']
-        
+        response = requests.get(self.url, headers=self.headers, timeout=600)
+        json_data = response.json()
+        self.job_details = json_data.get('data', [])
         self.get_jobs_response(self.job_details)
 
     def scrape_jobs(self):

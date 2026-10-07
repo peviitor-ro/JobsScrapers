@@ -27,14 +27,21 @@ class secondtexScraper(BS4Scraper):
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         }
         import requests
-        response = requests.get(self.url, verify=False, timeout=30, headers=headers)
         from bs4 import BeautifulSoup
-        self.soup = BeautifulSoup(response.content, 'lxml')
+        try:
+            response = requests.get(self.url, verify=False, timeout=30, headers=headers)
+            self.soup = BeautifulSoup(response.content, 'lxml')
+        except Exception as e:
+            print(f"Error fetching content: {e}")
+            self.soup = None
     
     def scrape_jobs(self):
         """
         Scrape job data from secondtex website.
         """
+        if self.soup is None:
+            return
+
         self.job_titles = []
         self.job_cities = []
         self.job_urls = []

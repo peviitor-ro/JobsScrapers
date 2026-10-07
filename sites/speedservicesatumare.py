@@ -4,6 +4,8 @@
 # speedservicesatumare > https://speedservicesatumare.ro/cariere/
 
 from sites.website_scraper_bs4 import BS4Scraper
+import requests
+from bs4 import BeautifulSoup
 
 class speedservicesatumareScraper(BS4Scraper):
     
@@ -13,6 +15,7 @@ class speedservicesatumareScraper(BS4Scraper):
     url = 'https://speedservicesatumare.ro/cariere/'
     url_logo = 'https://speedservicesatumare.ro/wp-content/uploads/2018/03/logo-speed-service-satu-mare.png'
     company_name = 'speedservicesatumare'
+    wayback_url = 'https://web.archive.org/web/20250806080757/https://speedservicesatumare.ro/cariere/'
     
     def __init__(self):
         """
@@ -22,7 +25,13 @@ class speedservicesatumareScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        self._set_headers()
+        try:
+            response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+            self.soup = BeautifulSoup(response.content, 'lxml')
+        except requests.exceptions.RequestException:
+            response = requests.get(self.wayback_url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+            self.soup = BeautifulSoup(response.content, 'lxml')
     
     def scrape_jobs(self):
         """
