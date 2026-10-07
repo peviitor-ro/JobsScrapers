@@ -44,18 +44,44 @@ class iuliuscompanyScraper(BS4Scraper):
         if self.soup is None:
             return
 
-        job_cards = self.soup.select("div.box-oferta")
-        
+        job_cards = self.soup.select("div.border-eveniment")
+        if not job_cards:
+            job_cards = self.soup.select("div.box-oferta")
+
         for card in job_cards:
-            title_elem = card.select_one("h2")
+            link_elem = card.select_one("a[href*='oferta-job']")
+            if not link_elem:
+                link_elem = card.select_one("a")
+
+            title_elem = card.select_one(".keywords-oferta a")
+            if not title_elem:
+                title_elem = card.select_one("h2")
+
             city_elem = card.select_one("div.locatie")
-            link_elem = card.select_one("a")
-            
-            if title_elem and city_elem and link_elem:
+            if not city_elem:
+                # sometimes location might be in a different element
+                city_elem = card.select_one(".locatie-oferta") or card.select_one("span.locatie")
+
+            if link_elem:
+                href = link_elem.get('href', '')
+                if href.startswith('http'):
+                    job_url = href
+                else:
+                    job_url = self.url + href
+            else:
+                job_url = None
+
+            if title_elem:
                 job_title = ' '.join(title_elem.text.split())
-                job_city = ' '.join(city_elem.text.split()).replace("LOCAȚIE: ", "").replace("Cluj", "Cluj-Napoca")
-                job_url = self.url + link_elem.get('href', '')
-                
+            else:
+                job_title = ' '.join(card.get_text(separator=' ', strip=True).split())[:100]
+
+            if city_elem:
+                job_city = ' '.join(city_elem.text.split()).replace("LOCAȚIE: ", "").replace("Locatie: ", "").replace("Cluj", "Cluj-Napoca")
+            else:
+                job_city = "România"
+
+            if job_url and job_title:
                 self.create_jobs_dict(job_title, job_url, "România", job_city)
 
         self.format_data()

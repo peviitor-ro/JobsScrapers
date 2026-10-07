@@ -28,21 +28,40 @@ class consultmedScraper(BS4Scraper):
         Scrape job data from consultmed website.
         """
 
-        job_elements = self.get_jobs_elements('css_', 'div.cm-job')
-        
         self.job_titles = []
         self.job_urls = []
-        
+
+        heading = None
+        for tag in self.soup.find_all(['h1', 'h2', 'h3', 'h4']):
+            if 'Posturi deschise' in tag.get_text():
+                heading = tag
+                break
+
+        container = heading.find_parent('div') if heading else None
+        grid = container.find('div', style=lambda s: s and 'display:grid' in s) if container else None
+        job_elements = grid.find_all('div', recursive=False) if grid else []
+
         for job in job_elements:
             title_elem = job.find('b')
-            if title_elem:
-                self.job_titles.append(title_elem.text.strip())
-            
-            link_elem = job.find('a', class_='cm-btn')
-            if link_elem and link_elem.get('href'):
+            if not title_elem:
+                for span in job.find_all('span'):
+                    if span.find('svg') is None:
+                        title_elem = span
+                        break
+            if not title_elem:
+                continue
+
+            title = title_elem.get_text(strip=True)
+            if not title:
+                continue
+
+            self.job_titles.append(title)
+
+            link_elem = job.find('a', href=True)
+            if link_elem:
                 self.job_urls.append(link_elem.get('href'))
             else:
-                self.job_urls.append('')
+                self.job_urls.append(self.url)
 
         self.format_data()
         

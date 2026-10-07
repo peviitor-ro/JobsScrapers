@@ -29,9 +29,26 @@ class affidearomaniaScraper(BS4Scraper):
         Scrape job data from affidearomania website.
         """
 
-        job_elements = self.get_jobs_elements('class_', 'sc-6exb5d-1 cTfiAE')
-        job_cities_elements = self.get_jobs_elements('class_', 'custom-css-style-job-location-city')
-        
+        location_pairs = [
+            (
+                job_city.find_previous(
+                    'a', href=lambda href: href and href.startswith('/o/')
+                ),
+                job_city,
+            )
+            for job_city in self.get_jobs_elements(
+                'class_', 'custom-css-style-job-location-city'
+            )
+        ]
+        location_pairs = [
+            (job_element, job_city)
+            for job_element, job_city in location_pairs
+            if job_element is not None
+        ]
+
+        job_elements = [job_element for job_element, _ in location_pairs]
+        job_cities_elements = [job_city for _, job_city in location_pairs]
+
         self.job_titles = self.get_jobs_details_text(job_elements)
         self.job_cities = self.get_jobs_details_text(job_cities_elements)
         self.job_urls = self.get_jobs_details_href(job_elements)
@@ -50,8 +67,12 @@ class affidearomaniaScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
+        seen_job_urls = set()
         for job_title, job_city, job_url in zip(self.job_titles, self.job_cities, self.job_urls):
             job_url = self.url + job_url
+            if job_url in seen_job_urls:
+                continue
+            seen_job_urls.add(job_url)
             if "Complex Cosmopolis" in job_city:
                 job_city = "Bucuresti"
             self.create_jobs_dict(job_title, job_url, "România", job_city.replace(", Romania", "").replace("PIATRA NEAMT", "Piatra-Neamt").split(", "))

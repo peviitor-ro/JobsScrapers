@@ -7,6 +7,8 @@
 from sites.website_scraper_selenium import SeleniumScraper
 from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
+import json
+import re
 import time
 
 
@@ -18,6 +20,19 @@ class InterbrandsOrbicoScraper(SeleniumScraper):
     url = 'https://interbrandsorbico.recruitee.com/oportunitati-deschise'
     url_logo = 'https://d27i7n2isjbnbi.cloudfront.net/careers/photos/270715/thumb_photo_1658741832.png'
     company_name = 'InterbrandsOrbico'
+    base_url = 'https://interbrandsorbico.recruitee.com'
+    remote_labels = {
+        'on-site': 'on-site',
+        'on site': 'on-site',
+        'onsite': 'on-site',
+        'hybrid': 'hybrid',
+        'remote': 'remote',
+        'fully remote': 'remote',
+    }
+    salary_pattern = re.compile(
+        r'RON\s*[\d.,]+(?:\s*(?:-|–|—)\s*(?:RON\s*)?[\d.,]+)?\s*per month',
+        re.IGNORECASE,
+    )
     
     def __init__(self):
         """
@@ -43,43 +58,9 @@ class InterbrandsOrbicoScraper(SeleniumScraper):
         self.job_remotes = []
         self.job_salaries = []
         
-        job_cards = soup.find_all(class_='sc-6exb5d-0')
-        
-        for card in job_cards:
-            title_elem = card.find(class_='sc-6exb5d-1')
-            title = title_elem.text.strip() if title_elem else ''
-            
-            if not title:
-                continue
-            
-            city_elem = card.find(class_='custom-css-style-job-location-city')
-            city = city_elem.text.strip() if city_elem else ''
-            
-            location_elem = card.find(class_='custom-css-style-job-location')
-            location_text = location_elem.text.strip() if location_elem else ''
-            
-            remote = 'on-site'
-            salary = ''
-            
-            location_elems = card.find_all(class_='sc-6exb5d-4')
-            for loc in location_elems:
-                loc_text = loc.text.strip()
-                if 'RON' in loc_text and 'per month' in loc_text:
-                    salary = loc_text
-                elif loc_text in ['Hybrid', 'On-site, Hybrid', 'Hybrid, On-site']:
-                    remote = 'hybrid'
-                elif loc_text == 'On-site':
-                    remote = 'on-site'
-                elif 'All around' in location_text:
-                    city = 'România'
-                    remote = 'on-site'
-            
-            view_job_link = card.find('a', href=lambda h: h and '/o/' in h)
-            job_url = ''
-            if view_job_link:
-                href = view_job_link.get('href', '')
-                if href and href.startswith('/o/'):
-                    job_url = f'https://interbrandsorbico.recruitee.com{href}'
+        for title, city, job_url, remote, salary in self.get_offers(soup):
+            if 'All around' in city:
+                city = 'România'
             
             city = city.replace('Bucharest', 'Bucuresti')
             
@@ -91,6 +72,136 @@ class InterbrandsOrbicoScraper(SeleniumScraper):
             
         self.format_data()
         
+    def get_offers(self, soup):
+        """
+        Collect the published offers, reading them from the page props first
+        and falling back to the rendered job cards.
+        """
+        offers = self.offers_from_props(soup)
+        if offers:
+            return offers
+        return self.offers_from_cards(soup)
+    
+    def offers_from_props(self, soup):
+        """
+        Read the offers the careers page embeds in its server rendered props.
+        """
+        page_props = soup.find(attrs={'data-props': True})
+        if page_props is None or not page_props.get('data-props'):
+            return []
+        
+        try:
+            props = json.loads(page_props['data-props'])
+            offers = props.get('appConfig', {}).get('offers') or []
+        except (ValueError, AttributeError, TypeError):
+            return []
+        
+        jobs = []
+        for offer in offers:
+            if offer.get('status') not in (None, 'published'):
+                continue
+            
+            slug = offer.get('slug')
+            translations = offer.get('translations') or {}
+            details = (
+                translations.get('en')
+                or translations.get('ro')
+                or next(iter(translations.values()), None)
+                or {}
+            )
+            title = (details.get('title') or '').strip()
+            if not slug or not title:
+                continue
+            
+            if offer.get('hybrid'):
+                remote = 'hybrid'
+            elif offer.get('remote'):
+                remote = 'remote'
+            else:
+                remote = 'on-site'
+            
+            jobs.append((
+                title,
+                (offer.get('city') or '').strip(),
+                f'{self.base_url}/o/{slug}',
+                remote,
+                self.format_salary(offer.get('salary')),
+            ))
+        
+        return jobs
+    
+    def offers_from_cards(self, soup):
+        """
+        Read the offers from the job cards rendered on the careers page.
+        """
+        jobs = []
+        seen_urls = set()
+        
+        for city_elem in soup.find_all(class_='custom-css-style-job-location-city'):
+            title_elem = city_elem.find_previous(
+                'a', href=lambda href: href and href.startswith('/o/')
+            )
+            if title_elem is None:
+                continue
+            
+            href = title_elem.get('href', '')
+            if not href or href in seen_urls:
+                continue
+            
+            card = title_elem
+            while card is not None and card.find(class_='custom-css-style-job-location') is None:
+                card = card.parent
+            
+            if card is None or not any(
+                element is city_elem
+                for element in card.find_all(class_='custom-css-style-job-location-city')
+            ):
+                continue
+            
+            seen_urls.add(href)
+            
+            remote = 'on-site'
+            for span in card.find_all('span'):
+                label = span.get_text(' ', strip=True).lower()
+                if label in self.remote_labels:
+                    remote = self.remote_labels[label]
+                    break
+            
+            salary_match = self.salary_pattern.search(card.get_text(' ', strip=True))
+            salary = salary_match.group(0).replace('\xa0', ' ') if salary_match else ''
+            
+            jobs.append((
+                title_elem.get_text(' ', strip=True),
+                city_elem.get_text(' ', strip=True),
+                href if href.startswith('http') else f'{self.base_url}{href}',
+                remote,
+                salary,
+            ))
+        
+        return jobs
+    
+    @staticmethod
+    def format_salary(salary):
+        """
+        Build the salary text out of the offer salary details.
+        """
+        if not isinstance(salary, dict):
+            return ''
+        
+        currency = salary.get('currency') or 'RON'
+        values = [
+            value for value in (salary.get('min'), salary.get('max'))
+            if value is not None
+        ]
+        if not values:
+            return ''
+        
+        salary_text = f'{currency} {int(values[0]):,}'
+        if len(values) > 1:
+            salary_text += f' - {currency} {int(values[1]):,}'
+        
+        return f'{salary_text} per month'
+
     def sent_to_future(self):
         self.send_to_viitor()
     

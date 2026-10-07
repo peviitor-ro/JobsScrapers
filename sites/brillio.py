@@ -29,9 +29,9 @@ class brillioScraper(BS4Scraper):
         Scrape job data from brillio website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', "div > div > h4")
-        job_location_elements = self.get_jobs_elements('css_', 'div > div > p.infoline > span:nth-child(1)')
-        job_urls_elements = self.get_jobs_elements('css_', "a[href^='https://careers.brillio.com/job-details?job-id=']")
+        job_titles_elements = self.get_jobs_elements('css_', ".job-listing__item h4.title")
+        job_location_elements = self.get_jobs_elements('css_', '.job-listing__item p.location')
+        job_urls_elements = self.get_jobs_elements('css_', "a.btn-cta[href^='https://careers.brillio.com/job-details?job-id=']")
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
         self.job_cities = self.get_jobs_details_text(job_location_elements)

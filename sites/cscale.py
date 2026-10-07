@@ -29,9 +29,19 @@ class CScaleScraper(BS4Scraper):
         Scrape job data from c-scale website.
         """
 
-        job_titles_elements = self.get_jobs_elements('css_', 'div > h2')
-        
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
+        job_titles_elements = self.get_jobs_elements(
+            'css_', 'div[itemtype="http://schema.org/JobPosting"] h2'
+        )
+
+        page_heading = self.soup.find('h1')
+        if not job_titles_elements and page_heading and 'career' in page_heading.text.lower():
+            job_titles_elements = self.get_jobs_elements('css_', 'div > h2')
+
+        self.job_titles = [
+            job_title
+            for job_title in self.get_jobs_details_text(job_titles_elements)
+            if job_title
+        ]
 
         self.format_data()
         

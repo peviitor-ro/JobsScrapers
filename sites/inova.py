@@ -1,7 +1,7 @@
 #
 #
 #
-# inovagroup > https://www.inova-group.ro/cariere/
+# inovagroup > https://www.inova-group.ro/cariere/pozitii
 
 
 from sites.website_scraper_bs4 import BS4Scraper
@@ -11,7 +11,7 @@ class inovagroupScraper(BS4Scraper):
     """
     A class for scraping job data from inovagroup website.
     """
-    url = 'https://www.inova-group.ro/cariere/'
+    url = 'https://www.inova-group.ro/cariere/pozitii'
     url_logo = 'https://www.inova-group.ro/wp-content/uploads/2018/01/logo-mediu-1.png'
     company_name = 'inova'
     
@@ -30,7 +30,7 @@ class inovagroupScraper(BS4Scraper):
         Scrape job data from inovagroup website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', "vc-hoverbox-block-inner vc-hoverbox-front-inner")
+        job_titles_elements = self.get_jobs_elements('css_', 'main h3')
         
         self.job_titles = self.get_jobs_details_text(job_titles_elements)
 
