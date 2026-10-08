@@ -1,8 +1,9 @@
 {
   "sites/anahr.py": {
     "company": "anahr",
-    "last_empty_at": "2026-10-08T11:02:45.269248Z",
-    "last_repair_attempt_at": "2026-10-07T19:42:02.629619Z"
+    "last_confirmed_empty_at": "2026-10-08T19:33:49.590319Z",
+    "last_empty_at": "2026-10-08T19:33:49.590319Z",
+    "last_repair_attempt_at": "2026-10-08T19:33:33.412567Z"
   },
   "sites/beenear.py": {
     "company": "Beenear",
@@ -27,37 +28,32 @@
     "last_empty_at": "2026-10-08T11:05:51.996309Z",
     "last_repair_attempt_at": "2026-10-07T20:37:31.721112Z"
   },
-  "sites/nielseniq.py": {
-    "company": "nielseniq",
-    "last_empty_at": "2026-10-08T11:06:18.236517Z"
-  },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
-    "last_empty_at": "2026-10-08T11:06:35.269421Z"
-  },
-  "sites/qubiz.py": {
-    "company": "Qubiz",
-    "last_empty_at": "2026-10-08T11:06:49.356122Z"
+    "last_empty_at": "2026-10-08T19:45:17.845499Z",
+    "last_repair_attempt_at": "2026-10-08T19:45:17.845499Z"
   },
   "sites/rombat.py": {
     "company": "rombat",
-    "last_empty_at": "2026-10-08T11:07:21.116375Z"
-  },
-  "sites/takeandeat.py": {
-    "company": "takeandeat",
-    "last_empty_at": "2026-10-08T11:08:12.958897Z"
+    "last_confirmed_empty_at": "2026-10-08T20:17:23.946434Z",
+    "last_empty_at": "2026-10-08T20:17:23.946434Z",
+    "last_repair_attempt_at": "2026-10-08T20:06:39.738451Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
-    "last_empty_at": "2026-10-08T11:08:16.867224Z"
+    "last_empty_at": "2026-10-08T20:19:11.851101Z",
+    "last_repair_attempt_at": "2026-10-08T20:19:11.851101Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_empty_at": "2026-10-08T11:08:20.533586Z"
+    "last_empty_at": "2026-10-08T20:34:13.485862Z",
+    "last_repair_attempt_at": "2026-10-08T20:34:13.485862Z"
   },
   "sites/urbio.py": {
     "company": "urbio",
-    "last_empty_at": "2026-10-08T11:08:25.176561Z"
+    "last_confirmed_empty_at": "2026-10-08T20:52:02.259403Z",
+    "last_empty_at": "2026-10-08T20:52:02.259403Z",
+    "last_repair_attempt_at": "2026-10-08T20:49:28.811524Z"
   },
   "sites/velpitar.py": {
     "company": "velpitar",

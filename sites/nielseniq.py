@@ -1,7 +1,7 @@
 #
 # 
 #
-# nielseniq > https://nielseniq.com/?s=&market=global&language=en&orderby=&order=&post_type=career_job&job_locations=romania&job_teams=&job_types=
+# nielseniq > https://nielseniq.com/?s=&market=global&language=en&orderby=&order=&post_type=career_job&job_locations=&job_teams=&job_types=
 
 
 from sites.website_scraper_bs4 import BS4Scraper
@@ -11,7 +11,7 @@ class nielseniqScraper(BS4Scraper):
     """
     A class for scraping job data from nielseniq website.
     """
-    url = 'https://nielseniq.com/?s=&market=global&language=en&orderby=&order=&post_type=career_job&job_locations=romania&job_teams=&job_types='
+    url = 'https://nielseniq.com/?s=&market=global&language=en&orderby=&order=&post_type=career_job&job_locations=&job_teams=&job_types='
     url_logo = 'https://c.smartrecruiters.com/sr-company-images-prod-aws-dc5/5f20077aa2b8ac7a5a26cb93/c83a18a7-1926-4be1-9572-10cc0fbdc9b3/huge?r=s3-eu-central-1&_1677595339802'
     company_name = 'nielseniq'
     
@@ -31,36 +31,31 @@ class nielseniqScraper(BS4Scraper):
         
         self.job_titles = []
         self.job_cities = []
+        self.job_countries = []
         self.job_urls = []
         
-        job_counter_element = self.get_jobs_elements('css_', "a[href^='https://nielseniq.com/page/']")
-        job_counter = self.get_jobs_details_href(job_counter_element)
+        while True:
+
+            for job_element in self.get_jobs_elements('css_', 'article'):
+                job_title_element = job_element.select_one('.entry-title')
+                job_url_element = job_element.select_one('.card-cover-link')
+                job_location_element = job_element.select_one('header > div:nth-child(2)')
+
+                if not job_title_element or not job_url_element or not job_location_element:
+                    continue
+
+                location_terms = job_location_element.find_all('span', recursive=False)
+
+                self.job_titles.append(' '.join(job_title_element.text.split()))
+                self.job_urls.append(' '.join(job_url_element.get('href').split()))
+                self.job_cities.append(' '.join(location_terms[0].text.split()) if location_terms else '')
+                self.job_countries.append(' '.join(location_terms[1].text.split()) if len(location_terms) > 1 else '')
+
+            next_page_elements = self.get_jobs_elements('css_', 'nav.number-pagination a.next.page-numbers')
+            if not next_page_elements:
+                break
+            self.get_content(next_page_elements[0].get('href'))
         
-        while job_counter:
-
-            job_title_elements = self.get_jobs_elements('class_', 'entry-title')
-            job_city_elements = self.get_jobs_elements('css_', 'header > div:nth-child(2) > span:nth-child(1)')
-            job_url_elements = self.get_jobs_elements('class_', 'card-cover-link')
-
-            self.job_titles.extend(self.get_jobs_details_text(job_title_elements))
-            self.job_cities.extend(self.get_jobs_details_text(job_city_elements))
-            self.job_urls.extend(self.get_jobs_details_href(job_url_elements))
-
-            job_counter_element = self.get_jobs_elements('css_', "a[href^='https://nielseniq.com/page/']")
-            job_counter = self.get_jobs_details_href(job_counter_element)
-            if job_counter:
-                self.get_content(job_counter[0])
-        
-        # If the initial loop didn't get triggered due to missing next page element
-        if not job_counter:
-            job_title_elements = self.get_jobs_elements('class_', 'entry-title')
-            job_city_elements = self.get_jobs_elements('css_', 'header > div:nth-child(2) > span:nth-child(1)')
-            job_url_elements = self.get_jobs_elements('class_', 'card-cover-link')
-
-            self.job_titles.extend(self.get_jobs_details_text(job_title_elements))
-            self.job_cities.extend(self.get_jobs_details_text(job_city_elements))
-            self.job_urls.extend(self.get_jobs_details_href(job_url_elements))
-
         self.format_data()
 
     def sent_to_future(self):
@@ -78,7 +73,7 @@ class nielseniqScraper(BS4Scraper):
         # This jobs are hybrid model which are hard coded due to the unstructured page
         exception_jobs = ['Research Consultant']
         
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+        for job_title, job_url, job_city, job_country in zip(self.job_titles, self.job_urls, self.job_cities, self.job_countries):
             if job_title in exception_jobs:
                 remote = 'hybrid'
             else:
@@ -86,7 +81,9 @@ class nielseniqScraper(BS4Scraper):
                 
             if job_city == "Bucharest":
                 job_city = "București"
-            self.create_jobs_dict(job_title, job_url, "România", job_city, remote)
+            if job_country == "Romania":
+                job_country = "România"
+            self.create_jobs_dict(job_title, job_url, job_country, job_city, remote)
 
 if __name__ == "__main__":
     nielseniq = nielseniqScraper()
@@ -95,4 +92,3 @@ if __name__ == "__main__":
     nielseniq.sent_to_future()
     
     
-

@@ -3,6 +3,8 @@
 #
 # takeandeat > https://www.takeandeat.ro/cariera.html
 
+from urllib.parse import urljoin
+
 from sites.website_scraper_bs4 import BS4Scraper
 
 class takeandeatScraper(BS4Scraper):
@@ -29,11 +31,11 @@ class takeandeatScraper(BS4Scraper):
         Scrape job data from takeandeat website.
         """
 
-        job_titles_elements = self.get_jobs_elements('class_', "elementor-heading-title elementor-size-large")
-        job_url_elements = self.get_jobs_elements('class_', 'elementor-button elementor-button-link elementor-size-sm')
-        
-        self.job_titles = self.get_jobs_details_text(job_titles_elements)
-        self.job_urls = self.get_jobs_details_href(job_url_elements)
+        job_elements = self.get_jobs_elements('css_', "#posturi-disponibile h3 a")
+
+        self.job_titles = self.get_jobs_details_text(job_elements)
+        self.job_urls = [urljoin(self.url, job_url)
+                         for job_url in self.get_jobs_details_href(job_elements)]
 
         self.format_data()
         
