@@ -38,8 +38,9 @@
   },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
-    "last_empty_at": "2026-10-09T11:08:47.722488Z",
-    "last_repair_attempt_at": "2026-10-08T19:45:17.845499Z"
+    "last_confirmed_empty_at": "2026-10-09T19:08:14.382918Z",
+    "last_empty_at": "2026-10-09T19:08:14.382918Z",
+    "last_repair_attempt_at": "2026-10-09T19:08:03.270000Z"
   },
   "sites/rombat.py": {
     "company": "rombat",
@@ -49,17 +50,20 @@
   },
   "sites/saladbox.py": {
     "company": "saladbox",
-    "last_empty_at": "2026-10-09T11:10:08.375476Z"
+    "last_confirmed_empty_at": "2026-10-09T19:09:59.691485Z",
+    "last_empty_at": "2026-10-09T19:09:59.691485Z",
+    "last_repair_attempt_at": "2026-10-09T19:08:46.215061Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
-    "last_empty_at": "2026-10-09T11:10:34.985966Z",
-    "last_repair_attempt_at": "2026-10-08T20:19:11.851101Z"
+    "last_confirmed_empty_at": "2026-10-09T19:10:12.811521Z",
+    "last_empty_at": "2026-10-09T19:10:12.811521Z",
+    "last_repair_attempt_at": "2026-10-09T19:10:01.189326Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_empty_at": "2026-10-09T11:10:36.435280Z",
-    "last_repair_attempt_at": "2026-10-08T20:34:13.485862Z"
+    "last_empty_at": "2026-10-09T19:10:14.032808Z",
+    "last_repair_attempt_at": "2026-10-09T19:10:14.032808Z"
   },
   "sites/urbio.py": {
     "company": "urbio",
@@ -69,10 +73,14 @@
   },
   "sites/velpitar.py": {
     "company": "velpitar",
-    "last_empty_at": "2026-10-09T11:10:48.319241Z"
+    "last_confirmed_empty_at": "2026-10-09T19:34:55.061884Z",
+    "last_empty_at": "2026-10-09T19:34:55.061884Z",
+    "last_repair_attempt_at": "2026-10-09T19:25:20.904601Z"
   },
   "sites/zeelandia.py": {
     "company": "zeelandia",
-    "last_empty_at": "2026-10-09T11:10:51.966122Z"
+    "last_confirmed_empty_at": "2026-10-09T19:35:03.841303Z",
+    "last_empty_at": "2026-10-09T19:35:03.841303Z",
+    "last_repair_attempt_at": "2026-10-09T19:34:56.041889Z"
   }
 }
