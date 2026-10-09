@@ -2,20 +2,28 @@
   "sites/anahr.py": {
     "company": "anahr",
     "last_confirmed_empty_at": "2026-10-08T19:33:49.590319Z",
-    "last_empty_at": "2026-10-08T19:33:49.590319Z",
+    "last_empty_at": "2026-10-09T11:01:39.134367Z",
     "last_repair_attempt_at": "2026-10-08T19:33:33.412567Z"
+  },
+  "sites/atpgroup.py": {
+    "company": "atpgroup",
+    "last_empty_at": "2026-10-09T11:03:27.394094Z"
   },
   "sites/beenear.py": {
     "company": "Beenear",
     "last_confirmed_empty_at": "2026-10-07T20:04:57.631518Z",
-    "last_empty_at": "2026-10-08T11:03:16.669723Z",
+    "last_empty_at": "2026-10-09T11:03:49.646546Z",
     "last_repair_attempt_at": "2026-10-07T19:57:05.024598Z"
   },
   "sites/cscale.py": {
     "company": "cscale",
     "last_confirmed_empty_at": "2026-10-07T20:18:47.938534Z",
-    "last_empty_at": "2026-10-08T11:04:25.995872Z",
+    "last_empty_at": "2026-10-09T11:05:00.026537Z",
     "last_repair_attempt_at": "2026-10-07T20:10:45.424879Z"
+  },
+  "sites/deltatelgroup.py": {
+    "company": "deltatelgroup",
+    "last_empty_at": "2026-10-09T11:05:28.277507Z"
   },
   "sites/interbrandsorbico.py": {
     "company": "InterbrandsOrbico",
@@ -25,42 +33,46 @@
   "sites/kaizengaming.py": {
     "company": "KaizenGaming",
     "last_confirmed_empty_at": "2026-10-07T20:42:42.244105Z",
-    "last_empty_at": "2026-10-08T11:05:51.996309Z",
+    "last_empty_at": "2026-10-09T11:07:03.794317Z",
     "last_repair_attempt_at": "2026-10-07T20:37:31.721112Z"
   },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
-    "last_empty_at": "2026-10-08T19:45:17.845499Z",
+    "last_empty_at": "2026-10-09T11:08:47.722488Z",
     "last_repair_attempt_at": "2026-10-08T19:45:17.845499Z"
   },
   "sites/rombat.py": {
     "company": "rombat",
     "last_confirmed_empty_at": "2026-10-08T20:17:23.946434Z",
-    "last_empty_at": "2026-10-08T20:17:23.946434Z",
+    "last_empty_at": "2026-10-09T11:09:36.482268Z",
     "last_repair_attempt_at": "2026-10-08T20:06:39.738451Z"
+  },
+  "sites/saladbox.py": {
+    "company": "saladbox",
+    "last_empty_at": "2026-10-09T11:10:08.375476Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
-    "last_empty_at": "2026-10-08T20:19:11.851101Z",
+    "last_empty_at": "2026-10-09T11:10:34.985966Z",
     "last_repair_attempt_at": "2026-10-08T20:19:11.851101Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_empty_at": "2026-10-08T20:34:13.485862Z",
+    "last_empty_at": "2026-10-09T11:10:36.435280Z",
     "last_repair_attempt_at": "2026-10-08T20:34:13.485862Z"
   },
   "sites/urbio.py": {
     "company": "urbio",
     "last_confirmed_empty_at": "2026-10-08T20:52:02.259403Z",
-    "last_empty_at": "2026-10-08T20:52:02.259403Z",
+    "last_empty_at": "2026-10-09T11:10:41.507780Z",
     "last_repair_attempt_at": "2026-10-08T20:49:28.811524Z"
   },
   "sites/velpitar.py": {
     "company": "velpitar",
-    "last_empty_at": "2026-10-08T11:08:31.140393Z"
+    "last_empty_at": "2026-10-09T11:10:48.319241Z"
   },
   "sites/zeelandia.py": {
     "company": "zeelandia",
-    "last_empty_at": "2026-10-08T11:08:34.317258Z"
+    "last_empty_at": "2026-10-09T11:10:51.966122Z"
   }
 }
