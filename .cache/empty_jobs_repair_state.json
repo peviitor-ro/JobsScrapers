@@ -62,8 +62,9 @@
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_empty_at": "2026-10-10T10:25:25.337453Z",
-    "last_repair_attempt_at": "2026-10-09T19:10:14.032808Z"
+    "last_confirmed_empty_at": "2026-10-10T18:06:52.436758Z",
+    "last_empty_at": "2026-10-10T18:06:52.436758Z",
+    "last_repair_attempt_at": "2026-10-10T18:06:35.510865Z"
   },
   "sites/urbio.py": {
     "company": "urbio",
