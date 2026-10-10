@@ -2,28 +2,28 @@
   "sites/anahr.py": {
     "company": "anahr",
     "last_confirmed_empty_at": "2026-10-08T19:33:49.590319Z",
-    "last_empty_at": "2026-10-09T11:01:39.134367Z",
+    "last_empty_at": "2026-10-10T10:16:21.911293Z",
     "last_repair_attempt_at": "2026-10-08T19:33:33.412567Z"
   },
   "sites/atpgroup.py": {
     "company": "atpgroup",
-    "last_empty_at": "2026-10-09T11:03:27.394094Z"
+    "last_empty_at": "2026-10-10T10:18:09.538221Z"
   },
   "sites/beenear.py": {
     "company": "Beenear",
     "last_confirmed_empty_at": "2026-10-07T20:04:57.631518Z",
-    "last_empty_at": "2026-10-09T11:03:49.646546Z",
+    "last_empty_at": "2026-10-10T10:18:34.406071Z",
     "last_repair_attempt_at": "2026-10-07T19:57:05.024598Z"
   },
   "sites/cscale.py": {
     "company": "cscale",
     "last_confirmed_empty_at": "2026-10-07T20:18:47.938534Z",
-    "last_empty_at": "2026-10-09T11:05:00.026537Z",
+    "last_empty_at": "2026-10-10T10:19:48.545105Z",
     "last_repair_attempt_at": "2026-10-07T20:10:45.424879Z"
   },
   "sites/deltatelgroup.py": {
     "company": "deltatelgroup",
-    "last_empty_at": "2026-10-09T11:05:28.277507Z"
+    "last_empty_at": "2026-10-10T10:20:15.754979Z"
   },
   "sites/interbrandsorbico.py": {
     "company": "InterbrandsOrbico",
@@ -33,19 +33,19 @@
   "sites/kaizengaming.py": {
     "company": "KaizenGaming",
     "last_confirmed_empty_at": "2026-10-07T20:42:42.244105Z",
-    "last_empty_at": "2026-10-09T11:07:03.794317Z",
+    "last_empty_at": "2026-10-10T10:21:53.138008Z",
     "last_repair_attempt_at": "2026-10-07T20:37:31.721112Z"
   },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
     "last_confirmed_empty_at": "2026-10-09T19:08:14.382918Z",
-    "last_empty_at": "2026-10-09T19:08:14.382918Z",
+    "last_empty_at": "2026-10-10T10:23:27.363709Z",
     "last_repair_attempt_at": "2026-10-09T19:08:03.270000Z"
   },
   "sites/rombat.py": {
     "company": "rombat",
     "last_confirmed_empty_at": "2026-10-08T20:17:23.946434Z",
-    "last_empty_at": "2026-10-09T11:09:36.482268Z",
+    "last_empty_at": "2026-10-10T10:24:16.458928Z",
     "last_repair_attempt_at": "2026-10-08T20:06:39.738451Z"
   },
   "sites/saladbox.py": {
@@ -57,30 +57,30 @@
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
     "last_confirmed_empty_at": "2026-10-09T19:10:12.811521Z",
-    "last_empty_at": "2026-10-09T19:10:12.811521Z",
+    "last_empty_at": "2026-10-10T10:25:23.994750Z",
     "last_repair_attempt_at": "2026-10-09T19:10:01.189326Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_empty_at": "2026-10-09T19:10:14.032808Z",
+    "last_empty_at": "2026-10-10T10:25:25.337453Z",
     "last_repair_attempt_at": "2026-10-09T19:10:14.032808Z"
   },
   "sites/urbio.py": {
     "company": "urbio",
     "last_confirmed_empty_at": "2026-10-08T20:52:02.259403Z",
-    "last_empty_at": "2026-10-09T11:10:41.507780Z",
+    "last_empty_at": "2026-10-10T10:25:29.995514Z",
     "last_repair_attempt_at": "2026-10-08T20:49:28.811524Z"
   },
   "sites/velpitar.py": {
     "company": "velpitar",
     "last_confirmed_empty_at": "2026-10-09T19:34:55.061884Z",
-    "last_empty_at": "2026-10-09T19:34:55.061884Z",
+    "last_empty_at": "2026-10-10T10:25:36.517899Z",
     "last_repair_attempt_at": "2026-10-09T19:25:20.904601Z"
   },
   "sites/zeelandia.py": {
     "company": "zeelandia",
     "last_confirmed_empty_at": "2026-10-09T19:35:03.841303Z",
-    "last_empty_at": "2026-10-09T19:35:03.841303Z",
+    "last_empty_at": "2026-10-10T10:25:41.297770Z",
     "last_repair_attempt_at": "2026-10-09T19:34:56.041889Z"
   }
 }
