@@ -27,7 +27,9 @@
   },
   "sites/inova.py": {
     "company": "inova",
-    "last_empty_at": "2026-10-13T11:20:07.210291Z"
+    "last_confirmed_empty_at": "2026-10-13T20:00:27.520197Z",
+    "last_empty_at": "2026-10-13T20:00:27.520197Z",
+    "last_repair_attempt_at": "2026-10-13T19:59:29.247443Z"
   },
   "sites/interbrandsorbico.py": {
     "company": "InterbrandsOrbico",
