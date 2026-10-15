@@ -39,9 +39,32 @@ class atpgroupScraper(BS4Scraper):
                     time.sleep(2 ** attempt)
                 else:
                     print(f"Warning: Could not connect to {self.url}: {e}")
-                    self.soup = BeautifulSoup("", "lxml")
-                    return False
+                    return self._get_response_via_reader()
         return False
+
+    def _get_response_via_reader(self):
+        """
+        Fallback: fetch the page through the r.jina.ai reader when the
+        direct connection to atp-group.ro is blocked or unreachable.
+        """
+        reader_url = f"https://r.jina.ai/{self.url}"
+        try:
+            response = requests.get(
+                reader_url,
+                headers={'x-respond-with': 'html'},
+                timeout=60,
+            )
+            response.raise_for_status()
+            self.soup = BeautifulSoup(response.content, 'lxml')
+            if self.soup.select("#jobs .accordion-item"):
+                return True
+            print(f"Warning: Reader fallback for {self.url} returned no jobs section.")
+            self.soup = BeautifulSoup("", "lxml")
+            return False
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Warning: Could not fetch {self.url} via reader fallback: {e}")
+            self.soup = BeautifulSoup("", "lxml")
+            return False
     
     def scrape_jobs(self):
         """

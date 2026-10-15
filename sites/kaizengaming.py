@@ -32,40 +32,60 @@ class KaizenGamingScraper(BS4Scraper):
         """
         self.job_titles = []
         self.job_cities = []
+        self.job_countries = []
         self.job_urls = []
         
         job_links = self.soup.find_all('a', href=lambda h: h and 'job-details' in h)
         
         for link in job_links:
             href = link.get('href', '')
-            text = link.text.strip()
             
-            if not href or not text:
+            if not href:
                 continue
             
-            # Parse title and location from text
-            # Format: "TitleLocation" (no space between title and location)
-            # e.g., "Senior Compliance OfficerBucharest, Romania"
+            # Each listing holds two paragraphs: title and "City, Country"
+            paragraphs = []
+            for paragraph in link.find_all('p'):
+                # "New" badges live inside the title paragraph
+                for badge in paragraph.select('.tag-container'):
+                    badge.decompose()
+                paragraph_text = ' '.join(paragraph.text.split())
+                if paragraph_text:
+                    paragraphs.append(paragraph_text)
             
-            location_match = re.search(r'([A-Z][a-z]+(?:[\s,][A-Z][a-z]+)*,\s*[A-Z][a-z]+)$', text)
-            if location_match:
-                location = location_match.group(1)
-                title = text[:location_match.start()].strip()
+            if len(paragraphs) >= 2:
+                title = paragraphs[0]
+                location = paragraphs[-1]
             else:
-                # Try another pattern - just look for Romania/Bucharest in text
-                if 'Romania' in text or 'Bucharest' in text:
-                    title = text.replace('Romania', '').replace('Bucharest', '').strip()
-                    location = 'Bucharest' if 'Bucharest' in text else 'Romania'
-                else:
+                # Fallback for the old concatenated format: "TitleCity, Country"
+                text = ' '.join(link.text.split())
+                if not text:
                     continue
+                location_match = re.search(r',[^,]*$', text)
+                if not location_match:
+                    continue
+                location = text[location_match.start():].lstrip(',').strip()
+                title = text[:location_match.start()].strip()
             
-            # Filter for Romania only
-            if 'Romania' in location or 'Bucharest' in location:
-                city = location.split(',')[0].strip().replace('Bucharest', 'Bucuresti')
-                
-                self.job_titles.append(title)
-                self.job_cities.append(city)
-                self.job_urls.append(href)
+            if not title or not location:
+                continue
+            
+            if ',' in location:
+                city, _, country = location.rpartition(',')
+                city = city.strip()
+                country = country.strip()
+            else:
+                city = location.strip()
+                country = ''
+            
+            city = city.replace('Bucharest', 'Bucuresti')
+            if country == 'Romania':
+                country = 'România'
+            
+            self.job_titles.append(title)
+            self.job_cities.append(city)
+            self.job_countries.append(country)
+            self.job_urls.append(href)
         
         self.format_data()
         
@@ -81,8 +101,8 @@ class KaizenGamingScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+        for job_title, job_url, job_city, job_country in zip(self.job_titles, self.job_urls, self.job_cities, self.job_countries):
+            self.create_jobs_dict(job_title, job_url, job_country, job_city)
 
 if __name__ == "__main__":
     KaizenGaming = KaizenGamingScraper()
