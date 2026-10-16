@@ -1,8 +1,9 @@
 #
 #
 #
-# urbio > https://urbio-romania.ro/cariere/#1662454401930-ce44399a-786c
+# urbio > https://urbio.ai/careers/
 
+import re
 import time
 import requests
 from bs4 import BeautifulSoup
@@ -13,8 +14,8 @@ class urbioScraper(BS4Scraper):
     """
     A class for scraping job data from urbio website.
     """
-    url = 'https://urbio-romania.ro/cariere/#1662454401930-ce44399a-786c'
-    url_logo = 'https://urbio-romania.ro/wp-content/uploads/2022/11/urbio-logo.svg'
+    url = 'https://urbio.ai/careers/'
+    url_logo = 'https://urbio.ai/wp-content/uploads/2026/08/Logo_Urbio_V2-1-1024x284.png'
     company_name = 'urbio'
     
     def __init__(self):
@@ -42,16 +43,62 @@ class urbioScraper(BS4Scraper):
                     return False
         return False
     
+    def get_tab_countries(self):
+        """
+        Map each tab panel id to the country stored in its tab title.
+        """
+        countries = {}
+        for button in self.get_jobs_elements('css_', 'button.e-n-tab-title'):
+            target = button.get('aria-controls')
+            if target:
+                countries[target] = ' '.join(button.get_text().split())
+        return countries
+
+    def get_romanian_city(self, department, job_title):
+        """
+        The city is embedded in the department and/or the job title. Pick the
+        last token that matches a known Romanian locality.
+        """
+        candidates = re.split(r'\s*[-,]\s*', f"{department} - {job_title}")
+        for candidate in reversed(candidates):
+            candidate = candidate.strip()
+            if candidate and self.get_county(candidate):
+                return candidate
+        return None
+
     def scrape_jobs(self):
         """
         Scrape job data from urbio website.
         """
+        self.job_titles = []
+        self.job_countries = []
+        self.job_cities = []
 
-        job_title_elements = self.get_jobs_elements('class_', 'vc_tta-title-text')
-        job_url_elements = self.get_jobs_elements('css_', 'p:nth-child(1) > b')
-        
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
-        self.job_cities = self.get_jobs_details_text(job_url_elements)
+        tab_countries = self.get_tab_countries()
+
+        for panel in self.get_jobs_elements('css_', 'div[role="tabpanel"]'):
+            tab_country = tab_countries.get(panel.get('id'), '')
+            country = 'România' if tab_country == 'Romania' else tab_country
+
+            for heading in panel.select('h2.elementor-heading-title'):
+                if ' '.join(heading.get_text().split()) != 'Available':
+                    continue
+
+                title_heading = heading.find_previous('h2', class_='elementor-heading-title')
+                if title_heading is None:
+                    continue
+                job_title = ' '.join(title_heading.get_text().split())
+
+                department_heading = title_heading.find_previous('h2', class_='elementor-heading-title')
+                department = ' '.join(department_heading.get_text().split()) if department_heading else ''
+
+                self.job_titles.append(job_title)
+                self.job_countries.append(country)
+
+                if country == 'România':
+                    self.job_cities.append(self.get_romanian_city(department, job_title) or country)
+                else:
+                    self.job_cities.append(country)
 
         self.format_data()
         
@@ -67,9 +114,9 @@ class urbioScraper(BS4Scraper):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_city in zip(self.job_titles, self.job_cities):
+        for job_title, job_country, job_city in zip(self.job_titles, self.job_countries, self.job_cities):
             job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", job_city.replace("Romania", "").replace(", ", ""))
+            self.create_jobs_dict(job_title, job_url, job_country, job_city)
             self.job_count += 1
 
 if __name__ == "__main__":
@@ -79,4 +126,3 @@ if __name__ == "__main__":
     urbio.sent_to_future()
     
     
-

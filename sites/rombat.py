@@ -4,7 +4,6 @@
 # rombat > https://www.rombat.ro/cariere
 
 
-import time
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -16,7 +15,8 @@ class rombatScraper(BS4Scraper):
     """
     A class for scraping job data from rombat website.
     """
-    url = 'https://www.rombat.ro/ro/companie/careers/'
+    url = 'https://www.rombat.ro/cariere'
+    url_en = 'https://www.rombat.ro/en/careers/'
     url_logo = 'https://www.rombat.ro/Uploads/Images/Banner-Website.jpg'
     company_name = 'rombat'
 
@@ -44,24 +44,46 @@ class rombatScraper(BS4Scraper):
 
     def get_response(self):
         self.get_content_with_retry(self.url)
+        # Pagina românească de cariere poate fi goală după migrarea site-ului,
+        # însă joburile sunt publicate și pe pagina engleză de cariere.
+        if not self.soup.select('.jobs__list .job'):
+            self.get_content_with_retry(self.url_en)
 
-    url = 'https://www.rombat.ro/cariere'
-    
     def scrape_jobs(self):
         """
         Scrape job data from rombat website.  Extrage datele locurilor de muncă de pe site-ul rombat.
         """
 
         self.job_titles = []
-        
-        # Find h2 with 'Joburi ROMBAT' and get job titles from following elements
-        h2 = self.soup.find('h2', string=lambda x: x and 'Joburi ROMBAT' in x)
-        if h2:
-            # Find all h3 elements with job titles
-            for h3 in h2.find_all_next('h3'):
-                text = h3.get_text(strip=True)
-                if text and len(text) > 5:
-                    self.job_titles.append(text)
+        self.job_urls = []
+        self.job_cities = []
+
+        for job in self.soup.select('.jobs__list .job'):
+            title_element = job.find('h3')
+            title = title_element.get_text(strip=True) if title_element else ''
+            if not title:
+                continue
+
+            city = 'Bistrita'
+            details = job.select('dt')
+            values = job.select('dd')
+            for detail, value in zip(details, values):
+                if 'Loca' in detail.get_text(strip=True):
+                    city = value.get_text(strip=True).title() or city
+                    break
+
+            job_url = ''
+            for link in job.select('a.button'):
+                href = (link.get('href') or '').strip()
+                if href.startswith('http'):
+                    job_url = href
+                    break
+            if not job_url:
+                job_url = self.url + "#" + str(self.job_count)
+
+            self.job_titles.append(title)
+            self.job_urls.append(job_url)
+            self.job_cities.append(city)
 
         self.format_data()
 
@@ -78,15 +100,9 @@ class rombatScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         Iterează peste toate detaliile locurilor de muncă și le trimite la dicționarul de locuri de muncă.
         """
-        for job_title in self.job_titles:
-            if 'APLICA AICI' in job_title:
-                job_url = job_title.split('APLICA AICI')[-1][1:].replace("www.", "https://")
-                job_title = job_title.split('APLICA AICI')[0].split("\u2013")[0]
-            else:
-                job_url = self.url + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title, job_url, "România", "Bistrita")
+        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
+            self.create_jobs_dict(job_title, job_url, "România", job_city)
             self.job_count += 1
-
 
 
 if __name__ == "__main__":
