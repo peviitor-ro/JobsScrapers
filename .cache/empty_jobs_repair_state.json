@@ -54,26 +54,20 @@
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
-    "last_confirmed_empty_at": "2026-10-09T19:10:12.811521Z",
-    "last_empty_at": "2026-10-18T08:32:26.650874Z",
-    "last_repair_attempt_at": "2026-10-17T16:56:43.600188Z"
+    "last_confirmed_empty_at": "2026-10-18T17:12:15.771563Z",
+    "last_empty_at": "2026-10-18T17:12:15.771563Z",
+    "last_repair_attempt_at": "2026-10-18T17:00:19.558141Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_confirmed_empty_at": "2026-10-10T18:06:52.436758Z",
-    "last_empty_at": "2026-10-18T08:32:27.998815Z",
-    "last_repair_attempt_at": "2026-10-10T18:06:35.510865Z"
+    "last_confirmed_empty_at": "2026-10-18T17:24:32.122768Z",
+    "last_empty_at": "2026-10-18T17:24:32.122768Z",
+    "last_repair_attempt_at": "2026-10-18T17:12:16.916786Z"
   },
   "sites/velpitar.py": {
     "company": "velpitar",
     "last_confirmed_empty_at": "2026-10-17T17:14:02.442264Z",
     "last_empty_at": "2026-10-18T08:32:42.021416Z",
     "last_repair_attempt_at": "2026-10-17T17:11:50.003731Z"
-  },
-  "sites/zeelandia.py": {
-    "company": "zeelandia",
-    "last_confirmed_empty_at": "2026-10-09T19:35:03.841303Z",
-    "last_empty_at": "2026-10-18T08:32:45.636157Z",
-    "last_repair_attempt_at": "2026-10-09T19:34:56.041889Z"
   }
 }

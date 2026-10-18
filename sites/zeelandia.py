@@ -10,7 +10,7 @@ class zeelandiaScraper(BS4Scraper):
     """
     A class for scraping job data from zeelandia website.
     """
-    url = 'https://www.zeelandia.ro/cariere'
+    url = 'https://www.zeelandia.ro/cariere/@@folder_listing'
     url_logo = 'https://www.zeelandia.ro/@@site-logo/zeelandia.png'
     company_name = 'zeelandia'
     
@@ -28,10 +28,9 @@ class zeelandiaScraper(BS4Scraper):
         Scrape job data from zeelandia website.
         """
 
-        job_title_elements = self.get_jobs_elements('class_', "feature-h")
-        job_link_elements = self.get_jobs_elements('css_', "a[href$='.pdf']")
-        
-        self.job_titles = self.get_jobs_details_text(job_title_elements)
+        job_link_elements = self.get_jobs_elements('css_', "a.contenttype-file")
+
+        self.job_titles = self.get_jobs_details_text(job_link_elements)
         self.job_urls = self.get_jobs_details_href(job_link_elements)
 
         self.format_data()
@@ -49,6 +48,8 @@ class zeelandiaScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
+            if job_title.lower().endswith('.pdf'):
+                job_title = job_title[:-4]
             self.create_jobs_dict(job_title, job_url, "România", "Chiajna")
 
 if __name__ == "__main__":
