@@ -12,7 +12,7 @@ class inovagroupScraper(BS4Scraper):
     A class for scraping job data from inovagroup website.
     """
     url = 'https://www.inova-group.ro/cariere/pozitii'
-    url_logo = 'https://www.inova-group.ro/wp-content/uploads/2018/01/logo-mediu-1.png'
+    url_logo = 'https://www.inova-group.ro/_next/static/media/Logo%20IG.c1676f2a.png'
     company_name = 'inova'
     
     def __init__(self):

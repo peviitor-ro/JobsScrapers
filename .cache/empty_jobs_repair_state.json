@@ -27,9 +27,9 @@
   },
   "sites/inova.py": {
     "company": "inova",
-    "last_confirmed_empty_at": "2026-10-13T20:00:27.520197Z",
-    "last_empty_at": "2026-10-21T09:03:09.091100Z",
-    "last_repair_attempt_at": "2026-10-13T19:59:29.247443Z"
+    "last_confirmed_empty_at": "2026-10-21T18:28:39.067133Z",
+    "last_empty_at": "2026-10-21T18:28:39.067133Z",
+    "last_repair_attempt_at": "2026-10-21T18:18:25.739071Z"
   },
   "sites/interbrandsorbico.py": {
     "company": "InterbrandsOrbico",
@@ -45,12 +45,6 @@
   "sites/rervest.py": {
     "company": "rervest",
     "last_empty_at": "2026-10-11T10:33:01.710421Z"
-  },
-  "sites/saladbox.py": {
-    "company": "saladbox",
-    "last_confirmed_empty_at": "2026-10-09T19:09:59.691485Z",
-    "last_empty_at": "2026-10-21T09:09:24.107969Z",
-    "last_repair_attempt_at": "2026-10-20T18:11:07.782526Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
