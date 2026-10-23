@@ -30,11 +30,16 @@ class aeroportoradeaScraper(BS4Scraper):
         Scrape job data from aeroportoradea website.
         """
 
-        job_title_elements = self.get_jobs_elements('css_', "#article-101 > div > h3")
-        job_url_elements = self.get_jobs_elements('css_', "#article-101 > div > div > span > a")
+        article_elements = self.get_jobs_elements('css_', "article")
         
-        self.job_titles = [job_title for job_title in self.get_jobs_details_text(job_title_elements) if job_title != '']
-        self.job_urls = self.get_jobs_details_href(job_url_elements)[::3]
+        self.job_titles = []
+        self.job_urls = []
+        for article in article_elements:
+            title_element = article.select_one("h2")
+            url_element = article.select_one("a[href*='docs/']")
+            if title_element and url_element:
+                self.job_titles.append(' '.join(title_element.text.split()))
+                self.job_urls.append(' '.join(url_element.get('href').split()))
 
         self.format_data()
         
@@ -51,8 +56,11 @@ class aeroportoradeaScraper(BS4Scraper):
         Iterate over all job details and send to the create jobs dictionary.
         """
         for job_title, job_url in zip(self.job_titles, self.job_urls):
-            job_url = "https://www.aeroportoradea.ro" + job_url.replace(" ", "%20") + "#" + str(self.job_count)
-            self.create_jobs_dict(job_title.split("-")[0][:-1], job_url, "România", "Oradea")
+            if not job_url.startswith('http'):
+                job_url = "https://www.aeroportoradea.ro/" + job_url.replace(" ", "%20")
+            job_url = job_url + "#" + str(self.job_count)
+            title = job_title.split("–")[0].split("-")[0].strip()
+            self.create_jobs_dict(title, job_url, "România", "Oradea")
             self.job_count += 1
 
 if __name__ == "__main__":

@@ -1,8 +1,4 @@
 {
-  "sites/aeroportoradea.py": {
-    "company": "aeroportoradea",
-    "last_empty_at": "2026-10-23T08:56:43.402675Z"
-  },
   "sites/atpgroup.py": {
     "company": "atpgroup",
     "last_empty_at": "2026-10-15T17:57:18.896294Z",
@@ -10,9 +6,9 @@
   },
   "sites/beenear.py": {
     "company": "Beenear",
-    "last_confirmed_empty_at": "2026-10-15T18:13:54.528348Z",
-    "last_empty_at": "2026-10-23T08:57:14.281211Z",
-    "last_repair_attempt_at": "2026-10-15T18:12:24.643539Z"
+    "last_confirmed_empty_at": "2026-10-23T18:07:50.833306Z",
+    "last_empty_at": "2026-10-23T18:07:50.833306Z",
+    "last_repair_attempt_at": "2026-10-23T18:03:03.197391Z"
   },
   "sites/cargotrack.py": {
     "company": "cargotrack",
@@ -20,9 +16,9 @@
   },
   "sites/cscale.py": {
     "company": "cscale",
-    "last_confirmed_empty_at": "2026-10-15T18:14:04.055220Z",
-    "last_empty_at": "2026-10-23T08:58:15.644434Z",
-    "last_repair_attempt_at": "2026-10-15T18:13:55.317176Z"
+    "last_confirmed_empty_at": "2026-10-23T18:18:43.216898Z",
+    "last_empty_at": "2026-10-23T18:18:43.216898Z",
+    "last_repair_attempt_at": "2026-10-23T18:07:51.595197Z"
   },
   "sites/deltatelgroup.py": {
     "company": "deltatelgroup",
@@ -56,7 +52,9 @@
   },
   "sites/saladbox.py": {
     "company": "saladbox",
-    "last_empty_at": "2026-10-23T09:05:11.107410Z"
+    "last_confirmed_empty_at": "2026-10-23T18:29:04.490793Z",
+    "last_empty_at": "2026-10-23T18:29:04.490793Z",
+    "last_repair_attempt_at": "2026-10-23T18:21:50.982293Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
