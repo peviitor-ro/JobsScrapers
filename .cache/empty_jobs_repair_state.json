@@ -42,17 +42,20 @@
   },
   "sites/nolimits.py": {
     "company": "Nolimits",
-    "last_empty_at": "2026-10-24T08:35:53.508852Z"
+    "last_confirmed_empty_at": "2026-10-24T17:08:35.114791Z",
+    "last_empty_at": "2026-10-24T17:08:35.114791Z",
+    "last_repair_attempt_at": "2026-10-24T17:03:57.643324Z"
   },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
-    "last_confirmed_empty_at": "2026-10-17T16:56:08.226365Z",
-    "last_empty_at": "2026-10-24T08:36:09.828238Z",
-    "last_repair_attempt_at": "2026-10-17T16:55:01.247124Z"
+    "last_confirmed_empty_at": "2026-10-24T17:10:02.755383Z",
+    "last_empty_at": "2026-10-24T17:10:02.755383Z",
+    "last_repair_attempt_at": "2026-10-24T17:08:36.025399Z"
   },
   "sites/ppromania.py": {
     "company": "ppromania",
-    "last_empty_at": "2026-10-24T08:36:13.814532Z"
+    "last_empty_at": "2026-10-24T17:10:07.325096Z",
+    "last_repair_attempt_at": "2026-10-24T17:10:07.325096Z"
   },
   "sites/rervest.py": {
     "company": "rervest",
