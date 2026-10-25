@@ -7,7 +7,7 @@
   "sites/beenear.py": {
     "company": "Beenear",
     "last_confirmed_empty_at": "2026-10-23T18:07:50.833306Z",
-    "last_empty_at": "2026-10-24T08:31:32.130233Z",
+    "last_empty_at": "2026-10-25T08:50:12.874142Z",
     "last_repair_attempt_at": "2026-10-23T18:03:03.197391Z"
   },
   "sites/cargotrack.py": {
@@ -17,7 +17,7 @@
   "sites/cscale.py": {
     "company": "cscale",
     "last_confirmed_empty_at": "2026-10-23T18:18:43.216898Z",
-    "last_empty_at": "2026-10-24T08:32:48.407011Z",
+    "last_empty_at": "2026-10-25T08:51:26.303286Z",
     "last_repair_attempt_at": "2026-10-23T18:07:51.595197Z"
   },
   "sites/deltatelgroup.py": {
@@ -28,7 +28,7 @@
   "sites/inova.py": {
     "company": "inova",
     "last_confirmed_empty_at": "2026-10-21T18:28:39.067133Z",
-    "last_empty_at": "2026-10-24T08:33:57.643514Z",
+    "last_empty_at": "2026-10-25T08:52:21.436376Z",
     "last_repair_attempt_at": "2026-10-21T18:18:25.739071Z"
   },
   "sites/intelligentbee.py": {
@@ -49,12 +49,12 @@
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
     "last_confirmed_empty_at": "2026-10-24T17:10:02.755383Z",
-    "last_empty_at": "2026-10-24T17:10:02.755383Z",
+    "last_empty_at": "2026-10-25T08:54:39.574848Z",
     "last_repair_attempt_at": "2026-10-24T17:08:36.025399Z"
   },
   "sites/ppromania.py": {
     "company": "ppromania",
-    "last_empty_at": "2026-10-24T17:10:07.325096Z",
+    "last_empty_at": "2026-10-25T08:54:43.626276Z",
     "last_repair_attempt_at": "2026-10-24T17:10:07.325096Z"
   },
   "sites/rervest.py": {
@@ -70,19 +70,19 @@
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
     "last_confirmed_empty_at": "2026-10-18T17:12:15.771563Z",
-    "last_empty_at": "2026-10-24T08:40:36.382998Z",
+    "last_empty_at": "2026-10-25T08:58:07.771198Z",
     "last_repair_attempt_at": "2026-10-18T17:00:19.558141Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
     "last_confirmed_empty_at": "2026-10-18T17:24:32.122768Z",
-    "last_empty_at": "2026-10-24T08:40:38.081666Z",
+    "last_empty_at": "2026-10-25T08:58:09.273881Z",
     "last_repair_attempt_at": "2026-10-18T17:12:16.916786Z"
   },
   "sites/velpitar.py": {
     "company": "velpitar",
     "last_confirmed_empty_at": "2026-10-17T17:14:02.442264Z",
-    "last_empty_at": "2026-10-24T08:40:50.213451Z",
+    "last_empty_at": "2026-10-25T08:58:21.826026Z",
     "last_repair_attempt_at": "2026-10-17T17:11:50.003731Z"
   }
 }
