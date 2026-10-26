@@ -35,41 +35,82 @@ class anahrScraper(WebsiteScraperAPI):
         Send a GET request and retrieve the jobs response.
         """
         self.set_headers()
-        response = requests.get(self.url, headers=self.headers, timeout=600)
+        response = requests.get(self.url_jobs, headers=self.headers, timeout=600)
         soup = BeautifulSoup(response.content, 'lxml')
         self.job_details = self.parse_job_cards(soup)
+
+        if not self.job_details:
+            response = requests.get(self.url, headers=self.headers, timeout=600)
+            soup = BeautifulSoup(response.content, 'lxml')
+            self.job_details = self.parse_job_cards(soup)
+
         self.get_jobs_response(self.job_details)
+
+    @staticmethod
+    def clean_text(text):
+        return ' '.join(text.replace('\xa0', ' ').split())
 
     def parse_job_cards(self, soup):
         """
         The current website is built with Wix. The open positions are rendered
-        server side in the "Job-uri recente" section of the homepage as static
-        cards. Each card holds the job title and the location in a pair of
-        ``h2.font_2`` elements. The old Zoho Recruit portal no longer exists.
+        server side as repeater cards. Each card holds the job title, the
+        location metadata and a link to the job detail page.
         """
-        heading = soup.find(string=lambda text: text and 'Job-uri recente' in text)
-        if heading is None:
-            return []
-
-        section = heading
-        for _ in range(6):
-            section = section.parent
-            if section is None:
-                return []
-            if section.find('h2', class_='font_2') and 'Vezi detalii' in section.get_text():
-                break
-
         jobs = []
-        titles = [title.get_text(' ', strip=True) for title in section.find_all('h2', class_='font_2')]
-        for index in range(0, len(titles) - 1, 2):
-            job_title = titles[index]
-            location = titles[index + 1]
-            job_city = location.split(',')[0].strip()
+        seen_urls = set()
+
+        for link in soup.select('a[href*="/jobs-2/"]'):
+            job_url = link.get('href', '').strip()
+            if not job_url or job_url in seen_urls:
+                continue
+
+            card = link.find_parent(class_='wixui-repeater__item')
+            if card is None:
+                card = link.find_parent(class_='wixui-repeater')
+            if card is None:
+                continue
+
+            title_element = card.find(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+            if title_element is None:
+                continue
+
+            job_title = self.clean_text(title_element.get_text(' ', strip=True))
+            if not job_title:
+                continue
+
+            location = ''
+            for paragraph in card.find_all('p'):
+                text = self.clean_text(paragraph.get_text(' ', strip=True))
+                if '·' in text and not text.lower().startswith('updated'):
+                    location = text
+                    break
+
+            location_parts = [part.strip() for part in location.split('·') if part.strip()]
+            remote = 'on-site'
+            job_city = ''
+
+            for part in location_parts:
+                lowered = part.lower()
+                if 'remote' in lowered or 'wfa' in lowered:
+                    remote = 'remote'
+                elif 'hybrid' in lowered:
+                    remote = 'hybrid'
+                elif not job_city and not any(
+                    word in lowered
+                    for word in ('contract', 'full-time', 'part-time', 'b2b', 'multi-year')
+                ):
+                    job_city = part.split('(')[0].split(',')[0].strip()
+
+            if not job_city:
+                job_city = 'Remote' if remote == 'remote' else 'România'
+
             jobs.append({
                 'job_title': job_title,
-                'job_url': self.url_jobs,
-                'job_city': job_city
+                'job_url': job_url,
+                'job_city': job_city,
+                'remote': remote
             })
+            seen_urls.add(job_url)
 
         return jobs
 
@@ -80,6 +121,7 @@ class anahrScraper(WebsiteScraperAPI):
         self.job_titles = self.get_job_details(['job_title'])
         self.job_cities = self.get_job_details(['job_city'])
         self.job_urls = self.get_job_details(['job_url'])
+        self.job_remotes = self.get_job_details(['remote'])
         self.format_data()
 
     def sent_to_future(self):
@@ -95,8 +137,10 @@ class anahrScraper(WebsiteScraperAPI):
         """
         Iterate over all job details and send to the create jobs dictionary.
         """
-        for job_title, job_url, job_city in zip(self.job_titles, self.job_urls, self.job_cities):
-            self.create_jobs_dict(job_title, job_url, "România", job_city)
+        for job_title, job_url, job_city, job_remote in zip(
+            self.job_titles, self.job_urls, self.job_cities, self.job_remotes
+        ):
+            self.create_jobs_dict(job_title, job_url, "România", job_city, job_remote)
 
 
 if __name__ == "__main__":

@@ -1,11 +1,9 @@
 {
   "sites/aeroportoradea.py": {
     "company": "aeroportoradea",
-    "last_empty_at": "2026-10-26T09:30:09.305975Z"
-  },
-  "sites/anahr.py": {
-    "company": "anahr",
-    "last_empty_at": "2026-10-26T09:30:14.541398Z"
+    "last_confirmed_empty_at": "2026-10-26T19:38:08.040143Z",
+    "last_empty_at": "2026-10-26T19:38:08.040143Z",
+    "last_repair_attempt_at": "2026-10-26T19:37:59.839030Z"
   },
   "sites/atpgroup.py": {
     "company": "atpgroup",
@@ -84,8 +82,8 @@
   },
   "sites/trencadis.py": {
     "company": "trencadis",
-    "last_confirmed_empty_at": "2026-10-18T17:24:32.122768Z",
-    "last_empty_at": "2026-10-26T09:39:20.441446Z",
-    "last_repair_attempt_at": "2026-10-18T17:12:16.916786Z"
+    "last_confirmed_empty_at": "2026-10-26T19:48:30.867733Z",
+    "last_empty_at": "2026-10-26T19:48:30.867733Z",
+    "last_repair_attempt_at": "2026-10-26T19:39:26.194306Z"
   }
 }
