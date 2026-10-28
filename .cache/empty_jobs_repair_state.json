@@ -33,9 +33,9 @@
   },
   "sites/inova.py": {
     "company": "inova",
-    "last_confirmed_empty_at": "2026-10-21T18:28:39.067133Z",
-    "last_empty_at": "2026-10-28T10:15:14.422501Z",
-    "last_repair_attempt_at": "2026-10-21T18:18:25.739071Z"
+    "last_confirmed_empty_at": "2026-10-28T19:11:39.134050Z",
+    "last_empty_at": "2026-10-28T19:11:39.134050Z",
+    "last_repair_attempt_at": "2026-10-28T19:11:15.533775Z"
   },
   "sites/intelligentbee.py": {
     "company": "intelligentbee",
