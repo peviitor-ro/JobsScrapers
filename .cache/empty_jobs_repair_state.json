@@ -13,7 +13,7 @@
   "sites/beenear.py": {
     "company": "Beenear",
     "last_confirmed_empty_at": "2026-10-23T18:07:50.833306Z",
-    "last_empty_at": "2026-10-28T10:12:34.523346Z",
+    "last_empty_at": "2026-10-29T10:35:14.241014Z",
     "last_repair_attempt_at": "2026-10-23T18:03:03.197391Z"
   },
   "sites/cargotrack.py": {
@@ -23,7 +23,7 @@
   "sites/cscale.py": {
     "company": "cscale",
     "last_confirmed_empty_at": "2026-10-23T18:18:43.216898Z",
-    "last_empty_at": "2026-10-28T10:13:56.148809Z",
+    "last_empty_at": "2026-10-29T10:36:17.942965Z",
     "last_repair_attempt_at": "2026-10-23T18:07:51.595197Z"
   },
   "sites/deltatelgroup.py": {
@@ -34,7 +34,7 @@
   "sites/inova.py": {
     "company": "inova",
     "last_confirmed_empty_at": "2026-10-28T19:11:39.134050Z",
-    "last_empty_at": "2026-10-28T19:11:39.134050Z",
+    "last_empty_at": "2026-10-29T10:37:12.805008Z",
     "last_repair_attempt_at": "2026-10-28T19:11:15.533775Z"
   },
   "sites/intelligentbee.py": {
@@ -59,13 +59,13 @@
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
     "last_confirmed_empty_at": "2026-10-24T17:10:02.755383Z",
-    "last_empty_at": "2026-10-28T10:17:35.297505Z",
+    "last_empty_at": "2026-10-29T10:39:14.475279Z",
     "last_repair_attempt_at": "2026-10-24T17:08:36.025399Z"
   },
   "sites/ppromania.py": {
     "company": "ppromania",
     "last_confirmed_empty_at": "2026-10-25T17:22:45.403222Z",
-    "last_empty_at": "2026-10-28T10:17:41.524095Z",
+    "last_empty_at": "2026-10-29T10:39:20.740548Z",
     "last_repair_attempt_at": "2026-10-25T17:18:33.604144Z"
   },
   "sites/rervest.py": {
@@ -75,19 +75,19 @@
   "sites/saladbox.py": {
     "company": "saladbox",
     "last_confirmed_empty_at": "2026-10-23T18:29:04.490793Z",
-    "last_empty_at": "2026-10-27T09:35:48.532852Z",
+    "last_empty_at": "2026-10-29T10:43:10.195475Z",
     "last_repair_attempt_at": "2026-10-23T18:21:50.982293Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
     "last_confirmed_empty_at": "2026-10-25T17:24:48.137931Z",
-    "last_empty_at": "2026-10-28T10:19:59.854278Z",
+    "last_empty_at": "2026-10-29T10:43:32.347861Z",
     "last_repair_attempt_at": "2026-10-25T17:22:46.706920Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
     "last_confirmed_empty_at": "2026-10-26T19:48:30.867733Z",
-    "last_empty_at": "2026-10-28T10:20:01.480291Z",
+    "last_empty_at": "2026-10-29T10:43:33.552254Z",
     "last_repair_attempt_at": "2026-10-26T19:39:26.194306Z"
   }
 }
