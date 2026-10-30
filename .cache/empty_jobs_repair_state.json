@@ -12,9 +12,9 @@
   },
   "sites/beenear.py": {
     "company": "Beenear",
-    "last_confirmed_empty_at": "2026-10-23T18:07:50.833306Z",
-    "last_empty_at": "2026-10-30T10:36:34.509013Z",
-    "last_repair_attempt_at": "2026-10-23T18:03:03.197391Z"
+    "last_confirmed_empty_at": "2026-10-30T19:00:54.718313Z",
+    "last_empty_at": "2026-10-30T19:00:54.718313Z",
+    "last_repair_attempt_at": "2026-10-30T18:55:31.991205Z"
   },
   "sites/cargotrack.py": {
     "company": "cargotrack",
@@ -22,9 +22,9 @@
   },
   "sites/cscale.py": {
     "company": "cscale",
-    "last_confirmed_empty_at": "2026-10-23T18:18:43.216898Z",
-    "last_empty_at": "2026-10-30T10:37:39.012098Z",
-    "last_repair_attempt_at": "2026-10-23T18:07:51.595197Z"
+    "last_confirmed_empty_at": "2026-10-30T19:01:01.948754Z",
+    "last_empty_at": "2026-10-30T19:01:01.948754Z",
+    "last_repair_attempt_at": "2026-10-30T19:00:55.477707Z"
   },
   "sites/deltatelgroup.py": {
     "company": "deltatelgroup",
@@ -72,12 +72,6 @@
   "sites/rervest.py": {
     "company": "rervest",
     "last_empty_at": "2026-10-11T10:33:01.710421Z"
-  },
-  "sites/saladbox.py": {
-    "company": "saladbox",
-    "last_confirmed_empty_at": "2026-10-23T18:29:04.490793Z",
-    "last_empty_at": "2026-10-30T10:44:38.741178Z",
-    "last_repair_attempt_at": "2026-10-23T18:21:50.982293Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
