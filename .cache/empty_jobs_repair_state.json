@@ -59,9 +59,9 @@
   },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
-    "last_confirmed_empty_at": "2026-10-24T17:10:02.755383Z",
-    "last_empty_at": "2026-10-31T10:09:03.936558Z",
-    "last_repair_attempt_at": "2026-10-24T17:08:36.025399Z"
+    "last_confirmed_empty_at": "2026-10-31T18:02:06.781392Z",
+    "last_empty_at": "2026-10-31T18:02:06.781392Z",
+    "last_repair_attempt_at": "2026-10-31T18:00:34.466118Z"
   },
   "sites/ppromania.py": {
     "company": "ppromania",
@@ -75,7 +75,8 @@
   },
   "sites/saladbox.py": {
     "company": "saladbox",
-    "last_empty_at": "2026-10-31T10:12:59.398334Z"
+    "last_empty_at": "2026-10-31T18:05:12.261057Z",
+    "last_repair_attempt_at": "2026-10-31T18:05:12.261057Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",

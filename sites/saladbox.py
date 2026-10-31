@@ -29,16 +29,22 @@ class saladboxScraper(BS4Scraper):
         self._set_headers()
         soup = None
         for _ in range(3):
-            for source_url in (self.url, self.wayback_url):
+            for source_url in (self.wayback_url, self.url):
                 try:
                     response = requests.get(source_url, headers=self.DEFAULT_HEADERS, verify=False, timeout=60)
                     soup = BeautifulSoup(response.content, 'lxml')
                 except requests.exceptions.RequestException:
                     continue
-                if soup.find_all(class_='career-position-link'):
+                if soup and soup.find_all(class_='career-position-link js-open-career-detail-modal'):
                     self.soup = soup
                     return
-        self.soup = soup
+                if soup and soup.find_all(class_='career-position-link'):
+                    self.soup = soup
+                    return
+        if soup is not None:
+            self.soup = soup
+        else:
+            self.soup = BeautifulSoup('', 'lxml')
     
     def scrape_jobs(self):
         """
