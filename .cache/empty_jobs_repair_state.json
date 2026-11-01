@@ -115,7 +115,8 @@
   },
   "sites/rervest.py": {
     "company": "rervest",
-    "last_empty_at": "2026-10-11T10:33:01.710421Z"
+    "last_empty_at": "2026-11-01T18:39:45.351531Z",
+    "last_repair_attempt_at": "2026-11-01T18:39:45.351531Z"
   },
   "sites/saladbox.py": {
     "company": "saladbox",
