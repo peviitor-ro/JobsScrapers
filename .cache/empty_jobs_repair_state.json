@@ -25,7 +25,7 @@
   "sites/beenear.py": {
     "company": "Beenear",
     "last_confirmed_empty_at": "2026-10-30T19:00:54.718313Z",
-    "last_empty_at": "2026-11-02T11:52:17.118784Z",
+    "last_empty_at": "2026-11-03T11:29:57.675872Z",
     "last_repair_attempt_at": "2026-10-30T18:55:31.991205Z"
   },
   "sites/careerscenter.py": {
@@ -43,7 +43,7 @@
   "sites/cscale.py": {
     "company": "cscale",
     "last_confirmed_empty_at": "2026-10-30T19:01:01.948754Z",
-    "last_empty_at": "2026-11-02T11:53:31.645217Z",
+    "last_empty_at": "2026-11-03T11:31:16.256374Z",
     "last_repair_attempt_at": "2026-10-30T19:00:55.477707Z"
   },
   "sites/deltatelgroup.py": {
@@ -60,10 +60,14 @@
     "company": "elytishospital",
     "last_empty_at": "2026-11-01T10:56:01.862217Z"
   },
+  "sites/expertmind.py": {
+    "company": "expertmind",
+    "last_empty_at": "2026-11-03T11:31:45.009445Z"
+  },
   "sites/inova.py": {
     "company": "inova",
     "last_confirmed_empty_at": "2026-10-28T19:11:39.134050Z",
-    "last_empty_at": "2026-11-02T11:54:37.269352Z",
+    "last_empty_at": "2026-11-03T11:32:23.529698Z",
     "last_repair_attempt_at": "2026-10-28T19:11:15.533775Z"
   },
   "sites/intelligentbee.py": {
@@ -104,18 +108,18 @@
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
     "last_confirmed_empty_at": "2026-10-31T18:02:06.781392Z",
-    "last_empty_at": "2026-11-02T11:56:56.742160Z",
+    "last_empty_at": "2026-11-03T11:34:43.093197Z",
     "last_repair_attempt_at": "2026-10-31T18:00:34.466118Z"
   },
   "sites/ppromania.py": {
     "company": "ppromania",
     "last_confirmed_empty_at": "2026-10-25T17:22:45.403222Z",
-    "last_empty_at": "2026-11-02T11:57:01.234933Z",
+    "last_empty_at": "2026-11-03T11:34:48.494451Z",
     "last_repair_attempt_at": "2026-10-25T17:18:33.604144Z"
   },
   "sites/rervest.py": {
     "company": "rervest",
-    "last_empty_at": "2026-11-02T11:57:41.695520Z",
+    "last_empty_at": "2026-11-03T11:35:30.317435Z",
     "last_repair_attempt_at": "2026-11-01T18:39:45.351531Z"
   },
   "sites/saladbox.py": {
@@ -138,13 +142,13 @@
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
     "last_confirmed_empty_at": "2026-10-25T17:24:48.137931Z",
-    "last_empty_at": "2026-11-02T12:00:28.350189Z",
+    "last_empty_at": "2026-11-03T11:37:07.284645Z",
     "last_repair_attempt_at": "2026-10-25T17:22:46.706920Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
     "last_confirmed_empty_at": "2026-10-26T19:48:30.867733Z",
-    "last_empty_at": "2026-11-02T12:00:29.632625Z",
+    "last_empty_at": "2026-11-03T11:37:08.842661Z",
     "last_repair_attempt_at": "2026-10-26T19:39:26.194306Z"
   },
   "sites/vetro.py": {
