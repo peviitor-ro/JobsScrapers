@@ -33,7 +33,8 @@
   },
   "sites/careerscenter.py": {
     "company": "careerscenter",
-    "last_empty_at": "2026-11-01T10:55:28.662282Z"
+    "last_empty_at": "2026-11-15T19:29:53.545212Z",
+    "last_repair_attempt_at": "2026-11-15T19:29:53.545212Z"
   },
   "sites/cargotrack.py": {
     "company": "cargotrack",
@@ -45,7 +46,8 @@
   },
   "sites/consultmed.py": {
     "company": "consultmed",
-    "last_empty_at": "2026-11-01T10:55:43.996675Z"
+    "last_empty_at": "2026-11-15T19:44:54.563074Z",
+    "last_repair_attempt_at": "2026-11-15T19:44:54.563074Z"
   },
   "sites/cscale.py": {
     "company": "cscale",
@@ -61,11 +63,13 @@
   },
   "sites/dualit.py": {
     "company": "dualit",
-    "last_empty_at": "2026-11-01T10:55:55.718138Z"
+    "last_empty_at": "2026-11-15T19:59:55.314291Z",
+    "last_repair_attempt_at": "2026-11-15T19:59:55.314291Z"
   },
   "sites/elytishospital.py": {
     "company": "elytishospital",
-    "last_empty_at": "2026-11-01T10:56:01.862217Z"
+    "last_empty_at": "2026-11-15T20:14:56.039465Z",
+    "last_repair_attempt_at": "2026-11-15T20:14:56.039465Z"
   },
   "sites/expertmind.py": {
     "company": "expertmind",
@@ -93,7 +97,8 @@
   },
   "sites/leohr.py": {
     "company": "Leohr",
-    "last_empty_at": "2026-11-01T10:57:19.259812Z"
+    "last_empty_at": "2026-11-15T20:29:57.047067Z",
+    "last_repair_attempt_at": "2026-11-15T20:29:57.047067Z"
   },
   "sites/nolimits.py": {
     "company": "Nolimits",
@@ -103,7 +108,8 @@
   },
   "sites/noodlepack.py": {
     "company": "noodlepack",
-    "last_empty_at": "2026-11-01T10:58:27.909653Z"
+    "last_empty_at": "2026-11-15T20:44:57.955282Z",
+    "last_repair_attempt_at": "2026-11-15T20:44:57.955282Z"
   },
   "sites/pago.py": {
     "company": "Pago",
