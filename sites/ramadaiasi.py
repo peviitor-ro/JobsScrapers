@@ -30,8 +30,11 @@ class ramadaiasiScraper(BS4Scraper):
         """
 
         job_elements = self.get_jobs_elements('css_', '#content-section-1 > div > div:nth-child(1) > p')
-        
-        self.job_titles = self.get_jobs_details_text(job_elements)[0].replace("Alatura-te acum echipei noastre aplicand pentru unul din posturile vacante: ", "").replace(". Trimite-ne datele tale – nume, prenume, adresa, telefon, e-mail, CV-ul, o fotografie recenta – mentioneaza jobul dorit si te vom contacta.", "").split(", ")
+        job_texts = self.get_jobs_details_text(job_elements)
+
+        self.job_titles = []
+        if job_texts:
+            self.job_titles = job_texts[0].replace("Alatura-te acum echipei noastre aplicand pentru unul din posturile vacante: ", "").replace(". Trimite-ne datele tale – nume, prenume, adresa, telefon, e-mail, CV-ul, o fotografie recenta – mentioneaza jobul dorit si te vom contacta.", "").split(", ")
 
         self.format_data()
         
