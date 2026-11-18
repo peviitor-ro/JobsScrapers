@@ -30,6 +30,9 @@ class speedservicesatumareScraper(BS4Scraper):
             response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
             self.soup = BeautifulSoup(response.content, 'lxml')
         except requests.exceptions.RequestException:
+            self.soup = None
+
+        if self.soup is None or not self.get_jobs_elements('css_', 'div > div > div > div > h2'):
             response = requests.get(self.wayback_url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
             self.soup = BeautifulSoup(response.content, 'lxml')
     

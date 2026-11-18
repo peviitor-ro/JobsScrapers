@@ -115,14 +115,6 @@
     "last_empty_at": "2026-11-15T20:44:57.955282Z",
     "last_repair_attempt_at": "2026-11-15T20:44:57.955282Z"
   },
-  "sites/pago.py": {
-    "company": "Pago",
-    "last_empty_at": "2026-11-01T10:58:31.857755Z"
-  },
-  "sites/pimcopy.py": {
-    "company": "pimcopy",
-    "last_empty_at": "2026-11-01T10:58:36.319357Z"
-  },
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
     "last_confirmed_empty_at": "2026-10-31T18:02:06.781392Z",
@@ -151,11 +143,9 @@
   },
   "sites/secondtex.py": {
     "company": "secondtex",
-    "last_empty_at": "2026-11-01T11:02:33.357172Z"
-  },
-  "sites/softexco.py": {
-    "company": "softexco",
-    "last_empty_at": "2026-11-01T11:02:42.600525Z"
+    "last_confirmed_empty_at": "2026-11-18T21:52:29.861027Z",
+    "last_empty_at": "2026-11-18T21:52:29.861027Z",
+    "last_repair_attempt_at": "2026-11-18T21:52:16.648341Z"
   },
   "sites/softlead.py": {
     "company": "Softlead",
@@ -164,10 +154,6 @@
   "sites/sonrisatechnologies.py": {
     "company": "sonrisatechnologies",
     "last_empty_at": "2026-11-18T12:36:05.254797Z"
-  },
-  "sites/speedservicesatumare.py": {
-    "company": "speedservicesatumare",
-    "last_empty_at": "2026-11-01T11:02:48.438575Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
@@ -180,9 +166,5 @@
     "last_confirmed_empty_at": "2026-10-26T19:48:30.867733Z",
     "last_empty_at": "2026-11-18T12:36:17.811876Z",
     "last_repair_attempt_at": "2026-10-26T19:39:26.194306Z"
-  },
-  "sites/vetro.py": {
-    "company": "vetro",
-    "last_empty_at": "2026-11-01T11:03:09.376939Z"
   }
 }
