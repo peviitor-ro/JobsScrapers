@@ -28,21 +28,21 @@
   "sites/beenear.py": {
     "company": "Beenear",
     "last_confirmed_empty_at": "2026-10-30T19:00:54.718313Z",
-    "last_empty_at": "2026-11-21T11:55:23.022481Z",
+    "last_empty_at": "2026-11-22T12:09:26.671030Z",
     "last_repair_attempt_at": "2026-10-30T18:55:31.991205Z"
   },
   "sites/careerscenter.py": {
     "company": "careerscenter",
-    "last_empty_at": "2026-11-21T11:55:39.690258Z",
+    "last_empty_at": "2026-11-22T12:09:41.224280Z",
     "last_repair_attempt_at": "2026-11-15T19:29:53.545212Z"
   },
   "sites/cargotrack.py": {
     "company": "cargotrack",
-    "last_empty_at": "2026-11-21T11:55:41.031800Z"
+    "last_empty_at": "2026-11-22T12:09:42.098276Z"
   },
   "sites/connectgroup.py": {
     "company": "connectgroup",
-    "last_empty_at": "2026-11-21T11:55:51.200356Z"
+    "last_empty_at": "2026-11-22T12:09:49.813726Z"
   },
   "sites/consultmed.py": {
     "company": "consultmed",
@@ -52,7 +52,7 @@
   "sites/cscale.py": {
     "company": "cscale",
     "last_confirmed_empty_at": "2026-10-30T19:01:01.948754Z",
-    "last_empty_at": "2026-11-21T11:55:54.885635Z",
+    "last_empty_at": "2026-11-22T12:09:53.772773Z",
     "last_repair_attempt_at": "2026-10-30T19:00:55.477707Z"
   },
   "sites/deltatelgroup.py": {
@@ -73,12 +73,12 @@
   },
   "sites/expertmind.py": {
     "company": "expertmind",
-    "last_empty_at": "2026-11-21T11:56:23.680906Z"
+    "last_empty_at": "2026-11-22T12:10:16.247701Z"
   },
   "sites/inova.py": {
     "company": "inova",
     "last_confirmed_empty_at": "2026-10-28T19:11:39.134050Z",
-    "last_empty_at": "2026-11-21T11:56:52.092153Z",
+    "last_empty_at": "2026-11-22T12:10:43.024218Z",
     "last_repair_attempt_at": "2026-10-28T19:11:15.533775Z"
   },
   "sites/intelligentbee.py": {
@@ -92,7 +92,7 @@
   },
   "sites/ipso.py": {
     "company": "ipso",
-    "last_empty_at": "2026-11-21T11:57:20.517229Z"
+    "last_empty_at": "2026-11-22T12:11:11.368418Z"
   },
   "sites/iuliuscompany.py": {
     "company": "iuliuscompany",
@@ -118,7 +118,7 @@
   "sites/polipolmobila.py": {
     "company": "polipolmobila",
     "last_confirmed_empty_at": "2026-10-31T18:02:06.781392Z",
-    "last_empty_at": "2026-11-21T11:59:01.840449Z",
+    "last_empty_at": "2026-11-22T12:12:44.430129Z",
     "last_repair_attempt_at": "2026-10-31T18:00:34.466118Z"
   },
   "sites/ppromania.py": {
@@ -149,22 +149,22 @@
   },
   "sites/softlead.py": {
     "company": "Softlead",
-    "last_empty_at": "2026-11-21T12:00:12.359562Z"
+    "last_empty_at": "2026-11-22T12:13:39.530851Z"
   },
   "sites/sonrisatechnologies.py": {
     "company": "sonrisatechnologies",
-    "last_empty_at": "2026-11-21T12:00:12.774525Z"
+    "last_empty_at": "2026-11-22T12:13:40.023693Z"
   },
   "sites/titanmachinery.py": {
     "company": "titanmachinery",
     "last_confirmed_empty_at": "2026-10-25T17:24:48.137931Z",
-    "last_empty_at": "2026-11-21T12:00:24.805114Z",
+    "last_empty_at": "2026-11-22T12:13:49.399788Z",
     "last_repair_attempt_at": "2026-10-25T17:22:46.706920Z"
   },
   "sites/trencadis.py": {
     "company": "trencadis",
     "last_confirmed_empty_at": "2026-10-26T19:48:30.867733Z",
-    "last_empty_at": "2026-11-21T12:00:27.441089Z",
+    "last_empty_at": "2026-11-22T12:13:51.060276Z",
     "last_repair_attempt_at": "2026-10-26T19:39:26.194306Z"
   }
 }
