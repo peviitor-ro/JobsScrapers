@@ -4,6 +4,11 @@
 #
 ## Netrom > https://www.netromsoftware.ro/cariere/
 
+import time
+
+import requests
+from bs4 import BeautifulSoup
+
 from sites.website_scraper_bs4 import BS4Scraper
 
 class NetromScraper(BS4Scraper):
@@ -22,7 +27,21 @@ class NetromScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                self._set_headers()
+                response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+                self.soup = BeautifulSoup(response.content, 'lxml')
+                return True
+            except requests.exceptions.RequestException:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                else:
+                    print(f"Warning: Could not connect to {self.url}")
+                    self.soup = BeautifulSoup("", "lxml")
+                    return False
+        return False
     
     def scrape_jobs(self):
         """

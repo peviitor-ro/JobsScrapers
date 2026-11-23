@@ -3,6 +3,10 @@
 #
 # ramadaiasi > http://www.ramadaiasi.ro/cariere/
 
+import time
+
+import requests
+
 from sites.website_scraper_bs4 import BS4Scraper
 
 class ramadaiasiScraper(BS4Scraper):
@@ -11,6 +15,7 @@ class ramadaiasiScraper(BS4Scraper):
     A class for scraping job data from ramadaiasi website.
     """
     url = 'http://www.ramadaiasi.ro/cariere/'
+    fetch_url = 'https://www.ramadaiasi.ro/cariere/'
     url_logo = 'https://raw.githubusercontent.com/peviitor-ro/firme-peviitor/main/assets/ramadaiasi.png'
     company_name = 'ramadaiasi'
     
@@ -22,7 +27,15 @@ class ramadaiasiScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                self.get_content(self.fetch_url)
+                return
+            except requests.exceptions.RequestException:
+                if attempt == max_retries - 1:
+                    raise
+                time.sleep(2 ** attempt)
     
     def scrape_jobs(self):
         """
