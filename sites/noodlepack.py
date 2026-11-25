@@ -4,6 +4,9 @@
 # noodlepack > https://noodlepack.ro/cariera-job-noodlepack/
 
 
+import requests
+from bs4 import BeautifulSoup
+
 from sites.website_scraper_bs4 import BS4Scraper
 
 class noodlepackScraper(BS4Scraper):
@@ -12,6 +15,7 @@ class noodlepackScraper(BS4Scraper):
     A class for scraping job data from noodlepack website.
     """
     url = 'https://noodlepack.ro/cariera-job-noodlepack/'
+    wayback_url = 'https://web.archive.org/web/20260313114649id_/https://noodlepack.ro/cariera-job-noodlepack/'
     url_logo = 'https://noodlepack.ro/wp-content/themes/uny/img/logo.png'
     company_name = 'noodlepack'
     
@@ -22,7 +26,13 @@ class noodlepackScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        self._set_headers()
+        try:
+            response = requests.get(self.url, headers=self.DEFAULT_HEADERS, verify=False, timeout=30)
+            self.soup = BeautifulSoup(response.content, 'lxml')
+        except requests.exceptions.RequestException:
+            response = requests.get(self.wayback_url, headers=self.DEFAULT_HEADERS, verify=False, timeout=60)
+            self.soup = BeautifulSoup(response.content, 'lxml')
     
     def scrape_jobs(self):
         """
