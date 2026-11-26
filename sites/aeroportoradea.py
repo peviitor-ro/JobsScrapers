@@ -4,6 +4,9 @@
 # aeroportoradea > https://www.aeroportoradea.ro/ro/locuri-de-munca-vacante.html
 
 
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
 from sites.website_scraper_bs4 import BS4Scraper
 
 class aeroportoradeaScraper(BS4Scraper):
@@ -23,7 +26,26 @@ class aeroportoradeaScraper(BS4Scraper):
         super().__init__(self.company_name, self.url_logo)
         
     def get_response(self):
-        self.get_content(self.url)
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+        driver = webdriver.Chrome(options=options)
+        try:
+            driver.get(self.url)
+            try:
+                WebDriverWait(driver, 30).until(
+                    lambda d: "moment" not in d.title.lower()
+                    and "please" not in d.title.lower()
+                    and "vă rog" not in d.title.lower()
+                )
+            except Exception:
+                pass
+            self.soup = BeautifulSoup(driver.page_source, "lxml")
+        finally:
+            driver.quit()
     
     def scrape_jobs(self):
         """

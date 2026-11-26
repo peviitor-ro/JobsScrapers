@@ -1,29 +1,8 @@
 {
-  "sites/aeroportoradea.py": {
-    "company": "aeroportoradea",
-    "last_confirmed_empty_at": "2026-10-26T19:38:08.040143Z",
-    "last_empty_at": "2026-11-03T20:35:21.484317Z",
-    "last_repair_attempt_at": "2026-11-03T20:35:21.484317Z"
-  },
-  "sites/artvertising.py": {
-    "company": "artvertising",
-    "last_empty_at": "2026-11-03T20:50:23.237513Z",
-    "last_repair_attempt_at": "2026-11-03T20:50:23.237513Z"
-  },
   "sites/atpgroup.py": {
     "company": "atpgroup",
     "last_empty_at": "2026-10-15T17:57:18.896294Z",
     "last_repair_attempt_at": "2026-10-15T17:57:18.896294Z"
-  },
-  "sites/autosiena.py": {
-    "company": "autosiena",
-    "last_empty_at": "2026-11-03T21:05:24.250800Z",
-    "last_repair_attempt_at": "2026-11-03T21:05:24.250800Z"
-  },
-  "sites/bakertilly.py": {
-    "company": "bakertilly",
-    "last_empty_at": "2026-11-03T21:20:25.326248Z",
-    "last_repair_attempt_at": "2026-11-03T21:20:25.326248Z"
   },
   "sites/beenear.py": {
     "company": "Beenear",
@@ -96,8 +75,9 @@
   },
   "sites/iuliuscompany.py": {
     "company": "iuliuscompany",
-    "last_empty_at": "2026-11-03T20:20:20.364527Z",
-    "last_repair_attempt_at": "2026-11-03T20:20:20.364527Z"
+    "last_confirmed_empty_at": "2026-11-26T22:40:32.775073Z",
+    "last_empty_at": "2026-11-26T22:40:32.775073Z",
+    "last_repair_attempt_at": "2026-11-26T22:40:20.830213Z"
   },
   "sites/kaizengaming.py": {
     "company": "KaizenGaming",
