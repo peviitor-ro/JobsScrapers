@@ -25,8 +25,8 @@
   },
   "sites/consultmed.py": {
     "company": "consultmed",
-    "last_empty_at": "2026-11-15T19:44:54.563074Z",
-    "last_repair_attempt_at": "2026-11-15T19:44:54.563074Z"
+    "last_empty_at": "2026-11-27T22:25:07.797239Z",
+    "last_repair_attempt_at": "2026-11-27T22:25:07.797239Z"
   },
   "sites/cscale.py": {
     "company": "cscale",
@@ -42,13 +42,13 @@
   },
   "sites/dualit.py": {
     "company": "dualit",
-    "last_empty_at": "2026-11-15T19:59:55.314291Z",
-    "last_repair_attempt_at": "2026-11-15T19:59:55.314291Z"
+    "last_empty_at": "2026-11-27T22:40:08.626564Z",
+    "last_repair_attempt_at": "2026-11-27T22:40:08.626564Z"
   },
   "sites/elytishospital.py": {
     "company": "elytishospital",
-    "last_empty_at": "2026-11-15T20:14:56.039465Z",
-    "last_repair_attempt_at": "2026-11-15T20:14:56.039465Z"
+    "last_empty_at": "2026-11-27T22:55:09.549539Z",
+    "last_repair_attempt_at": "2026-11-27T22:55:09.549539Z"
   },
   "sites/expertmind.py": {
     "company": "expertmind",
@@ -85,8 +85,8 @@
   },
   "sites/leohr.py": {
     "company": "Leohr",
-    "last_empty_at": "2026-11-15T20:29:57.047067Z",
-    "last_repair_attempt_at": "2026-11-15T20:29:57.047067Z"
+    "last_empty_at": "2026-11-27T23:10:10.606892Z",
+    "last_repair_attempt_at": "2026-11-27T23:10:10.606892Z"
   },
   "sites/nolimits.py": {
     "company": "Nolimits",
